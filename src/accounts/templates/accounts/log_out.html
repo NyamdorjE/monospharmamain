@@ -1,0 +1,17 @@
+{% extends 'news/index_2.html' %}
+
+{% load i18n %}
+
+{% block content %}
+<div class="text" style="text-align: center;">
+    <h4>{% trans 'Систэмээс гарлаа' %}</h4>
+
+    <p>
+        {% trans 'Сайтад зочилсонд баярлалаа.' %}
+    </p>
+
+    <p>
+        <a href="{% url 'accounts:log_in' %}">{% trans 'Ахиж нэтрэх' %}</a>
+    </p>
+</div>
+{% endblock %}

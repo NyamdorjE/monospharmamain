@@ -1,0 +1,160 @@
+{% extends 'news/index_2.html'%}
+{% load static %}
+{% load humanize %}
+
+
+{% block content %}
+<!-- Content
+		============================================= -->
+		<section id="content">
+
+			<div class="content-wrap">
+
+				<div class="container clearfix">
+
+					<!-- Post Content
+					============================================= -->
+					<div class="postcontent nobottommargin col_last clearfix">
+
+						<!-- Posts
+						============================================= -->
+						<div id="posts" class="small-thumbs">
+						{% for cat in category %}
+
+							<div class="entry clearfix">
+								<div class="entry-image">
+									<a href="/courses/{{ cat.id }}" data-lightbox="image"><img class="image_fade" src="{% if cat.image %}{{ cat.image.url}}{% endif %}" alt="Standard Post with Image"></a>
+								</div>
+								<div class="entry-c">
+									<div class="entry-title">
+										<h2><a href="/courses/{{ cat.id }}">{{ cat.title }}</a></h2>
+									</div>
+									<ul class="entry-meta clearfix">
+										<li><i class="icon-calendar3"></i> 10th Feb 2014</li>
+										<li><a href="#"><i class="icon-user"></i> {{ cat.author }}</a></li>
+										<li><i class="icon-folder-open"></i> <a href="#">{{ cat.category }}</a>, <a href="#"></a></li>
+										<li><a href="/courses/{{ cat.id }}"><i class="icon-comments"></i> 13</a></li>
+										<li><a href="#"><i class="icon-camera-retro"></i></a></li>
+									</ul>
+									<div class="entry-content">
+										<p>{{ cat.description|slice:":60" | safe}}...</p>
+										<a href="/courses/{{ cat.id }}"class="more-link">Хичээл үзэх</a>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+						</div><!-- #posts end -->
+
+						<!-- Pagination
+						============================================= -->
+						<ul class="pager nomargin">
+							<li class="previous"><a href="#">&larr; Older</a></li>
+							<li class="next"><a href="#">Newer &rarr;</a></li>
+						</ul><!-- .pager end -->
+
+					</div><!-- .postcontent end -->
+
+					<!-- Sidebar
+					============================================= -->
+					<div class="sidebar nobottommargin clearfix">
+						<div class="sidebar-widgets-wrap">
+
+							
+
+							
+
+							<div class="widget clearfix">
+								<div class="tabs nobottommargin clearfix" id="sidebar-tabs">
+
+									<ul class="tab-nav clearfix">
+										<li><a href="#tabs-1">Шинэ хичээл</a></li>
+									</ul>
+
+									<div class="tab-container">
+
+										<div class="tab-content clearfix" id="tabs-1">
+											<div id="popular-post-list-sidebar">
+											{% for cat in category|slice:"0:4"  %}
+												<div class="spost clearfix">
+													<div class="entry-image">
+														<a href="#" class="nobg"><img class="img-circle" src="{% if cat.image %}{{ cat.image.url }}{% endif %}" alt=""></a>
+													</div>
+													<div class="entry-c">
+														<div class="entry-title">
+															<h4><a href="#">{{ cat.title }}</a></h4>
+														</div>
+														
+													</div>
+												</div>
+												{% endfor %}
+											</div>
+										</div>
+									</div>
+
+								</div>
+								
+
+							</div>
+
+							<div class="widget clearfix">
+
+								<h4>Portfolio Carousel</h4>
+								<div id="oc-portfolio-sidebar" class="owl-carousel carousel-widget" data-items="1" data-margin="10" data-loop="true" data-nav="false" data-autoplay="5000">
+
+									<div class="oc-item">
+										<div class="iportfolio">
+											<div class="portfolio-image">
+												<a href="#">
+													<img src="{% static 'base/assets/images/portfolio/4/3.jpg' %}" alt="Mac Sunglasses">
+												</a>
+												<div class="portfolio-overlay">
+													<a href="http://vimeo.com/89396394" class="center-icon" data-lightbox="iframe"><i class="icon-line-play"></i></a>
+												</div>
+											</div>
+											<div class="portfolio-desc center nobottompadding">
+												<h3><a href="portfolio-single-video.html">Mac Sunglasses</a></h3>
+												<span><a href="#">Graphics</a>, <a href="#">UI Elements</a></span>
+											</div>
+										</div>
+									</div>
+
+									<div class="oc-item">
+										<div class="iportfolio">
+											<div class="portfolio-image">
+												<a href="portfolio-single.html">
+													<img src="{% static 'base/assets/images/portfolio/4/1.jpg' %}" alt="Open Imagination">
+												</a>
+												<div class="portfolio-overlay">
+													<a href="images/blog/full/1.jpg" class="center-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
+												</div>
+											</div>
+											<div class="portfolio-desc center nobottompadding">
+												<h3><a href="portfolio-single.html">Open Imagination</a></h3>
+												<span><a href="#">Media</a>, <a href="#">Icons</a></span>
+											</div>
+										</div>
+									</div>
+
+								</div>
+
+
+							</div>
+
+							<div class="widget clearfix">
+
+								<h4>Flickr Photostream</h4>
+								<div id="flickr-widget" class="flickr-feed masonry-thumbs" data-id="613394@N22" data-count="16" data-type="group" data-lightbox="gallery"></div>
+
+							</div>
+
+						</div>
+
+					</div><!-- .sidebar end -->
+
+				</div>
+
+			</div>
+
+		</section><!-- #content end -->
+
+{% endblock %}

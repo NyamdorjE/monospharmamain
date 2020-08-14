@@ -1,0 +1,385 @@
+{% extends 'news/index_2.html' %}
+{% load static %}
+{% load i18n %}
+
+
+{% block content %}
+
+ <!-- ======= Breadcrumbs ======= -->
+	<section id="page-title">
+
+			<div class="container clearfix">
+				<h1>Сургалт</h1>
+				<span>Our Latest News</span>
+				<ol class="breadcrumb">
+					<li><a href="#">Нүүр хуудас</a></li>
+					<li class="active">Сургалт</li>
+				</ol>
+			</div>
+
+		</section><!-- #page-title end -->
+<!-- search section -->
+<section class="search-section ss-other-page" style="text-align: left;">
+  <div class="container">
+    <div class="search-warp">
+      <div class="section-title text-white">
+        <h2><span>Хайлт хийх</span></h2>
+      </div>
+      <div class="row">
+	 	
+        <div class="col-lg-8 offset-lg-1" style="margin-left: 847px;">
+          <!-- search form -->
+          <form method="post" action="{% url 'courses:search_course' %}" class="intro-newslatter"> {% csrf_token %}
+            <input name="search" type="text" placeholder="">
+            <button type="submit" class="site-btn btn-dark">Хайх</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- search section end -->
+
+
+
+
+<section class="single-course spad pb-0">
+  <div class="container">
+            {% for course in courses %}
+
+    <div class="course-meta-area">
+      <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+          safdasd
+          <h3>{{course.title|capfirst}}</h3>
+          <div class="course-metas">
+            <div class="course-meta">
+              <div class="course-author">
+                <h6>Багш</h6>
+                <p>{{course.user|capfirst}}, </p>
+              </div>
+            </div>
+            <div class="course-meta">
+              <div class="cm-info">
+                <h6>Course</h6>
+                <p>{{course.course}}</p>
+              </div>
+            </div>
+            <div class="course-meta">
+              <div class="cm-info">
+                <h6>Ангийн тодорхойлолт</h6>
+                <p>{{course.description}}</p>
+              </div>
+            </div>
+            <div class="course-meta">
+              <div class="cm-info">
+                <h6>Хичээлийн тоо</h6>
+                <p>{{ course.lessons|length }}</p>
+              </div>
+            </div>
+          </div>
+          <a href="/courses/{{ course.id }}" class="site-btn price-btn">Буцах</a>
+          <a href="#vazhdo" class="site-btn buy-btn">Цааш үргэлжлүүлэх</a>
+        </div>
+      </div>
+    </div>
+    <img src="img/courses/single.jpg" alt="" class="course-preview">
+    <div class="row">
+      <div class="col-lg-10 offset-lg-1 course-list" style="text-align: right;">
+        <div class="cl-item" id="lessons">
+          <h4>Энэ ангид орох хичээлүүд</h4>
+          {% if course.lessons != None  %}
+            {% for lesson in course.lessons %}
+            <div data-aos="fade-right" >
+              <h5 class="pb-3">Хичээл №- {{lesson.position}} <a id="vazhdo" href="{{ lesson.get_absolute_url }}#video"><span class="pl-4">{{lesson.title}}</span></a></h5>
+            </div>
+            {% endfor %}
+          {% endif %}
+          {% if course.lessons|length == 0 %}
+          <div class="alert alert-danger">Хичээл байхгүй байна.!!</div>
+          {% endif %} 
+        </div>
+      </div>
+    </div>
+  </div>
+            {% endfor %}
+
+</section>
+
+
+  <style>
+  
+.course-warp {
+	max-width: 1559px;
+	padding: 0 15px;
+	margin: 0 auto -30px;
+}
+
+.course-item {
+	margin-bottom: 30px;
+}
+
+.course-item .course-thumb {
+	height: 270px;
+}
+
+.course-item .course-thumb .price {
+	font-size: 14px;
+	color: #fff;
+	font-weight: 600;
+	background: #e1691d;
+	display: inline-block;
+	padding: 13px 19px;
+	margin: 14px;
+}
+
+.course-item .course-info {
+	background: #edf4f6;
+}
+
+.course-item .course-info .course-text {
+	padding: 45px 33px 25px;
+}
+
+.course-item .course-info .course-text h5 {
+	margin-bottom: 5px;
+}
+
+.course-item .course-info .course-text .students {
+	font-size: 18px;
+	font-weight: 600;
+	color: #e1691d;
+}
+
+.course-item .course-info .course-author {
+	border-top: 1px solid #d4dee1;
+	padding: 14px 33px;
+	overflow: hidden;
+}
+
+.course-item .course-info .course-author .ca-pic {
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	float: left;
+}
+
+.course-item .course-info .course-author p {
+	padding-left: 60px;
+	margin-bottom: 0;
+	padding-top: 7px;
+	font-weight: 600;
+}
+
+.course-item .course-info .course-author p span {
+	color: #e1691d;
+}
+
+.course-item.featured-course {
+	position: relative;
+	margin-bottom: 97px;
+}
+
+.course-item.featured-course:last-child {
+	margin-bottom: 30px;
+}
+
+.course-item.featured-course:nth-child(2n) .course-thumb {
+	left: auto;
+	right: 0;
+}
+
+.course-item.featured-course .course-thumb {
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	left: 0;
+	top: 0;
+}
+
+.course-item.featured-course .fet-note {
+	display: inline-block;
+	background: #e1691d;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 500;
+	padding: 4px 15px;
+	margin-bottom: 20px;
+}
+
+.course-item.featured-course .course-info .course-text {
+	padding: 70px 33px 25px;
+}
+
+.course-item.featured-course .course-info .course-text h5 {
+	margin-bottom: 20px;
+}
+
+.course-item.featured-course .course-info .course-author {
+	border-top: none;
+	padding: 14px 33px 60px;
+}
+
+.course-filter {
+	list-style: none;
+	text-align: center;
+	padding-top: 50px;
+	margin-bottom: 60px;
+}
+
+.course-filter li {
+	display: inline-block;
+	font-size: 18px;
+	font-weight: 600;
+	color: #474747;
+	padding: 12px 10px 5px;
+	margin: 0 10px;
+	border-bottom: 4px solid transparent;
+	cursor: pointer;
+	-webkit-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.course-filter li.mixitup-control-active {
+	color: #e1691d;
+	border-bottom: 4px solid #e1691d;
+}
+
+.course-meta-area {
+	background: #edf4f6;
+	padding: 35px 0;
+}
+
+.course-meta-area .course-note {
+	display: inline-block;
+	background: #e1691d;
+	color: #fff;
+	font-size: 14px;
+	font-weight: 500;
+	padding: 4px 15px;
+	margin-bottom: 20px;
+}
+
+.course-metas {
+	padding-top: 50px;
+	margin-bottom: 45px;
+	display: table;
+}
+
+.course-meta {
+	display: table-cell;
+	height: 100%;
+	border-right: 2px solid #c5ced0;
+	padding: 5px 50px;
+}
+
+.course-meta:nth-child(1) {
+	padding-left: 0;
+}
+
+.course-meta:nth-child(4) {
+	padding-right: 0;
+	border-right: none;
+}
+
+.course-meta p {
+	margin-bottom: 0;
+}
+
+.course-meta .course-author .ca-pic {
+	width: 44px;
+	height: 44px;
+	border-radius: 50%;
+	float: left;
+}
+
+.course-meta .course-author h6 {
+	padding-left: 60px;
+}
+
+.course-meta .course-author p {
+	padding-left: 60px;
+	margin-bottom: 0;
+	padding-top: 4px;
+	font-weight: 600;
+}
+
+.course-meta .course-author p span {
+	color: #e1691d;
+}
+
+.course-meta .cm-info h6 {
+	margin-bottom: 3px;
+}
+
+.course-meta .cm-info p {
+	font-weight: 600;
+}
+
+.course-meta .rating {
+	padding-left: 15px;
+	font-size: 12px;
+}
+
+.course-meta-area .site-btn {
+	min-width: auto;
+	font-size: 14px;
+}
+
+.course-meta-area .price-btn {
+	padding: 20px 30px;
+	background: #474747;
+	margin-right: 10px;
+}
+
+.course-meta-area .buy-btn {
+	padding: 20px 40px;
+}
+
+.course-preview {
+	padding-top: 37px;
+	margin-bottom: 55px;
+}
+
+.course-list .cl-item {
+	margin-bottom: 55px;
+}
+
+.course-list .cl-item h4 {
+	margin-bottom: 46px;
+}
+
+.course-list .cl-item p {
+	margin-bottom: 0;
+}
+
+.realated-courses {
+	background: #edf4f6;
+}
+
+.realated-courses .rc-title {
+	font-size: 34px;
+	margin-bottom: 85px;
+}
+
+.realated-courses .course-item .course-info {
+	background: #fff;
+}
+
+.realated-courses .owl-next {
+	position: absolute;
+	right: -80px;
+	top: 50%;
+	margin-top: -27px;
+	width: 54px;
+	height: 54px;
+	border-radius: 50%;
+	text-align: center;
+	color: #fff;
+	font-size: 22px;
+	padding-top: 10px;
+	background: #e1691d;
+}
+  </style>
+{% endblock %}

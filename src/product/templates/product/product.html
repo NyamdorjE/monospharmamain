@@ -1,0 +1,159 @@
+{% extends 'news/index_2.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+    
+		<!-- Content
+		============================================= -->
+		<section id="content">
+
+			<div class="content-wrap">
+
+				<div class="container clearfix">
+
+					<!-- Post Content
+					============================================= -->
+					<div class="postcontent nobottommargin col_last">
+
+						<!-- Shop
+						============================================= -->
+						<div id="shop" class="shop product-3 grid-container clearfix">
+
+                            {% for product in product %}
+							<div class="product sf-pant clearfix" data="{{ product.product_id }}">
+								<div class="product-image">
+									<a ><img src="{% if product.image %}{{ product.image.url}}{% endif %}" alt=""></a>
+									
+									<div class="product-overlay">
+										<a><i class="icon-shopping-cart"></i><span> Хэрэглэх заавар</span></a>
+										<a href="#{{ product.product_id}}" data-lightbox="inline" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> Нэмэлт мэдээлэл</span></a>
+									</div>
+								</div>
+								<div class="product-desc center">
+									<div class="product-title"><h3><a >{{ product.name }}</a></h3></div>
+									<div class="product-price">{{ product.price }}</div>
+									
+								</div>
+							</div>
+					
+
+							<!--MODAL-->
+				<div class="modal-center">
+					<div class="modal1 mfp-hide" id="{{ product.product_id}}">
+						<div class="block divcenter" style="background-color: #FFF; max-width: 700px; height: 600px;">
+							
+							<div class="product modal-padding" style="background-color: #fff;padding-top: 0px;">
+
+                        <div class="row gutter-40 col-mb-50">
+                            <div class="col-md-6">
+                                <div class="product-image">
+                                    <div class="fslider" data-pagi="false">
+                                        <div class="flexslider">
+                                            <img src="{% if product.image %}{{ product.image.url}}{% endif %}">
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                            <div class="col-md-6 product-desc">
+								<h3 style="margin-bottom: 6px; margin-top: 25px; border-bottom: 1px solid #dadada;">{{ product.name }}</h3>
+								
+                                <div class="product-price"><p>Үнэ :   <ins>{{ product.price }}</ins> <p></div>
+								<p> Ангиллал: {{ product.categories }}<p>
+								<p>	ХЭРЭГЛЭХ ЗААВАР : <p>{{ product.suggest }}</p> </p> 
+                                <p>	БҮТЭЭГДЭХҮҮНИЙ НАЙРЛАГА  : <p>{{ product.ingredients }} </p></p>
+								<div class="line"></div>
+                                <ul class="iconlist">
+                                    <li><i class="icon-caret-right"></i> Dynamic Color Options</li>
+                                    <li><i class="icon-caret-right"></i> Lots of Size Options</li>
+                                    <li><i class="icon-caret-right"></i> 30-Day Return Policy</li>
+                                </ul>
+								<h6> <a href="{{ product.link }}"> <button> Худалдан авах </button></a></h6>
+                                <div class="card product-meta mb-0">
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+						</div>
+					</div>
+				</div>
+                        {% endfor %}
+							
+						
+
+							
+						
+
+							
+
+							
+
+						</div><!-- #shop end -->
+
+					</div><!-- .postcontent end -->
+
+					<!-- Sidebar
+					============================================= -->
+					<div class="sidebar nobottommargin">
+						<div class="sidebar-widgets-wrap">
+
+							<div class="widget widget-filter-links clearfix">
+							
+								<h4>Ангиллал</h4>
+								<ul  data-active-class="active-filter">
+									<li><a href="{% url 'product-product-list'%}"  value="{{ cat_id }}">Бүгд</a></li>
+                                {% for category in category %}	
+									
+									<li><a href="/product?cat_id={{category.id}}"  value="{{ cat_id }}">{{ category }}</a></li>
+									
+								{% endfor %}
+
+								</ul>
+
+
+							</div>
+
+							<div class="widget widget-filter-links clearfix">
+
+								<h4>Хайлт</h4>
+								<form action="#" role="form" class="notopmargin nobottommargin">
+									<div class="input-group divcenter">
+                                   <input type="text" class="form-control" name="search_text" placeholder="Энд хайх утгаа бичнэ үү." value="{{ search_text }}">
+										<span class="input-group-btn">
+											<button class="btn btn-success" type="submit"><i class="icon-email2"></i></button>
+										</span>
+                                    </div>
+                                </form>
+                         
+
+							</div>
+
+						</div>
+					</div><!-- .sidebar end -->
+
+				</div>
+
+			</div>
+
+		</section><!-- #content end -->
+
+
+									
+							
+			
+
+<style>
+modal-center{
+	position: fixed !important;
+  	top: 50% !important;
+  	left: 50% !important;
+  	transform: translate(-50%, -50%) !important;
+}
+</style> 
+
+{% endblock %}
