@@ -11,11 +11,9 @@ urlpatterns = [
     Nurl('') > 'src.website.views.Homepage',
     Nurl('news/') > 'src.news.views.NewsList',
     Nurl('news/<slug:slug>/') > 'src.news.views.NewsDetail',
-    Nurl('about/') > 'src.website.views.AboutPage',
     Nurl('news/') > 'src.news.views.NewsList',
     Nurl('special/') > 'src.news.views.SpecialNews',
-    Nurl('greetings/') > 'src.website.views.Greetings',
-    Nurl('timeline/') > 'src.website.views.TimeLine',
     Nurl('advice/') > 'src.website.views.AdviceNews',
+    # Nurl('index/') > 'src.website.views.Index',
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

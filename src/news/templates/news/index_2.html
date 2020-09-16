@@ -1,486 +1,876 @@
-{% load static %}
-{% load humanize %}
-{% load i18n %}
-{% load widget_tweaks %}
+{% load static %} {% load humanize %} {% load i18n %} {% load widget_tweaks %}
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
+
 <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="author" content="SemiColonWeb" />
-
-	<!-- Stylesheets
+  <!-- Stylesheets
 	============================================= -->
-	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="{% static 'base/assets/css/bootstrap.css' %}" type="text/css" />
-	<link rel="stylesheet" href="{% static 'base/assets/style.css' %}" type="text/css" />
-	<link rel="stylesheet" href="{% static 'base/assets/css/dark.css' %}" type="text/css" />
-	<link rel="stylesheet" href="{% static 'base/assets/css/font-icons.css' %}" type="text/css" />
-	<link rel="stylesheet" href="{% static 'base/assets/css/animate.css' %}" type="text/css" />
-	<link rel="stylesheet" href="{% static 'base/assets/css/magnific-popup.css' %}" type="text/css" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Poppins:300,400,500,600,700|PT+Serif:400,400i&display=swap"
+    rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="{% static 'base/assets/css/bootstrap.css' %}" type="text/css" />
+  <link rel="stylesheet" href="{% static 'base/assets/style.css' %}" type="text/css" />
+  <link rel="stylesheet" href="{% static 'base/assets/css/dark.css' %}" type="text/css" />
+  <link rel="stylesheet" href="{% static 'base/assets/css/font-icons.css' %}" type="text/css" />
+  <link rel="stylesheet" href="{% static 'base/assets/css/animate.css' %}" type="text/css" />
+  <link rel="stylesheet" href="{% static 'base/assets/css/magnific-popup.css' %}" type="text/css" />
+
+  <link rel="stylesheet" href="{% static 'base/assets/css/custom.css' %}" type="text/css" />
+
+  <link rel="stylesheet" href="{% static 'base/assets/css/swiper.css' %}" type="text/css" />
 
 
-	<link rel="stylesheet" href="{% static 'base/assets/css/responsive.css' %}" type="text/css" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="{% static 'base/assets/demos/news/news.css' %}" type="text/css" />
 
-	<!-- SLIDER REVOLUTION 5.x CSS SETTINGS -->
-	
-
-	<!-- Document Title
+  <!-- Document Title
 	============================================= -->
-	<title>Монос Фарм ХХК</title>
+  <title>Монос Фарм ХХК</title>
 
-
-
+  <style></style>
 </head>
 
-<body class="stretched">
-
-	<!-- Document Wrapper
+<body class="stretched" style="zoom: 90%;">
+  <!-- Document Wrapper
 	============================================= -->
-	<div id="wrapper" class="clearfix">
-
-		<!-- Top Bar
+  <div id="wrapper" class="clearfix">
+    <!-- Top Bar
 		============================================= -->
-		<div id="top-bar" class="hidden-xs">
+    <div id="top-bar">
+      <div class="container">
+        <div class="row justify-content-between align-items-center">
+          <div class="col-12 col-md-auto">
+            <p class="mb-0 py-2 text-center text-md-left">
+              <strong>Утас:</strong> (976) 7717-3117 |
+              <strong>Имайл:</strong> pharma@monos.mn
+            </p>
+          </div>
 
-			<div class="container clearfix">
-
-				<div class="col_half nobottommargin">
-
-					<p class="nobottommargin"><strong>Утас:</strong> (976) 7717-3117 | <strong>Имайл:</strong> pharma@monos.mn</p>
-
-				</div>
-
-				<div class="col_half col_last fright nobottommargin">
-
-					<!-- Top Links
-					============================================= -->
-					<div class="top-links">
-						<ul>
-						
-							<li><a href="#">EN</a>
-								<ul>
-									<li><a href="#"><img src="{% static 'base/assets/images/icons/flags/french.png' %}" alt="French"> МН</a></li>
-									<li><a href="#"><img src="{% static 'base/assets/images/icons/flags/italian.png' %}" alt="Italian"> АН</a></li>
-								
-								</ul>
-							</li>
-								<li><a href="#">  <i class="icon-user"></i>  </a>
-								<ul class="dropdown-menu" role="menu">
-								 {% if request.user.is_authenticated %}
-                            <li>
-                                <a  href="{% url 'accounts:change_password' %}">{% trans 'Нууц үг солих' %}</a>
-                            </li>
-                            <li>
-                                <a  href="{% url 'accounts:change_profile' %}">{% trans 'Нэр солих' %}</a>
-                            </li>
-                            <li>
-                                <a href="{% url 'accounts:change_email' %}">{% trans 'Имайл хаяг солих' %}</a>
-                            </li>
-							<li class="divider"></li>
-                            <li>
-                                <a href="{% url 'accounts:log_out' %}">{% trans 'Системээс гарах' %}</a>
-                            </li>
-                        {% else %}
-                            <li>
-                                <a  href="{% url 'accounts:log_in' %}">{% trans 'Нэвтрэх' %}</a>
-                            </li>
-                            <li>
-                                <a href="{% url 'accounts:sign_up' %}">{% trans 'Гишүүнээр бүртгүүлэх' %}</a>
-                            </li>
-                        {% endif %}
-								</ul>
-							</li>
-						</ul>
-					</div><!-- .top-links end -->
-
-				</div>
-
-			</div>
-
-		</div><!-- #top-bar end -->
-
-		<!-- Header
-		============================================= -->
-		<header id="header">
-
-			<div id="header-wrap">
-
-				<div class="container clearfix">
-
-					<div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
-
-					<!-- Logo
-					============================================= -->
-					<div id="logo">
-						<a href="{% url 'website-homepage'%}" class="standard-logo" data-dark-logo="images/monoslogo.png"><img src="{% static 'base/assets/images/monoslogo.png' %}"  style="height: 70px; width: 150px;" ></a>
-						<a href="index.html" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src="{% static 'base/assets/images/logo@2x.png' %}" ></a>
-					</div><!-- #logo end -->
-
-					<!-- Primary Navigation
-					============================================= -->
-					<nav id="primary-menu">
-
-						<ul>
-							
-							</li>
-							<!-- Mega Menu
-							============================================= -->
-							<li class="mega-menu current"><a href="#"><div>Бидний тухай</div></a>
-								
-							</li><!-- .mega-menu end -->
-							<li><a href="{% url 'product-product-list'%}"><div>Бүтээгдэхүүн</div></a>
-								
-							</li><!-- .mega-menu end -->
-							<li><a href="{% url 'news-news-list' %}"><div>Мэдээ</div></a>
-								<ul>
-									<li><a href="{% url 'website-advice-news' %}"><div>Зөвөлгөө</div></a>					
-								</ul>
-							</li>
-							<li><a href="{% url 'courses:home'%}"><div>Сургалт</div></a>
-								<ul>
-									{% comment %} <li><a href="{% url 'poll-PollList'%}">{% trans 'Санал асуулга' %} </a></li> {% endcomment %}
-								</ul>
-							
-							</li>
-							<li><a href="{% url 'humanresource' %}"><div>Хүний нөөц</div><span>Latest News</span></a></li>
-							<li><a href="http://monospharma.mn/360_virtual/"><div> 360 Virtual tour</div><span>Latest News</span></a></li>
-							
-						</ul>
-							
-							
-						<!-- Top Search
+          <div class="col-12 col-md-auto">
+            <!-- Top Links
 						============================================= -->
-						<div id="top-search">
-							<a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
-							<form action="search.html" method="get">
-								<input type="text" name="q" class="form-control" value="" placeholder="Хайгаад &amp; ENTER дар..">
-							</form>
-						</div><!-- #top-search end -->
+            <div class="top-links on-click">
+              <ul class="top-links-container">
+                <li class="top-links-item">
+                  <a href="#">EN</a>
+                  <ul class="top-links-sub-menu">
+                    <li>
+                      <a href="#"><img src="{% static 'base/assets/images/icons/flags/french.png' %}" alt="French" />
+                        МН</a>
+                    </li>
+                    <li>
+                      <a href="#"><img src="{% static 'base/assets/images/icons/flags/italian.png' %}" alt="Italian" />
+                        АН</a>
+                    </li>
+                  </ul>
+                </li>
 
-					</nav><!-- #primary-menu end -->
+                <div class="dropdown mx-3 mr-lg-0">
+                  <a href="#" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="true"><i class="icon-user"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                    {% if request.user.is_authenticated %}
+                    <a class="dropdown-item text-left"
+                      href="{% url 'accounts:change_password' %}">{% trans 'Нууц үг солих' %}</a>
+                    <a class="dropdown-item text-left"
+                      href="{% url 'accounts:change_email' %}">{% trans 'Нууц үг солих' %}</a>
+                    <a class="dropdown-item text-left"
+                      href="{% url 'accounts:change_profile' %}">{% trans 'Имайл хаяг солих' %}
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item text-left" href="{% url 'accounts:log_out' %}">{% trans 'Системээс гарах' %}
+                      <i class="icon-signout"></i></a>
+                    {% else %}
+                    <a class="dropdown-item text-left" href="{% url 'accounts:log_in' %}">{% trans 'Нэвтрэх' %}</a>
+                    <a class="dropdown-item text-left"
+                      href="{% url 'accounts:sign_up' %}">{% trans 'Гишүүнээр бүртгүүлэх' %}</a>
+                    {% endif %}
 
-				</div>
+                  </ul>
+                </div>
+              </ul>
+            </div>
+            <!-- .top-links end -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- #top-bar end -->
 
-			</div>
-
-		</header><!-- #header end -->
-
-		
-
-        {% block content %}
-        {% endblock %}
-
-
-
-<!-- Footer
+    <!-- Header
 		============================================= -->
-		<footer id="footer" class="dark">
+    <header id="header">
+      <div id="header-wrap">
+        <div class="container">
+          <div class="header-row">
+            <!-- Logo
+						============================================= -->
+            <div id="logo">
+              <a href="{% url 'website-homepage'%}" class="standard-logo" style="height: 70px; width: 150px; !Important"
+                data-dark-logo="images/monoslogo.png"><img src="{% static 'base/assets/images/monoslogo.png' %}" /></a>
+              <a href="index.html" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src={% static 'base/assets/images/monoslogo.png'
+                  %}alt="Canvas Logo"></a>
+            </div>
+            <!-- #logo end -->
 
-			<div class="container">
+            <div class="header-misc">
+              <!-- Top Search
+							============================================= -->
+              <div id="top-search" class="header-misc-icon">
+                <a href="#" id="top-search-trigger"><i class="icon-line-search"></i><i class="icon-line-cross"></i></a>
+              </div>
+              <!-- #top-search end -->
+            </div>
 
-				<!-- Footer Widgets
+            <div id="primary-menu-trigger">
+              <svg class="svg-trigger" viewBox="0 0 100 100">
+                <path
+                  d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20">
+                </path>
+                <path d="m 30,50 h 40"></path>
+                <path
+                  d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20">
+                </path>
+              </svg>
+            </div>
+
+            <!-- Primary Navigation
+						============================================= -->
+            <nav class="primary-menu">
+              <ul class="menu-container">
+                <li class="menu-item mega-menu mega-menu-full">
+                  <a class="menu-link" href="{% url "website-about" %}">
+                    <div>Бидний тухай</div>
+                  </a>
+                  <div class="mega-menu-content mega-menu-style-2">
+                    <div class="container">
+                      <div class="row">
+                        <ul class="sub-menu-container mega-menu-column col-lg-3">
+                          <li class="menu-item mega-menu-title">
+                            <a class="menu-link" href="#">
+                              <div>Туслах цэс</div>
+                            </a>
+                            <ul class="sub-menu-container">
+                              <li class="menu-item">
+                                <a class="menu-link" href="{% url "website-about" %}#snav-content1">
+                                  <div>
+                                    <i class="icon-line-air-play"></i>Танилцуулга
+                                  </div>
+                                </a>
+                              </li>
+                              <li class="menu-item">
+                                <a class="menu-link" href="{% url "website-about" %}#snav-content2">
+                                  <div>
+                                    <i class="icon-paperplane"></i>Эрхэм
+                                    зорилго
+                                  </div>
+                                </a>
+                              </li>
+                              <li class="menu-item">
+                                <a class="menu-link" href="{% url "website-about" %}#snav-content3">
+                                  <div>
+                                    <i class="icon-envelope21"></i>Захирлын
+                                    мэндчилгээ
+                                  </div>
+                                </a>
+                              </li>
+                              <li class="menu-item">
+                                <a class="menu-link" href="{% url "website-about" %}#snav-content4">
+                                  <div>
+                                    <i class="icon-history"></i>Түүхэн
+                                    товчоо
+                                  </div>
+                                </a>
+                              </li>
+                              <li class="menu-item">
+                                <a class="menu-link" href="{% url "website-about" %}#snav-content5">
+                                  <div>
+                                    <i class="icon-line2-trophy"></i>Бидний
+                                    амжилт
+                                  </div>
+                                </a>
+                              </li>
+                              <li class="menu-item">
+                                <a class="menu-link" href="{% url "website-about" %}#snav-content6">
+                                  <div>
+                                    <i class="icon-line2-equalizer"></i>Чанар
+                                    хангалт
+                                  </div>
+                                </a>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                        <ul class="sub-menu-container mega-menu-column col-lg-3">
+                          <li class="menu-item">
+                            <div class="widget clearfix">
+                              <h5 class="text-uppercase ls1">
+                                GMP Энд гарчиг
+                              </h5>
+                              <img src="{% static 'base/assets/images/fliplogo/GMP.png' %}" alt="" />
+                            </div>
+                          </li>
+                        </ul>
+
+                        <ul class="sub-menu-container mega-menu-column col-lg-3">
+                          <li class="menu-item">
+                            <div class="widget clearfix">
+                              <h5 class="text-uppercase ls1">
+                                ИСО Энд гарчиг
+                              </h5>
+                              <img src="{% static 'base/assets/images/fliplogo/iso.png' %}" alt="" />
+                            </div>
+                          </li>
+                        </ul>
+                        <ul class="sub-menu-container mega-menu-column col-lg-3">
+                          <li class="menu-item">
+                            <div class="widget clearfix">
+                              <h5 class="text-uppercase ls1">
+                                PECB Энд гарчиг
+                              </h5>
+                              <img src="{% static 'base/assets/images/fliplogo/PECB.png' %}" alt="" />
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <!-- Mega Menu
+								============================================= -->
+                <li class="menu-item mega-menu mega-menu-full">
+                  <a class="menu-link" href="{% url 'product-product-list'%}">
+                    <div>Бүтээгдэхүүн</div>
+                  </a>
+                  <div class="mega-menu-content mega-menu-style-2">
+                    <div class="container">
+                      <div class="row">
+                        <ul class="sub-menu-container mega-menu-column col-lg-3">
+                          <li class="menu-item mega-menu-title">
+                            <a class="menu-link" href="#">
+                              <div>Ангилал</div>
+                            </a>
+                            <ul class="sub-menu-container">
+                              <li class="menu-item">
+                                <a class="menu-link" href="services.html">
+                                  <div>
+                                    <i class="icon-star-of-life"></i>Энгийн эм
+                                  </div>
+                                </a>
+                              </li>
+                              <li class="menu-item">
+                                <a class="menu-link" href="#">
+                                  <div>
+                                    <i class="icon-calendar3"></i>Зүрх судас
+                                  </div>
+                                </a>
+                              </li>
+                              <li class="menu-item">
+                                <a class="menu-link" href="contact.html">
+                                  <div>
+                                    <i class="icon-envelope"></i>Хүүхэд
+                                  </div>
+                                </a>
+                              </li>
+                              <li class="menu-item">
+                                <a class="menu-link" href="faqs.html">
+                                  <div>
+                                    <i class="icon-question-circle"></i>Витамин
+                                  </div>
+                                </a>
+                              </li>
+                              <li class="menu-item">
+                                <a class="menu-link" href="faqs.html">
+                                  <div>
+                                    <i class="icon-question-circle"></i>Бусад
+                                  </div>
+                                </a>
+                              </li>
+                              <li class="menu-item">
+                                <a class="menu-link" href="faqs.html">
+                                  <div>
+                                    <i class="icon-question-circle"></i>Бусад
+                                  </div>
+                                </a>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                        <ul class="sub-menu-container mega-menu-column col-xl-4 col-lg-4">
+                          <li class="menu-item">
+                            <div class="widget">
+                              {% for product in newproduct|slice:"0:1" %}
+                              <div class="portfolio-item">
+                                <div class="portfolio-image">
+                                  <a
+                                    href="{% if product.slug %}{% url 'product-product-detail-view' product.slug %}{% endif %}"><img
+                                      src="{% if product.image %}{{ product.image.url }}{% endif %}"
+                                      style="width: 200px; height:250px;"></a>
+
+                                </div>
+                                <div class="portfolio-desc pb-0">
+                                  <div>
+                                    <h3><a
+                                        href="{% if product %}{% url 'product-product-detail-view' product.slug  %} {% endif %}">{{ product.name }}</a>
+                                    </h3>
+                                    <span class="mt-0"><a
+                                        href="{% if product %}{% url 'product-product-detail-view' product.slug  %} {% endif %}">{{ product.category }}</a></span>
+                                    <div class="rating-stars">
+                                      <i class="icon-star3"></i><i class="icon-star3"></i><i class="icon-star3"></i><i
+                                        class="icon-star3"></i><i class="icon-star3"></i>
+                                    </div>
+                                  </div>
+                                  <div class="item-price">
+                                    <span>{{ product.price }}</span>
+                                  </div>
+                                </div>
+                              </div>
+                              {% endfor %}
+                            </div>
+                          </li>
+                        </ul>
+
+
+                        <ul class="sub-menu-container mega-menu-column col-lg-5">
+                          <li class="menu-item">
+                            <div class="widget">
+
+                              <h4 class="highlight-me">Онцлох бүтээгдэхүүн</h4>
+
+                              <div class="posts-sm row col-mb-30" id="recent-shop-list-sidebar">
+                                {% for product in newproduct|slice:"0:4" %}
+                                <div class="entry col-12">
+                                  <div class="grid-inner row no-gutters">
+                                    <div class="col-auto">
+                                      <div class="entry-image">
+                                        <a
+                                          href="{% if product.slug %}{% url 'product-product-detail-view' product.slug %}{% endif %}"><img
+                                            src="{% if product.image %}{{ product.image.url }}{% endif %}"
+                                            alt="Image"></a>
+                                      </div>
+                                    </div>
+                                    <div class="col pl-3">
+                                      <div class="entry-title">
+                                        <h4><a
+                                            href="{% if product.slug %}{% url 'product-product-detail-view' product.slug %}{% endif %}">{{ product.name }}</a>
+                                        </h4>
+                                      </div>
+                                      <div class="entry-meta no-separator">
+                                        <ul class="sub-menu-container">
+                                          <li class="color">{{ product.price }}</li>
+                                          <li class="menu-item"><i class="icon-star3"></i><i class="icon-star3"></i><i
+                                              class="icon-star3"></i><i class="icon-star3"></i><i
+                                              class="icon-star3"></i></li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                {% endfor %}
+
+
+
+                              </div>
+
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <!-- .mega-menu end -->
+                <li class="menu-item mega-menu mega-menu-full"><a class="menu-link" href="{% url 'news-news-list' %}">
+                    <div>Мэдээ</div>
+                  </a>
+                  <div class="mega-menu-content mega-menu-style-2 border-top-0">
+                    <div class="container">
+                      <div class="row">
+                        <ul class="sub-menu-container mega-menu-column col-lg-3">
+                          <li class="menu-item">
+                            <div class="nav nav-sm tab-hover flex-column nav-pills" id="v-pills-tab" role="tablist"
+                              aria-orientation="vertical">
+                              <a class="nav-link bg-color-lifestyle active" id="v-pills-home-tab" data-toggle="pill"
+                                href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Онцлох
+                                мэдээ</a>
+                              <a class="nav-link bg-color-lifestyle" id="v-pills-profile-tab" data-toggle="pill"
+                                href="#v-pills-profile" role="tab" aria-controls="v-pills-profile"
+                                aria-selected="false">Бүтээгдэхүүн</a>
+                              <a class="nav-link bg-color-lifestyle" id="v-pills-messages-tab" data-toggle="pill"
+                                href="#v-pills-messages" role="tab" aria-controls="v-pills-messages"
+                                aria-selected="false">Судалгаа</a>
+                              <a class="nav-link bg-color-lifestyle" id="v-pills-settings-tab" data-toggle="pill"
+                                href="#v-pills-settings" role="tab" aria-controls="v-pills-settings"
+                                aria-selected="false">Үйл ажиллагаа</a>
+                            </div>
+                          </li>
+                        </ul>
+                        <ul class="sub-menu-container mega-menu-column col-lg-9">
+                          <li class="menu-item">
+                            <div class="tab-content" id="v-pills-tabContent">
+                              <div class="tab-pane show active" id="v-pills-home" role="tabpanel"
+                                aria-labelledby="v-pills-home-tab">
+                                <div class="row justify-content-around posts-md">
+                                  {% for news in news_list|slice:"0:3"  %}
+                                  <div class="col-4">
+                                    <div class="entry">
+                                      <div class="entry-image mb-3">
+                                        <a href="#"><img src="{% if news.image %}{{news.image.url}}{% endif %}"
+                                            alt="Image 3" style="height:150px;"></a>
+                                        <div class="entry-categories"><a href="#" class="bg-lifestyle">Music</a>
+                                        </div>
+
+                                      </div>
+                                      <div class="entry-title title-xs nott">
+                                        <h3><a href="#">A {{ news.title|slice:"150"}}</a></h3>
+                                      </div>
+                                      <div class="entry-meta">
+                                        <ul>
+                                          <li>{{ news.author }}</li>
+                                          <li><i class="icon-time"></i>{{ news.created_on }}</li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  {% endfor %}
+
+
+                                </div>
+                              </div>
+                              <div class="tab-pane" id="v-pills-profile" role="tabpanel"
+                                aria-labelledby="v-pills-profile-tab">
+                                <div class="row justify-content-around posts-md">
+                                  <div class="col-4">
+                                    <div class="entry">
+                                      <div class="entry-image mb-3">
+                                        <a href="#"><img src="demos/news/images/posts/lifestyle/2.jpg"
+                                            alt="Image 3"></a>
+                                        <div class="entry-categories"><a href="#" class="bg-lifestyle">Music</a></div>
+                                      </div>
+                                      <div class="entry-title title-xs nott">
+                                        <h3><a href="#">A Surprising Tool to Help You Lifestyle</a></h3>
+                                      </div>
+                                      <div class="entry-meta">
+                                        <ul>
+                                          <li>John Doe</li>
+                                          <li><i class="icon-time"></i>11 Mar 2021</li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane" id="v-pills-messages" role="tabpanel"
+                                aria-labelledby="v-pills-messages-tab">
+                                <div class="row justify-content-around posts-md">
+                                  <div class="col-4">
+                                    <div class="entry">
+                                      <div class="entry-image mb-3">
+                                        <a href="#"><img src="demos/news/images/posts/lifestyle/author.jpg"
+                                            alt="Image 3"></a>
+                                        <div class="entry-categories"><a href="#" class="bg-lifestyle">Author</a></div>
+                                      </div>
+                                      <div class="entry-title title-xs nott">
+                                        <h3><a href="#">A Surprising Tool to Help You Lifestyle</a></h3>
+                                      </div>
+                                      <div class="entry-meta">
+                                        <ul>
+                                          <li>John Doe</li>
+                                          <li><i class="icon-time"></i>11 Mar 2021</li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="tab-pane" id="v-pills-settings" role="tabpanel"
+                                aria-labelledby="v-pills-settings-tab">
+                                <div class="row justify-content-around posts-md">
+                                  <div class="col-4">
+                                    <div class="entry">
+                                      <div class="entry-image mb-3">
+                                        <a href="#"><img src="demos/news/images/posts/lifestyle/recipes-1.jpg"
+                                            alt="Image 3"></a>
+                                        <div class="entry-categories"><a href="#" class="bg-lifestyle">Recipes</a></div>
+                                      </div>
+                                      <div class="entry-title title-xs nott">
+                                        <h3><a href="#">A Surprising Tool to Help You Lifestyle</a></h3>
+                                      </div>
+                                      <div class="entry-meta">
+                                        <ul>
+                                          <li>John Doe</li>
+                                          <li><i class="icon-time"></i>11 Mar 2021</li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <!-- .mega-menu end -->
+                <li class="menu-item">
+                  <a class="menu-link" href="{% url 'courses:home'%}">
+                    <div>Сургалт</div>
+                    <span>Awesome Works</span>
+                  </a>
+                </li>
+
+                <li class="menu-item">
+                  <a class="menu-link" href="{% url 'humanresource' %}">
+                    <div>Хүний нөөц</div>
+                    <span>Awesome Works</span>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a class="menu-link" href="http://monospharma.mn/360_virtual/">
+                    <div>360 Virtual tour</div>
+                    <span>Latest News</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <!-- #primary-menu end -->
+
+            <form class="top-search-form" action="search.html" method="get">
+              <input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter.."
+                autocomplete="off" />
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="header-wrap-clone"></div>
+    </header>
+    <!-- #header end -->
+
+    <div class="si-sticky si-sticky-right d-none d-lg-block" style="z-index: 399;">
+      <a href="#" class="social-icon si-colored si-facebook" data-animate="bounceInRight">
+        <i class="icon-facebook"></i>
+        <i class="icon-facebook"></i>
+      </a>
+      <a href="#" class="social-icon si-colored si-twitter" data-animate="bounceInRight" data-delay="100">
+        <i class="icon-twitter"></i>
+        <i class="icon-twitter"></i>
+      </a>
+      <a href="#" class="social-icon si-colored si-pinterest" data-animate="bounceInRight" data-delay="200">
+        <i class="icon-pinterest"></i>
+        <i class="icon-pinterest"></i>
+      </a>
+      <a href="#" class="social-icon si-colored si-instagram" data-animate="bounceInRight" data-delay="300">
+        <i class="icon-instagram"></i>
+        <i class="icon-instagram"></i>
+      </a>
+      <a href="#" class="social-icon si-colored si-gplus" data-animate="bounceInRight" data-delay="600">
+        <i class="icon-gplus"></i>
+        <i class="icon-gplus"></i>
+      </a>
+      <a href="#" class="social-icon si-colored si-rss" data-animate="bounceInRight" data-delay="700">
+        <i class="icon-rss"></i>
+        <i class="icon-rss"></i>
+      </a>
+    </div>
+    <!-- Content
+		============================================= -->
+    {% block content %}
+
+    {% endblock %}
+    <!-- Footer
+		============================================= -->
+    <footer id="footer" class="dark">
+      <div class="container">
+        <!-- Footer Widgets
 				============================================= -->
-				<div class="footer-widgets-wrap clearfix">
+        <div class="footer-widgets-wrap">
+          <div class="row col-mb-50">
+            <div class="col-lg-8">
+              <div class="row col-mb-50">
+                <div class="col-md-4">
+                  <div class="widget clearfix">
+                    <div style="
+                          background: url('{% static 'base/assets/images/world-map.png' %}')
+                            no-repeat center center;
+                          background-size: 100%;
+                        ">
+                      <address>
+                        <strong>Хаяг:</strong><br />
+                        Сонгино хайрхан дүүрэг, <br>Сонсголонгийн зам, <br>Монос Эмийн үйлдвэр
+                      </address>
+                      <abbr title="Phone Number"><strong>Утас:</strong></abbr>
+                      (976) 7717-3117<br />
+                      <abbr title="Email Address"><strong>Майл:</strong></abbr>
+                      pharma@monos.mn<br />
+                    </div>
+                  </div>
+                </div>
 
-					<div class="col_two_third">
+                <div class="col-md-4">
+                  <div class="widget widget_links clearfix">
+                    <h4>БИДНИЙ ТУХАЙ
+                    </h4>
 
-						<div class="col_one_third">
+                    <ul>
+                      <li>
+                        <a href="{% url "website-about" %}#snav-content1">Танилцуулга</a>
+                      </li>
+                      <li>
+                        <a href="{% url "website-about" %}#snav-content2">Эрхэм зорилго</a>
+                      </li>
+                      <li>
+                        <a href="{% url "website-about" %}#snav-content3">Захирлын мэндчилгээ</a>
+                      </li>
+                      <li>
+                        <a href="{% url "website-about" %}#snav-content4">Түүхэн товчоо</a>
+                      </li>
+                      <li>
+                        <a href="{% url "website-about" %}#snav-content5">Бидний амжилт</a>
+                      </li>
+                      <li>
+                        <a href="{% url "website-about" %}#snav-content6">Чанар хангалт</a>
+                      </li>
 
-							<div class="widget clearfix">
+                    </ul>
+                  </div>
+                </div>
 
-								<img src="{% static 'base/assets/images/footer-widget-logo.png' %}" alt="" class="footer-logo">
+                <div class="col-md-4">
+                  <div class="widget widget_links clearfix">
+                    <h4>Хүний нөөц
+                    </h4>
 
-								<p>We believe in <strong>Simple</strong>, <strong>Creative</strong> &amp; <strong>Flexible</strong> Design Standards.</p>
+                    <ul>
+                      <li>
+                        <a href="{% url 'humanresource' %}#snav-content1">Нээлттэй ажлын байр</a>
+                      </li>
+                      <li>
+                        <a href="{% url 'humanresource' %}#snav-content2">Сонгон шалгаруулалт</a>
+                      </li>
 
-								<div style="background: url('{% static 'base/assets/images/world-map.png' %}') no-repeat center center; background-size: 100%;">
-									<address>
-										<strong>Хаяг:</strong><br>
-										795 Folsom Ave, Suite 600<br>
-										San Francisco, CA 94107<br>
-									</address>
-									<abbr title="Phone Number"><strong>Утас:</strong></abbr> (91) 8547 632521<br>
-									<abbr title="Fax"><strong>Факс:</strong></abbr> (91) 11 4752 1433<br>
-									<abbr title="Email Address"><strong>Имайл:</strong></abbr> info@canvas.com
-								</div>
+                      <li>
+                        <a href="{% url 'humanresource' %}#snav-content3">Нийгмийн халамж</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-							</div>
+            <div class="col-lg-4">
+              <div class="row col-mb-20">
+                <div class="col-md-4 col-lg-12">
+                  <div class="widget clearfix" style="margin-bottom: -20px;">
+                    <div class="row">
+                      <div class="col-lg-12 bottommargin-sm">
+                        <img src="{% static 'base/assets/images/monoslogo.png' %}"
+                          style="height:77px; width:150px; margin-left:50px;" />
+                      </div>
 
-						</div>
 
-						<div class="col_one_third">
+                    </div>
+                  </div>
+                </div>
 
-							<div class="widget widget_links clearfix">
+                <div class="col-md-5 col-lg-12">
+                  <div class="widget subscribe-widget clearfix">
+                    <h5>
+                      Монгол Улсын хувийн хэвшлийн ууган үйлдвэр Монос Фарм ХХК нь 1990 онд байгуулагдсан. Бид хүмүүний
+                      эрүүл мэндийг тэтгэх эмчилгээний өндөр идэвхт эм бэлдмэл, эмийн чанарыг хамгаас эрхэмлэн эмийн
+                      үйлдвэрлэл, эмзүйн судалгаа, шинжилгээний чиглэлээр үйл ажиллагаагаа явуулж байна.
 
-								<h4>Түргэн холбоос</h4>
+                    </h5>
+                    <div class="widget-subscribe-form-result"></div>
 
-								<ul>
-									<li><a href="http://codex.wordpress.org/">Documentation</a></li>
-									<li><a href="http://wordpress.org/support/forum/requests-and-feedback">Feedback</a></li>
-									<li><a href="http://wordpress.org/extend/plugins/">Plugins</a></li>
-									<li><a href="http://wordpress.org/support/">Support Forums</a></li>
-									<li><a href="http://wordpress.org/extend/themes/">Themes</a></li>
-									<li><a href="http://wordpress.org/news/">WordPress Blog</a></li>
-									<li><a href="http://planet.wordpress.org/">WordPress Planet</a></li>
-								</ul>
+                  </div>
+                </div>
 
-							</div>
+                <div class="col-md-3 col-lg-12">
+                  <div class="widget clearfix" style="margin-bottom: -20px;">
+                    <div class="row">
+                      <div class="col-6 col-md-12 col-lg-6 clearfix bottommargin-sm">
+                        <a href="#" class="social-icon si-dark si-colored si-facebook mb-0" style="margin-right: 10px;">
+                          <i class="icon-facebook"></i>
+                          <i class="icon-facebook"></i>
+                        </a>
+                        <a href="#"><small style="display: block; margin-top: 3px;"><strong>Биднийг дагах</strong><br />
+                            Facebook</small></a>
+                      </div>
+                      <div class="col-6 col-md-12 col-lg-6 clearfix">
+                        <a href="#" class="social-icon si-dark si-colored si-youtube mb-0" style="margin-right: 10px;">
+                          <i class="icon-youtube"></i>
+                          <i class="icon-youtube"></i>
+                        </a>
+                        <a href="#"><small style="display: block; margin-top: 3px;"><strong>Бидэнтэй
+                              нэгдэх</strong><br />
+                            Youtube
+                          </small></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- .footer-widgets-wrap end -->
+      </div>
 
-						</div>
-
-						<div class="col_one_third col_last">
-
-							<div class="widget clearfix">
-								<h4>Холбоотой хаяг</h4>
-
-								<div id="post-list-footer">
-									<div class="spost clearfix">
-										<div class="entry-c">
-											<div class="entry-title">
-												<h4><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h4>
-											</div>
-											<ul class="entry-meta">
-												<li>10th July 2014</li>
-											</ul>
-										</div>
-									</div>
-
-									<div class="spost clearfix">
-										<div class="entry-c">
-											<div class="entry-title">
-												<h4><a href="#">Elit Assumenda vel amet dolorum quasi</a></h4>
-											</div>
-											<ul class="entry-meta">
-												<li>10th July 2014</li>
-											</ul>
-										</div>
-									</div>
-
-									<div class="spost clearfix">
-										<div class="entry-c">
-											<div class="entry-title">
-												<h4><a href="#">Debitis nihil placeat, illum est nisi</a></h4>
-											</div>
-											<ul class="entry-meta">
-												<li>10th July 2014</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-
-						</div>
-
-					</div>
-
-					<div class="col_one_third col_last">
-
-						<div class="widget clearfix" style="margin-bottom: -20px;">
-
-							<div class="row">
-
-								<div class="col-md-12 ">
-									<img src="{% static 'base/assets/images/monoslogo.png' %}" style="height: 60px; width:130px; margin-left: 75px;">
-								</div>
-
-								
-							</div>
-
-						</div>
-
-						<div class="widget subscribe-widget clearfix">
-							<h5><strong>Монгол Улсын </strong> хувийн хэвшлийн ууган үйлдвэр Монос Фарм ХХК нь 1990 онд байгуулагдсан. Бид хүмүүний эрүүл мэндийг тэтгэх эмчилгээний өндөр идэвхт эм бэлдмэл, эмийн чанарыг хамгаас эрхэмлэн эмийн үйлдвэрлэл, эмзүйн судалгаа, шинжилгээний чиглэлээр үйл ажиллагаагаа явуулж байна.</h5>
-							<div class="widget-subscribe-form-result"></div>
-							
-						</div>
-
-						<div class="widget clearfix" style="margin-bottom: -20px;">
-
-							<div class="row">
-
-								<div class="col-md-6 clearfix bottommargin-sm">
-									<a href="#" class="social-icon si-dark si-colored si-facebook nobottommargin" style="margin-right: 10px;">
-										<i class="icon-facebook"></i>
-										<i class="icon-facebook"></i>
-									</a>
-									<a href="#"><small style="display: block; margin-top: 3px;"><strong>Бидныг дагах</strong><br> Facebook</small></a>
-								</div>
-								<div class="col-md-6 clearfix">
-									<a href="#" class="social-icon si-dark si-colored si-rss nobottommargin" style="margin-right: 10px;">
-										<i class="icon-rss"></i>
-										<i class="icon-rss"></i>
-									</a>
-									<a href="#"><small style="display: block; margin-top: 3px;"><strong>Бидныг дагах</strong><br>RSS Feeds</small></a>
-								</div>
-
-							</div>
-
-						</div>
-
-					</div>
-
-				</div><!-- .footer-widgets-wrap end -->
-
-			</div>
-
-			<!-- Copyrights
+      <!-- Copyrights
 			============================================= -->
-			<div id="copyrights">
+      <div id="copyrights">
+        <div class="container">
+          <div class="row col-mb-30">
+            <div class="col-md-6 text-center text-md-left">
+              Зохиогчийн эрх хуулиар хамгаалагдав. | 2020 он<br />
 
-				<div class="container clearfix">
+            </div>
 
-					<div class="col_half">
-						 &copy; Зохиогчийн эрх хуулиар хамгаалагдав. | 2020 он<br>
-		
-					</div>
+            <div class="col-md-6 text-center text-md-right">
+              <div class="d-flex justify-content-center justify-content-md-end">
+                <a href="#" class="social-icon si-small si-borderless si-facebook">
+                  <i class="icon-facebook"></i>
+                  <i class="icon-facebook"></i>
+                </a>
 
-					<div class="col_half col_last tright">
-						<div class="fright clearfix">
-							<a href="#" class="social-icon si-small si-borderless si-facebook">
-								<i class="icon-facebook"></i>
-								<i class="icon-facebook"></i>
-							</a>
+                <a href="#" class="social-icon si-small si-borderless si-twitter">
+                  <i class="icon-twitter"></i>
+                  <i class="icon-twitter"></i>
+                </a>
 
-							<a href="#" class="social-icon si-small si-borderless si-twitter">
-								<i class="icon-twitter"></i>
-								<i class="icon-twitter"></i>
-							</a>
+                <a href="#" class="social-icon si-small si-borderless si-gplus">
+                  <i class="icon-gplus"></i>
+                  <i class="icon-gplus"></i>
+                </a>
 
-							<a href="#" class="social-icon si-small si-borderless si-gplus">
-								<i class="icon-gplus"></i>
-								<i class="icon-gplus"></i>
-							</a>
+                <a href="#" class="social-icon si-small si-borderless si-pinterest">
+                  <i class="icon-pinterest"></i>
+                  <i class="icon-pinterest"></i>
+                </a>
 
-							<a href="#" class="social-icon si-small si-borderless si-pinterest">
-								<i class="icon-pinterest"></i>
-								<i class="icon-pinterest"></i>
-							</a>
+                <a href="#" class="social-icon si-small si-borderless si-vimeo">
+                  <i class="icon-vimeo"></i>
+                  <i class="icon-vimeo"></i>
+                </a>
 
-							<a href="#" class="social-icon si-small si-borderless si-vimeo">
-								<i class="icon-vimeo"></i>
-								<i class="icon-vimeo"></i>
-							</a>
+                <a href="#" class="social-icon si-small si-borderless si-github">
+                  <i class="icon-github"></i>
+                  <i class="icon-github"></i>
+                </a>
 
-							<a href="#" class="social-icon si-small si-borderless si-github">
-								<i class="icon-github"></i>
-								<i class="icon-github"></i>
-							</a>
+                <a href="#" class="social-icon si-small si-borderless si-yahoo">
+                  <i class="icon-yahoo"></i>
+                  <i class="icon-yahoo"></i>
+                </a>
 
-							<a href="#" class="social-icon si-small si-borderless si-yahoo">
-								<i class="icon-yahoo"></i>
-								<i class="icon-yahoo"></i>
-							</a>
+                <a href="#" class="social-icon si-small si-borderless si-linkedin">
+                  <i class="icon-linkedin"></i>
+                  <i class="icon-linkedin"></i>
+                </a>
+              </div>
 
-							<a href="#" class="social-icon si-small si-borderless si-linkedin">
-								<i class="icon-linkedin"></i>
-								<i class="icon-linkedin"></i>
-							</a>
-						</div>
+              <div class="clear"></div>
 
-						<div class="clear"></div>
 
-						<i class="icon-envelope2"></i> pharma@monos.mn <span class="middot">&middot;</span> <i class="icon-headphones"></i>  (976) 7717-3117 <span class="middot">&middot;</span> 
-					</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- #copyrights end -->
+    </footer>
+    <!-- #footer end -->
+  </div>
+  <!-- #wrapper end -->
 
-				</div>
-
-			</div><!-- #copyrights end -->
-
-		</footer><!-- #footer end -->
-
-	</div><!-- #wrapper end -->
-
-	<!-- Go To Top
+  <!-- Go To Top
 	============================================= -->
-	<div id="gotoTop" class="icon-angle-up"></div>
+  <div id="gotoTop" class="icon-angle-up"></div>
 
-	<!-- External JavaScripts
+  <!-- JavaScripts
 	============================================= -->
-	<script type="text/javascript" src="{% static 'base/assets/js/jquery.js' %}"></script>
-	<script type="text/javascript" src="{% static 'base/assets/js/plugins.js' %}"></script>
+  <script src="{% static 'base/assets/js/jquery.js' %}"></script>
+  <script src="{% static 'base/assets/js/plugins.min.js' %}"></script>
 
-	<!-- Footer Scripts
+  <!-- Footer Scripts
 	============================================= -->
-	<script type="text/javascript" src="{% static 'base/assets/js/functions.js' %}"></script>
+  <script src="{% static 'base/assets/js/functions.js' %}"></script>
 
-	<!-- SLIDER REVOLUTION 5.x SCRIPTS  -->
-	
+  <!-- SLIDER REVOLUTION 5.x SCRIPTS  -->
 
+  <script>
+    var tpj = jQuery;
+    tpj.noConflict();
+    var $ = jQuery.noConflict();
 
-	<script type="text/javascript">
+    tpj(document).ready(function () {
+      var apiRevoSlider = tpj("#rev_slider_ishop")
+        .show()
+        .revolution({
+          sliderType: "standard",
+          jsFileLocation: "include/rs-plugin/js/",
+          sliderLayout: "fullwidth",
+          dottedOverlay: "none",
+          delay: 9000,
+          navigation: {},
+          responsiveLevels: [1200, 992, 768, 480, 320],
+          gridwidth: 1140,
+          gridheight: 500,
+          lazyType: "none",
+          shadow: 0,
+          spinner: "off",
+          autoHeight: "off",
+          disableProgressBar: "on",
+          hideThumbsOnMobile: "off",
+          hideSliderAtLimit: 0,
+          hideCaptionAtLimit: 0,
+          hideAllCaptionAtLilmit: 0,
+          debugMode: false,
+          fallbacks: {
+            simplifyAll: "off",
+            disableFocusListener: false,
+          },
+          navigation: {
+            keyboardNavigation: "off",
+            keyboard_direction: "horizontal",
+            mouseScrollNavigation: "off",
+            onHoverStop: "off",
+            touch: {
+              touchenabled: "on",
+              swipe_threshold: 75,
+              swipe_min_touches: 1,
+              swipe_direction: "horizontal",
+              drag_block_vertical: false,
+            },
+            arrows: {
+              style: "ares",
+              enable: true,
+              hide_onmobile: false,
+              hide_onleave: false,
+              tmp: '<div class="tp-title-wrap">	<span class="tp-arr-titleholder">{{title}}</span> </div>',
+              left: {
+                h_align: "left",
+                v_align: "center",
+                h_offset: 10,
+                v_offset: 0,
+              },
+              right: {
+                h_align: "right",
+                v_align: "center",
+                h_offset: 10,
+                v_offset: 0,
+              },
+            },
+          },
+        });
 
-		var tpj=jQuery;
-		tpj.noConflict();
-
-		tpj(document).ready(function() {
-
-			var apiRevoSlider = tpj('.tp-banner').show().revolution(
-			{
-				sliderType:"standard",
-				jsFileLocation:"include/rs-plugin/js/",
-				sliderLayout:"fullwidth",
-				dottedOverlay:"none",
-				delay:9000,
-				navigation: {},
-				responsiveLevels:[1200,992,768,480,320],
-				gridwidth:1140,
-				gridheight:500,
-				lazyType:"none",
-				shadow:0,
-				spinner:"off",
-				autoHeight:"off",
-				disableProgressBar:"on",
-				hideThumbsOnMobile:"off",
-				hideSliderAtLimit:0,
-				hideCaptionAtLimit:0,
-				hideAllCaptionAtLilmit:0,
-				debugMode:false,
-				fallbacks: {
-					simplifyAll:"off",
-					disableFocusListener:false,
-				},
-				navigation: {
-					keyboardNavigation:"off",
-					keyboard_direction: "horizontal",
-					mouseScrollNavigation:"off",
-					onHoverStop:"off",
-					touch:{
-						touchenabled:"on",
-						swipe_threshold: 75,
-						swipe_min_touches: 1,
-						swipe_direction: "horizontal",
-						drag_block_vertical: false
-					},
-					arrows: {
-						style: "ares",
-						enable: true,
-						hide_onmobile: false,
-						hide_onleave: false,
-						tmp: '<div class="tp-title-wrap">	<span class="tp-arr-titleholder">{{title}}</span> </div>',
-						left: {
-							h_align: "left",
-							v_align: "center",
-							h_offset: 10,
-							v_offset: 0
-						},
-						right: {
-							h_align: "right",
-							v_align: "center",
-							h_offset: 10,
-							v_offset: 0
-						}
-					}
-				}
-			});
-
-			apiRevoSlider.bind("revolution.slide.onloaded",function (e) {
-				SEMICOLON.slider.sliderParallaxDimensions();
-			});
-
-		}); //ready
-
-	</script>
-
+      apiRevoSlider.on("revolution.slide.onloaded", function (e) {
+        SEMICOLON.slider.sliderDimensions();
+      });
+    }); //ready
+  </script>
 </body>
+
 </html>

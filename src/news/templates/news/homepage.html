@@ -2,439 +2,813 @@
 {% load static %}
 
 {% block content %}
+{% comment %} <section id="slider" class="slider-element dark swiper_wrapper slider-parallax min-vh-75">
+	<div class="slider-inner" style="transform: translate3d(0px, 0px, 0px); height: 459px; !important">
+		<div class="swiper-container swiper-parent">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide dark">
+					<div class="container">
+						<div class="slider-caption">
+							<div>
+								<h2 class="nott" data-animate="fadeInUp">Help the Homeless.</h2>
+								<a href="#" data-animate="fadeInUp" data-delay="400"
+									class="button button-rounded button-large button-light shadow nott ls0 ml-0 mt-4">Know
+									More</a>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide-bg"
+						style="background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.5)), url({% static 'base/assets/images/pharma.jpg' %}) no-repeat center center; background-size: cover;">
+					</div>
+				</div>
+				<div class="swiper-slide dark">
+					<div class="container">
+						<div class="slider-caption">
+							<div>
+								<h2 class="nott" data-animate="fadeInUp">Donate with Kindness.</h2>
+								<a href="#" data-animate="fadeInUp" data-delay="400"
+									class="button button-rounded button-large button-light shadow nott ls0 ml-0 mt-4">Know
+									More</a>
+							</div>
+						</div>
+					</div>
+					<div class="swiper-slide-bg"
+						style="background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.8)), url('demos/nonprofit/images/slider/2.jpg') no-repeat center center; background-size: cover;">
+					</div>
+				</div>
+			</div>
+			<div class="swiper-navs">
+				<div class="slider-arrow-left"><i class="icon-line-arrow-left"></i></div>
+				<div class="slider-arrow-right"><i class="icon-line-arrow-right"></i></div>
+			</div>
+			<div class="swiper-scrollbar">
+				<div class="swiper-scrollbar-drag">
+					<div class="slide-number">
+						<div class="slide-number-current"></div><span>/</span>
+						<div class="slide-number-total"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</section> {% endcomment %}
 
 
-				
-		
-		<!-- Content
+<!-- Content
 		============================================= -->
-		<section id="content">
-			<div class="container clearfix" style="padding-top: 80px;">
-
-					<div class="col_two_third bottommargin-lg" >
-
-						<div class="fslider" data-arrows="true" style="filter: brightness(0.8);">
-							<div class="flexslider">
-								<div class="slider-wrap">
-									<div class="slide">
-										<a href="#">
-											<img src="{% static 'base/assets/images/cubebanner/cubebanner1.jpg' %}" alt="Shop Image">
-										</a>
-									</div>
-									<div class="slide">
-										<a href="#">
-											<img src="{% static 'base/assets/images/cubebanner/about3.jpg' %}" alt="Shop Image">
-										</a>
-									</div>
-									<div class="slide">
-										<a href="#">
-											<img src="{% static 'base/assets/images/cubebanner/about2.jpg' %}" alt="Shop Image">
-										</a>
-									</div>
-									
-								</div>
-							</div>
+<section id="slider" class="slider-element swiper_wrapper min-vh-75">
+	<div class="slider-inner">
+		<div class="swiper-container swiper-parent">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide dark">
+					<div class="container">
+						<div class="slider-caption slider-caption-center">
+							<h2 data-animate="fadeInUp" style="color : black"></h2>
+							<p class="d-none d-sm-block" data-animate="fadeInUp" data-delay="200">.</p>
 						</div>
-
 					</div>
-
-					<div class="col_one_third bottommargin-lg col_last" >
-
-						<div class="col_full bottommargin-sm" style="filter: brightness(0.8);">
-							<a href="#"><img src="{% static 'base/assets/images/cubebanner/33.png' %}" alt="Image"></a>
-						</div>
-
-						<div class="col_full nobottommargin" style="filter: brightness(0.8);">
-							<a href="#"><img src="{% static 'base/assets/images/cubebanner/about1.jpg' %}" alt="Image"></a>
-						</div>
-
+					<div class="swiper-slide-bg"
+						style="background-image: url('{% static 'base/assets/images/homebanner/banner3.JPG' %}');">
 					</div>
-
-					<div class="clear"></div>
-
 				</div>
-
-			<div class="content-wrap">
-
-				<div class="container clearfix">
-
-					<div class="col_full bottommargin-lg common-height">
-
-						<div class="col-md-4 dark col-padding ohidden" style="background-color: #3e8a4f;">
-							<div>
-								<h3 class="uppercase" style="font-weight: 600;">Үйлдвэрлэл</h3>
-								<p style="line-height: 1.8;">Tекст.</p>
-								<a href="#" class="button button-border button-light button-rounded uppercase nomargin">Үргэлжлүүлэх</a>
-								<i class="icon-bulb bgicon"></i>
-							</div>
+				<div class="swiper-slide dark">
+					<div class="container clearfix">
+						<div class="slider-caption slider-caption-center">
 						</div>
-
-						<div class="col-md-4 dark col-padding ohidden" style="background-color: #34495e;">
-							<div>
-								<h3 class="uppercase" style="font-weight: 600;">Зорилго</h3>
-								<p style="line-height: 1.8;">Текст.</p>
-								<a href="#" class="button button-border button-light button-rounded uppercase nomargin">Үргэлжлүүлэх</a>
-								<i class="icon-cog bgicon"></i>
-							</div>
-						</div>
-
-						<div class="col-md-4 dark col-padding ohidden" style="background-color: #e74c3c;">
-							<div>
-								<h3 class="uppercase" style="font-weight: 600;">Зөвөлгөө</h3>
-								<p style="line-height: 1.8;">Текст.</p>
-								<a href="#" class="button button-border button-light button-rounded uppercase nomargin">Үргэлжлүүлэх</a>
-								<i class="icon-thumbs-up bgicon"></i>
-							</div>
-						</div>
-					<div class="clear"></div>
+					</div>
+					<div class="video-wrap">
+						<video id="slide-video" poster="{% static 'base/assets/images/videos/videoplayback.mp4' %}"
+							preload="auto" loop autoplay>
+							<source src="{% static 'base/assets/images/videos/videoplayback.mp4' %}"
+								type='video/webm' />
+							<source src="{% static 'base/assets/images/videos/videoplayback.mp4' %}" type='video/mp4' />
+						</video>
+						{% comment %} <div class="video-overlay" style="background-color: rgba(0,0,0,0.55);"></div>
+						{% endcomment %}
+					</div>
 				</div>
-				
-					<div class="clear"></div>
-
-			<div class="container clearfix">
-
-					<div class="col_two_third nobottommargin">
-
-						<div class="fancy-title title-border">
-							<h4>Сүүлд нэмэгдсэн мэдээ</h4>
+				<div class="swiper-slide">
+					<div class="container">
+						<div class="slider-caption">
 						</div>
-					
-							<div id="oc-posts" class="owl-carousel posts-carousel carousel-widget" data-margin="20" data-nav="true" data-pagi="true" data-items-xxs="1" data-items-lg="2">
+					</div>
+					<div class="swiper-slide-bg"
+						style="background-image: url('{% static 'base/assets/images/homebanner/banner2.jpg' %}'); background-position: center top;">
+					</div>
+				</div>
+			</div>
+			<div class="slider-arrow-left"><i class="icon-angle-left"></i></div>
+			<div class="slider-arrow-right"><i class="icon-angle-right"></i></div>
+			<div class="slide-number">
+				<div class="slide-number-current"></div><span>/</span>
+				<div class="slide-number-total"></div>
+			</div>
+		</div>
+	</div>
+</section>
+<div class="section mt-0" style="padding: 30px 0; margin-bottom: 0px;">
+	<div class="container clearfix">
+		<div class="row">
+			<div class="col-md-2 col-6 center">
+				<i class="i-plain icon-sun2 i-plain i-xlarge mx-auto mb-0"></i>
+				<h5 class="my-1">Тэскт</h5>
+			</div>
+			<div class="col-md-2 col-6 center">
+				<i class="i-plain icon-briefcase i-plain i-xlarge mx-auto mb-0"></i>
+				<h5 class="my-1">Тэскт</h5>
+			</div>
+			<div class="col-md-2 col-6 center">
+				<i class="i-plain icon-barcode i-plain i-xlarge mx-auto mb-0"></i>
+				<h5 class="my-1">Тэскт</h5>
+			</div>
+			<div class="col-md-2 col-6 center">
+				<i class="i-plain icon-user i-plain i-xlarge mx-auto mb-0"></i>
+				<h5 class="my-1">Тэскт.</h5>
+			</div>
+			<div class="col-md-2 col-6 center">
+				<i class="i-plain icon-laptop i-plain i-xlarge mx-auto mb-0"></i>
+				<h5 class="my-1">Тэскт</h5>
+			</div>
+			<div class="col-md-2 col-6 center">
+				<i class="i-plain icon-cogs i-plain i-xlarge mx-auto mb-0"></i>
+				<h5 class="my-1">Тэскт</h5>
+			</div>
+		</div>
+	</div>
+</div>
 
-							
-						{% for news in news|slice:"0:1" %} 
-							<div class="oc-item">
-								<div class="ipost clearfix">
-									<div class="entry-image">
-										<a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"><img class="image_fade" src="{% if news.image %}{{ news.image.url }}{% endif %}"></a>
-									</div>
-									<div class="entry-title">
-										<h3><a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}">{{ news.title}}</a></h3>
-									</div>
-									<ul class="entry-meta clearfix">
-										<li>5th May 2014</li>
-										<li><a href="#comments">6 </a></li>
-									</ul>
-									<div class="entry-content">
-										<p>{{ news.content|safe|slice:":70"}}...</p>
+<section id="content">
+	<div class="content-wrap">
+		<div class="container clearfix">
+			<div class="fancy-title title-border title-center topmargin-sm" data-animate="fadeInUp">
+				<h4>Хамтран ажиллагчдын сэтгэгдэл </h4>
+			</div>
+			<div class="row" style="margin-bottom: 70px;" data-animate="fadeInUp">
+				{% comment %} <div class="col-lg-4 parallax" data-bottom-top="margin-top:-50px"
+					data-top-bottom="margin-top:50px">
+					<small class="text-muted text-uppercase font-weight-light ls4 mb-1 d-block">Experience</small>
+					<h2 class="font-weight-bold ls0 mb-4" style="font-size: 38px;">I have been taking photographs for
+						the last 7 years.</h2>
+					<p class="text-muted" style="font-size: 16px;">Lorem ipsum dolor sit amet, consectetur adipisicing
+						elit. Consequatur blanditiis saepe dolore tempora nihil praesentium dolorum unde, earum, nostrum
+						odit?</p>
+				</div> {% endcomment %}
+				{% comment %} <div class="col-lg-7"> {% endcomment %}
+					{% comment %} <div class="row"> {% endcomment %}
+						<div class="col-sm-4" style="max-width: 47%;">
+							<!-- Flip Card
+										============================================= -->
+							<div class="flip-card">
+								<div class="flip-card-front no-after"
+									style="background-image: url('{% static 'base/assets/images/fliplogo/GMP.png' %}'); width: 300px; height:300px;">
+									<div class="flip-card-inner">
+
+										</a>
 									</div>
 								</div>
-							</div>
-						{% endfor %}
-						</div>
-					
-						<div class="clear"></div>
+								<div class="flip-card-back dark">
+									<div class="flip-card-inner mt-3">
 
-					</div>
+										<div class="feature-box media-box fbox-sm">
+											<div class="fbox-icon position-relative mb-4">
 
+											</div>
+											<div class="fbox-content">
+												<h3 class="font-weight-normal nott">Дэлгэрэнгүй</h3>
 
-
-
-
-                   
-
-					<div class="col_one_third nobottommargin col_last">
-
-						<div class="fancy-title title-border">
-							<h4>Зөвөлгөө</h4>
-						</div>
-
-						<div class="fslider testimonial nopadding noborder noshadow" data-animation="slider" data-arrows="true" data-margin="20" data-nav="true" data-pagi="true"> 
-							<div class="flexslider">
-								<div class="slider-wrap">
-								{% for advice in advice %}
-									<div class="slide">
-										<div class="testi-image">
-											<a href="#"><img src="{% static 'base/assets/images/advice/advice.png' %}" alt="Customer Testimonails"></a>
-										</div>
-										<div class="testi-content">
-											<p>{{ advice.content|safe|slice:":100" }}</p>
-											<div class="testi-meta">
-												{{ advice.title }}
-												<span>{{ advice.category }}</span>
 											</div>
 										</div>
 									</div>
-								{% endfor %}
-									
-									
 								</div>
 							</div>
 						</div>
+						<div class="col-sm-4 mb-5" style="max-width: 47%;">
+							<!-- Flip Card
+										============================================= -->
+							<div class="flip-card">
+								<div class="flip-card-front no-after"
+									style="background-image: url('{% static 'base/assets/images/fliplogo/iso.png' %}'); width: 300px; height:300px;">
+									<div class="flip-card-inner">
 
-						<div class="clear"></div>
+										</a>
+									</div>
+								</div>
+								<div class="flip-card-back dark">
+									<div class="flip-card-inner mt-3">
 
-						<div class="well topmargin ohidden">
+										<div class="feature-box media-box fbox-sm">
+											<div class="fbox-icon position-relative mb-4">
 
-							<h4>Гарчиг тэкст</h4>
+											</div>
+											<div class="fbox-content">
+												<h3 class="font-weight-normal nott">Дэлгэрэнгүй</h3>
 
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit reprehenderit voluptates.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4 mb-5" style="max-width: 47%;">
+							<!-- Flip Card
+										============================================= -->
+							<div class="flip-card">
+								<div class="flip-card-front no-after"
+									style="background-image: url('{% static 'base/assets/images/fliplogo/PECB.png' %}'); width: 300px; height:300px;">
+									<div class="flip-card-inner">
 
-							<ul class="iconlist nobottommargin">
-								<li><i class="icon-time color"></i> <strong>Даваа-Баасан:</strong> 10AM - 7PM</li>
-								<li><i class="icon-time color"></i> <strong>Хагассайн:</strong> 11AM - 3PM</li>
-								<li><i class="icon-time text-danger"></i> <strong>Бүтэнсайн:</strong> Амрана</li>
-							</ul>
+										</a>
+									</div>
+								</div>
+								<div class="flip-card-back dark">
+									<div class="flip-card-inner mt-3">
 
-							<i class="icon-time bgicon"></i>
+										<div class="feature-box media-box fbox-sm">
+											<div class="fbox-icon position-relative mb-4">
 
+											</div>
+											<div class="fbox-content">
+												<h3 class="font-weight-normal nott">Дэлгэрэнгүй</h3>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						{% comment %}
+					</div> {% endcomment %}
+					{% comment %} </div> {% endcomment %}
+			</div>
+			<div class="clear"></div>
+			<div class="fancy-title title-border title-center topmargin-sm" data-animate="fadeInUp">
+				<h4>Мэдээ мэдээлэл </h4>
+			</div>
+			<div class="tab-content clearfix" id="tabs-1" data-animate="fadeInUp">
+				<div class="row gutter-20 align-items-stretch">
+					{% for news in news|slice:"0:1" %}
+					<div class="col-md-6 min-vh-40">
+						<div class="grid-inner h-100"
+							style="background-image: url('{% if news.image %}{{ news.image.url }}{% endif %}');">
+							<div class="bg-overlay">
+								<div
+									class="bg-overlay-content text-overlay-mask dark align-items-start justify-content-between">
+									<div>
+										<span class="badge badge-danger">Category</span>
+										<div class="portfolio-desc">
+											{% comment %} <span class="font-primary text-uppercase">Justin Bieber</span>
+											{% endcomment %}
+											<h3><a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
+													class="font-secondary">{{ news.title }}</a></h3>
+										</div>
+										<div>
+											<a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
+												class="button button-circle button-small font-weight-normal ls1 ml-0 track-list"
+												data-track="demos/music/tracks/fallin-extended-mix.mp3"
+												data-poster="demos/music/tracks/poster-images/fallin-extended-mix.jpg"
+												data-title="Fallin Extended Mix" data-singer="Justin"><i
+													class="icon-play"></i>Цааш үзэх</a>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+
+					<div class="col-md-6 px-0">
+						<div class="row mx-0 gutter-20">
+
+							{% for news in news|slice:"1:2" %}
+							<div class="col-6">
+								<div class="grid-inner" style="height: 280px;">
+									<img src="{% if news.image %}{{ news.image.url }}{% endif %}" alt=""
+										style="width: 100%; height: 100%;">
+									<div class="bg-overlay">
+										<span class="badge badge-danger">aa</span>
+
+										<div
+											class="bg-overlay-content text-overlay-mask dark align-items-start justify-content-between">
+											<div class="portfolio-desc py-0">
+												<h3><a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
+														class="font-secondary">{{ news.title }}</a></h3>
+											</div>
+										</div>
+										<div class="bg-overlay-floating" data-hover-animate="fadeIn">
+											<a href="#"><i class="icon-line-heart"></i></a>
+											<a href="#"><i class="icon-line-ellipsis"></i></a>
+										</div>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+							{% for news in news|slice:"2:3" %}
+							<div class="col-6">
+								<div class="grid-inner" style="height: 280px;">
+									<img src="{% if news.image %}{{ news.image.url }}{% endif %}" alt=""
+										style="width: 100%; height: 100%;">
+									<div class="bg-overlay">
+										<span class="badge badge-danger">Category</span>
+
+										<div
+											class="bg-overlay-content text-overlay-mask dark align-items-start justify-content-between">
+											<div class="portfolio-desc py-0">
+
+												<h3><a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
+														class="font-secondary">{{ news.title }}</a></h3>
+											</div>
+										</div>
+										<div class="bg-overlay-floating" data-hover-animate="fadeIn">
+											<a href="#"><i class="icon-line-heart"></i></a>
+											<a href="#"><i class="icon-line-ellipsis"></i></a>
+										</div>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+							{% for news in news|slice:"3:4" %}
+							<div class="col-12">
+								<div class="grid-inner" style="height: 280px;">
+									<img src="{% if news.image %}{{ news.image.url }}{% endif %}" alt="Image"
+										style="width: 100%; height: 100%;">
+									<div class="bg-overlay">
+										<div
+											class="bg-overlay-content text-overlay-mask dark align-items-start justify-content-between">
+											<div>
+												<span class="badge badge-danger">Category</span>
+												<div class="portfolio-desc">
+
+													<h3><a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
+															class="font-secondary">{{ news.title }}</a></h3>
+												</div>
+												<div>
+													<a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
+														class="button button-circle button-small font-weight-normal ls1 ml-0 track-list"><i
+															class="icon-play"></i>Цааш үзэх</a>
+													<a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
+														class="button button-circle button-small button-border button-white font-weight-normal ls1">View
+														All</a>
+												</div>
+											</div>
+										</div>
+										<div class="bg-overlay-floating" data-hover-animate="fadeIn">
+											<a href="#"><i class="icon-line-heart"></i></a>
+											<a href="#"><i class="icon-line-ellipsis"></i></a>
+										</div>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="clear"></div>
+
+			<div class="section bg-transparent" data-animate="fadeInUp">
+				<div class="container">
+					<div class="heading-block mb-4 border-bottom-0">
+						<h2 class="font-weight-normal ls0 nott mb-0"> Онцлох бүтээгдэхүүн </h2>
+					</div>
+					<div class="row align-items-center">
+
+						<div class="col-lg-3 col-sm-6">
+							<img src="{% static 'base/assets/images/zohiomj/читамон.jpg' %}" alt="Image">
+						</div>
+
+						<div class="col-lg-4 col-sm-6 mt-3 mt-sm-0">
+							<div class="heading-block">
+								<h2 class="font-weight-bold ls0 mb-0 font-body">Зурагтай хамаарайлтай Гарчиг</h2>
+								<span class="text-muted">Туслах гарчиг</span>
+							</div>
+							<p class="mb-0">Зурагнуудтай хамаарайлтай тэкст мэдээлэл.</p>
+						</div>
+
+						<div class="col-lg-5 mt-5 mt-lg-0">
+							<h4 class="mb-0 font-weight-normal font-body"> <a href="#">Бидний бүтээгдэхүүн Дэлхийд</a>
+							</h4>
+							<div id="oc-images" class="owl-carousel image-carousel carousel-widget" data-margin="20"
+								data-nav="true" data-pagi="true" data-items-xs="2" data-items-sm="3" data-items-md="3"
+								data-items-lg="2" data-items-xl="2">
+
+								<div class="oc-item">
+									<a href="#"><img src="{% static 'base/assets/images/world/0205-3.jpg' %}"
+											alt="Image 1"></a>
+								</div>
+								<div class="oc-item">
+									<a href="#"><img src="{% static 'base/assets/images/world/20200216.jpg' %}"
+											alt="Image 2"></a>
+								</div>
+								<div class="oc-item">
+									<a href="#"><img
+											src="{% static 'base/assets/images/world/20200319-1-Recovered.jpg' %}"
+											alt="Image 3"></a>
+								</div>
+								<div class="oc-item">
+									<a href="#"><img
+											src="{% static 'base/assets/images/world/83666078_1043349286030807_5830185415876804608_n.jpg' %}"
+											alt="Image 4"></a>
+								</div>
+								<div class="oc-item">
+									<a href="#"><img src="{% static 'base/assets/images/world/Весул.jpg' %}"
+											alt="Image 5"></a>
+								</div>
+
+							</div>
 						</div>
 
 					</div>
-
-					<div class="clear"></div>
-
 				</div>
-					<div class="clear"></div>
+			</div>
 
-					<div class="tabs topmargin-lg clearfix" id="tab-3">
-
+			<div class="row">
+				<div class="col-9">
+					<div class="tabs topmargin-lg clearfix" id="tab-3" data-animate="fadeInUp">
 						<ul class="tab-nav clearfix">
-		
 							<li><a href="#tabs-9">Бүтээгдэхүүн</a></li>
-						
-
-								
 						</ul>
+						<div id="oc-products" class="owl-carousel products-carousel carousel-widget" data-margin="20"
+							data-loop="true" data-autoplay="5000" data-nav="true" data-pagi="false" data-items-xs="1"
+							data-items-sm="2" data-items-md="3" data-items-lg="3" data-items-xl="4">
+							<!-- Shop Item 5
+						============================================= -->
+							{% for product in newproduct %}
 
-						<div class="tab-container">
+							<div class="oc-item">
+								<div class="product">
+									<div class="product-image">
+										<a href="#"><img src="{% if product.image %}{{ product.image.url }} {% endif %}"
+												alt="Checked Short Dress"></a>
+										<div class="bg-overlay">
+											<div class="bg-overlay-content align-items-end justify-content-between"
+												data-hover-animate="fadeIn" data-hover-speed="400">
+												<a href="#" class="btn btn-dark mr-2"><i
+														class="icon-shopping-basket"></i></a>
+												<a href="demos/shop/ajax/shop-item.html" class="btn btn-dark"
+													data-lightbox="ajax"><i class="icon-line-expand"></i></a>
+											</div>
+											<div class="bg-overlay-bg bg-transparent"></div>
+										</div>
+									</div>
+									<div class="product-desc">
+										<div class="product-title">
+											<h5><a href="#" style="color: #020202; !important">{{ product.name }}</a>
+											</h5>
+										</div>
+										<div class="product-price"> <ins
+												style="text-size: 15px; !important">{{ product.price }}</ins></div>
 
-							<div class="tab-content clearfix" id="tabs-9">
-
-								<div id="oc-products" class="owl-carousel products-carousel carousel-widget" data-margin="20" data-nav="true" data-pagi="false" data-items-xxs="1" data-items-xs="2" data-items-sm="3" data-items-md="4">
-
-						{% for product in newproduct %}
-						<div class="oc-item">
-							<div class="product iproduct clearfix">
-								<div class="product-image">
-									<a href="#"><img src="{% if product.image %}{{ product.image.url }} {% endif %}" alt="Checked Short Dress"></a>
-									<a href="#"><img src="{{ product.image.url }}" alt="Monos pharma prodcut "></a>
-									
-									<div class="product-overlay">
-										<a href="#" class="add-to-cart"><i class="icon-shopping-cart"></i><span> Хэрэглэх заавар</span></a>
-										<a href="include/ajax/shop-item.html" class="item-quick-view" data-lightbox="ajax"><i class="icon-zoom-in2"></i><span> Дэлгэрэнгүй мэдээлэл</span></a>
 									</div>
 								</div>
-								<div class="product-desc center">
-									<div class="product-title"><h5><a href="#" style="color: #020202; !important">{{ product.name }}</a></h5></div>
-									<div class="product-price"> <ins style="text-size: 15px; !important">{{ product.price }}</ins></div>
-									
-								</div>
+
+
+
 							</div>
-						</div>
-						{% endfor %}
+							{% endfor %}
 
-
-					</div>
-						</div>
-						</div>
-
-					</div>
-
-					<div class="clear bottommargin-sm"></div>
-
-					<div class="col_one_third">
-						<div class="fancy-title title-border">
-							<h4>Текст Гарчиг</h4>
-						</div>
-						<p>Jane Jacobs educate, leverage affiliate Martin Luther King Jr. agriculture conflict resolution dignity. Cooperation international progress non-partisan lasting change meaningful.</p>
-					</div>
-
-					<div class="col_one_third subscribe-widget">
-						<div class="fancy-title title-border">
-							<h4>Текст Гарчиг №2</h4>
-						</div>
-						<p>Subscribe to Our Newsletter to get Important News, Amazing Offers &amp; Inside Scoops:</p>
-						<div class="widget-subscribe-form-result"></div>
-						<form id="widget-subscribe-form2" action="include/subscribe.php" role="form" method="post" class="nobottommargin">
-							<div class="input-group divcenter">
-								<span class="input-group-addon"><i class="icon-email2"></i></span>
-								<input type="email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
-								<span class="input-group-btn">
-									<button class="btn btn-default" type="submit">Subscribe</button>
-								</span>
-							</div>
-						</form>
-					</div>
-
-					<div class="col_one_third col_last">
-						<div class="fancy-title title-border">
-							<h4>Цахим холбоос</h4>
-						</div>
-
-						<a href="#" class="social-icon si-facebook" data-toggle="tooltip" data-placement="top" title="Facebook">
-							<i class="icon-facebook"></i>
-							<i class="icon-facebook"></i>
-						</a>
-
-						<a href="#" class="social-icon si-delicious" data-toggle="tooltip" data-placement="top" title="Delicious">
-							<i class="icon-delicious"></i>
-							<i class="icon-delicious"></i>
-						</a>
-
-						<a href="#" class="social-icon si-paypal" data-toggle="tooltip" data-placement="top" title="PayPal">
-							<i class="icon-paypal"></i>
-							<i class="icon-paypal"></i>
-						</a>
-
-						<a href="#" class="social-icon si-flattr" data-toggle="tooltip" data-placement="top" title="Flattr">
-							<i class="icon-flattr"></i>
-							<i class="icon-flattr"></i>
-						</a>
-
-						<a href="#" class="social-icon si-android" data-toggle="tooltip" data-placement="top" title="Android">
-							<i class="icon-android"></i>
-							<i class="icon-android"></i>
-						</a>
-
-						<a href="#" class="social-icon si-smashmag" data-toggle="tooltip" data-placement="top" title="Smashing Magazine">
-							<i class="icon-smashmag"></i>
-							<i class="icon-smashmag"></i>
-						</a>
-
-						<a href="#" class="social-icon si-gplus" data-toggle="tooltip" data-placement="top" title="Google+">
-							<i class="icon-gplus"></i>
-							<i class="icon-gplus"></i>
-						</a>
-
-						<a href="#" class="social-icon si-wikipedia" data-toggle="tooltip" data-placement="top" title="Wikipedia">
-							<i class="icon-wikipedia"></i>
-							<i class="icon-wikipedia"></i>
-						</a>
-
-						<a href="#" class="social-icon si-stumbleupon" data-toggle="tooltip" data-placement="top" title="StumbleUpon">
-							<i class="icon-stumbleupon"></i>
-							<i class="icon-stumbleupon"></i>
-						</a>
-
-						<a href="#" class="social-icon si-foursquare" data-toggle="tooltip" data-placement="top" title="FourSquare">
-							<i class="icon-foursquare"></i>
-							<i class="icon-foursquare"></i>
-						</a>
-
-						<a href="#" class="social-icon si-call" data-toggle="tooltip" data-placement="top" title="Call">
-							<i class="icon-call"></i>
-							<i class="icon-call"></i>
-						</a>
-
-						<a href="#" class="social-icon si-ninetyninedesigns" data-toggle="tooltip" data-placement="top" title="Ninety Nine Design">
-							<i class="icon-ninetyninedesigns"></i>
-							<i class="icon-ninetyninedesigns"></i>
-						</a>
-
-						<a href="#" class="social-icon si-forrst" data-toggle="tooltip" data-placement="top" title="Forrst">
-							<i class="icon-forrst"></i>
-							<i class="icon-forrst"></i>
-						</a>
-
-						<a href="#" class="social-icon si-digg" data-toggle="tooltip" data-placement="top" title="Digg">
-							<i class="icon-digg"></i>
-							<i class="icon-digg"></i>
-						</a>
-					</div>
-
-					<div class="clear"></div>
-
-					<div class="fancy-title title-border title-center topmargin-sm">
-						<h4>Хамтрагч байгууллагууд</h4>
-					</div>
-
-					<ul class="clients-grid grid-6 nobottommargin clearfix">
-						<li><a href="#"><img src="{% static 'base/assets/images/clients/logo/1.png' %}" alt="Clients"></a></li>
-						<li><a href="#"><img src="{% static 'base/assets/images/clients/logo/2.png' %}" alt="Clients"></a></li>
-						<li><a href="#"><img src="{% static 'base/assets/images/clients/logo/3.png' %}" alt="Clients"></a></li>
-						<li><a href="#"><img src="{% static 'base/assets/images/clients/logo/4.png' %}" alt="Clients"></a></li>
-						<li><a href="#"><img src="{% static 'base/assets/images/clients/logo/5.png' %}" alt="Clients"></a></li>
-						<li><a href="#"><img src="{% static 'base/assets/images/clients/logo/6.png' %}" alt="Clients"></a></li>
-						<li><a href="#"><img src="{% static 'base/assets/images/clients/logo/7.png' %}" alt="Clients"></a></li>
-						<li><a href="#"><img src="{% static 'base/assets/images/clients/logo/8.png' %}" alt="Clients"></a></li>
-						<li><a href="#"><img src="{% static 'base/assets/images/clients/logo/9.png' %}" alt="Clients"></a></li>
-						<li><a href="#"><img src="{% static 'base/assets/images/clients/logo/10.png' %}" alt="Clients"></a></li>
-						<li><a href="#"><img src="{% static 'base/assets/images/clients/logo/11.png' %}" alt="Clients"></a></li>
-						<li><a href="#"><img src="{% static 'base/assets/images/clients/logo/12.png' %}" alt="Clients"></a></li>
-					
-					</ul>
-
-				</div>
-
-				<div class="section nobottommargin">
-					<div class="container clearfix">
-
-						<div class="col_one_fourth nobottommargin">
-							<div class="feature-box fbox-plain fbox-dark fbox-small">
-								<div class="fbox-icon">
-									<i class="icon-thumbs-up2"></i>
-								</div>
-								<h3>Бүтээгдэхүүн</h3>
-								<p class="notopmargin">We guarantee you the sale of Original Brands.</p>
-							</div>
-						</div>
-
-						<div class="col_one_fourth nobottommargin">
-							<div class="feature-box fbox-plain fbox-dark fbox-small">
-								<div class="fbox-icon">
-									<i class="icon-credit-cards"></i>
-								</div>
-								<h3>Нээлттэй ажлын байр</h3>
-								<p class="notopmargin">We accept Visa, MasterCard and American Express.</p>
-							</div>
-						</div>
-
-						<div class="col_one_fourth nobottommargin">
-							<div class="feature-box fbox-plain fbox-dark fbox-small">
-								<div class="fbox-icon">
-									<i class="icon-truck2"></i>
-								</div>
-								<h3>Хүргэлт үйлчилгээ</h3>
-								<p class="notopmargin">Free Delivery to 100+ Locations on orders above $40.</p>
-							</div>
-						</div>
-
-						<div class="col_one_fourth nobottommargin col_last">
-							<div class="feature-box fbox-plain fbox-dark fbox-small">
-								<div class="fbox-icon">
-									<i class="icon-question"></i>
-								</div>
-								<h3>Онлайн тусламж</h3>
-								<p class="notopmargin">Return or exchange items purchased within 30 days.</p>
-							</div>
 						</div>
 
 					</div>
 				</div>
+				<div class="col-3" style="padding-top: 100px;">
+					<div class="widget widget-filter-links clearfix" data-animate="fadeInRight">
+						<div class="card">
+							<div class="card-body">
+								<h4>Хайлт</h4>
+								<form action="#" role="form" class="notopmargin nobottommargin">
+									<div class="input-group divcenter">
+										<input type="text" class="form-control" name="search_text"
+											placeholder="Энд хайх утгаа бичнэ үү." value="{{ search_text }}">
+										<span class="input-group-btn">
+											<button class="btn btn-success" type="submit"><i
+													class="icon-email2"></i></button>
+										</span>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-				<div class="section notopborder nobottomborder nomargin nopadding nobg footer-stick">
-					<div class="container clearfix">
+			<div class="clear bottommargin-sm"></div>
+</section>
+<section>
+	<div class="fancy-title title-border title-center topmargin-sm" data-animate="fadeInUp">
+		<h4>Хамтрагч байгууллагууд</h4>
+	</div>
+	<div class="row counters clearfix mb-0 topmargin-sm align-items-stretch" data-animate="fadeInUp">
 
-									<div class="fancy-title title-border title-center topmargin-sm">
-										<h4>Хамтран ажиллагчдын сэтгэгдэл </h4>
-									</div>	
+		<div class="col-lg-3 col-md-6 dark text-center min-vh-40"
+			style="background: url('{% static 'base/assets/images/counter/counter1.JPG' %}') no-repeat center center; background-size: cover;">
+			<div class="bg-overlay">
+				<div class="bg-overlay-content dark">
+					<div>
+						<i class="i-rounded i-bordered icon-check"></i>
+						<div class="counter counter-lined"><span data-from="100" data-to="42762"
+								data-refresh-interval="50" data-speed="2300"></span></div>
+						<h5>Тэкст энд байрлана</h5>
+					</div>
+				</div>
+				<div class="bg-overlay-bg op-ts op-1" data-hover-animate="op-0" data-hover-animate-out="op-1"
+					style="background-color: rgb(50 56 49 / 50%);"></div>
+			</div>
+		</div>
 
-							<div id="oc-testi" class="owl-carousel testimonials-carousel carousel-widget" data-margin="20" data-items-xs="1" data-items-sm="2" data-items-lg="3" style="margin-bottom: 50px;">
-						{% for testimonail in testimonail%}
-						<div class="oc-item">
-							<div class="testimonial">
-								<div class="testi-image">
-									<a href=""><img src="{% if testimonail.profile %}{{ testimonail.profile.url }}{% endif %}" alt="Customer Testimonails"></a>
-								</div>
-								<div class="testi-content">
-									<p>{{ testimonail.content|safe }}</p>
-									<div class="testi-meta">
-										{{ testimonail.person }}
-										<span>{{ testimonail.job }}.</span>
+		<div class="col-lg-3 col-md-6 dark text-center min-vh-40"
+			style="background: url('{% static 'base/assets/images/counter/counter2.JPG' %}') no-repeat center center; background-size: cover;">
+			<div class="bg-overlay">
+				<div class="bg-overlay-content dark">
+					<div>
+						<i class="i-rounded i-bordered icon-cogs"></i>
+						<div class="counter counter-lined"><span data-from="3000" data-to="21500"
+								data-refresh-interval="100" data-speed="2500"></span></div>
+						<h5>Тэкст энд байрлана</h5>
+					</div>
+				</div>
+				<div class="bg-overlay-bg op-ts op-1" data-hover-animate="op-0" data-hover-animate-out="op-1"
+					style="background-color: rgb(50 56 49 / 50%);"></div>
+			</div>
+		</div>
+
+		<div class="col-lg-3 col-md-6 dark text-center min-vh-40"
+			style="background: url('{% static 'base/assets/images/counter/counter3.jpg' %}') no-repeat center center; background-size: cover;">
+			<div class="bg-overlay">
+				<div class="bg-overlay-content dark">
+					<div>
+						<i class="i-rounded i-bordered icon-rocket"></i>
+						<div class="counter counter-lined"><span data-from="20" data-to="408" data-refresh-interval="25"
+								data-speed="3500"></span>K</div>
+						<h5>Тэкст энд байрлана</h5>
+					</div>
+				</div>
+				<div class="bg-overlay-bg op-ts op-1" data-hover-animate="op-0" data-hover-animate-out="op-1"
+					style="background-color: rgb(50 56 49 / 50%);"></div>
+			</div>
+		</div>
+
+		<div class="col-lg-3 col-md-6 dark text-center min-vh-40"
+			style="background: url('{% static 'base/assets/images/counter/counter4.JPG' %}') no-repeat center center; background-size: cover;">
+			<div class="bg-overlay">
+				<div class="bg-overlay-content dark">
+					<div>
+						<i class="i-plain i-xlarge mx-auto icon-medical-i-ambulance"></i>
+						<div class="counter counter-lined"><span data-from="60" data-to="140" data-refresh-interval="20"
+								data-speed="2700"></span></div>
+						<h5>Тэкст энд байрлана</h5>
+					</div>
+				</div>
+				<div class="bg-overlay-bg op-ts op-1" data-hover-animate="op-0" data-hover-animate-out="op-1"
+					style="background-color: rgb(50 56 49 / 50%);"></div>
+			</div>
+		</div>
+
+	</div>
+
+</section>
+
+<section id="content">
+
+	<div class="clear"></div>
+	<div class="fancy-title title-border title-center topmargin-sm" data-animate="fadeInUp">
+		<h4>Хамтрагч байгууллагууд</h4>
+	</div>
+
+	<ul class="clients-grid grid-2 grid-sm-3 grid-md-6 mb-0" data-animate="fadeInUp">
+		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/parthner/1.jpg' %}" alt="Clients"
+					style="height:70px; width:70px;"></a></li>
+		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/parthner/2.jpg' %}" alt="Clients"
+					style="height:70px; width:70px;"></a></li>
+		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/parthner/3.png' %}" alt="Clients"
+					style="height:70px; width:70px;"></a></li>
+		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/parthner/4.png' %}" alt="Clients"
+					style="height:70px; width:70px;"></a></li>
+		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/parthner/5.jpg' %}" alt="Clients"
+					style="height:100px; width:100px;"></a></li>
+		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/parthner/6.png' %}" alt="Clients"
+					style="height:80px; width:80px;"></a></li>
+		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/parthner/7.png' %}" alt="Clients"
+					style="height:90px; width:90px;"></a></li>
+		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/logo/8.png' %}"
+					alt="Clients"></a></li>
+		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/logo/9.png' %}"
+					alt="Clients"></a></li>
+		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/logo/10.png' %}"
+					alt="Clients"></a></li>
+		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/logo/11.png' %}"
+					alt="Clients"></a></li>
+		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/logo/12.png' %}"
+					alt="Clients"></a></li>
+
+	</ul>
+
+	</div>
+
+	<div class="section mb-0">
+		<div class="container">
+
+			<div class="row col-mb-50">
+				<div class="col-sm-6 col-lg-3">
+					<div class="feature-box fbox-plain fbox-dark fbox-sm">
+						<div class="fbox-icon">
+							<i class="icon-thumbs-up2"></i>
+						</div>
+						<div class="fbox-content">
+							<h3>100% Original</h3>
+							<p class="mt-0">We guarantee you the sale of Original Brands.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-lg-3">
+					<div class="feature-box fbox-plain fbox-dark fbox-sm">
+						<div class="fbox-icon">
+							<i class="icon-credit-cards"></i>
+						</div>
+						<div class="fbox-content">
+							<h3>Payment Options</h3>
+							<p class="mt-0">We accept Visa, MasterCard and American Express.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-lg-3">
+					<div class="feature-box fbox-plain fbox-dark fbox-sm">
+						<div class="fbox-icon">
+							<i class="icon-truck2"></i>
+						</div>
+						<div class="fbox-content">
+							<h3>Free Shipping</h3>
+							<p class="mt-0">Free Delivery to 100+ Locations on orders above $40.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-lg-3">
+					<div class="feature-box fbox-plain fbox-dark fbox-sm">
+						<div class="fbox-icon">
+							<i class="icon-undo"></i>
+						</div>
+						<div class="fbox-content">
+							<h3>30-Days Returns</h3>
+							<p class="mt-0">Return or exchange items purchased within 30 days.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	</div>
+</section>
+<section id="content">
+	<div class="content-wrap">
+		<div class="container clearfix">
+			<div class="fancy-title title-border title-center topmargin-sm">
+				<h4>Хамтран ажиллагчдын сэтгэгдэл </h4>
+			</div>
+			<div class="container clearfix">
+				<div class="section mt-0"
+					style="background: url('{% static 'base/assets/demos/seo/images/sections/3.jpg' %}') no-repeat top center; background-size: cover; padding: 80px 0 70px;">
+					<div class="container">
+
+						<div id="oc-test" class="owl-carousel test-carousel carousel-widget clearfix" data-margin="0"
+							data-pagi="true" data-loop="true" data-center="true" data-autoplay="5000" data-items-sm="1"
+							data-items-md="2" data-items-xl="3">
+							{% for testimonail in testimonail %}
+							<div class="oc-item">
+								<div class="test">
+									<div class="testi-image">
+										<a href="#"><img
+												src="{% if testimonail.profile %}{{ testimonail.profile.url }}{% endif %}"
+												alt="Customer Testimonails"></a>
+									</div>
+									<div class="testi-content">
+										<p> {{ testimonail.content|safe }}</p>
+										<div class="testi-meta">
+											{{ testimonail.person }}
+											<span>{{ testimonail.job }}.</span>
+										</div>
 									</div>
 								</div>
 							</div>
+							{% endfor %}
 						</div>
-						{% endfor %}
-
-					</div>
-
 					</div>
 				</div>
 
 			</div>
+		</div>
+	</div>
 
-		</section><!-- #content end -->
+	{% comment %} <div class="section parallax topmargin-lg mb-0 border-top-0 clearfix"
+		style="background-image: url(' {% static 'base/assets/images/human.jpg' %}'); background-size: cover;"
+		data-bottom-top="background-position:0px 100px;" data-top-bottom="background-position:0px -100px;">
+		<div class="container clearfix">
 
+			<div class="row cleafix">
+				<div class="col-md-12 dark" style="padding-left: 60px;">
+					<div class="heading-block bottommargin-sm border-0">
+						<h3 class="nott"
+							style="color: black; font-size: 46px; font-weight: 700; letter-spacing: -2px; line-height: 58px">
+							Хүний нөөц.</h3>
+					</div>
+				</div>
+
+				<div class="topmargin d-block d-lg-none d-xl-block"></div>
+			</div>
+			<div class="row">
+				<!-- Testimonials slider
+							============================================= -->
+				<div class="col-md-1-5 human">
+					<h5>Анкет бөглөх</h5>
+					<i class="icon-arrow-right1" style="color: #468904">
+					</i>
+				</div>
+				<div class="col-md-1-5 human">
+					<h5>Анхан шатны мэдлэг сорих шалгалт</h5>
+					<i class="icon-arrow-right1" style="color: #468904">
+					</i>
+				</div>
+				<div class="col-md-1-5 human">
+					<h5>Ярилцлага</h5>
+					<i class="icon-arrow-right1" style="color: #468904">
+					</i>
+				</div>
+				<div class="col-md-1-5 human">
+					<h5>Дэлгэрэнгүй ярилцлага</h5>
+					<i class="icon-arrow-right1" style="color: #468904">
+					</i>
+				</div>
+				<div class="col-md-1-5 human">
+					<h5>Туршилтын 3 хоног</h5>
+					<i class="icon-arrow-right1" style="color: #468904">
+					</i>
+				</div>
+			</div>
+		</div>
+	</div> {% endcomment %}
+
+
+</section><!-- #content end -->
+
+
+<style>
+	/* Testimonials Carousel
+-----------------------------------------------------------------*/
+	.test-carousel .owl-stage {
+		padding-top: 40px;
+	}
+
+	.test-carousel .owl-item {
+		opacity: 0.6;
+		transition: transform 0.3s ease;
+		transform: scale(0.8);
+	}
+
+	.test-carousel .owl-item.active.center {
+		opacity: 1;
+		transform: scale(1);
+	}
+
+	.test {
+		border: 0;
+		box-shadow: 0 0 35px rgb(0 0 0 / 43%);
+		border-radius: 0.25rem;
+		padding: 25px;
+	}
+
+	.testi-image .test {
+		float: none;
+		margin: -55px auto 0;
+		margin-bottom: 20px;
+	}
+
+	.testi-content p {
+		text-align: center;
+		font-style: normal;
+		font-family: var(--fontfamily);
+		font-size: var(--basefontsize);
+	}
+
+	.testi-meta {
+		text-align: center;
+		margin-top: 20px;
+	}
+
+	.human {
+		background: rgb(74 74 74 / 14%);
+		border-radius: 5px;
+		padding: 15px;
+		left: 0px;
+		top: 0px;
+		margin-top: 70px;
+		margin-bottom: 90px;
+	}
+</style>
 {% endblock %}

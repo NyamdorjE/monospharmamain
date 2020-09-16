@@ -9,6 +9,8 @@ from django.utils.translation import gettext_lazy as _
 
 urlpatterns = [
     Nurl('product/') > 'src.product.views.ProductList',
- 
+    Nurl('product/<slug:slug>/') > 'src.product.views.ProductDetailView',
+    Nurl('productalph') > 'src.product.views.ProductAlphabet',
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

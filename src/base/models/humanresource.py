@@ -19,6 +19,11 @@ from django.db.models import Q
 from django.views.generic import ListView, CreateView, UpdateView
 from ckeditor.fields import RichTextField
 from nested_inline.admin import NestedStackedInline, NestedModelAdmin, NestedTabularInline
+from django.contrib import messages
+from django.core.mail import EmailMessage
+from django.views import View
+from django.conf import settings
+
 
 # Create your models here.
 
@@ -27,6 +32,11 @@ class Hr(models.Model):
     title = models.CharField(max_length=255, verbose_name=_('Title'))
     description = models.CharField(
         max_length=900, verbose_name=_('Description'))
+    slug = models.SlugField(verbose_name=_("Slug"))
+    deadline = models.DateField(verbose_name=_(
+        "Deadline date "), auto_now_add=False, null=True, blank=True)
+    created_at = models.DateField(verbose_name=_(
+        "Created at"), auto_now=True, auto_now_add=True)
 
     class Meta:
         verbose_name = _('Human resource')
@@ -63,58 +73,131 @@ class ListItem(models.Model):
         return u'{0}'.format(self.item_text)
 
 
-class Application(models.Model):
-    firstname = models.CharField(max_length=255, verbose_name=_('Firstname'))
-    lastname = models.CharField(max_length=255, verbose_name=_("Lastname"))
-    phone = models.CharField(max_length=255, verbose_name=_('Phone'))
+class Questionnaire(models.Model):
+    anket = models.FileField(
+        upload_to="media/anket/", verbose_name=_('Questionnaire'))
 
-    class Meta:
-        verbose_name = _('Application')
-        verbose_name_plural = _('Applications')
+# class Application(models.Model):
+#     firstname = models.CharField(max_length=255, verbose_name=_('Firstname'))
+#     lastname = models.CharField(max_length=255, verbose_name=_("Lastname"))
+#     phone = models.CharField(max_length=255, verbose_name=_('Phone'))
 
-    def __str__(self):
-        return self.firstname
+#     class Meta:
+#         verbose_name = _('Application')
+#         verbose_name_plural = _('Applications')
 
-
-class ApplicationForm(forms.ModelForm):
-    class Meta:
-        model = Application
-        fields = ["firstname", "lastname", "phone", ]
-        labels = {
-            'firstname': "Овог",
-            'lastname': "Нэр",
-            'phone': "Утас",
-        }
-
-# Problem applicaion view iig Generlic.ListVIew tei hamt ajilluulj neg context-d hiih !
+#     def __str__(self):
+#         return self.firstname
 
 
-def application(request):
+# class ApplicationForm(forms.ModelForm):
+#     class Meta:
+#         model = Application
+#         fields = ["firstname", "lastname", "phone", ]
+#         labels = {
+#             'firstname': "Овог",
+#             'lastname': "Нэр",
+#             'phone': "Утас",
+#         }
+
+# zaswar oruulj baiga
+
+
+# def application(request, slug):
+#     hr = get_object_or_404(Hr, slug=slug)
+#     if request.method == "POST":
+#         form = ApplicationForm(request.POST)
+#         if form.is_valid():
+#             firstname = form.cleaned_data.get('firstname')
+#             lastname = form.cleaned_data.get('lastname')
+#             phone = form.cleaned_data.get('phone')
+
+#             if request.user.is_authenticated():
+#                 subject = str(request.user) + "'s phone"
+#             else:
+#                 subject = "A Visiter's comment"
+#             form.save()
+#         return redirect('hr/humandetail.html')
+#     else:
+#         form = ApplicationForm()
+#     return render(request, 'hr/humandetail.html', {'form': form, 'hr': hr})
+
+
+def hrview(request):
     hr = Hr.objects.all()
-    if request.method == "POST":
-        form = ApplicationForm(request.POST)
+    file = Questionnaire.objects.all()
+    context = {
+        'hr': hr,
+        'file': file
+    }
+    return render(request, 'hr/humanresource.html', context)
+
+
+class EmailForm(forms.Form):
+    name = forms.CharField(max_length=100, label="Нэр")
+    firstname = forms.CharField(max_length=100, label="Овог")
+    subject = forms.CharField(max_length=100, label="Гарчиг")
+    attach = forms.FileField(
+        widget=forms.ClearableFileInput(attrs={'multiple': True}), label="CV нэмэх")
+    message = forms.CharField(widget=forms.Textarea, label="Нэмэлт мэдэлээлэл")
+
+
+class EmailAttachementView(generic.DetailView, generic.FormView):
+    model = Hr
+    form_class = EmailForm
+    template_name = 'hr/humandetail.html'
+
+    # def get_context_data(self, **kwargs):
+    #     context = super(EmailAttachementView, self).get_context_data(**kwargs)
+    #     context['form'] = self.get_form()
+    #     return context
+
+    def get(self, request, *args, **kwargs):
+        form = self.form_class()
+        hr = self.get_object()
+        return render(request, self.template_name, {'email_form': form, "hr": hr})
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST, request.FILES)
+
         if form.is_valid():
-            form.save()
-    else:
-        form = ApplicationForm()
-    return render(request, 'hr/humanresource.html', {'form': form, 'hr': hr})
+            firstname = form.cleaned_data['firstname']
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+            name = form.cleaned_data['name']
+            files = request.FILES.getlist('attach')
+
+            try:
+                mail = EmailMessage(
+                    subject, message, firstname, settings.EMAIL_HOST_USER, ['elastinex@gmail.com'])
+                for f in files:
+                    mail.attach(f.name, f.read(), f.content_type)
+                mail.send()
+                return render(request, self.template_name, {'email_form': form, 'error_message': 'Имайл амжиллттай илгээгдлээ'})
+            except:
+                return render(request, self.template_name, {'email_form': form, 'error_message': 'Either the attachment is too big or corrupt'})
+
+        return render(request, self.template_name, {'email_form': form, 'error_message': 'Unable to send email. Please try again later'})
 
 
-class HrList(generic.ListView):
-    queryset = Hr.objects.all()
-    template_name = 'hr/humanresource.html'
-    paginate_by = 4
+# class HrList(generic.ListView):
+#     queryset = Hr.objects.all()
+#     template_name = 'hr/humanresource.html'
+#     paginate_by = 4
 
-    def get_context_data(self, **kwargs):
-        context = super(HrList, self).get_context_data(**kwargs)
-        context['hr'] = self.get_queryset()
-        context['hrlist'] = Hr.objects.all()
-        return context
+#     def get_context_data(self, **kwargs):
+#         context = super(HrList, self).get_context_data(**kwargs)
+#         context['hr'] = self.get_queryset()
+#         context['hrlist'] = Hr.objects.all()
+#         return context
+
+
+# class HrDetailView(generic.DetailView):
+#     model = Hr
+#     template_name = 'hr/humandetail.html'
 
 
 # Register your models here.
-
-admin.site.register(Application)
 
 
 class InLineListItem(NestedTabularInline):
@@ -131,6 +214,27 @@ class InLineListTitle(NestedTabularInline):
 
 class hrAdmin(NestedModelAdmin):
     inlines = [InLineListTitle]
+    prepopulated_fields = {'slug': ('title',)}
+    list_display = ('title', 'description')
+    search_fields = ['title']
+    list_filter = ['title']
 
 
 admin.site.register(Hr, hrAdmin)
+admin.site.register(Questionnaire)
+
+
+# class applicationAdmin(admin.ModelAdmin):
+#     list_display = ('firstname', 'lastname', 'phone')
+#     list_filter = ('firstname', 'lastname', 'phone')
+#     search_fields = ['firstname', 'lastname', 'phone']
+#     fieldsets = (
+#         (None, {
+#             "fields": (
+#                 'firstname', 'lastname', 'phone'
+#             ),
+#         }),
+#     )
+
+
+# admin.site.register(Application, applicationAdmin)

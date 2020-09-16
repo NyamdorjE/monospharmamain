@@ -1,7 +1,10 @@
 {% extends "news/index_2.html" %}
 {% block content %}
-<a class="btn btn-secondary btn-sm mb-3" href="{% url 'poll:index' %}">Back To Polls</a>
-<h1 class="text-center mb-3">{{ question.question }}</h1>
+{% comment %} <a class="btn btn-secondary btn-sm mb-3" href="{% url 'poll:index' %}">Back To Polls</a> {% endcomment %}
+{% for poll in poll %}
+<h1 class="text-center mb-3">{{ poll.title }}</h1>
+
+{% endfor %}
 
 {% if error_message %}
 <p class="alert alert-danger">
@@ -9,7 +12,7 @@
 </p>
 {% endif %}
 
-<form action="{% url 'poll:vote' question.id %}" method="post">
+<form action="{% url 'poll:vote' poll.id %}" method="post">
     {% csrf_token %}
     {% for choice in question.choice_set.all %}
     <div class="form-check">
@@ -19,5 +22,14 @@
     </div>
     {% endfor %}
     <input type="submit" value="Vote" class="btn btn-success btn-lg btn-block mt-4" />
-</form>
+</form> 
+
+
+{% for question in poll.question_set.all %}
+    {{ question.question }}
+    {% for choice in question.choice_set.all %}
+        {{ choice.choice_text }}
+    {% endfor %}
+
+{% endfor %}
 {% endblock %}

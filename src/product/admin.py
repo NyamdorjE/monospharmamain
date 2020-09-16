@@ -1,7 +1,20 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
-from .models import Product, ProductCategory
+from .models import Product, ProductCategory, Classification, Type, ProductForm
 
 # Register your models here.
-admin.site.register(Product)
+
+
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ('name', 'price', 'is_product_new')
+    search_fields = ('name', 'price')
+    list_filter = ['categories']
+    prepopulated_fields = {'slug': ('name',)}
+
+
+admin.site.register(Product, ProductAdmin)
+
 admin.site.register(ProductCategory)
+admin.site.register(Classification)
+admin.site.register(Type)
+admin.site.register(ProductForm)

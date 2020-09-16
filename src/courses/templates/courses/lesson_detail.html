@@ -2,6 +2,8 @@
 {% load static %}
 {% load i18n %}
 
+
+
 {% if request.user == course.subject.course.students and request.user.is_authenticated %}
 
 
@@ -16,86 +18,175 @@
 
 <!-- Page info end -->
 
-	<div  id="video" class='container'>
-		<div class="alert alert-info" role="alert">
-			Бүрэн дэлгэцээр үзэхийн тулд видеог 2 удаа дарна уу!
-		  </div>
-		<div class='row'>
-			<div class='col-sm-7 col-md-7 col-lg-7'>
-				
-				{% if lesson is not None %}
-				<video width='600' controls>
-					<source src="{{ lesson.video_id.url }}" type='video/mp4'>
-						Вэб хөтөчөө солиж үзнэ үү.
-					</video>
-				<h3> {{ lesson.title}} </h3>
+<div id="video" class='container'>
+	<div class="alert alert-info" role="alert">
+		Бүрэн дэлгэцээр үзэхийн тулд видеог 2 удаа дарна уу!
+	</div>
+	<div class='row'>
+		<div class='col-sm-7 col-md-7 col-lg-7'>
+
+			{% if lesson is not None %}
+			<iframe width="460" height="315" src="https://www.youtube.com/embed/{{ lesson.youtube_code }}"
+				allowfullscreen></iframe>
+
+			<h3> {{ lesson.title}} </h3>
 			<div class="blog-post-title">
 				<p style="heigth: 29px; text-align: right;">
-			
-				<i class="fa fa-folder-open-o"> {{ lesson.video_id.url|time }}</i>
-				<i class="fa fa-clock-o"> {{ lesson.photo }} </i> </p>
-				
+
+					<i class="fa fa-folder-open-o"> </i>
+					<i class="fa fa-clock-o"> {{ lesson.photo }} </i> </p>
+
 				<p style="overflow-wrap:break-word;"> {{ lesson.content|safe  }}</p>
 			</div>
-
-				<div class="text-center">
+			<h5> Суртчилгаа</h5>
+			<iframe width="460" height="315" src="https://www.youtube.com/embed/{{ lesson.embedurl }}"
+				allowfullscreen></iframe>
+			<div class="text-center">
 				<a href="javascript:history.back()" class="mb-10 mt-2 btn btn-primary">Буцах</a>
-				</div>
-				{% else %}
-				<h3> Худалдаж авах шаардлагтай</h3>
-				<p>Бүртгүүлээд худалдаж авна уу.</p>
-				<br>
-				<a href="{% url 'memberships:select_membership' %}"><button class="btn btn-warning">Upgrade Membership</button></a>
-				<hr> 
-				{% endif %}
 			</div>
-			
-			
-			<div class='col-sm-5 col-md-5' style="    border-radius: 10px;
-													  -webkit-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.29);
-													  -moz-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.29);
-													  box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.29);">
-				<div class="cl-item" id="lessons">
-					
-					<div class="cl-item" id="lessons">
-						<h4 style="padding-top: 15px;">Энэ ангид орох хичээлүүд</h4>
-						{% if course.lessons != None  %}
-							{% for lesson in course.lessons %}
-							<div data-aos="fade-right" >
-							<h5 class="pb-3" style="border-bottom: 1px solid gray; padding-bottom: 10px;">Хичээл №-  {{lesson.position}} <a id="vazhdo" href="{{ lesson.get_absolute_url }}#video"><span class="pl-4">{{lesson.title}}</span></a></h5>
-							</div>
-							{% endfor %}
-						{% endif %}
-						{% if course.lessons|length == 0 %}
-						<div class="alert alert-danger">Хичээл байхгүй байна.!!</div>
-						{% endif %} 
-					</div>
-     
-				</div>
-			</div>
+			{% else %}
+			<h3> Худалдаж авах шаардлагтай</h3>
+			<p>Бүртгүүлээд худалдаж авна уу.</p>
+			<br>
+			<a href="{% url 'memberships:select_membership' %}"><button class="btn btn-warning">Upgrade
+					Membership</button></a>
+			<hr>
+			{% endif %}
 		</div>
+
+
+		<div class='col-sm-5 col-md-5'>
+			<div class="tabs tabs-bordered clearfix" id="tab-2">
+
+				<ul class="tab-nav clearfix">
+					<li><a href="#tabs-5">Хичээлүүд</a></li>
+					<li><a href="#tabs-6">Тайлбар</a></li>
+					<li><a href="#tabs-7">Асуулт</a></li>
+					<li class="hidden-phone"><a href="#tabs-8">Шалгалт</a></li>
+				</ul>
+
+				<div class="tab-container">
+
+					<div class="tab-content clearfix" id="tabs-5">
+						<div class="cl-item" id="lessons">
+
+							<div class="cl-item" id="lessons">
+								<h4 style="padding-top: 15px;">Энэ ангид орох хичээлүүд</h4>
+								{% if course.lessons != None  %}
+								{% for lesson in course.lessons %}
+								<div data-aos="fade-right">
+									<h5 class="pb-3" style="border-bottom: 1px solid gray; padding-bottom: 10px;">Хичээл
+										№- {{lesson.position}} <a id="vazhdo"
+											href="{{ lesson.get_absolute_url }}#video"><span
+												class="pl-4">{{lesson.title}}</span></a></h5>
+								</div>
+								{% endfor %}
+								{% endif %}
+								{% if course.lessons|length == 0 %}
+								<div class="alert alert-danger">Хичээл байхгүй байна.!!</div>
+								{% endif %}
+							</div>
+
+						</div>
+					</div>
+					<div class="tab-content clearfix" id="tabs-6">
+						Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa
+						metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada,
+						metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem.
+						Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing
+						adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere
+						viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus
+						pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris
+						consectetur tortor et purus.
+					</div>
+					<div class="tab-content clearfix" id="tabs-7">
+						<form class="row" id="realestate-enquiry" action="include/form.php" method="post"
+							enctype="multipart/form-data">
+							<div class="form-process">
+								<div class="css3-spinner">
+									<div class="css3-spinner-scaler"></div>
+								</div>
+							</div>
+							<div class="col-12 form-group">
+								{% for question in lesson.questions.all %}
+								<label>{{ question.text }}</label>
+								{% for c in question.choices.all %}<br>
+								<div class="form-check form-check-inline">
+									{% for a in answers.question %}
+									{% if a.choice == c %}
+									<input class="form-check-input required" type="radio"
+										id="{{question.id}}_answer_{{c.id}}" checked name="{{question.id}}_answers"
+										value="{{c.id}}">
+									{% else %}
+									<input class="form-check-input required" type="radio"
+										id="{{question.id}}_answer_{{c.id}}" name="{{question.id}}_answers"
+										value="{{c.id}}">
+									{% endif %}
+									{% empty %}
+									<input class="form-check-input required" type="radio"
+										id="{{question.id}}_answer_{{c.id}}" name="{{question.id}}_answers"
+										value="{{c.id}}">
+									{% endfor %}
+									<label class="form-check-label mb-0"
+										for="{{question.id}}_answer_{{c.id}}">{{c}}</label>
+								</div>
+								{% endfor %}
+								{% endfor %}
+						</form>
+
+					</div>
+					<div class="w-100"></div>
+
+					<div class="col-12">
+						<button type="submit" name="realestate-enquiry-submit" class="btn btn-secondary">Илгээх</button>
+					</div>
+
+					<input type="hidden" name="prefix" value="realestate-enquiry-">
+					</form>
+				</div>
+				<div class="tab-content clearfix" id="tabs-8">
+
+
+
+
+					<ol class="activity-feed">
+						<p><em>Та зөвхөн 1 удаа санал өгөх боломжтой.</em></p>
+						<ol class="activity-feed">
+
+
+							<a href="{% url 'quiz_start_page' slug=lesson.slug %}"
+								class="button button-border button-circle button-dark">{% trans "Шалгалт өгөх" %}</a>
+						</ol>
+					</ol>
+				</div>
+
+			</div>
+
+		</div>
+
 	</div>
+</div>
+</div>
 
 
 <style>
+	.blog-post-title p {
+		padding: 5px 0;
+		border-top: 1px solid #b4bfc3;
+	}
 
-.blog-post-title p {
-    padding: 5px 0;
-    border-top: 1px solid #b4bfc3;
-}
+	.blog-post-title i {
+		padding-right: 50px;
+	}
 
-.blog-post-title i{
-	padding-right: 50px;
-}
-
-.hidden-desktop {
-    display: none !important;
-}
+	.hidden-desktop {
+		display: none !important;
+	}
 </style>
 {% endblock content %}
 
 
 {% else%}
-		<p>hello</p>
-		
+<p>hello</p>
+
 {% endif %}

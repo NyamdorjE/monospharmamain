@@ -15,16 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url
 from src.base.urls import Nurl
+from .views import DetailView, PollTake
 
 
 from src.poll import views
-app_name = 'poll'
 
 urlpatterns = [
     path('poll/', views.home, name='home'),
-    path('<int:poll_id>/poll/', views.index, name='index'),
-    path('<int:poll_id>/', views.detail, name='detail'),
-    path('<int:poll_id>/results/', views.results, name='results'),
-    path('<int:poll_id>/vote/', views.vote, name='vote'),
+    # path('polldetail/<slug:slug>', views.detail, name='detail'),
+    Nurl('poll/<slug:slug>/') > 'src.poll.views.DetailView',
+    # url(regex=r'^(?P<quiz_name>[\w-]+)/take/$',
+    #     view=PollTake.as_view(),
+    #     name='quiz_question'),
 ]

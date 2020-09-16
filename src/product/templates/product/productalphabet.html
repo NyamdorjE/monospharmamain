@@ -1,0 +1,186 @@
+{% extends 'news/index_2.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+
+<section id="page-title">
+
+    <div class="container clearfix">
+        <h1>Бүтээгдэхүүн</h1>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'website-homepage'%}">Нүүр</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Бүтээгдэхүүн</li>
+        </ol>
+    </div>
+
+</section><!-- #page-title end -->
+
+<!-- Content
+		============================================= -->
+<section id="content">
+    <div class="content-wrap">
+        <div class="container clearfix">
+
+            <div class="row gutter-40 col-mb-80">
+                <!-- Post Content
+						============================================= -->
+                <div class="postcontent col-lg-9 order-lg-last">
+
+                    <!-- Shop
+							============================================= -->
+                    <div id="shop" class="shop row grid-container gutter-20" data-layout="fitRows">
+                        {% for product in product %}
+                        <div class="product col-md-4 col-sm-6 col-12">
+                            <div class="grid-inner">
+                                <div class="product-image">
+                                    <a><img src="{% if product.image %}{{ product.image.url}}{% endif %}" alt=""></a>
+                                    <a><img src="{% if product.image %}{{ product.image.url}}{% endif %}" alt=""></a>
+                                    <div class="bg-overlay">
+                                        <div class="bg-overlay-content align-items-end justify-content-between"
+                                            data-hover-animate="fadeIn" data-hover-speed="400">
+                                            <a href="#" class="btn btn-dark mr-2"><i class="icon-shopping-cart"></i></a>
+                                            <a href="#{{ product.product_id}}" data-lightbox="inline"
+                                                class="btn btn-dark" data-lightbox="ajax"><i
+                                                    class="icon-line-expand"></i></a>
+                                        </div>
+                                        <div class="bg-overlay-bg bg-transparent"></div>
+                                    </div>
+                                </div>
+                                <div class="product-desc" style="text-align: center;">
+                                    <div class="product-title">
+                                        <h3 style="font-size: 17px; "> <a>{{ product.name }}</a></h3>
+                                    </div>
+                                    <div class="product-price"><ins style="font-size : 16px;">{{ product.price }}</ins>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Modal -->
+                        <div class="modal-center">
+                            <div class="modal1 mfp-hide" id="{{ product.product_id}}">
+                                <div class="block divcenter"
+                                    style="background-color: #FFF; max-width: 700px; height: 600px;">
+
+                                    <div class="product modal-padding" style="background-color: #fff;padding-top: 0px;">
+
+                                        <div class="row gutter-40 col-mb-50">
+                                            <div class="col-md-6">
+                                                <div class="product-image">
+                                                    <div class="fslider" data-pagi="false">
+                                                        <div class="flexslider">
+                                                            <img
+                                                                src="{% if product.image %}{{ product.image.url}}{% endif %}">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 product-desc">
+                                                <h3
+                                                    style="margin-bottom: 6px; margin-top: 25px; border-bottom: 1px solid #dadada;">
+                                                    {{ product.name }}</h3>
+
+                                                <div class="product-price">
+                                                    <p>Үнэ : <ins>{{ product.price }}</ins>
+                                                        <p>
+                                                </div>
+                                                <p> Ангиллал: {{ product.categories }}<p>
+                                                        <p> ХЭРЭГЛЭХ ЗААВАР : <p>{{ product.suggest }}</p>
+                                                        </p>
+                                                        <p> БҮТЭЭГДЭХҮҮНИЙ НАЙРЛАГА : <p>{{ product.ingredients }} </p>
+                                                        </p>
+                                                        <div class="line"></div>
+                                                        <ul class="iconlist">
+                                                            <li><i class="icon-caret-right"></i> Dynamic Color Options
+                                                            </li>
+                                                            <li><i class="icon-caret-right"></i> Lots of Size Options
+                                                            </li>
+                                                            <li><i class="icon-caret-right"></i> 30-Day Return Policy
+                                                            </li>
+                                                        </ul>
+                                                        <h6> <a href="{{ product.link }}"> <button> Худалдан авах
+                                                                </button></a></h6>
+                                                        <div class="card product-meta mb-0">
+
+                                                        </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Endmodal -->
+                        {% endfor %}
+                    </div><!-- #shop end -->
+                </div><!-- .postcontent end -->
+
+                <!-- Sidebar
+						============================================= -->
+                <div class="sidebar col-lg-3">
+                    <div class="sidebar-widgets-wrap">
+
+                        <div class="widget widget_links clearfix">
+                            <h4>Ангиллал</h4>
+                            <ul data-active-class="active-filter">
+                                <li><a href="{% url 'product-product-list'%}" value="{{ cat_id }}">Бүгд</a></li>
+                                {% for category in category %}
+                                <li><a href="/product?cat_id={{category.id}}" value="{{ cat_id }}">{{ category }}</a>
+                                </li>
+                                {% endfor %}
+                                <li><a href="{% url 'product-product-alphabet'%}">Үсгийн дараалал</a></li>
+
+                            </ul>
+                        </div>
+
+                        <div class="widget widget-filter-links clearfix">
+
+                            <h4>Хайлт</h4>
+                            <form action="#" role="form" class="notopmargin nobottommargin">
+                                <div class="input-group divcenter">
+                                    <input type="text" class="form-control" name="search_text"
+                                        placeholder="Энд хайх утгаа бичнэ үү." value="{{ search_text }}">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-success" type="submit"><i
+                                                class="icon-email2"></i></button>
+                                    </span>
+                                </div>
+                            </form>
+
+
+                        </div>
+
+
+
+
+
+
+
+                    </div>
+                </div><!-- .sidebar end -->
+            </div>
+
+        </div>
+    </div>
+</section><!-- #content end -->
+
+
+
+
+
+<style>
+    modal-center {
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+    }
+</style>
+
+{% endblock %}

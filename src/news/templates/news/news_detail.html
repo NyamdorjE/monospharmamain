@@ -10,7 +10,7 @@
 			<div class="container clearfix">
 				<h1>Мэдээ</h1>
 				<ol class="breadcrumb">
-					<li><a href="#">Нүүр хуудас</a></li>
+					<li><a href="{% url 'website-homepage'%}">Нүүр хуудас</a></li>
 					<li><a href="#">Мэдээ</a></li>
 					<li class="active">Мэдээ</li>
 				</ol>
@@ -21,227 +21,192 @@
 		<!-- Content
 		============================================= -->
 		<section id="content">
-
 			<div class="content-wrap">
-
 				<div class="container clearfix">
 
-					<!-- Post Content
-					============================================= -->
-					<div class="postcontent nobottommargin clearfix">
+					<div class="row gutter-40 col-mb-80">
+						<!-- Post Content
+						============================================= -->
+						<div class="postcontent col-lg-9">
 
-						<div class="single-post nobottommargin">
+							<div class="single-post mb-0">
 
-							<!-- Single Post
-							============================================= -->
-							<div class="entry clearfix">
-
-								<!-- Entry Title
+								<!-- Single Post
 								============================================= -->
-								<div class="entry-title">
-									<h2>{{ news.title }}</h2>
-								</div><!-- .entry-title end -->
+								<div class="entry clearfix">
 
-								<!-- Entry Meta
-								============================================= -->
-								<ul class="entry-meta clearfix">
-									<li><i class="icon-calendar3"></i> {{ news.created_on|naturalday:'Y-m-d'}}</li>
-									<li><a href="#"><i class="icon-user"></i> {{ news.author }}</a></li>
-									<li><i class="icon-folder-open"></i> <a href="#">{{ news.category }}</a>, <a href="#"></a></li>
-								
-									<li><a href="#"><i class="icon-newspaper"></i></a></li>
-								</ul><!-- .entry-meta end -->
-
-								<!-- Entry Content
-								============================================= -->
-								<div class="entry-content notopmargin">
-
-									<!-- Entry Image
+									<!-- Entry Title
 									============================================= -->
-									<div class="entry-image alignleft">
-										<a href="#"><img src="{% if news.image %}{{news.image.url}}{% endif %}" alt="Blog Single"></a>
-									</div><!-- .entry-image end -->
+									<div class="entry-title">
+										<h2>{{ news.title }}</h2>
+									</div><!-- .entry-title end -->
 
-									<p> {{ news.content|safe}} </p>
-									<!-- Post Single - Content End -->
+									<!-- Entry Meta
+									============================================= -->
+									<div class="entry-meta">
+										<ul>
+											<li><i class="icon-calendar3"></i> {{ news.created_on|naturalday:'Y-m-d'}}</li>
+											<li><a href="#"><i class="icon-user"></i> {{ news.author }}</a></li>
+											<li><i class="icon-folder-open"></i> <a href="#">{{ news.category }}</a>. </li>
+											<li><a href="#"><i class="icon-comments"></i> 43 Comments</a></li>
+											<li><a href="#"><i class="icon-camera-retro"></i></a></li>
+										</ul>
+									</div><!-- .entry-meta end -->
+
+									<!-- Entry Content
+									============================================= -->
+									<div class="entry-content mt-0">
+
+										<!-- Entry Image
+										============================================= -->
+										<div class="entry-image alignleft">
+											<a href="#"><img src="{% if news.image %}{{news.image.url}}{% endif %}" alt="Blog Single"></a>
+										</div><!-- .entry-image end -->
+
+										<p> {{ news.content|safe}} </p>
 
 								
-									
 
-									<div class="clear"></div>
+										<div class="clear"></div>
 
-									<!-- Post Single - Share
-									============================================= -->
-									<!-- Post Single - Share End -->
 
-								</div>
-							</div><!-- .entry end -->
-
-					
-						
+									</div>
+								</div><!-- .entry end -->
 
 							
 
+								
 
-						</div>
 
-					</div><!-- .postcontent end -->
+								<div class="line"></div>
 
-					<!-- Sidebar
-					============================================= -->
-					<div class="sidebar nobottommargin col_last clearfix">
-						<div class="sidebar-widgets-wrap">
+							
 
-							<div class="widget clearfix">
+								
 
-								<div class="tabs nobottommargin clearfix" id="sidebar-tabs">
 
-									<ul class="tab-nav clearfix">
-										<li><a href="#tabs-1">Онцлох</a></li>
-										<li><a href="#tabs-2">Зөвлөгөө</a></li>
-										
-									</ul>
+							</div>
 
-									<div class="tab-container">
+						</div><!-- .postcontent end -->
 
-										<div class="tab-content clearfix" id="tabs-1">
-											<div id="popular-post-list-sidebar">
+						<!-- Sidebar
+						============================================= -->
+						<div class="sidebar col-lg-3">
+							<div class="sidebar-widgets-wrap">
+
+							
+
+								
+
+								<div class="widget clearfix">
+
+									<div class="tabs mb-0 clearfix" id="sidebar-tabs">
+
+										<ul class="tab-nav clearfix">
+											<li><a href="#tabs-1">Онцлох</a></li>
+											
+										</ul>
+
+										<div class="tab-container">
+
+											<div class="tab-content clearfix" id="tabs-1">
+											<div class="posts-sm row col-mb-30" id="popular-post-list-sidebar">
+													
                                             {% for news in special %}
-												<div class="spost clearfix">
-													<div class="entry-image">
-														<a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}" class="nobg"><img class="img-circle" src="{% if news.image %}{{news.image.url}}{% endif %}" alt=""></a>
-													</div>
-													<div class="entry-c">
-														<div class="entry-title">
-															<h4><a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}">{{ news.title }}</a></h4>
+													<div class="entry col-12">
+														<div class="grid-inner row no-gutters">
+															<div class="col-auto">
+																<div class="entry-image">
+																	<a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"><img class="rounded-circle" src="{% if news.image %}{{news.image.url}}{% endif %}" alt="News image"></a>
+																</div>
+															</div>
+															<div class="col pl-3">
+																<div class="entry-title">
+																	<h4><a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}">{{ news.title }}</a></h4>
+																</div>
+															
+															</div>
 														</div>
-														
 													</div>
+									        {% endfor %}
 												</div>
-                                            {% endfor %}
-												
-
-												
-
 											</div>
-										</div>
-										<div class="tab-content clearfix" id="tabs-2">
-											<div id="recent-post-list-sidebar">
-
-												<div class="spost clearfix">
-													<div class="entry-image">
-														<a href="#" class="nobg"><img class="img-circle" src="images/magazine/small/1.jpg" alt=""></a>
-													</div>
-													<div class="entry-c">
-														<div class="entry-title">
-															<h4><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h4>
-														</div>
-														<ul class="entry-meta">
-															<li>10th July 2014</li>
-														</ul>
-													</div>
-												</div>
-
-												<div class="spost clearfix">
-													<div class="entry-image">
-														<a href="#" class="nobg"><img class="img-circle" src="images/magazine/small/2.jpg" alt=""></a>
-													</div>
-													<div class="entry-c">
-														<div class="entry-title">
-															<h4><a href="#">Elit Assumenda vel amet dolorum quasi</a></h4>
-														</div>
-														<ul class="entry-meta">
-															<li>10th July 2014</li>
-														</ul>
-													</div>
-												</div>
-
-												<div class="spost clearfix">
-													<div class="entry-image">
-														<a href="#" class="nobg"><img class="img-circle" src="images/magazine/small/3.jpg" alt=""></a>
-													</div>
-													<div class="entry-c">
-														<div class="entry-title">
-															<h4><a href="#">Debitis nihil placeat, illum est nisi</a></h4>
-														</div>
-														<ul class="entry-meta">
-															<li>10th July 2014</li>
-														</ul>
-													</div>
-												</div>
-
-											</div>
-										</div>
+											
 										
 
+										</div>
+
 									</div>
 
 								</div>
 
-							</div>
+									<div class="widget clearfix">
+											<h4>Ангиллал</h4>
+												<div class="tagcloud">
+													{% for category in category_list %}
+														<a href="#">{{category}}</a>
+													{% endfor %}
+												</div>
+									</div>
 
-							<div class="widget clearfix">
+								<div class="widget clearfix">
 
-								<h4>Зургын сан</h4>
-								<div id="oc-portfolio-sidebar" class="owl-carousel carousel-widget" data-items="1" data-margin="10" data-loop="true" data-nav="false" data-autoplay="5000">
+									<h4>Portfolio Carousel</h4>
+									<div id="oc-portfolio-sidebar" class="owl-carousel carousel-widget" data-items="1" data-margin="10" data-loop="true" data-nav="false" data-autoplay="5000">
 
-									<div class="oc-item">
-										<div class="iportfolio">
-											<div class="portfolio-image">
-												<a href="#">
-													<img src="{% static 'base/assets/images/portfolio/4/3.jpg' %}" alt="Mac Sunglasses">
-												</a>
-												<div class="portfolio-overlay">
-													<a href="http://vimeo.com/89396394" class="center-icon" data-lightbox="iframe"><i class="icon-line-play"></i></a>
+										<div class="oc-item">
+											<div class="portfolio-item">
+												<div class="portfolio-image">
+													<a href="#">
+														<img src="images/portfolio/4/3.jpg" alt="Mac Sunglasses">
+													</a>
+													<div class="bg-overlay">
+														<div class="bg-overlay-content dark" data-hover-animate="fadeIn" data-hover-speed="350">
+															<a href="https://vimeo.com/89396394" class="overlay-trigger-icon bg-light text-dark" data-hover-animate="zoomIn" data-hover-speed="350" data-lightbox="iframe"><i class="icon-line-play"></i></a>
+														</div>
+														<div class="bg-overlay-bg dark" data-hover-animate="fadeIn" data-hover-speed="350"></div>
+													</div>
+												</div>
+												<div class="portfolio-desc text-center pb-0">
+													<h3><a href="portfolio-single-video.html">Mac Sunglasses</a></h3>
+													<span><a href="#">Graphics</a>, <a href="#">UI Elements</a></span>
 												</div>
 											</div>
-											<div class="portfolio-desc center nobottompadding">
-												<h3><a href="portfolio-single-video.html">Mac Sunglasses</a></h3>
-												<span><a href="#">Graphics</a>, <a href="#">UI Elements</a></span>
-											</div>
 										</div>
-									</div>
 
-									<div class="oc-item">
-										<div class="iportfolio">
-											<div class="portfolio-image">
-												<a href="portfolio-single.html">
-													<img src="images/portfolio/4/1.jpg" alt="Open Imagination">
-												</a>
-												<div class="portfolio-overlay">
-													<a href="images/blog/full/1.jpg" class="center-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
+										<div class="oc-item">
+											<div class="portfolio-item">
+												<div class="portfolio-image">
+													<a href="portfolio-single.html">
+														<img src="images/portfolio/4/1.jpg" alt="Open Imagination">
+													</a>
+													<div class="bg-overlay">
+														<div class="bg-overlay-content dark" data-hover-animate="fadeIn" data-hover-speed="350">
+															<a href="images/blog/full/1.jpg" class="overlay-trigger-icon bg-light text-dark" data-hover-animate="zoomIn" data-hover-speed="350" data-lightbox="image"><i class="icon-line-plus"></i></a>
+														</div>
+														<div class="bg-overlay-bg dark" data-hover-animate="fadeIn" data-hover-speed="350"></div>
+													</div>
+												</div>
+												<div class="portfolio-desc text-center pb-0">
+													<h3><a href="portfolio-single.html">Open Imagination</a></h3>
+													<span><a href="#">Media</a>, <a href="#">Icons</a></span>
 												</div>
 											</div>
-											<div class="portfolio-desc center nobottompadding">
-												<h3><a href="portfolio-single.html">Open Imagination</a></h3>
-												<span><a href="#">Media</a>, <a href="#">Icons</a></span>
-											</div>
 										</div>
+
 									</div>
 
 								</div>
 
-							</div>
-
-							<div class="widget clearfix">
-
-								<h4>Ангиллал</h4>
-								<div class="tagcloud">
-                                {% for category in category_list %}
-									<a href="#">{{category}}</a>
-                                {% endfor %}
-								</div>
+								
 
 							</div>
 
-						</div>
-
-					</div><!-- .sidebar end -->
+						</div><!-- .sidebar end -->
+					</div>
 
 				</div>
-
 			</div>
-
 		</section><!-- #content end -->
 
         {% endblock %}

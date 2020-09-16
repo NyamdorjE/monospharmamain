@@ -1,106 +1,414 @@
 {% extends 'news/index_2.html' %}
 {% load static %}
-{% load i18n %}
-{% load crispy_forms_tags %}
-
 {% block content %}
+<!-- Page Title
+		============================================= -->
+<section id="page-title">
 
+	<div class="container clearfix">
+		<h1>Хүний нөөц</h1>
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="{% url 'website-homepage'%}">Нүүр</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Хүний нөөц</li>
+		</ol>
+	</div>
+
+</section><!-- #page-title end -->
+
+<!-- Content
+		============================================= -->
 <section id="content">
+	<div class="content-wrap">
+		<div class="container clearfix">
 
-			<div class="content-wrap">
+			<div id="side-navigation" class="row" data-plugin="tabs">
 
-				<div class="container clearfix">
-                        
-					<div class="col_three_fifth nobottommargin">
-						{% for hr in hr %}
-						<div class="fancy-title title-bottom-border">
-							<h3>{{ hr.title }}</h3>
-						</div>
+				<div class="col-md-6 sticky-sidebar-wrap col-lg-4">
+					<div class="sticky-sidebar">
 
-						<p>{{ hr.description }}</p>
-						<div class="accordion accordion-bg clearfix">
-						{% for listtitle  in hr.listtitle_set.all %}	
-							<div class="acctitle"><i class="acc-closed icon-ok-circle"></i><i class="acc-open icon-remove-circle"></i>{{ listtitle.title_text }}</div>
-							
-							<div class="acc_content clearfix">
-															
-								<ul class="iconlist iconlist-color nobottommargin">
-								{% for listitem in listtitle.listitem_set.all %}
+						<ul class="sidenav">
+							<li><a href="#snav-content1"><i class="icon-screen"></i>Нээлттэй ажлын байр<i
+										class="icon-chevron-right"></i></a></li>
+							<li><a href="#snav-content2"><i class="icon-user21"></i>Сонгон шалгаруулалт<i
+										class="icon-chevron-right"></i></a></li>
+							<li><a href="#snav-content4"><i class="icon-gift"></i>Нийгмийн халамж<i
+										class="icon-chevron-right"></i></a></li>
 
-									<li style="word-break: break-all;"><i class="icon-ok"></i>									{{ listitem.item_text|safe }}</li>
-										{% endfor %}
-								</ul>
-								</div>
+							{% for file in file %}
+							<li><a href="{{ file.anket.url }}"><i class="icon-line-paper"></i>Анкет татах<i
+										class="icon-chevron-right"></i></a>
+							</li>
 							{% endfor %}
-						</div>
-					
 
-						<a href="#" data-scrollto="#job-apply" data-highlight="yellow" class="button button-3d button-black nomargin">Apply Now</a>
-					<div class="divider divider-short"><i class="icon-star3"></i></div>
 
-					  {% endfor %}
+
+						</ul>
 					</div>
-                   
-					<div class="col_two_fifth nobottommargin col_last">
+				</div>
 
-						<div id="job-apply" class="heading-block">
-							<h2>Анкет бөглөх</h2>
-						
+				<div class="col-md-6 col-lg-8">
+					<div id="snav-content1">
+						{% for hr in hr %}
+						<div class="row">
+							<div class="col-8">
+								<h5>Зарлагдсан ажлын байр</h5>
+							</div>
+
+							<div class="col-4">
+								<h5>Анкет хүлээн авах сүүлийн цаг</h5>
+							</div>
 						</div>
-
-						<div class="contact-widget">
-
-							<div class="contact-form-result"></div>
-
-							<form action="" id="template-jobform" name="template-jobform" method="post" role="form">
-                                {% csrf_token %}
-								<div class="form-process"></div>
-
-								<div class="col_half">
-                              {{ form|crispy }}
+						<divl class="toggle toggle-border">
+							<div class="toggle-header">
+								<div class="toggle-icon">
+									<i class="toggle-closed icon-line-plus"></i>
+									<i class="toggle-open icon-line-minus"></i>
 								</div>
-
-								<div class="clear"></div>
-
-								<div class="col_full">
-									<label for="template-jobform-service">Position <small>*</small></label>
-									<select name="template-jobform-position" id="template-jobform-position"  tabindex="9" class="sm-form-control required">
-										<option value="">-- Select Position --</option>
-										<option value="Senior Python Developer">Senior Python Developer</option>
-										<option value="Design Analyst">Design Analyst</option>
-										<option value="Head of UX and Design">Head of UX and Design</option>
-										<option value="Web &amp; Visual Designer (Marketing)">Web &amp; Visual Designer (Marketing)</option>
-									</select>
+								<div class="toggle-title">
+									<div class="row">
+										<div class="col-8">
+											<p>{{ hr.title }}</p>
+										</div>
+										<div class="col-4">
+											<i class="icon-calendar3" style="color: #4e9c6a;">
+												{{ hr.deadline }}
+											</i>
+										</div>
+									</div>
 								</div>
-
-								
-
-								<div class="clear"></div>
-
-							
-
-								<div class="col_full">
-									<label for="template-jobform-cvfile">Upload CV <small>*</small></label>
-									<input type="file" id="template-jobform-cvfile" name="template-jobform-cvfile" value="" class="required sm-form-control" />
-								</div>
-
-								<div class="col_full hidden">
-									<input type="text" id="template-jobform-botcheck" name="template-jobform-botcheck" value="" class="sm-form-control" />
-								</div>
-
-								<div class="col_full">
-									<button class="button button-3d button-large btn-block nomargin" name="template-jobform-apply" type="submit" value="apply">Хүсэлт илгээх</button>
-								</div>
-
-							</form>
-
-						</div>
-
+							</div>
+							<div class="toggle-content">
+								{{ hr.description }}
+								<a href="{% url 'humandetailview' hr.slug %}"
+									class="button button-mini button-border button-circle button-dark"><i
+										class="icon-trash2"></i>Дэлгэрэнгүй</a>
+							</div>
+							</>
+							{% endfor %}
 					</div>
+
+					<div id="snav-content2">
+						<div class="fslider" data-smooth-height="false">
+							<div class="flexslider">
+								<div class="slider-wrap">
+									<div class="slide"><img class="lazy"
+											data-src="{% static 'base/assets/images/pages/hr/selection1.jpg' %}"
+											alt="Slider 1"></div>
+								</div>
+							</div>
+
+						</div>
+						<h3 style="margin-top: 25px;">Ажилтан сонгон шалгаруулах үе шат:
+						</h3>
+						<ul class="iconlist">
+							<li><i class="icon-line-check-square"></i> Ажил горилогч нээлттэй ажлын байр үзэх
+							</li>
+							<li><i class="icon-line-check-square"></i> Холбогдох анкетыг бөглөнө. Анкетыг гараар болон
+								цахим
+								хэлбэрээр бөглөх боломжтой.
+							</li>
+							<li><i class="icon-line-check-square"></i> Анкетын шалгаруулалт хийх. Анкет хүлээн авах
+								сүүлийн ажлын 3
+								өдрийн дотор хийнэ.
+							</li>
+							<li><i class="icon-line-check-square"></i> Анхан шатны ярилцлага. Анкетын шалгаруулалтанд
+								тэнцсэн ажил
+								горилогчийг анхан шатны
+								ярилцлаганд урих
+							</li>
+							<li><i class="iicon-line-check-square"></i> Мэргэжлийн шалгалтын тест. Шаардлагатай ажлын
+								байранд
+								мэргэжлийн шалгалт авна.
+							</li>
+							<li><i class="icon-line-check-square"></i> 2 дахь шатны ярилцлага. Анхан шатны ярилцлага,
+								мэргэжлийн
+								шалгалтанд тэнцсэн ажил
+								горилогчийг 2 дахь шатны ярилцлаганд урих
+							</li>
+
+							<li><i class="icon-line-check-square"></i> Ажилд авах санал. Сонгон шалгаруулалтанд тэнцсэн
+								ажил
+								горилогчтой утсаар холбогдож
+								саналаа хэлнэ.
+							</li>
+							<li><i class="icon-line-check-square"></i> Ажилд авах. Хөдөлмөрийн гэрээ байгуулна.
+							</li>
+							<li><i class="icon-line-check-square"></i> Монос группийн ажилтан боллоо. Танд баяр хүргье.
+							</li>
+
+
+						</ul>
+					</div>
+
+
+
+					<div id="snav-content4">
+						<img class="alignleft img-responsive"
+							src="{% static 'base/assets/images/pages/zorilgo/taatai-orchin.jpg' %}"
+							style="height:285px; width:300px">
+
+						<p>Монос Группийн соёлыг өөриймсөг сэтгэлгээтэй чадварлаг ажилтнууд маань бүтээдэг, тиймдээ ч
+							Моносын соёл бол
+							Моносын бахархал юм. Монос Групп нь Монголын Улсын ТОП 10 аж ахуйн нэгжийн нэг юм. Энэ нь
+							хамт
+							олны маань хичээл
+							зүтгэл, харилцагч, хэрэглэгчдийн маань итгэл найдвар, түншлэлтэй салшгүй холбоотой билээ.
+							Монос
+							Групп нь
+							ажилтнууддаа ажиллах таатай орчин, сурч хөгжих боломж, нийгмийн халамж үзүүлэх болон бусад
+							олон
+							төрлийн хөнгөлөлт
+							урамшуулал, хангамж олгон ажиллаж байна.</p>
+
+
+						<div class="accordion accordion-bg" data-collapsible="true">
+
+							<div class="accordion-header">
+								<div class="accordion-icon">
+									<i class="accordion-closed icon-ok-circle"></i>
+									<i class="accordion-open icon-remove-circle"></i>
+								</div>
+								<div class="accordion-title">
+									Ажиллах таатай орчин
+								</div>
+							</div>
+							<div class="accordion-content">
+								<div class="row">
+									<div class="col-4">
+										<img class="alignleft img-responsive"
+											src="{% static 'base/assets/images/pages/hr/orchin.jpg' %}" alt="Image">
+									</div>
+									<div class="col-8">
+										<ul class="iconlist">
+											<li><i class="icon-line-marquee-plus"></i> Чадварлаг мэргэжлийн нөхөрсөг
+												хамт олон
+
+											</li>
+											<li><i class="icon-line-marquee-plus"></i> Шинэ санал санаачилгыг байнга
+												дэмжин урамшуулдаг
+
+											</li>
+											<li><i class="icon-line-marquee-plus"></i> Ажилтан бүрт өсөн дэвших боломж
+												адил тэгш олгогдсон
+											</li>
+											<li><i class="icon-line-marquee-plus"></i> АГүйцэтгэлд тулгуурласан
+												урамшууллын тогтолцоотой
+											</li>
+											<li><i class="icon-line-marquee-plus"></i> Мэргэжлийн шалгалтын тест.
+												Шаардлагатай ажлын
+												байранд
+												мэргэжлийн шалгалт авна.
+											</li>
+											<li><i class="icon-line-marquee-plus"></i>Бизнесийн бусад салбарт хөрвөн
+												ажиллах боломж
+											</li>
+
+											<li><i class="icon-line-marquee-plus"></i> Өрсөлдөхүйц цалин урамшуулал
+
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+
+							<div class="accordion-header">
+								<div class="accordion-icon">
+									<i class="accordion-closed icon-ok-circle"></i>
+									<i class="accordion-open icon-remove-circle"></i>
+								</div>
+								<div class="accordion-title">
+									Эрүүл мэнд & Тусламж, дэмжлэг
+								</div>
+							</div>
+							<div class="accordion-content">
+								<div class="row">
+									<div class="col-7">
+										Монос Групп нь ажилтнуудынхаа нийгмийн асуудалд тогтмол анхаарч ажилладаг.
+										Тухайлбал:<br>
+										<ul class="iconlist">
+											<li><i class="icon-line-square-check"></i> Гэрлэх ёслолоо хийх
+											</li>
+											<li><i class="icon-line-square-check"></i> Гэр бүлд нь шинэ хүн мэндлэх
+											</li>
+											<li><i class="icon-line-square-check"></i> Ар гэрт нь гачигдал тохиолдох
+											</li>
+											<li><i class="icon-line-square-check"></i> Ажилтнуудаа жилд бүр эмнэлгийн
+												бүрэн үзлэг шинжилгээнд болон
+												гэнэтийн ослын даатгалд хамруулах, эрүүл мэндийн дэмжлэг туслалцаа
+												үзүүлэх
+											</li>
+											<li><i class="icon-line-square-check"></i> Өндөр насны тэтгэвэрт гарахад
+											</li>
+											<li><i class="icon-line-square-check"></i> Удаан жилийн нэмэгдэл
+											</li>
+										</ul>
+									</div>
+									<div class="col-5">
+										<img class="alignrigth img-responsive"
+											src="{% static 'base/assets/images/pages/hr/tuslamj.jpg' %}" alt="Image">
+										<img class="alignrigth img-responsive"
+											src="{% static 'base/assets/images/pages/hr/tuslamj2.jpg' %}" alt="Image">
+									</div>
+								</div>
+
+							</div>
+
+							<div class="accordion-header">
+								<div class="accordion-icon">
+									<i class="accordion-closed icon-ok-circle"></i>
+									<i class="accordion-open icon-remove-circle"></i>
+								</div>
+								<div class="accordion-title">
+									Орон сууцны болон бусад зээл
+								</div>
+							</div>
+							<div class="accordion-content">
+								<div class="row">
+									<div class="col-8">
+										Монос Группт оруулсан хувь нэмэр, ажлын гүйцэтгэлийг үндэслэн ажилтнууддаа орон
+										сууцны хөнгөлөлттэй зээл олгодог
+										төдийгүй ажилтан нь “Монос Дэлгэрэх” Хадгаламж Зээлийн Хоршоонд хуримтлалын сан
+										үүсгэж, Инвестос ББСБ-гаас
+										цалингийн зээл авах боломжтой.
+
+									</div>
+									<div class="col-4">
+										<img class="alignrigth img-responsive"
+											src="{% static 'base/assets/images/pages/hr/oronsuuts.jpg' %}" alt="Image">
+									</div>
+								</div>
+
+							</div>
+							<div class="accordion-header">
+								<div class="accordion-icon">
+									<i class="accordion-closed icon-ok-circle"></i>
+									<i class="accordion-open icon-remove-circle"></i>
+								</div>
+								<div class="accordion-title">
+									Шагнал урамшуулал
+								</div>
+							</div>
+							<div class="accordion-content">
+								<div class="row">
+									<div class="col-8">
+										Ажилтны гүйцэтгэлийг шударгаар, ил тод үнэлэх гүйцэтгэлийн үнэлгээний
+										урамшууллын тогтолцоотой бөгөөд жил бүр
+										тэргүүний шилдэг ажилтнуудаа шалгаруулан урамшуулдаг.
+
+									</div>
+									<div class="col-4">
+										<img class="alignrigth img-responsive"
+											src="{% static 'base/assets/images/pages/hr/shagnal.jpg' %}" alt="Image">
+									</div>
+								</div>
+							</div>
+							<div class="accordion-header">
+								<div class="accordion-icon">
+									<i class="accordion-closed icon-ok-circle"></i>
+									<i class="accordion-open icon-remove-circle"></i>
+								</div>
+								<div class="accordion-title">
+									Олон нийтийн арга хэмжээ
+								</div>
+							</div>
+							<div class="accordion-content">
+								<div class="row">
+									<div class="col-4">
+										<img class="alignrigth img-responsive"
+											src="{% static 'base/assets/images/pages/hr/arga-hemjee.jpg' %}"
+											alt="Image">
+										<img class="alignrigth img-responsive"
+											src="{% static 'base/assets/images/pages/hr/arga-hemjee2.jpg' %}"
+											alt="Image">
+
+									</div>
+									<div class="col-8">
+										Ажилтнуудын дунд компанийн соёлыг эерэгээр төлөвшүүлэх, ажлын бүтээмжийг
+										дээшлүүлэх, өөрийгөө нээн харуулах
+										боломжийг олгох, багаар ажиллах, хамт олонч уур амьсгал бүрдүүлэх зорилгоор олон
+										нийтийг хамарсан олон
+										сонирхолтой үйл ажиллагааг зохион байгуулдаг ба Цасны баяр, “Моносчууд наадмын
+										талбайд”-Баярын жагсаал,
+										Бэсрэг наадам, Моносчууд ургацын талбайдаа, “Бид нэг хүсэлтэй” спортын их
+										наадам, “Бид Моносчууд” урлагын
+										наадам, “Бүтээлч орчин хөгжих ирээдүй” шинэ санааны уралдаан, Монос Экспо, Шинэ
+										жил айсуй арга хэмжээ, Эрүүл
+										мэндийн аян зэргийг дурдаж байна. Мөн жил бүр Цагаан сарын баярыг өргөн
+										тэмдэглэдэг ба Ахмадын баярыг угтаж
+										Монос групп компаниас тэтгэвэрт гарсан нийт ахмадуудаа хүлээн авч хүндэтгэл
+										үзүүлдэг.
+
+									</div>
+								</div>
+							</div>
+							<div class="accordion-header">
+								<div class="accordion-icon">
+									<i class="accordion-closed icon-ok-circle"></i>
+									<i class="accordion-open icon-remove-circle"></i>
+								</div>
+								<div class="accordion-title">
+									Номын сан
+								</div>
+							</div>
+							<div class="accordion-content">
+								<div class="row">
+									<div class="col-8">
+										Ажилтнууд маань мэргэжлийн, гадаад хэлний, уран зохиолын, танин мэдэхүйн зэрэг
+										олон нэр төрлийн номнуудаас сонголтоо
+										хийн уншиж судлах, мэдлэг оюунаа тэлэх боломжтой.
+
+
+									</div>
+									<div class="col-4">
+										<img class="alignrigth img-responsive"
+											src="{% static 'base/assets/images/pages/hr/library.png' %}" alt="Image">
+									</div>
+								</div>
+							</div>
+							<div class="accordion-header">
+								<div class="accordion-icon">
+									<i class="accordion-closed icon-ok-circle"></i>
+									<i class="accordion-open icon-remove-circle"></i>
+								</div>
+								<div class="accordion-title">
+									Хөнгөлөлт
+								</div>
+							</div>
+							<div class="accordion-content">
+								<div class="row">
+									<div class="col-4">
+										<img class="alignrigth img-responsive"
+											src="{% static 'base/assets/images/pages/hr/hungulult.jpg' %}" alt="Image">
+									</div>
+									<div class="col-8">
+										Ажилтнууддаа халуун хоол, гар утасны хөнгөлөлт болон ажлын онцлогоос хамаарч
+										шатахууны хөнгөлөлт эдлүүлэх зэрэг
+										ажилтнуудынхаа нийгмийн нөхцөлийг сайжруулахад анхааран ажиллаж байна.
+
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
 
 				</div>
 
 			</div>
 
-		</section><!-- #content end -->
+		</div>
+	</div>
+</section><!-- #content end -->
+<style>
+	li {
+		line-height: 46px;
+		font-size: 17px;
+		text-color: #0f7a05;
+	}
+
+	li .i {
+		color: #096c2a;
+	}
+</style>
 {% endblock %}

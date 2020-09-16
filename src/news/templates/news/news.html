@@ -1,267 +1,274 @@
 {% extends 'news/index_2.html' %}
-   {% load static %}
-   {% load humanize %}
-   {% load i18n %}
+{% load static %}
+{% load humanize %}
+{% load i18n %}
 
 {% block content %}
-	<section id="page-title">
+<section id="page-title">
 
-			<div class="container clearfix">
-				<h1>Blog</h1>
-				<span>Our Latest News</span>
-				<ol class="breadcrumb">
-					<li><a href="#">Home</a></li>
-					<li class="active">Blog</li>
-				</ol>
-			</div>
+	<div class="container clearfix">
+		<h1>Нийтлэл</h1>
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="{% url 'website-homepage'%}">Нүүр</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Нийтлэл</li>
+		</ol>
+	</div>
 
-		</section><!-- #page-title end -->
+</section><!-- #page-title end -->
 
-		<!-- Content
+<!-- Content
 		============================================= -->
-		<section id="content">
+<section id="content">
+	<div class="content-wrap">
+		<div class="container clearfix">
 
-			<div class="content-wrap">
-
-				<div class="container clearfix">
-                <div class="row">
-					<!-- Sidebar
-					============================================= -->
-                    <div class="col-3">
-					<div class="sidebar nobottommargin clearfix">
-						<div class="sidebar-widgets-wrap">
-
-							<div class="widget clearfix">
-
-								<h4>Сүүлд нэмэгдсэн мэдээ</h4>
-								<div id="post-list-footer">
-                                    {% for news in news|slice:"0:4" %}
-									<div class="spost clearfix">
-										<div class="entry-image">
-											<a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}" class="nobg"><img src="{% if news.image %}{{news.image.url}}{% endif %}" alt=""></a>
-										</div>
-										<div class="entry-c">
-											<div class="entry-title">
-												<h4><a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}">{{ news.title }} </a></h4>
-											</div>
-											<ul class="entry-meta">
-												<li>10th July 2014</li>
-											</ul>
-										</div>
-									</div>
-                                   {% endfor %}
-								</div>
-
-							</div>
-
-							<div class="widget clearfix">
-
-								<h4>Нийтлэл ангиллал</h4>
-								<ul>
-                                      {% for category in category_list %}
-									<li><a href="animations.html" ><div>{{ category }}</div></a></li>
-                                        {% endfor %}
-								</ul>
-
-							</div>
-
-							<div class="widget quick-contact-widget clearfix">
-
-								<h4>Quick Contact</h4>
-								<div class="quick-contact-form-result"></div>
-								<form id="quick-contact-form" name="quick-contact-form" action="include/quickcontact.php" method="post" class="quick-contact-form nobottommargin">
-									<div class="form-process"></div>
-
-									<input type="text" class="required sm-form-control input-block-level" id="quick-contact-form-name" name="quick-contact-form-name" value="" placeholder="Full Name" />
-									<input type="text" class="required sm-form-control email input-block-level" id="quick-contact-form-email" name="quick-contact-form-email" value="" placeholder="Email Address" />
-									<textarea class="required sm-form-control input-block-level short-textarea" id="quick-contact-form-message" name="quick-contact-form-message" rows="4" cols="30" placeholder="Message"></textarea>
-									<input type="text" class="hidden" id="quick-contact-form-botcheck" name="quick-contact-form-botcheck" value="" />
-									<button type="submit" id="quick-contact-form-submit" name="quick-contact-form-submit" class="button button-small button-3d nomargin" value="submit">Send Email</button>
-								</form>
-
-
-							</div>
-
-						</div>
-					</div><!-- .sidebar end -->
-                </div>
-
-					<!-- Post Content
-					============================================= -->
-				<div class="col-5">
-					<div class="postcontent bothsidebar nobottommargin clearfix">
-						<!-- Posts
+			<div class="row gutter-40 col-mb-80">
+				<!-- Post Content
 						============================================= -->
-						<div id="posts" class="small-thumbs">
-					   {% for news in news_list %}
-							<div class="entry clearfix">
-								<div class="entry-image">
-									<a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}" data-lightbox="image"><img class="image_fade" src="{% if news.image %}{{news.image.url}}{% endif %}" alt="Standard Post with Image"></a>
+				<div class="postcontent col-lg-9">
+
+					<!-- Posts
+							============================================= -->
+					<div id="posts" class="row grid-container gutter-40">
+						{% for news in news_list %}
+						<div class="entry col-12">
+							<div class="grid-inner row no-gutters">
+								<div class="entry-image col-md-4">
+									<a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
+										data-lightbox="image"><img class="image_fade"
+											src="{% if news.image %}{{news.image.url}}{% endif %}"
+											alt="Standard Post with Image"></a>
 								</div>
-								<div class="entry-c">
-									<div class="entry-title">
-										<h2> <a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}">{{ news.title }}</a></h2>
+								<div class="col-md-8 pl-md-4">
+									<div class="entry-title title-sm">
+										<h2><a
+												href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}">{{ news.title }}</a>
+										</h2>
+
 									</div>
-									<ul class="entry-meta clearfix">
-										<li><i class="icon-calendar3"></i> {{ news.created_on|naturalday:'Y-m-d'}}</li>
-										<li><a href="#"><i class="icon-user"></i> {{ news.author }}</a></li>
-										<li><a href="#"><i class="icon-newspaper"></i></a></li>
-									</ul>
+									<div class="entry-meta">
+										<ul>
+											<li><i class="icon-calendar3"></i> {{ news.created_on|naturalday:'Y-m-d'}}
+											</li>
+											<li><a href="#"><i class="icon-user"></i> {{ news.author }}</a></li>
+											<li><a href="#"><i class="icon-newspaper"></i></a></li>
+										</ul>
+									</div>
 									<div class="entry-content">
-										<p> {{ news.content|safe|slice:":150" }}...</p>
-										<a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}">Цааш унших</a>
+										<p>{{ news.content|safe|slice:":100"}}...</p>
+										<a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
+											class="more-link">Цааш унших</a>
 									</div>
 								</div>
 							</div>
+						</div>
+						{% endfor %}
+					</div><!-- #posts end -->
+
+					<!-- Pager
+							============================================= -->
+					<div class="pagination">
+
+						{% if is_paginated %}
+						<ul class="pagination">
+							{% if page_obj.has_previous %}
+							<li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+							{% else %}
+							<li class="disabled"><span>&laquo;</span></li>
+							{% endif %}
+							{% for i in paginator.page_range %}
+							{% if page_obj.number == i %}
+							<li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+							{% else %}
+							<li><a href="?page={{ i }}">{{ i }}</a></li>
+							{% endif %}
 							{% endfor %}
-						</div><!-- #posts end -->
-						   
-                    </div>
-                  <div class="pagination" style="padding-left: 150px;">
-            
-                            {% if is_paginated %}
-                        <ul class="pagination">
-                            {% if page_obj.has_previous %}
-                            <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
-                            {% else %}
-                            <li class="disabled"><span>&laquo;</span></li>
-                            {% endif %}
-                            {% for i in paginator.page_range %}
-                            {% if page_obj.number == i %}
-                                <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-                            {% else %}
-                                <li><a href="?page={{ i }}">{{ i }}</a></li>
-                            {% endif %}
-                            {% endfor %}
-                            {% if page_obj.has_next %}
-                            <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
-                            {% else %}
-                            <li class="disabled"><span>&raquo;</span></li>
-                            {% endif %}
-                        </ul>
-                    {% endif %}
+							{% if page_obj.has_next %}
+							<li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+							{% else %}
+							<li class="disabled"><span>&raquo;</span></li>
+							{% endif %}
+						</ul>
+						{% endif %}
 
-				</div>
-			</div>
-					<!-- Sidebar
-					============================================= -->
-				<div class="col-3">
-					<div class="sidebar nobottommargin col_last clearfix">
-						<div class="sidebar-widgets-wrap">
+					</div>
+					<!-- .pager end -->
 
-							<div class="widget widget-twitter-feed clearfix">
+				</div><!-- .postcontent end -->
 
-								<h4>Хайлт</h4>
-								<form action="#" role="form" class="notopmargin nobottommargin">
-									<div class="input-group divcenter">
-                                   <input type="text" class="form-control" name="search_text" placeholder="Энд хайх утгаа бичнэ үү." value="{{ search_text }}">
-										<span class="input-group-btn">
-											<button class="btn btn-success" type="submit"><i class="icon-email2"></i></button>
-										</span>
-                                    </div>
-                                </form>
-                                
+				<!-- Sidebar
+						============================================= -->
+				<div class="sidebar col-lg-3">
+					<div class="sidebar-widgets-wrap">
+						<div class="widget widget-twitter-feed clearfix">
+							<h4>Хайлт</h4>
+							<div class="line line-xs line-travel"></div>
 
+
+							<form action="#" role="form" class="notopmargin nobottommargin">
+								<div class="input-group divcenter">
+									<input type="text" class="form-control" name="search_text"
+										placeholder="Энд хайх утгаа бичнэ үү." value="{{ search_text }}">
+									<span class="input-group-btn">
+										<button class="btn btn-success" type="submit"><i
+												class="icon-email2"></i></button>
+									</span>
+								</div>
+							</form>
+						</div>
+						<div class="widget clearfix">
+							<h4 class="mb-2 ls1 text-uppercase font-weight-bold">Шинэ мэдээ</h4>
+							<div class="line line-xs line-home"></div>
+
+							<div class="posts-sm row col-mb-30">
+								{% for news in news|slice:"0:4" %}
+								<div class="entry col-12">
+									<div class="grid-inner row align-items-center no-gutters">
+										<div class="col-auto">
+											<div class="entry-image">
+												<a href="#"><img
+														src="{% if news.image %}{{ news.image.url }} {% endif %}"
+														alt="Image"></a>
+											</div>
+										</div>
+										<div class="col pl-3">
+											<div class="entry-title">
+												<h4 class="font-weight-semibold"><a
+														href="#">{{ news.title|slice:":60"}}...</a></h4>
+											</div>
+											<div class="entry-meta">
+												<ul>
+													<li><span>by</span> <a href="#">{{ news.author }}</a></li>
+													<li><i class="icon-time"></i><a href="#">{{ news.created_on }}</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+								{% endfor %}
 							</div>
 
-							<div class="widget clearfix">
+						</div>
+						<div class="widget clearfix">
 
-								<h4>Зөвлөгөө</h4>
-								<div class="fslider testimonial noborder nopadding noshadow" data-animation="slide" data-arrows="false">
-									<div class="flexslider">
-										<div class="slider-wrap">
+
+							<h4>Зөвлөгөө</h4>
+							<div class="line line-xs line-lifestyle"></div>
+
+							<div class="fslider testimonial border-0 p-0 shadow-none" data-animation="slide"
+								data-arrows="false">
+								<div class="flexslider">
+									<div class="slider-wrap">
 										{% for advice in advice %}
-											<div class="slide">
-												<div class="testi-image">
-													<a href="#"><img src="{% static 'base/assets/images/advice/advice.png' %}" alt="Customer Testimonails"></a>
-												</div>
-												<div class="testi-content">
-													<p>{{ advice.content|safe|slice:":100" }}</p>
-													<div class="testi-meta">
-														{{ advice.title }}
-														<span>{{ advice.category }}</span>
-													</div>
-												</div>
+										<div class="slide">
+											<div class="testi-image">
+												<a href="#"><img
+														src="{% static 'base/assets/images/advice/advice.png' %}"
+														alt="Customer Testimonails"></a>
 											</div>
-											{% endfor %}
-											
-										</div>
-									</div>
-								</div>
-							</div>
-
-							<div class="widget clearfix">
-
-								<h4>Зураг цомог</h4>
-								<div id="oc-portfolio-sidebar" class="owl-carousel carousel-widget" data-items="1" data-margin="10" data-loop="true" data-nav="false" data-autoplay="5000">
-
-									<div class="oc-item">
-										<div class="iportfolio">
-											<div class="portfolio-image">
-												<a href="#">
-													<img src="{% static 'base/assets/images/portfolio/4/3.jpg' %}" alt="Mac Sunglasses">
-												</a>
-												<div class="portfolio-overlay">
-													<a href="http://vimeo.com/89396394" class="center-icon" data-lightbox="iframe"><i class="icon-line-play"></i></a>
+											<div class="testi-content">
+												<p>{{ advice.content|safe|slice:":100" }}</p>
+												<div class="testi-meta">
+													{{ advice.title }}
+													<span>{{ advice.category }}.</span>
 												</div>
-											</div>
-											<div class="portfolio-desc center nobottompadding">
-												<h3><a href="portfolio-single-video.html">Mac Sunglasses</a></h3>
-												<span><a href="#">Graphics</a>, <a href="#">UI Elements</a></span>
 											</div>
 										</div>
+										{% endfor %}
 									</div>
-
-									<div class="oc-item">
-										<div class="iportfolio">
-											<div class="portfolio-image">
-												<a href="portfolio-single.html">
-													<img src="{% static 'base/assets/images/portfolio/4/1.jpg' %}" alt="Open Imagination">
-												</a>
-												<div class="portfolio-overlay">
-													<a href="images/blog/full/1.jpg" class="center-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-												</div>
-											</div>
-											<div class="portfolio-desc center nobottompadding">
-												<h3><a href="portfolio-single.html">Open Imagination</a></h3>
-												<span><a href="#">Media</a>, <a href="#">Icons</a></span>
-											</div>
-										</div>
-									</div>
-
 								</div>
-
-
-							</div>
-
-							<div class="widget clearfix">
-
-								<h4>Tag Cloud</h4>
-								<div class="tagcloud">
-									<a href="#">general</a>
-									<a href="#">videos</a>
-									<a href="#">music</a>
-									<a href="#">media</a>
-									<a href="#">photography</a>
-									<a href="#">parallax</a>
-									<a href="#">ecommerce</a>
-									<a href="#">terms</a>
-									<a href="#">coupons</a>
-									<a href="#">modern</a>
-								</div>
-
 							</div>
 
 						</div>
 
-					</div><!-- .sidebar end -->
-				</div>
 
-				</div>
 
-            </div>
+						<div class="widget clearfix">
+
+							<h4>Portfolio Carousel</h4>
+							<div id="oc-portfolio-sidebar" class="owl-carousel carousel-widget" data-items="1"
+								data-margin="10" data-loop="true" data-nav="false" data-autoplay="5000">
+
+								<div class="oc-item">
+									<div class="portfolio-item">
+										<div class="portfolio-image">
+											<a href="#">
+												<img src="images/portfolio/4/3.jpg" alt="Mac Sunglasses">
+											</a>
+											<div class="bg-overlay">
+												<div class="bg-overlay-content dark" data-hover-animate="fadeIn"
+													data-hover-speed="350">
+													<a href="https://vimeo.com/89396394"
+														class="overlay-trigger-icon bg-light text-dark"
+														data-hover-animate="zoomIn" data-hover-speed="350"
+														data-lightbox="iframe"><i class="icon-line-play"></i></a>
+												</div>
+												<div class="bg-overlay-bg dark" data-hover-animate="fadeIn"
+													data-hover-speed="350"></div>
+											</div>
+										</div>
+										<div class="portfolio-desc text-center pb-0">
+											<h3><a href="portfolio-single-video.html">Mac Sunglasses</a></h3>
+											<span><a href="#">Graphics</a>, <a href="#">UI Elements</a></span>
+										</div>
+									</div>
+								</div>
+
+								<div class="oc-item">
+									<div class="portfolio-item">
+										<div class="portfolio-image">
+											<a href="portfolio-single.html">
+												<img src="images/portfolio/4/1.jpg" alt="Open Imagination">
+											</a>
+											<div class="bg-overlay">
+												<div class="bg-overlay-content dark" data-hover-animate="fadeIn"
+													data-hover-speed="350">
+													<a href="images/blog/full/1.jpg"
+														class="overlay-trigger-icon bg-light text-dark"
+														data-hover-animate="zoomIn" data-hover-speed="350"
+														data-lightbox="image"><i class="icon-line-plus"></i></a>
+												</div>
+												<div class="bg-overlay-bg dark" data-hover-animate="fadeIn"
+													data-hover-speed="350"></div>
+											</div>
+										</div>
+										<div class="portfolio-desc text-center pb-0">
+											<h3><a href="portfolio-single.html">Open Imagination</a></h3>
+											<span><a href="#">Media</a>, <a href="#">Icons</a></span>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+
+						</div>
+
+						<div class="widget clearfix">
+
+							<h4>Tag Cloud</h4>
+							<div class="tagcloud">
+								<a href="#">general</a>
+								<a href="#">videos</a>
+								<a href="#">music</a>
+								<a href="#">media</a>
+								<a href="#">photography</a>
+								<a href="#">parallax</a>
+								<a href="#">ecommerce</a>
+								<a href="#">terms</a>
+								<a href="#">coupons</a>
+								<a href="#">modern</a>
+							</div>
+
+						</div>
+
+					</div>
+
+				</div><!-- .sidebar end -->
 			</div>
 
-		</section><!-- #content end -->
-
+		</div>
+	</div>
+</section><!-- #content end -->
 {% endblock content %}

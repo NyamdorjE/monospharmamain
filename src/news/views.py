@@ -2,6 +2,7 @@ from django.shortcuts import render
 from src.news.models import Category, News
 from src.courses.models import Course
 from src.website.models import Advice
+from src.product.models import Product
 from django.http import HttpResponse
 from django.views import generic
 from django.views.generic import TemplateView
@@ -29,6 +30,8 @@ class NewsList(generic.ListView):
         context['category_list'] = Category.objects.filter(cate_type="news")
         context['category'] = Course.objects.all()
         context['advice'] = Advice.objects.all()
+        # context['newproduct'] = Product.objects.filter(is_product_new=True)
+
         return context
 
     def get_queryset(self):

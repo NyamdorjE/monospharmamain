@@ -53,6 +53,10 @@ INSTALLED_APPS = [
     'crispy_forms',
     'bootstrap4',
     'nested_inline',
+    'django_extensions',
+    'src.quiz',
+    'src.mcq',
+
 
 
 
@@ -84,6 +88,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.i18n',
+                'src.base.context_processors.extras',
 
 
 
@@ -199,7 +204,7 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'elastinex@gmail.com'
-EMAIL_HOST_PASSWORD = 'password'
+EMAIL_HOST_PASSWORD = 'Godisdead'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 

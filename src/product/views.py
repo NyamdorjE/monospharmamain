@@ -21,10 +21,58 @@ class ProductList(generic.ListView):
         context = super(ProductList, self).get_context_data(**kwargs)
         context['product'] = self.get_queryset()
         context['category'] = ProductCategory.objects.all()
+        context['newproduct'] = Product.objects.all()
         return context
 
     def get_queryset(self):
         queryset = super(ProductList, self).get_queryset()
+        search_text = self.request.GET.get('search_text', None)
+        cat_id = self.request.GET.get('cat_id')
+        if search_text:
+            queryset = queryset.filter(
+                Q(name__icontains=search_text) |
+                Q(suggest__icontains=search_text)
+            )
+            return queryset
+
+        else:
+            product_list = Product.objects.filter(categories__id=cat_id)
+            product = Product.objects.all()
+
+        if product_list:
+            return product_list
+        else:
+            return product
+
+
+# class ProductDetailView(generic.DetailView):
+#     model = Product
+#     template_name = 'product/productdetail.html'
+#     def get_context_data(self, **kwargs):
+#         context = super(ProductDetailView, self).get_context_data(**kwargs)
+#         context['product'] = News.objects.all()
+
+
+#         return context
+class ProductDetailView(generic.DetailView):
+    model = Product
+    template_name = 'product/productdetail.html'
+
+
+class ProductAlphabet(generic.ListView):
+    queryset = Product.objects.order_by('name')
+    template_name = 'product/productalphabet.html'
+    paginate_by = 2
+
+    def get_context_data(self, **kwargs):
+        context = super(ProductAlphabet, self).get_context_data(**kwargs)
+        context['product'] = self.get_queryset()
+        context['category'] = ProductCategory.objects.all()
+        context['newproduct'] = Product.objects.order_by('name')
+        return context
+
+    def get_queryset(self):
+        queryset = super(ProductAlphabet, self).get_queryset()
         search_text = self.request.GET.get('search_text', None)
         cat_id = self.request.GET.get('cat_id')
         if search_text:

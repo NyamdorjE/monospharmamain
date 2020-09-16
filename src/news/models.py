@@ -12,7 +12,6 @@ class Category(models.Model):
     title = models.CharField(max_length=255, verbose_name=_('Title'))
     category_type = (
         ("news", "News"),
-        ("research", "Research")
 
     )
     cate_type = models.CharField(
@@ -37,7 +36,8 @@ class News(models.Model):
         max_length=255, verbose_name=_('Title'), unique=True)
     slug = models.SlugField(
         max_length=255, verbose_name=_('News Slug'), unique=True)
-    author = models.CharField(max_length=255, verbose_name=_('Created by'))
+    author = models.CharField(
+        max_length=255, verbose_name=_('Created by'), default="Админ")
     content = RichTextField(blank=True, null=True, verbose_name=_('Content'))
     image = models.ImageField(verbose_name=(
         'Picture'), upload_to='media/news/')

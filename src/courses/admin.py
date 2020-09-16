@@ -1,31 +1,34 @@
 from django.contrib import admin
 from src.courses.models import Subject, Lesson, Course, CourseCategory
+from nested_inline.admin import NestedStackedInline, NestedModelAdmin, NestedTabularInline
 # Register your models here.
 
 
 # admin.site.register(Subject)
 # admin.site.register(Course)
 # admin.site.register(Lesson)
-# admin.site.register(CourseCategory)
-class InLineLesson(admin.TabularInline):
+admin.site.register(CourseCategory)
+
+
+class InLineLesson(NestedTabularInline):
     model = Lesson
+    extra = 1
+    prepopulated_fields = {'slug': ('title',)}
+
+
+class InLineSubject(NestedTabularInline):
+    inlines = [InLineLesson]
+    prepopulated_fields = {'slug': ('title',)}
+    model = Subject
     extra = 1
 
 
-class CourseAdmin(admin.ModelAdmin):
-    inlines = [InLineLesson]
-    filter_horizontal = ('students',)
-    list_display = ('title', 'description', 'price')
-    list_filter = ('title',  'price')
+class InLineCourse(NestedModelAdmin):
+    inlines = [InLineSubject]
+    filter_horizontal = ('students', )
     search_fields = ('title', 'slug')
-    fieldsets = (
-        (None, {
-            "fields": (
-                'category', 'title', 'price', 'description', 'image', 'students'
-            ),
-        }),
-    )
+    list_filter = ('category',  'price')
+    list_display = ('title', 'description', 'price')
 
 
-admin.site.register(Course, CourseAdmin)
-admin.site.register(CourseCategory)
+admin.site.register(Course, InLineCourse)

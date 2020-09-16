@@ -5,11 +5,14 @@ from django.utils.translation import ugettext_lazy as _
 class Poll(models.Model):
     position = models.IntegerField(verbose_name=_('Position'))
     title = models.CharField(verbose_name=_('Title'), max_length=255)
+    slug = models.SlugField(verbose_name=_("Slug "))
 
     class Meta:
         verbose_name = _("Санал асуулга")
         verbose_name_plural = _("Санал асуулга")
 
+    def __str__(self):
+        return self.title
 
 class Question(models.Model):
     question = models.TextField()

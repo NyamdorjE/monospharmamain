@@ -2,159 +2,151 @@
 {% load static %}
 {% load humanize %}
 
-
+{% comment %}
+<link rel="stylesheet" href="{% static 'base/assets/demos/course/course.css' %}" type="text/css" />
+{% endcomment %}
 {% block content %}
+
+<head>
+	<section id="page-title">
+
+		<div class="container clearfix">
+			<h1>Сургалт</h1>
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="{% url 'website-homepage'%}">Нүүр</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Сургалт</li>
+			</ol>
+		</div>
+
+	</section><!-- #page-title end -->
+
+</head>
 <!-- Content
 		============================================= -->
-		<section id="content">
+<div class="section topmargin-lg parallax" style="padding: 80px 0 60px; background-image: url({% static "/base/assets/demos/course/images/icon-pattern.jpg" %});
+	background-size: auto; background-repeat: repeat" data-bottom-top="background-position:0px 100px;"
+	data-top-bottom="background-position:0px -500px;">
 
-			<div class="content-wrap">
-
-				<div class="container clearfix">
-
-					<!-- Post Content
+	<!-- Wave Shape Divider
 					============================================= -->
-					<div class="postcontent nobottommargin col_last clearfix">
+	<div class="wave-top"
+		style="position: absolute; top: 0; left: 0; width: 100%; background-image: url({% static '/base/assets/demos/course/images/wave-3.svg' %}); height: 12px; z-index: 2; background-repeat: repeat-x;">
+	</div>
 
-						<!-- Posts
-						============================================= -->
-						<div id="posts" class="small-thumbs">
-						{% for cat in category %}
+	<div class="container">
 
-							<div class="entry clearfix">
-								<div class="entry-image">
-									<a href="/courses/{{ cat.id }}" data-lightbox="image"><img class="image_fade" src="{% if cat.image %}{{ cat.image.url}}{% endif %}" alt="Standard Post with Image"></a>
-								</div>
-								<div class="entry-c">
-									<div class="entry-title">
-										<h2><a href="/courses/{{ cat.id }}">{{ cat.title }}</a></h2>
-									</div>
-									<ul class="entry-meta clearfix">
-										<li><i class="icon-calendar3"></i> 10th Feb 2014</li>
-										<li><a href="#"><i class="icon-user"></i> {{ cat.author }}</a></li>
-										<li><i class="icon-folder-open"></i> <a href="#">{{ cat.category }}</a>, <a href="#"></a></li>
-										<li><a href="/courses/{{ cat.id }}"><i class="icon-comments"></i> 13</a></li>
-										<li><a href="#"><i class="icon-camera-retro"></i></a></li>
-									</ul>
-									<div class="entry-content">
-										<p>{{ cat.description|slice:":60" | safe}}...</p>
-										<a href="/courses/{{ cat.id }}"class="more-link">Хичээл үзэх</a>
-									</div>
-								</div>
-							</div>
-						{% endfor %}
-						</div><!-- #posts end -->
+		<div class="heading-block border-bottom-0 mb-5 center">
+			<h3>Сургалтууд</h3>
+			<span></span>
+		</div>
 
-						<!-- Pagination
-						============================================= -->
-						<ul class="pager nomargin">
-							<li class="previous"><a href="#">&larr; Older</a></li>
-							<li class="next"><a href="#">Newer &rarr;</a></li>
-						</ul><!-- .pager end -->
+		<div class="clear"></div>
 
-					</div><!-- .postcontent end -->
+		<div class="row mt-2">
 
-					<!-- Sidebar
-					============================================= -->
-					<div class="sidebar nobottommargin clearfix">
-						<div class="sidebar-widgets-wrap">
+			<!-- Course 1
+							============================================= -->
+			{% for cat in category %}
 
-							
-
-							
-
-							<div class="widget clearfix">
-								<div class="tabs nobottommargin clearfix" id="sidebar-tabs">
-
-									<ul class="tab-nav clearfix">
-										<li><a href="#tabs-1">Шинэ хичээл</a></li>
-									</ul>
-
-									<div class="tab-container">
-
-										<div class="tab-content clearfix" id="tabs-1">
-											<div id="popular-post-list-sidebar">
-											{% for cat in category|slice:"0:4"  %}
-												<div class="spost clearfix">
-													<div class="entry-image">
-														<a href="#" class="nobg"><img class="img-circle" src="{% if cat.image %}{{ cat.image.url }}{% endif %}" alt=""></a>
-													</div>
-													<div class="entry-c">
-														<div class="entry-title">
-															<h4><a href="#">{{ cat.title }}</a></h4>
-														</div>
-														
-													</div>
-												</div>
-												{% endfor %}
-											</div>
-										</div>
-									</div>
-
-								</div>
-								
-
-							</div>
-
-							<div class="widget clearfix">
-
-								<h4>Portfolio Carousel</h4>
-								<div id="oc-portfolio-sidebar" class="owl-carousel carousel-widget" data-items="1" data-margin="10" data-loop="true" data-nav="false" data-autoplay="5000">
-
-									<div class="oc-item">
-										<div class="iportfolio">
-											<div class="portfolio-image">
-												<a href="#">
-													<img src="{% static 'base/assets/images/portfolio/4/3.jpg' %}" alt="Mac Sunglasses">
-												</a>
-												<div class="portfolio-overlay">
-													<a href="http://vimeo.com/89396394" class="center-icon" data-lightbox="iframe"><i class="icon-line-play"></i></a>
-												</div>
-											</div>
-											<div class="portfolio-desc center nobottompadding">
-												<h3><a href="portfolio-single-video.html">Mac Sunglasses</a></h3>
-												<span><a href="#">Graphics</a>, <a href="#">UI Elements</a></span>
-											</div>
-										</div>
-									</div>
-
-									<div class="oc-item">
-										<div class="iportfolio">
-											<div class="portfolio-image">
-												<a href="portfolio-single.html">
-													<img src="{% static 'base/assets/images/portfolio/4/1.jpg' %}" alt="Open Imagination">
-												</a>
-												<div class="portfolio-overlay">
-													<a href="images/blog/full/1.jpg" class="center-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-												</div>
-											</div>
-											<div class="portfolio-desc center nobottompadding">
-												<h3><a href="portfolio-single.html">Open Imagination</a></h3>
-												<span><a href="#">Media</a>, <a href="#">Icons</a></span>
-											</div>
-										</div>
-									</div>
-
-								</div>
-
-
-							</div>
-
-							<div class="widget clearfix">
-
-								<h4>Flickr Photostream</h4>
-								<div id="flickr-widget" class="flickr-feed masonry-thumbs" data-id="613394@N22" data-count="16" data-type="group" data-lightbox="gallery"></div>
-
-							</div>
-
-						</div>
-
-					</div><!-- .sidebar end -->
-
+			<div class="col-md-4 mb-5">
+				<div class="card course-card hover-effect border-0">
+					<a href="/courses/{{ cat.id }}"><img class="card-img-top"
+							src="{% if cat.image %}{{ cat.image.url}}{% endif %}" alt="Card image cap"></a>
+					<div class="card-body">
+						<h4 class="card-title font-weight-bold mb-2"><a href="/courses/{{ cat.id }}">{{ cat.title }}</a>
+						</h4>
+						<p class="mb-2 card-title-sub text-uppercase font-weight-normal ls1"><a
+								href="/courses/{{ cat.id }}" class="text-black-50">{{ cat.category }}</a></p>
+						<div class="rating-stars mb-2"><i class="icon-star3"></i><i class="icon-star3"></i><i
+								class="icon-star3"></i><i class="icon-star3"></i><i class="icon-star-half-full"></i>
+							<span>4.7</span></div>
+						<p class="card-text text-black-50 mb-1">{{ cat.description|slice:":60" | safe}}...</p>
+					</div>
+					<div class="card-footer py-3 d-flex justify-content-between align-items-center bg-white text-muted">
+						<div class="badge alert-primary">{{ cat.price }}</div>
+						<a href="/courses/{{ cat.id }}" class="text-dark position-relative"><i
+								class="icon-line2-user"></i> <span class="author-number">1</span></a>
+					</div>
 				</div>
-
 			</div>
+			{% endfor %}
 
-		</section><!-- #content end -->
 
+		</div>
+	</div>
+	<div class="d-flex justify-content-between mt-5">
+		<a href="#" class="btn btn-outline-secondary">&larr; Older</a>
+		<a href="#" class="btn btn-outline-dark">Newer &rarr;</a>
+	</div>
+	<!-- Wave Shape Divider - Bottom
+					============================================= -->
+	<div class="wave-bottom"
+		style="position: absolute; top: auto; bottom: 0; left: 0; width: 100%; background-image: url({% static 'base/assets/demos/course/images/wave-3.svg' %}); height: 12px; z-index: 2; background-repeat: repeat-x; transform: rotate(180deg);">
+	</div>
+</div>
+
+<style>
+	/* Course Categories
+---------------------------------------------------------------------------- */
+	.course-categories .card a span {
+		display: block;
+		font-size: 13px;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		text-align: center;
+		color: #FFF;
+		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+		-webkit-transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		-o-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+	}
+
+	.course-categories .card a span i {
+		display: block;
+		margin-bottom: 5px;
+		font-size: 20px;
+	}
+
+	.hover-effect {
+		-webkit-transition: transform .25s ease, box-shadow .3s ease;
+		-o-transition: transform .25s ease, box-shadow .3s ease;
+		transition: transform .25s ease, box-shadow .3s ease;
+		-webkit-transform-style: preserve-3d;
+		-webkit-backface-visibility: hidden;
+		box-shadow: none;
+		border: 0;
+	}
+
+	.hover-effect:hover {
+		-webkit-transform: translateY(-2px);
+		-ms-transform: translateY(-2px);
+		-o-transform: translateY(-2px);
+		transform: translateY(-2px);
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+	}
+
+	.course-card .card-footer {
+		border-top-color: #EEE;
+	}
+
+	.rating-stars i {
+		color: #f4c150;
+	}
+
+	.course-card .card-title a {
+		color: #333;
+	}
+
+	.course-card .card-title a:hover {
+		color: var(--themecolor);
+	}
+
+	.course-card .card-title-sub {
+		font-size: 11px;
+	}
+</style>
 {% endblock %}

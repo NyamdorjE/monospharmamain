@@ -20,22 +20,35 @@ from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from django.conf.urls import include, url
 from src.base.models import humanresource, contact, request
+from src.base.models.humanresource import EmailAttachementView
 from src.accounts import views as user_views
 from src.courses import views as courses_views
 from src.news import views as news_views
+from src.base.urls import Nurl
+
 
 app_name = 'polls'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('humanresource/', humanresource.application, name='humanresource'),
+    path('humanresource/', humanresource.hrview, name='humanresource'),
+    # path('humanresource/<slug>', HrDetailView.as_view(), name='humandetailview'),
+    # Nurl('humanresource/<slug:slug>/') > 'src.base.models.humanresource.HrDetailView',
+    path('humanresource/<slug:slug>/',
+         EmailAttachementView.as_view(), name="humandetailview"),
     path('request/', request.request, name='request'),
-    path('contact/', contact.contact, name='contact'),
+    # path('contact/', contact.contact, name='contact'),
+    # path('contact/', contact.contactview, name='contact'),
+    # path('contact/', EmailAttachementView.as_view(), name='emailattachment'),
     path('', include('src.accounts.urls')),
     path('', include('src.courses.urls')),
     path('', include('src.news.urls')),
     path('', include('src.product.urls')),
     path('', include('src.poll.urls')),
+    path('', include('src.quiz.urls')),
+    path('', include('src.website.urls'))
+
+    # url(r'^contact/', include('contact.urls', namespace='contact')),
 
 
 ]

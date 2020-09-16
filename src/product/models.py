@@ -11,9 +11,6 @@ class ProductCategory(models.Model):
     title = models.CharField(max_length=255, verbose_name=_('Title'))
     category_type = (
         ("энгийн", "Энгийн"),
-        ("зүрх судас", "Зүрх судас"),
-        ("витамин", "Витамин"),
-        ("хүүхэд", "Хүүхэд")
     )
     cate_type = models.CharField(
         max_length=255, choices=category_type, default="энгийн")
@@ -30,15 +27,59 @@ class ProductCategory(models.Model):
         return Product.objects.filter(category=self)
 
 
+class Classification(models.Model):
+    classification_name = models.CharField(
+        max_length=255, verbose_name=_('Classification type'))
+
+    class Meta:
+        verbose_name = _('Classification')
+        ordering = ['classification_name']
+
+    def __str__(self):
+        return self.classification_name
+
+
+class Type(models.Model):
+    type_name = models.CharField(
+        max_length=255, verbose_name=_('Type of product'))
+
+    class Meta:
+        verbose_name = _('Type of product')
+        ordering = ['type_name']
+
+    def __str__(self):
+        return self.type_name
+
+
+class ProductForm(models.Model):
+    form_name = models.CharField(
+        max_length=255, verbose_name=_('ProductForm '))
+
+    class Meta:
+        verbose_name = _('ProductForm')
+        ordering = ['form_name']
+
+    def __str__(self):
+        return self.form_name
+
+
 class Product(models.Model):
     categories = models.ForeignKey(ProductCategory, verbose_name=_(
         "Category"), on_delete=models.CASCADE, related_name="Product")
     product_id = models.IntegerField(
         verbose_name=_("Product id"), primary_key=True)
+    classification = models.ForeignKey("Classification", verbose_name=_(
+        "Classification"), on_delete=models.CASCADE)
+    producttype = models.ForeignKey("Type", verbose_name=_(
+        "producttype"), on_delete=models.CASCADE)
+    productForm = models.ForeignKey("ProductForm", verbose_name=_(
+        "ProductForm"), on_delete=models.CASCADE)
     name = models.CharField(verbose_name=_(
         "Product name "), max_length=255, unique=True)
     slug = models.SlugField(
         max_length=255, verbose_name=_('Product Slug'), unique=True)
+    international_name = models.CharField(
+        max_length=255, verbose_name=_('Product intertational name'))
     ingredients = models.CharField(verbose_name=_(
         "Product ingredients"), max_length=500)
     suggest = models.CharField(max_length=1000, verbose_name=_('How to use '))
@@ -51,11 +92,15 @@ class Product(models.Model):
     is_product_new = models.BooleanField(default=False)
     link = models.CharField(verbose_name=_(
         'Link to emonos'), max_length=355, null=True)
+    daatgal = models.BooleanField(
+        default=False, help_text="Бүтээгдэхүүн даатгалд хамрагддаг бол зөв болгоно уу")
+    jor = models.BooleanField(
+        default=False, help_text="Бүтээгдэхүүн жортой бол зөвлөн үү")
 
     class Meta:
         verbose_name = _('Product')
         verbose_name_plural = _('Prodcuts')
-        ordering = ['created_on']
+        ordering = ['name']
 
     @property
     def get_products(self):

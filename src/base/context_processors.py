@@ -1,7 +1,8 @@
-from blog.forms import ContactForm
+from src.product.models import Product
+from src.news.models import News
 
-def contact_form(request):
-    if request.method == 'GET':
-        contact_form = ContactForm()
-        return {'contact_form': contact_form}
-    return
+
+def extras(request):
+    newproduct = Product.objects.filter(is_product_new=True)
+    news = News.objects.all()
+    return {'newproduct': newproduct, 'news_list': news}

@@ -3,7 +3,9 @@
 {% block content %}
 {% for poll in poll %}
         {{ poll.title }}
-        <a href="{% url 'poll:index' poll.id %}" class="btn btn-primary btn-sm">Vote Now</a>
+      	<a href="{% url 'poll-detail-view' poll.slug %}">
+				 View details
+				</a>
 
 {% endfor %}
 
