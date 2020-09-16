@@ -24,10 +24,11 @@
 
 <section class="single-course spad pb-0">
 	<div class="container">
-		{% for course in courses %}
+
 
 		<div class="course-meta-area">
 			<div class="row">
+				{% for course in courses %}
 				<div class="col-6">
 					<h3>{{course.title|capfirst}}</h3>
 					<div class="course-metas">
@@ -76,12 +77,12 @@
 						{% endif %}
 					</div>
 				</div>
-
+				{% endfor %}
 			</div>
 		</div>
 
 	</div>
-	{% endfor %}
+
 
 </section>
 

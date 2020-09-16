@@ -12,7 +12,7 @@ admin.site.register(CourseCategory)
 
 class InLineLesson(NestedTabularInline):
     model = Lesson
-    extra = 1
+    extra = 0
     prepopulated_fields = {'slug': ('title',)}
 
 
@@ -20,7 +20,7 @@ class InLineSubject(NestedTabularInline):
     inlines = [InLineLesson]
     prepopulated_fields = {'slug': ('title',)}
     model = Subject
-    extra = 1
+    extra = 0
 
 
 class InLineCourse(NestedModelAdmin):
