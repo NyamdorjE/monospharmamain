@@ -51,7 +51,7 @@
 			<div class="col-md-4 mb-5">
 				<div class="card course-card hover-effect border-0">
 					<a href="/courses/{{ cat.id }}"><img class="card-img-top"
-							src="{% if cat.image %}{{ cat.image.url}}{% endif %}" alt="Card image cap"></a>
+							src="{% if cat.image %}{{ cat.image.url}}{% endif %}" alt=""></a>
 					<div class="card-body">
 						<h4 class="card-title font-weight-bold mb-2"><a href="/courses/{{ cat.id }}">{{ cat.title }}</a>
 						</h4>
@@ -64,8 +64,8 @@
 					</div>
 					<div class="card-footer py-3 d-flex justify-content-between align-items-center bg-white text-muted">
 						<div class="badge alert-primary">{{ cat.price }}</div>
-						<a href="/courses/{{ cat.id }}" class="text-dark position-relative"><i
-								class="icon-line2-user"></i> <span class="author-number">1</span></a>
+						{% comment %} <a href="/courses/{{ cat.id }}" class="text-dark position-relative"><i
+								class="icon-line2-user"></i> <span class="author-number">1</span></a> {% endcomment %}
 					</div>
 				</div>
 			</div>
@@ -74,10 +74,33 @@
 
 		</div>
 	</div>
-	<div class="d-flex justify-content-between mt-5">
-		<a href="#" class="btn btn-outline-secondary">&larr; Older</a>
-		<a href="#" class="btn btn-outline-dark">Newer &rarr;</a>
+	<div class="pagination">
+
+		{% if is_paginated %}
+		<ul class="pagination justify-content-center">
+			{% if page_obj.has_previous %}
+			<li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+			{% else %}
+			<li class="page-item disabled"><a class="page-link">&laquo;</a></li>
+			{% endif %}
+			{% for i in paginator.page_range %}
+			{% if page_obj.number == i %}
+			<li class="page-item active"><a class="page-link">{{ i }} <span class="sr-only">(current)</span></a>
+			</li>
+			{% else %}
+			<li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+			{% endif %}
+			{% endfor %}
+			{% if page_obj.has_next %}
+			<li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+			{% else %}
+			<li class="page-item disabled"><a class="page-link">&raquo;</a></li>
+			{% endif %}
+		</ul>
+		{% endif %}
+
 	</div>
+
 	<!-- Wave Shape Divider - Bottom
 					============================================= -->
 	<div class="wave-bottom"

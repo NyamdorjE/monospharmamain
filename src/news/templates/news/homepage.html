@@ -255,7 +255,7 @@
 								<div
 									class="bg-overlay-content text-overlay-mask dark align-items-start justify-content-between">
 									<div>
-										<span class="badge badge-danger">Category</span>
+										<span class="badge badge-danger">{{ news.category }}</span>
 										<div class="portfolio-desc">
 											{% comment %} <span class="font-primary text-uppercase">Justin Bieber</span>
 											{% endcomment %}
@@ -287,7 +287,7 @@
 									<img src="{% if news.image %}{{ news.image.url }}{% endif %}" alt=""
 										style="width: 100%; height: 100%;">
 									<div class="bg-overlay">
-										<span class="badge badge-danger">aa</span>
+										<span class="badge badge-danger">{{ news.category }}</span>
 
 										<div
 											class="bg-overlay-content text-overlay-mask dark align-items-start justify-content-between">
@@ -310,7 +310,7 @@
 									<img src="{% if news.image %}{{ news.image.url }}{% endif %}" alt=""
 										style="width: 100%; height: 100%;">
 									<div class="bg-overlay">
-										<span class="badge badge-danger">Category</span>
+										<span class="badge badge-danger">{{ news.category }}</span>
 
 										<div
 											class="bg-overlay-content text-overlay-mask dark align-items-start justify-content-between">
@@ -337,7 +337,7 @@
 										<div
 											class="bg-overlay-content text-overlay-mask dark align-items-start justify-content-between">
 											<div>
-												<span class="badge badge-danger">Category</span>
+												<span class="badge badge-danger">{{ news.category }}</span>
 												<div class="portfolio-desc">
 
 													<h3><a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
@@ -347,9 +347,7 @@
 													<a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
 														class="button button-circle button-small font-weight-normal ls1 ml-0 track-list"><i
 															class="icon-play"></i>Цааш үзэх</a>
-													<a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
-														class="button button-circle button-small button-border button-white font-weight-normal ls1">View
-														All</a>
+
 												</div>
 											</div>
 										</div>
@@ -375,19 +373,20 @@
 					<div class="heading-block mb-4 border-bottom-0">
 						<h2 class="font-weight-normal ls0 nott mb-0"> Онцлох бүтээгдэхүүн </h2>
 					</div>
+
 					<div class="row align-items-center">
-
+						{% for featured in featured %}
 						<div class="col-lg-3 col-sm-6">
-							<img src="{% static 'base/assets/images/zohiomj/читамон.jpg' %}" alt="Image">
+							<img src="{% if featured.picture %}{{ featured.picture.url }}{% endif %}" alt="Image">
 						</div>
-
 						<div class="col-lg-4 col-sm-6 mt-3 mt-sm-0">
 							<div class="heading-block">
-								<h2 class="font-weight-bold ls0 mb-0 font-body">Зурагтай хамаарайлтай Гарчиг</h2>
-								<span class="text-muted">Туслах гарчиг</span>
+								<h2 class="font-weight-bold ls0 mb-0 font-body">{{ featured.title }}</h2>
+								<span class="text-muted">{{ featured.description }}</span>
 							</div>
-							<p class="mb-0">Зурагнуудтай хамаарайлтай тэкст мэдээлэл.</p>
+							<p class="mb-0">{{ featured.ad }}</p>
 						</div>
+						{% endfor%}
 
 						<div class="col-lg-5 mt-5 mt-lg-0">
 							<h4 class="mb-0 font-weight-normal font-body"> <a href="#">Бидний бүтээгдэхүүн Дэлхийд</a>
@@ -395,7 +394,6 @@
 							<div id="oc-images" class="owl-carousel image-carousel carousel-widget" data-margin="20"
 								data-nav="true" data-pagi="true" data-items-xs="2" data-items-sm="3" data-items-md="3"
 								data-items-lg="2" data-items-xl="2">
-
 								<div class="oc-item">
 									<a href="#"><img src="{% static 'base/assets/images/world/0205-3.jpg' %}"
 											alt="Image 1"></a>
@@ -442,22 +440,24 @@
 							<div class="oc-item">
 								<div class="product">
 									<div class="product-image">
-										<a href="#"><img src="{% if product.image %}{{ product.image.url }} {% endif %}"
-												alt="Checked Short Dress"></a>
+										<a
+											href="{% if product %}{% url 'product-product-detail-view' product.slug  %} {% endif %}"><img
+												src="{% if product.image %}{{ product.image.url }} {% endif %}"
+												alt=""></a>
 										<div class="bg-overlay">
 											<div class="bg-overlay-content align-items-end justify-content-between"
 												data-hover-animate="fadeIn" data-hover-speed="400">
-												<a href="#" class="btn btn-dark mr-2"><i
-														class="icon-shopping-basket"></i></a>
-												<a href="demos/shop/ajax/shop-item.html" class="btn btn-dark"
-													data-lightbox="ajax"><i class="icon-line-expand"></i></a>
+
+												<a href="{% if product %}{% url 'product-product-detail-view' product.slug  %} {% endif %}"
+													class="btn btn-dark"><i class="icon-line-expand"></i></a>
 											</div>
 											<div class="bg-overlay-bg bg-transparent"></div>
 										</div>
 									</div>
 									<div class="product-desc">
 										<div class="product-title">
-											<h5><a href="#" style="color: #020202; !important">{{ product.name }}</a>
+											<h5><a href="{% if product %}{% url 'product-product-detail-view' product.slug  %} {% endif %}"
+													style="color: #020202; !important">{{ product.name }}</a>
 											</h5>
 										</div>
 										<div class="product-price"> <ins
@@ -619,7 +619,7 @@
 							<i class="icon-thumbs-up2"></i>
 						</div>
 						<div class="fbox-content">
-							<h3>100% Original</h3>
+							<h3>Бүтээгдэхүүн</h3>
 							<p class="mt-0">We guarantee you the sale of Original Brands.</p>
 						</div>
 					</div>
@@ -631,7 +631,7 @@
 							<i class="icon-credit-cards"></i>
 						</div>
 						<div class="fbox-content">
-							<h3>Payment Options</h3>
+							<h3>Нээлттэй ажлын байр</h3>
 							<p class="mt-0">We accept Visa, MasterCard and American Express.</p>
 						</div>
 					</div>
@@ -643,7 +643,7 @@
 							<i class="icon-truck2"></i>
 						</div>
 						<div class="fbox-content">
-							<h3>Free Shipping</h3>
+							<h3>Хүргэлт үйлчилгээ</h3>
 							<p class="mt-0">Free Delivery to 100+ Locations on orders above $40.</p>
 						</div>
 					</div>
@@ -655,7 +655,7 @@
 							<i class="icon-undo"></i>
 						</div>
 						<div class="fbox-content">
-							<h3>30-Days Returns</h3>
+							<h3>Онлайн туслажм</h3>
 							<p class="mt-0">Return or exchange items purchased within 30 days.</p>
 						</div>
 					</div>
@@ -668,40 +668,37 @@
 </section>
 <section id="content">
 	<div class="content-wrap">
-		<div class="container clearfix">
-			<div class="fancy-title title-border title-center topmargin-sm">
-				<h4>Хамтран ажиллагчдын сэтгэгдэл </h4>
-			</div>
-			<div class="container clearfix">
-				<div class="section mt-0"
-					style="background: url('{% static 'base/assets/demos/seo/images/sections/3.jpg' %}') no-repeat top center; background-size: cover; padding: 80px 0 70px;">
-					<div class="container">
 
-						<div id="oc-test" class="owl-carousel test-carousel carousel-widget clearfix" data-margin="0"
-							data-pagi="true" data-loop="true" data-center="true" data-autoplay="5000" data-items-sm="1"
-							data-items-md="2" data-items-xl="3">
-							{% for testimonail in testimonail %}
-							<div class="oc-item">
-								<div class="test">
-									<div class="testi-image">
-										<a href="#"><img
-												src="{% if testimonail.profile %}{{ testimonail.profile.url }}{% endif %}"
-												alt="Customer Testimonails"></a>
-									</div>
-									<div class="testi-content">
-										<p> {{ testimonail.content|safe }}</p>
-										<div class="testi-meta">
-											{{ testimonail.person }}
-											<span>{{ testimonail.job }}.</span>
-										</div>
-									</div>
+		<div class="fancy-title title-border title-center topmargin-sm">
+			<h4>Хамтран ажиллагчдын сэтгэгдэл </h4>
+		</div>
+
+		<div class="section"
+			style="background: url('{% static 'base/assets/demos/seo/images/sections/3.jpg' %}') no-repeat top center; background-size: cover; padding: 80px 0 70px;">
+			<div class="container">
+
+				<div id="oc-test" class="owl-carousel test-carousel carousel-widget clearfix" data-margin="0"
+					data-pagi="true" data-loop="true" data-center="true" data-autoplay="5000" data-items-sm="1"
+					data-items-md="2" data-items-xl="3">
+					{% for testimonail in testimonail %}
+					<div class="oc-item">
+						<div class="test">
+							<div class="testi-image">
+								<a href="#"><img
+										src="{% if testimonail.profile %}{{ testimonail.profile.url }}{% endif %}"
+										alt="Customer Testimonails"></a>
+							</div>
+							<div class="testi-content">
+								<p> {{ testimonail.content|safe }}</p>
+								<div class="testi-meta">
+									{{ testimonail.person }}
+									<span>{{ testimonail.job }}.</span>
 								</div>
 							</div>
-							{% endfor %}
 						</div>
 					</div>
+					{% endfor %}
 				</div>
-
 			</div>
 		</div>
 	</div>

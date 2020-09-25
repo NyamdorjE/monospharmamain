@@ -10,7 +10,7 @@
 		============================================= -->
 <section id="page-title">
 	<div class="container clearfix">
-		<h1>{{ product.name }}</h1>
+		<h1>Бүтээгдэхүүн</h1>
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="{% url 'website-homepage'%}">Нүүр</a></li>
 			<li class="breadcrumb-item"><a href="#">Бүтээгдэхүүн</a></li>
@@ -49,6 +49,7 @@
 							<div class="d-flex align-items-center justify-content-between">
 								<!-- Product Single - Price
 										============================================= -->
+								<h3>{{ product.name }}</h3>
 								<div class="product-price"><ins>{{ product.price }}</ins></div>
 							</div>
 							<div class="line"></div>

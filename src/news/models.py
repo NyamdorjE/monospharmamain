@@ -18,8 +18,8 @@ class Category(models.Model):
         max_length=255, choices=category_type, default="news")
 
     class Meta:
-        verbose_name = _("Мэдээ ангиллал")
-        verbose_name_plural = _("Мэдээ ангиллал")
+        verbose_name = _("News category")
+        verbose_name_plural = _("News category")
         ordering = ['title']
 
     def __str__(self):
@@ -54,3 +54,31 @@ class News(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class VideoNewsCategory(models.Model):
+    category_name = models.CharField(
+        max_length=255, verbose_name=_('Video news category'))
+
+    class Meta:
+        verbose_name = _('Video news category')
+        ordering = ['category_name']
+
+    def __str__(self):
+        return self.category_name
+
+
+class VideoNews(models.Model):
+    category = models.ForeignKey(VideoNewsCategory, on_delete=models.CASCADE)
+    title = models.CharField(
+        max_length=255, verbose_name=_("Video news title"))
+    video = models.FileField(
+        upload_to="media/videonews", null=True, blank=True)
+    youtube_url = models.CharField(
+        max_length=500, verbose_name=_('Youtube video embed url'))
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = _("Video news")
+        ordering = ["created_at"]

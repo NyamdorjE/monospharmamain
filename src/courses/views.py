@@ -14,6 +14,7 @@ from django.contrib import messages
 
 class HomeView(TemplateView):
     template_name = 'course.html'
+    paginate_by = 2
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -68,32 +69,33 @@ class LessonDetailView(FormView, LoginRequiredMixin):
         else:
             return redirect('courses:suggest')
 
-    def post(self, request, *args, **kwargs):
-        for k, v in request.POST.items():
-            if k != 'csrfmiddlewaretoken':
-                answer = Answer.objects.filter(question__id=int(
-                    k.replace('_answers', '')), student=self.request.user).first()
-                if answer:
-                    messages.add_message(self.request, messages.ERROR,
-                                         u'%s асуултанд санал өгсөн байна. Дахин санал өгөх боломжгүй.' % answer.question.text)
-                else:
-                    Answer.objects.create(
-                        question_id=int(k.replace('_answers', '')),
-                        choice_id=int(v),
-                        student=request.user,
-                    )
-                    answered = True
+    # def get_context_data(self, **kwargs):
+    #     context = super(LessonDetailView, self).get_context_data(**kwargs)
+    #     context["subject"] = Subject.objects.all()
+    #     print('***********!!!!!!!!!!!!!!!!!!!!', context)
+    #     return context
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["subject"] = Subject.objects.all()
-        return context
+    # def post(self, request, *args, **kwargs):
+    #     for k, v in request.POST.items():
+    #         if k != 'csrfmiddlewaretoken':
+    #             answer = Answer.objects.filter(question__id=int(
+    #                 k.replace('_answers', '')), student=self.request.user).first()
+    #             if answer:
+    #                 messages.add_message(self.request, messages.ERROR,
+    #                                      u'%s асуултанд санал өгсөн байна. Дахин санал өгөх боломжгүй.' % answer.question.text)
+    #             else:
+    #                 Answer.objects.create(
+    #                     question_id=int(k.replace('_answers', '')),
+    #                     choice_id=int(v),
+    #                     student=request.user,
+    #                 )
+    #                 answered = True
 
-    def get_form_kwargs(self):
-        kwargs = super(LessonDetailView, self).get_form_kwargs()
-        question = get_object_or_404(Question, pk=self.kwargs['pk'])
-        kwargs.update({'question': question})
-        return kwargs
+    # def get_form_kwargs(self):
+    #     kwargs = super(LessonDetailView, self).get_form_kwargs()
+    #     question = get_object_or_404(Question, pk=self.kwargs['pk'])
+    #     kwargs.update({'question': question})
+    #     return kwargs
 
 # class AnswerCreate(LoginRequiredMixin, FormView):
 #     form_class = QuestionForm

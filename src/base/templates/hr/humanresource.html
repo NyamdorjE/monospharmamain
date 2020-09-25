@@ -34,11 +34,11 @@
 							<li><a href="#snav-content4"><i class="icon-gift"></i>Нийгмийн халамж<i
 										class="icon-chevron-right"></i></a></li>
 
-							{% for file in file %}
+							{% comment %} {% for file in file %}
 							<li><a href="{{ file.anket.url }}"><i class="icon-line-paper"></i>Анкет татах<i
 										class="icon-chevron-right"></i></a>
 							</li>
-							{% endfor %}
+							{% endfor %} {% endcomment %}
 
 
 
@@ -58,7 +58,7 @@
 								<h5>Анкет хүлээн авах сүүлийн цаг</h5>
 							</div>
 						</div>
-						<divl class="toggle toggle-border">
+						<div class="toggle toggle-border">
 							<div class="toggle-header">
 								<div class="toggle-icon">
 									<i class="toggle-closed icon-line-plus"></i>
@@ -83,8 +83,29 @@
 									class="button button-mini button-border button-circle button-dark"><i
 										class="icon-trash2"></i>Дэлгэрэнгүй</a>
 							</div>
-							</>
-							{% endfor %}
+						</div>
+						{% endfor %}
+						<div class="fslider" data-smooth-height="false">
+							<div class="flexslider">
+								<div class="slider-wrap">
+									<div class="slide"><img class="lazy"
+											data-src="{% static 'base/assets/images/about/neelttei.jpg'%}"
+											alt="Нээлттэй ажилын байр"></div>
+								</div>
+							</div>
+						</div>
+
+						<p style="font-weight: bold;">Манай компанид ажилласнаар танд нээгдэж буй боломжууд:</p>
+						<div class="row-fluid">
+							<div class="span12">
+								<ul class="check-list">
+									<li>Олон улсад хүлээн зөвшөөрөгдсөн GMP стандарт хангасан тохилог ажлын байр</li>
+									<li>Хувь хүн мэргэжлийнхээ хувьд өсөн хөгжих боломж</li>
+									<li>Зах зээлд өрсөлдөхүйц цалин хөлс, үр дүнд тулгуурласан шагнал урамшуулал</li>
+									<li>Шинийг санаачлагч, манлайлагч байх урам зориг, хүсэл тэмүүлэл</li>
+								</ul>
+							</div>
+						</div>
 					</div>
 
 					<div id="snav-content2">
@@ -96,22 +117,25 @@
 											alt="Slider 1"></div>
 								</div>
 							</div>
-
 						</div>
 						<h3 style="margin-top: 25px;">Ажилтан сонгон шалгаруулах үе шат:
 						</h3>
 						<ul class="iconlist">
-							<li><i class="icon-line-check-square"></i> Ажил горилогч нээлттэй ажлын байр үзэх
+							<li><i class="icon-line-check-square" style="color: gray;" style="color: gray;"></i> Ажил
+								горилогч нээлттэй ажлын байр үзэх
 							</li>
-							<li><i class="icon-line-check-square"></i> Холбогдох анкетыг бөглөнө. Анкетыг гараар болон
+							<li><i class="icon-line-check-square" style="color: gray;"></i> Холбогдох анкетыг бөглөнө.
+								Анкетыг гараар болон
 								цахим
 								хэлбэрээр бөглөх боломжтой.
 							</li>
-							<li><i class="icon-line-check-square"></i> Анкетын шалгаруулалт хийх. Анкет хүлээн авах
+							<li><i class="icon-line-check-square" style="color: gray;"></i> Анкетын шалгаруулалт хийх.
+								Анкет хүлээн авах
 								сүүлийн ажлын 3
 								өдрийн дотор хийнэ.
 							</li>
-							<li><i class="icon-line-check-square"></i> Анхан шатны ярилцлага. Анкетын шалгаруулалтанд
+							<li><i class="icon-line-check-square" style="color: gray;"></i> Анхан шатны ярилцлага.
+								Анкетын шалгаруулалтанд
 								тэнцсэн ажил
 								горилогчийг анхан шатны
 								ярилцлаганд урих
@@ -120,20 +144,24 @@
 								байранд
 								мэргэжлийн шалгалт авна.
 							</li>
-							<li><i class="icon-line-check-square"></i> 2 дахь шатны ярилцлага. Анхан шатны ярилцлага,
+							<li><i class="icon-line-check-square" style="color: gray;"></i> 2 дахь шатны ярилцлага.
+								Анхан шатны ярилцлага,
 								мэргэжлийн
 								шалгалтанд тэнцсэн ажил
 								горилогчийг 2 дахь шатны ярилцлаганд урих
 							</li>
 
-							<li><i class="icon-line-check-square"></i> Ажилд авах санал. Сонгон шалгаруулалтанд тэнцсэн
+							<li><i class="icon-line-check-square" style="color: gray;"></i> Ажилд авах санал. Сонгон
+								шалгаруулалтанд тэнцсэн
 								ажил
 								горилогчтой утсаар холбогдож
 								саналаа хэлнэ.
 							</li>
-							<li><i class="icon-line-check-square"></i> Ажилд авах. Хөдөлмөрийн гэрээ байгуулна.
+							<li><i class="icon-line-check-square" style="color: gray;"></i> Ажилд авах. Хөдөлмөрийн
+								гэрээ байгуулна.
 							</li>
-							<li><i class="icon-line-check-square"></i> Монос группийн ажилтан боллоо. Танд баяр хүргье.
+							<li><i class="icon-line-check-square" style="color: gray;"></i> Монос группийн ажилтан
+								боллоо. Танд баяр хүргье.
 							</li>
 
 
@@ -149,10 +177,14 @@
 
 						<p>Монос Группийн соёлыг өөриймсөг сэтгэлгээтэй чадварлаг ажилтнууд маань бүтээдэг, тиймдээ ч
 							Моносын соёл бол
-							Моносын бахархал юм. Монос Групп нь Монголын Улсын ТОП 10 аж ахуйн нэгжийн нэг юм. Энэ нь
+							Моносын бахархал юм. Монос Групп нь Монголын Улсын ТОП 10 аж ахуйн нэгжийн нэг юм.<br>
+							Энэ
+							нь
 							хамт
 							олны маань хичээл
 							зүтгэл, харилцагч, хэрэглэгчдийн маань итгэл найдвар, түншлэлтэй салшгүй холбоотой билээ.
+							<br>
+
 							Монос
 							Групп нь
 							ажилтнууддаа ажиллах таатай орчин, сурч хөгжих боломж, нийгмийн халамж үзүүлэх болон бусад
@@ -165,8 +197,10 @@
 
 							<div class="accordion-header">
 								<div class="accordion-icon">
-									<i class="accordion-closed icon-ok-circle"></i>
-									<i class="accordion-open icon-remove-circle"></i>
+									<i class="accordion-closed icon-ok-circle" style="color: gray;"
+										style="color: gray;"></i>
+									<i class="accordion-open icon-remove-circle" style="color: gray;"
+										style="color: gray;"></i>
 								</div>
 								<div class="accordion-title">
 									Ажиллах таатай орчин
@@ -213,8 +247,8 @@
 
 							<div class="accordion-header">
 								<div class="accordion-icon">
-									<i class="accordion-closed icon-ok-circle"></i>
-									<i class="accordion-open icon-remove-circle"></i>
+									<i class="accordion-closed icon-ok-circle" style="color: gray;"></i>
+									<i class="accordion-open icon-remove-circle" style="color: gray;"></i>
 								</div>
 								<div class="accordion-title">
 									Эрүүл мэнд & Тусламж, дэмжлэг
@@ -255,8 +289,8 @@
 
 							<div class="accordion-header">
 								<div class="accordion-icon">
-									<i class="accordion-closed icon-ok-circle"></i>
-									<i class="accordion-open icon-remove-circle"></i>
+									<i class="accordion-closed icon-ok-circle" style="color: gray;"></i>
+									<i class="accordion-open icon-remove-circle" style="color: gray;"></i>
 								</div>
 								<div class="accordion-title">
 									Орон сууцны болон бусад зээл
@@ -281,8 +315,8 @@
 							</div>
 							<div class="accordion-header">
 								<div class="accordion-icon">
-									<i class="accordion-closed icon-ok-circle"></i>
-									<i class="accordion-open icon-remove-circle"></i>
+									<i class="accordion-closed icon-ok-circle" style="color: gray;"></i>
+									<i class="accordion-open icon-remove-circle" style="color: gray;"></i>
 								</div>
 								<div class="accordion-title">
 									Шагнал урамшуулал
@@ -304,8 +338,8 @@
 							</div>
 							<div class="accordion-header">
 								<div class="accordion-icon">
-									<i class="accordion-closed icon-ok-circle"></i>
-									<i class="accordion-open icon-remove-circle"></i>
+									<i class="accordion-closed icon-ok-circle" style="color: gray;"></i>
+									<i class="accordion-open icon-remove-circle" style="color: gray;"></i>
 								</div>
 								<div class="accordion-title">
 									Олон нийтийн арга хэмжээ
@@ -343,8 +377,8 @@
 							</div>
 							<div class="accordion-header">
 								<div class="accordion-icon">
-									<i class="accordion-closed icon-ok-circle"></i>
-									<i class="accordion-open icon-remove-circle"></i>
+									<i class="accordion-closed icon-ok-circle" style="color: gray;"></i>
+									<i class="accordion-open icon-remove-circle" style="color: gray;"></i>
 								</div>
 								<div class="accordion-title">
 									Номын сан
@@ -367,8 +401,8 @@
 							</div>
 							<div class="accordion-header">
 								<div class="accordion-icon">
-									<i class="accordion-closed icon-ok-circle"></i>
-									<i class="accordion-open icon-remove-circle"></i>
+									<i class="accordion-closed icon-ok-circle" style="color: gray;"></i>
+									<i class="accordion-open icon-remove-circle" style="color: gray;"></i>
 								</div>
 								<div class="accordion-title">
 									Хөнгөлөлт
@@ -409,6 +443,34 @@
 
 	li .i {
 		color: #096c2a;
+	}
+
+	dl,
+	dt,
+	dd,
+	ol,
+	ul,
+	li {
+		margin: 0;
+		padding: 0;
+		color: #0f7a05;
+	}
+
+	.toggle-header,
+	.accordion-header {
+
+		color: #3e902a;
+
+	}
+
+	img {
+		max-width: 100%;
+		text-align: center;
+		padding: 6px;
+		background: #fbfafb;
+		border: 1px solid #e7e7e7;
+		line-height: 0;
+		margin-bottom: 12px;
 	}
 </style>
 {% endblock %}

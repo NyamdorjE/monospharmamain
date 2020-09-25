@@ -2,7 +2,7 @@ from django.shortcuts import render
 from src.news.models import Category, News
 from src.courses.models import Course
 from src.product.models import Product, ProductCategory
-from .models import Advice, AdviceCategory, Testimonail, Gallery
+from .models import Advice, AdviceCategory, Testimonail, Gallery, FeaturedProduct
 from django.http import HttpResponse
 from django.views import generic
 from django.views.generic import TemplateView
@@ -28,6 +28,7 @@ class Homepage(generic.ListView):
         context['newproduct'] = Product.objects.filter(is_product_new=True)
         context['advice'] = Advice.objects.all()
         context['testimonail'] = Testimonail.objects.all()
+        context['featured'] = FeaturedProduct.objects.all()
         return context
 
     # def get_context_data(self, **kwargs):
@@ -65,6 +66,7 @@ class AdviceNews(generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super(AdviceNews, self).get_context_data(**kwargs)
+        context['news'] = News.objects.all().order_by('-created_on')
         context['advice'] = self.get_queryset()
         context['category_list'] = Category.objects.filter(cate_type="news")
         context['search_text'] = self.request.GET.get('search_text', '')

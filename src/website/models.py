@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms.widgets import Media
 from django.utils.text import gettext_lazy as _
 from ckeditor.fields import RichTextField
 
@@ -19,16 +20,16 @@ class Testimonail(models.Model):
         return self.person
 
 
-class Gallery(models.Model):
-    title = models.CharField(max_length=255, verbose_name=_('Title'))
-    picture = models.FileField(upload_to="media/gallery/")
+# class Gallery(models.Model):
+#     title = models.CharField(max_length=255, verbose_name=_('Title'))
+#     picture = models.FileField(upload_to="media/gallery/")
 
-    class Meta:
-        verbose_name = _('Gallery')
-        ordering = ['title']
+#     class Meta:
+#         verbose_name = _('Gallery')
+#         ordering = ['title']
 
-    def __str__(self):
-        return self.title
+#     def __str__(self):
+#         return self.title
 
 
 class AdviceCategory(models.Model):
@@ -69,3 +70,33 @@ class Partner(models.Model):
         verbose_name = _('Partner')
         verbose_name = _('Partners')
         ordering = ['-position']
+
+
+class FeaturedProduct(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.CharField(max_length=255)
+    ad = models.CharField(max_length=255)
+    emonos = models.CharField(max_length=255)
+    picture = models.FileField(upload_to="media/Featuredproduct/")
+
+    class Meta:
+        verbose_name = _('Featured Product')
+        ordering = ['title']
+
+    def __str__(self):
+        return self.title
+
+
+class Gallery(models.Model):
+    title = models.CharField(max_length=255, verbose_name=_(
+        'Gallery'), null=True, blank=True)
+    description = models.CharField(max_length=255, verbose_name=_(
+        'Description'), null=True, blank=True)
+    image = models.FileField(upload_to="media/gallery")
+
+    class Meta:
+        verbose_name = _('Gallery')
+        ordering = ['title']
+
+    # def __str__(self):
+    #     return self.title

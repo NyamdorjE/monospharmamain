@@ -15,7 +15,7 @@ class Request(models.Model):
     message = models.TextField()
 
     class Meta:
-        verbose_name = "Холбоо барих"
+        verbose_name = "Contact"
         ordering = ['name']
 
     def __str__(self):

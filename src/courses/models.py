@@ -11,8 +11,8 @@ class CourseCategory(models.Model):
     title = models.CharField(max_length=255, verbose_name=_('Title'))
 
     class Meta:
-        verbose_name = _("Курсын категори")
-        verbose_name_plural = _("Курсын категори")
+        verbose_name = _("Course category")
+        verbose_name_plural = _("Course category")
         ordering = ['title']
 
     def __str__(self):
@@ -33,8 +33,8 @@ class Course(models.Model):
         max_length=150, verbose_name=_('Price'),  default="₮")
 
     class Meta:
-        verbose_name = _("Курс")
-        verbose_name_plural = _("Курс")
+        verbose_name = _("Course")
+        verbose_name_plural = _("Course")
         ordering = ['title']
 
     def __str__(self):
@@ -54,8 +54,8 @@ class Subject(models.Model):
         auto_now=True, verbose_name=_('Created_on'))
 
     class Meta:
-        verbose_name = _("Сэдэв")
-        verbose_name_plural = _("Сэдэв")
+        verbose_name = _("Subject")
+        verbose_name_plural = _("Subject")
         ordering = ['title']
 
     def __str__(self):
@@ -88,8 +88,8 @@ class Lesson(models.Model):
     start_at = models.DateTimeField(
         _('Start_at'), help_text='0000-00-00 00:00:00 форматтай байна', null=True)
     state_choices = (
-        ('started', 'Сургалт эхэлсэн'),
-        ('done', 'Сургалт дууссан')
+        ('started', 'Lesson started'),
+        ('done', 'Lesson over')
     )
     state = models.CharField(max_length=100, blank=False,
                              choices=state_choices, default="started", verbose_name=_('State'))
@@ -104,8 +104,8 @@ class Lesson(models.Model):
         return reverse("courses:lesson_detail", kwargs={"course_slug": self.subject.slug, 'lesson_slug': self.slug})
 
     class Meta:
-        verbose_name = _("Хичээл")
-        verbose_name_plural = _("Хичээл")
+        verbose_name = _("Lesson")
+        verbose_name_plural = _("Lesson")
         ordering = ['title']
 
 

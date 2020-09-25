@@ -28,29 +28,16 @@
 			{% if lesson is not None %}
 			<iframe width="460" height="315" src="https://www.youtube.com/embed/{{ lesson.youtube_code }}"
 				allowfullscreen></iframe>
-
 			<h3> {{ lesson.title}} </h3>
 			<div class="blog-post-title">
-				<p style="heigth: 29px; text-align: right;">
-
-					<i class="fa fa-folder-open-o"> </i>
-					<i class="fa fa-clock-o"> {{ lesson.photo }} </i> </p>
-
 				<p style="overflow-wrap:break-word;"> {{ lesson.content|safe  }}</p>
 			</div>
-			<h5> Суртчилгаа</h5>
+			<h3> Суртчилгаа</h3>
 			<iframe width="460" height="315" src="https://www.youtube.com/embed/{{ lesson.embedurl }}"
 				allowfullscreen></iframe>
-			<div class="text-center">
-				<a href="javascript:history.back()" class="mb-10 mt-2 btn btn-primary">Буцах</a>
+			<div class="text-center" style="margin-top: 25px; margin-bottom: 25px;">
+				<a href="javascript:history.back()" class="button button-border button-circle button-dark">Буцах</a>
 			</div>
-			{% else %}
-			<h3> Худалдаж авах шаардлагтай</h3>
-			<p>Бүртгүүлээд худалдаж авна уу.</p>
-			<br>
-			<a href="{% url 'memberships:select_membership' %}"><button class="btn btn-warning">Upgrade
-					Membership</button></a>
-			<hr>
 			{% endif %}
 		</div>
 
@@ -61,7 +48,7 @@
 				<ul class="tab-nav clearfix">
 					<li><a href="#tabs-5">Хичээлүүд</a></li>
 					<li><a href="#tabs-6">Тайлбар</a></li>
-					<li><a href="#tabs-7">Асуулт</a></li>
+					{% comment %} <li><a href="#tabs-7">Асуулт</a></li> {% endcomment %}
 					<li class="hidden-phone"><a href="#tabs-8">Шалгалт</a></li>
 				</ul>
 

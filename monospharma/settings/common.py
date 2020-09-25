@@ -156,6 +156,9 @@ USE_TZ = True
 
 LOCALE_PATHS = [os.path.join(BASE_DIR, "src", "base", "locale")]
 
+DATETIME_FORMAT = 'Y/m/d H:s'
+
+
 LANGUAGES = [
     ('mn', _('Mongolia')),
     ('en', _('English')),
@@ -184,6 +187,8 @@ REGISTRATION_AUTO_LOGIN = True
 REGISTRATION_OPEN = True
 
 
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+
 SITE_ID = 1
 
 # Login
@@ -191,7 +196,7 @@ ENABLE_USER_ACTIVATION = True
 DISABLE_USERNAME = False
 LOGIN_VIA_EMAIL = False
 LOGIN_VIA_EMAIL_OR_USERNAME = True
-LOGIN_REDIRECT_URL = '/news'
+LOGIN_REDIRECT_URL = '/homepage'
 LOGIN_URL = 'accounts:log_in'
 USE_REMEMBER_ME = False
 

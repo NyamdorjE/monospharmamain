@@ -114,6 +114,13 @@ class SignInViaEmailOrUsernameForm(SignIn):
         return email_or_username
 
 
+status_choices = (
+    (1, _("1-р шатлалын эмнэлэг ")),
+    (2, _("2-р шатлалын эмнэлэг ")),
+    (3, _("3-р шатлалын эмнэлэг ")),
+)
+
+
 class SignUpForm(UserCreationForm):
     class Meta:
         model = User
@@ -125,14 +132,34 @@ class SignUpForm(UserCreationForm):
         attrs={'class': 'form-control', 'placeholder': ''}))
     email = forms.EmailField(label=_(
         'И-майл'), widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': '   '}))
+    phone = forms.CharField(label=_('Утас дугаар'),  widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': ' '}))
     register = forms.CharField(label=_('Регистер'), widget=forms.TextInput(
         attrs={'class': 'form-control', 'placeholder': ' '}))
-    phone = forms.CharField(label=_('Утас дугаар'),  widget=forms.TextInput(
+    district = forms.CharField(label=_('Аймаг/дүүрэг'), widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': ' '}))
+    organization_name = forms.CharField(label=_('Байгууллагын нэр'), widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': ' '}))
+    category = forms.ChoiceField(choices=status_choices)
+    license_number = forms.CharField(label=_('Лицензийн дугаар'), widget=forms.TextInput(
         attrs={'class': 'form-control', 'placeholder': ' '}))
     password1 = forms.CharField(label=_('Нууц үг'), widget=forms.PasswordInput(
         attrs={'class': 'form-control', 'placeholder': ' '}))
     password2 = forms.CharField(label=_('Нууц үг баталгаа'), widget=forms.PasswordInput(
         attrs={'class': 'form-control', 'placeholder': ' '}))
+
+    def save(self, commit=True):
+        user = super(SignUpForm, self).save(commit=False)
+        user.phone = self.cleaned_data["phone"]
+        user.register = self.cleaned_data["register"]
+        user.district = self.cleaned_data["district"]
+        user.organization_name = self.cleaned_data["organization_name"]
+        user.category = self.cleaned_data["category"]
+        user.license_number = self.cleaned_data["license_number"]
+
+        if commit:
+            user.save()
+        return user
 
     def clean_email(self):
         email = self.cleaned_data['email']

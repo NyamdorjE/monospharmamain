@@ -1,4 +1,5 @@
-{% load static %} {% load humanize %} {% load i18n %} {% load widget_tweaks %}
+{% load static %} {% load humanize %} {% load i18n %} {% load widget_tweaks %} {% load bootstrap4 %}
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
 
@@ -74,7 +75,7 @@
                     <a class="dropdown-item text-left"
                       href="{% url 'accounts:change_password' %}">{% trans 'Нууц үг солих' %}</a>
                     <a class="dropdown-item text-left"
-                      href="{% url 'accounts:change_email' %}">{% trans 'Нууц үг солих' %}</a>
+                      href="{% url 'accounts:change_email' %}">{% trans 'Имайл хаяг солих' %}</a>
                     <a class="dropdown-item text-left"
                       href="{% url 'accounts:change_profile' %}">{% trans 'Имайл хаяг солих' %}
                     </a>
@@ -83,8 +84,7 @@
                       <i class="icon-signout"></i></a>
                     {% else %}
                     <a class="dropdown-item text-left" href="{% url 'accounts:log_in' %}">{% trans 'Нэвтрэх' %}</a>
-                    <a class="dropdown-item text-left"
-                      href="{% url 'accounts:sign_up' %}">{% trans 'Гишүүнээр бүртгүүлэх' %}</a>
+                    <a class="dropdown-item text-left" href="{% url 'accounts:sign_up' %}">{% trans 'Бүртгүүлэх' %}</a>
                     {% endif %}
 
                   </ul>
@@ -339,7 +339,7 @@
                               <h4 class="highlight-me">Онцлох бүтээгдэхүүн</h4>
 
                               <div class="posts-sm row col-mb-30" id="recent-shop-list-sidebar">
-                                {% for product in newproduct|slice:"0:4" %}
+                                {% for product in newproduct|slice:"0:3" %}
                                 <div class="entry col-12">
                                   <div class="grid-inner row no-gutters">
                                     <div class="col-auto">
@@ -394,15 +394,21 @@
                               <a class="nav-link bg-color-lifestyle active" id="v-pills-home-tab" data-toggle="pill"
                                 href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Онцлох
                                 мэдээ</a>
-                              <a class="nav-link bg-color-lifestyle" id="v-pills-profile-tab" data-toggle="pill"
-                                href="#v-pills-profile" role="tab" aria-controls="v-pills-profile"
-                                aria-selected="false">Бүтээгдэхүүн</a>
-                              <a class="nav-link bg-color-lifestyle" id="v-pills-messages-tab" data-toggle="pill"
-                                href="#v-pills-messages" role="tab" aria-controls="v-pills-messages"
-                                aria-selected="false">Судалгаа</a>
+                              <a class="nav-link bg-color-lifestyle" href="{% url 'news-our-participation' %}">Бидний
+                                оролцоо</a>
+                              <a class="nav-link bg-color-lifestyle" href="{% url 'news-product-news' %}">Бүтээгдэхүүн
+                                мэдээлэл</a>
+                              <a class="nav-link bg-color-lifestyle" href="{% url 'website-advice-news' %}">Эрүүл
+                                мэндийн
+                                зөвлөмж</a>
+                              <a class="nav-link bg-color-lifestyle" href="{% url 'news-product-news' %}">Үйл
+                                ажиллагаа</a>
+
                               <a class="nav-link bg-color-lifestyle" id="v-pills-settings-tab" data-toggle="pill"
                                 href="#v-pills-settings" role="tab" aria-controls="v-pills-settings"
-                                aria-selected="false">Үйл ажиллагаа</a>
+                                aria-selected="false">Судалгаа </a>
+                              <a class="nav-link bg-color-lifestyle" href="{% url 'news-video-news-list' %}">Видео</a>
+                              <a class="nav-link bg-color-lifestyle" href="{% url 'news-product-news' %}">Нэвтрүүлэг</a>
                             </div>
                           </li>
                         </ul>
@@ -416,14 +422,18 @@
                                   <div class="col-4">
                                     <div class="entry">
                                       <div class="entry-image mb-3">
-                                        <a href="#"><img src="{% if news.image %}{{news.image.url}}{% endif %}"
-                                            alt="Image 3" style="height:150px;"></a>
-                                        <div class="entry-categories"><a href="#" class="bg-lifestyle">Music</a>
+                                        <a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"><img
+                                            src="{% if news.image %}{{news.image.url}}{% endif %}" alt="Image 3"
+                                            style="height:150px;"></a>
+                                        <div class="entry-categories"><a href="#"
+                                            class="bg-lifestyle">{{ news.category }}</a>
                                         </div>
 
                                       </div>
                                       <div class="entry-title title-xs nott">
-                                        <h3><a href="#">A {{ news.title|slice:"150"}}</a></h3>
+                                        <h3><a
+                                            href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}">{{ news.title|slice:"150"}}</a>
+                                        </h3>
                                       </div>
                                       <div class="entry-meta">
                                         <ul>
@@ -438,75 +448,7 @@
 
                                 </div>
                               </div>
-                              <div class="tab-pane" id="v-pills-profile" role="tabpanel"
-                                aria-labelledby="v-pills-profile-tab">
-                                <div class="row justify-content-around posts-md">
-                                  <div class="col-4">
-                                    <div class="entry">
-                                      <div class="entry-image mb-3">
-                                        <a href="#"><img src="demos/news/images/posts/lifestyle/2.jpg"
-                                            alt="Image 3"></a>
-                                        <div class="entry-categories"><a href="#" class="bg-lifestyle">Music</a></div>
-                                      </div>
-                                      <div class="entry-title title-xs nott">
-                                        <h3><a href="#">A Surprising Tool to Help You Lifestyle</a></h3>
-                                      </div>
-                                      <div class="entry-meta">
-                                        <ul>
-                                          <li>John Doe</li>
-                                          <li><i class="icon-time"></i>11 Mar 2021</li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="tab-pane" id="v-pills-messages" role="tabpanel"
-                                aria-labelledby="v-pills-messages-tab">
-                                <div class="row justify-content-around posts-md">
-                                  <div class="col-4">
-                                    <div class="entry">
-                                      <div class="entry-image mb-3">
-                                        <a href="#"><img src="demos/news/images/posts/lifestyle/author.jpg"
-                                            alt="Image 3"></a>
-                                        <div class="entry-categories"><a href="#" class="bg-lifestyle">Author</a></div>
-                                      </div>
-                                      <div class="entry-title title-xs nott">
-                                        <h3><a href="#">A Surprising Tool to Help You Lifestyle</a></h3>
-                                      </div>
-                                      <div class="entry-meta">
-                                        <ul>
-                                          <li>John Doe</li>
-                                          <li><i class="icon-time"></i>11 Mar 2021</li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="tab-pane" id="v-pills-settings" role="tabpanel"
-                                aria-labelledby="v-pills-settings-tab">
-                                <div class="row justify-content-around posts-md">
-                                  <div class="col-4">
-                                    <div class="entry">
-                                      <div class="entry-image mb-3">
-                                        <a href="#"><img src="demos/news/images/posts/lifestyle/recipes-1.jpg"
-                                            alt="Image 3"></a>
-                                        <div class="entry-categories"><a href="#" class="bg-lifestyle">Recipes</a></div>
-                                      </div>
-                                      <div class="entry-title title-xs nott">
-                                        <h3><a href="#">A Surprising Tool to Help You Lifestyle</a></h3>
-                                      </div>
-                                      <div class="entry-meta">
-                                        <ul>
-                                          <li>John Doe</li>
-                                          <li><i class="icon-time"></i>11 Mar 2021</li>
-                                        </ul>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
+
                             </div>
                           </li>
                         </ul>
@@ -538,10 +480,10 @@
             </nav>
             <!-- #primary-menu end -->
 
-            <form class="top-search-form" action="search.html" method="get">
+            {% comment %} <form class="top-search-form" action="search.html" method="get">
               <input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter.."
                 autocomplete="off" />
-            </form>
+            </form> {% endcomment %}
           </div>
         </div>
       </div>
@@ -666,8 +608,8 @@
                   <div class="widget clearfix" style="margin-bottom: -20px;">
                     <div class="row">
                       <div class="col-lg-12 bottommargin-sm">
-                        <img src="{% static 'base/assets/images/monoslogo.png' %}"
-                          style="height:77px; width:150px; margin-left:50px;" />
+                        <img src="{% static 'base/assets/images/footer-logo.png' %}"
+                          style="height:90px; width:150px; margin-left:50px;" />
                       </div>
 
 

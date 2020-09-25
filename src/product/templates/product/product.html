@@ -47,9 +47,9 @@
 											data-hover-animate="fadeIn" data-hover-speed="400">
 											<a href="{% if product %}{% url 'product-product-detail-view' product.slug  %} {% endif %}"
 												class="btn btn-dark mr-2"><i class="icon-shopping-cart"></i></a>
-											<a href="#{{ product.product_id}}" data-lightbox="inline"
+											{% comment %} <a href="#{{ product.product_id}}" data-lightbox="inline"
 												class="btn btn-dark" data-lightbox="ajax"><i
-													class="icon-line-expand"></i></a>
+													class="icon-line-expand"></i></a> {% endcomment %}
 										</div>
 										<div class="bg-overlay-bg bg-transparent"></div>
 									</div>
@@ -72,9 +72,7 @@
 						<div class="modalone mfp-hide" id="{{ product.product_id}}" style="position: absolute !important; top: 50% !important; left: 50% !important; transform: translate(-50%, -50%)
 							!important;">
 							<div class="block divcenter">
-
 								<div class="product modal-padding" style="background-color: white;">
-
 									<div class="row gutter-40 col-mb-50">
 										<div class="col-md-6">
 											<div class="product-image">
@@ -84,14 +82,12 @@
 															src="{% if product.image %}{{ product.image.url}}{% endif %}">
 													</div>
 												</div>
-
 											</div>
 										</div>
 										<div class="col-md-6 product-desc">
 											<h3
 												style="margin-bottom: 6px; margin-top: 25px; border-bottom: 1px solid #dadada;">
 												{{ product.name }}</h3>
-
 											<div class="product-price">
 												<p>Үнэ : <ins>{{ product.price }}</ins>
 													<p>
@@ -113,16 +109,12 @@
 													<h6> <a href="{{ product.link }}"> <button> Худалдан авах
 															</button></a></h6>
 													<div class="card product-meta mb-0">
-
 													</div>
 										</div>
 									</div>
-
 								</div>
 							</div>
 						</div>
-
-
 						<!-- Endmodal -->
 						{% endfor %}
 					</div><!-- #shop end -->

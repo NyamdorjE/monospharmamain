@@ -1,356 +1,205 @@
 {% extends 'news/index_2.html' %}
-   {% load static %}
-   {% load humanize %}
-   {% load i18n %}
+{% load static %}
+{% load humanize %}
+{% load i18n %}
 
 {% block content %}
-	<section id="page-title">
+<section id="content">
+	<div class="content-wrap">
+		<div class="container clearfix">
 
-			<div class="container clearfix">
-				<h1>Blog</h1>
-				<span>Our Latest News</span>
-				<ol class="breadcrumb">
-					<li><a href="#">Home</a></li>
-					<li class="active">Blog</li>
-				</ol>
-			</div>
-
-		</section><!-- #page-title end -->
-
-		<!-- Content
-		============================================= -->
-		<section id="content">
-
-			<div class="content-wrap">
-
-				<div class="container clearfix">
-                <div class="row">
-					<!-- Sidebar
-					============================================= -->
-                    <div class="col-3">
-					<div class="sidebar nobottommargin clearfix">
-						<div class="sidebar-widgets-wrap">
-
-							<div class="widget clearfix">
-
-								<h4>Сүүлд нэмэгдсэн мэдээ</h4>
-								<div id="post-list-footer">
-                                    {% for news in news|slice:"0:4" %}
-									<div class="spost clearfix">
-										<div class="entry-image">
-											<a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}" class="nobg"><img src="{% if news.image %}{{news.image.url}}{% endif %}" alt=""></a>
-										</div>
-										<div class="entry-c">
-											<div class="entry-title">
-												<h4><a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}">{{ news.title }} </a></h4>
-											</div>
-											<ul class="entry-meta">
-												<li>10th July 2014</li>
-											</ul>
-										</div>
-									</div>
-                                   {% endfor %}
-								</div>
-
-							</div>
-
-							<div class="widget clearfix">
-
-								<h4>Зөвлөгөө</h4>
-								<div class="fslider testimonial noborder nopadding noshadow" data-animation="slide" data-arrows="false">
-									<div class="flexslider">
-										<div class="slider-wrap">
-										{% for advice in advice %}
-											<div class="slide">
-												<div class="testi-image">
-													<a href="#"><img src="{% static 'base/assets/images/advice/advice.png' %}" alt="Customer Testimonails"></a>
-												</div>
-												<div class="testi-content">
-													<p>{{ advice.content|safe|slice:":100" }}</p>
-													<div class="testi-meta">
-														{{ advice.title }}
-														<span>{{ advice.category }}</span>
-													</div>
-												</div>
-											</div>
-											{% endfor %}
-											
-										</div>
-									</div>
-								</div>
-
-							</div>
-
-							<div class="widget clearfix">
-
-								<h4>Нийтлэл ангиллал</h4>
-								<ul>
-                                      {% for category in category_list %}
-									<li><a href="animations.html" ><div>{{ category }}</div></a></li>
-                                        {% endfor %}
-								</ul>
-
-							</div>
-
-							<div class="widget quick-contact-widget clearfix">
-
-								<h4>Quick Contact</h4>
-								<div class="quick-contact-form-result"></div>
-								<form id="quick-contact-form" name="quick-contact-form" action="include/quickcontact.php" method="post" class="quick-contact-form nobottommargin">
-									<div class="form-process"></div>
-
-									<input type="text" class="required sm-form-control input-block-level" id="quick-contact-form-name" name="quick-contact-form-name" value="" placeholder="Full Name" />
-									<input type="text" class="required sm-form-control email input-block-level" id="quick-contact-form-email" name="quick-contact-form-email" value="" placeholder="Email Address" />
-									<textarea class="required sm-form-control input-block-level short-textarea" id="quick-contact-form-message" name="quick-contact-form-message" rows="4" cols="30" placeholder="Message"></textarea>
-									<input type="text" class="hidden" id="quick-contact-form-botcheck" name="quick-contact-form-botcheck" value="" />
-									<button type="submit" id="quick-contact-form-submit" name="quick-contact-form-submit" class="button button-small button-3d nomargin" value="submit">Send Email</button>
-								</form>
-
-
-							</div>
-
-						</div>
-					</div><!-- .sidebar end -->
-                </div>
-
-					<!-- Post Content
-					============================================= -->
-				<div class="col-5">
-					<div class="postcontent bothsidebar nobottommargin clearfix">
-						<!-- Posts
+			<div class="row gutter-40 col-mb-80">
+				<!-- Post Content
 						============================================= -->
-                        {% for advice in advice %}
-						<div class="entry clearfix">
-								<div class="entry-c">
-								<div class="entry-title">
-									<h6>{{ advice.title }} </h6>
-								</div>
+				<div class="postcontent col-lg-9 order-lg-last">
+
+					<!-- Posts
+							============================================= -->
+					<div id="posts" class="row grid-container gutter-40">
+
+						{% for advice in advice %}
+						<div class="entry col-12">
+							<div class="grid-inner row no-gutters">
+								<div class="col-12">
 									<div class="entry-image">
-										<div class="panel panel-default">
-											<div class="panel-body">
-                                            {{ advice.content|slice:":180"|safe }}...
+										<h5>{{ advice.title }}</h5>
+
+										<div class="card">
+											<div class="card-body">
+												{{ advice.content|safe }}
 											</div>
 										</div>
 									</div>
-									<ul class="entry-meta clearfix">
-										<li><i class="icon-calendar3"></i> {{ advice.created_on }}</li>
-										<li><a href="#"><i class="icon-user"></i> {{ advice.author }}</a></li>
-										
-										<li><a href="#"><i class="icon-align-justify2"></i></a></li>
-									</ul>
-								</div>
-							</div>
-                            {% endfor %}
-                        <!-- #posts end -->
-						   
-                    </div>
-                  <div class="pagination" style="padding-left: 150px;">
-            
-                            {% if is_paginated %}
-                        <ul class="pagination">
-                            {% if page_obj.has_previous %}
-                            <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
-                            {% else %}
-                            <li class="disabled"><span>&laquo;</span></li>
-                            {% endif %}
-                            {% for i in paginator.page_range %}
-                            {% if page_obj.number == i %}
-                                <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-                            {% else %}
-                                <li><a href="?page={{ i }}">{{ i }}</a></li>
-                            {% endif %}
-                            {% endfor %}
-                            {% if page_obj.has_next %}
-                            <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
-                            {% else %}
-                            <li class="disabled"><span>&raquo;</span></li>
-                            {% endif %}
-                        </ul>
-                    {% endif %}
+									<div class="entry-meta">
+										<ul>
+											<li><i class="icon-calendar3"></i> {{ advice.created_on }}</li>
+											<li><a href="#"><i class="icon-user"></i> {{ advice.author }}</a></li>
 
-				</div>
-			</div>
-					<!-- Sidebar
-					============================================= -->
-				<div class="col-3">
-					<div class="sidebar nobottommargin col_last clearfix">
-						<div class="sidebar-widgets-wrap">
-
-							<div class="widget widget-twitter-feed clearfix">
-
-								<h4>Хайлт</h4>
-								<form action="#" role="form" class="notopmargin nobottommargin">
-									<div class="input-group divcenter">
-                                   <input type="text" class="form-control" name="search_text" placeholder="Энд хайх утгаа бичнэ үү." value="{{ search_text }}">
-										<span class="input-group-btn">
-											<button class="btn btn-success" type="submit"><i class="icon-email2"></i></button>
-										</span>
-                                    </div>
-                                </form>
-                                
-
-							</div>
-
-							<div class="widget clearfix">
-
-								<div class="tabs nobottommargin clearfix" id="sidebar-tabs">
-
-									<ul class="tab-nav clearfix">
-										<li><a href="#tabs-1">Онцлох </a></li>
-										<li><a href="#tabs-2">Зөвлөгөө</a></li>
-										
-									</ul>
-
-									<div class="tab-container">
-
-										<div class="tab-content clearfix" id="tabs-1">
-											<div id="popular-post-list-sidebar">
-                                            {% for news in special %}
-												<div class="spost clearfix">
-													<div class="entry-image">
-														<a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}" class="nobg"><img class="img-circle" src="{% if news.image %}{{news.image.url}}{% endif %}" alt=""></a>
-													</div>
-													<div class="entry-c">
-														<div class="entry-title">
-															<h4><a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}">{{ news.title }}</a></h4>
-														</div>
-														
-													</div>
-												</div>
-                                            {% endfor %}
-												
-
-												
-
-											</div>
-										</div>
-										<div class="tab-content clearfix" id="tabs-2">
-											<div id="recent-post-list-sidebar">
-
-												<div class="spost clearfix">
-													<div class="entry-image">
-														<a href="#" class="nobg"><img class="img-circle" src="images/magazine/small/1.jpg" alt=""></a>
-													</div>
-													<div class="entry-c">
-														<div class="entry-title">
-															<h4><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h4>
-														</div>
-														<ul class="entry-meta">
-															<li>10th July 2014</li>
-														</ul>
-													</div>
-												</div>
-
-												<div class="spost clearfix">
-													<div class="entry-image">
-														<a href="#" class="nobg"><img class="img-circle" src="images/magazine/small/2.jpg" alt=""></a>
-													</div>
-													<div class="entry-c">
-														<div class="entry-title">
-															<h4><a href="#">Elit Assumenda vel amet dolorum quasi</a></h4>
-														</div>
-														<ul class="entry-meta">
-															<li>10th July 2014</li>
-														</ul>
-													</div>
-												</div>
-
-												<div class="spost clearfix">
-													<div class="entry-image">
-														<a href="#" class="nobg"><img class="img-circle" src="images/magazine/small/3.jpg" alt=""></a>
-													</div>
-													<div class="entry-c">
-														<div class="entry-title">
-															<h4><a href="#">Debitis nihil placeat, illum est nisi</a></h4>
-														</div>
-														<ul class="entry-meta">
-															<li>10th July 2014</li>
-														</ul>
-													</div>
-												</div>
-
-											</div>
-										</div>
-									
-
+										</ul>
 									</div>
-
 								</div>
-
 							</div>
+						</div>
+						{% endfor %}
 
-							<div class="widget clearfix">
 
-								<h4>Зураг цомог</h4>
-								<div id="oc-portfolio-sidebar" class="owl-carousel carousel-widget" data-items="1" data-margin="10" data-loop="true" data-nav="false" data-autoplay="5000">
+					</div><!-- #posts end -->
 
-									<div class="oc-item">
-										<div class="iportfolio">
-											<div class="portfolio-image">
-												<a href="#">
-													<img src="{% static 'base/assets/images/portfolio/4/3.jpg' %}" alt="Mac Sunglasses">
-												</a>
-												<div class="portfolio-overlay">
-													<a href="http://vimeo.com/89396394" class="center-icon" data-lightbox="iframe"><i class="icon-line-play"></i></a>
-												</div>
+					<!-- Pager
+							============================================= -->
+
+
+				</div><!-- .postcontent end -->
+
+				<!-- Sidebar
+						============================================= -->
+				<div class="sidebar col-lg-3">
+					<div class="sidebar-widgets-wrap">
+						<div class="widget widget-twitter-feed clearfix">
+							<h4>Хайлт</h4>
+							<div class="line line-xs line-travel"></div>
+
+
+							<form action="#" role="form" class="notopmargin nobottommargin">
+								<div class="input-group divcenter">
+									<input type="text" class="form-control" name="search_text"
+										placeholder="Энд хайх утгаа бичнэ үү." value="{{ search_text }}">
+									<span class="input-group-btn">
+										<button class="btn btn-success" type="submit"><i
+												class="icon-email2"></i></button>
+									</span>
+								</div>
+							</form>
+						</div>
+						<div class="widget clearfix">
+							<h4 class="mb-2 ls1 text-uppercase font-weight-bold">Шинэ мэдээ</h4>
+							<div class="line line-xs line-home"></div>
+
+							<div class="posts-sm row col-mb-30">
+								{% for news in news|slice:"0:4" %}
+								<div class="entry col-12">
+									<div class="grid-inner row align-items-center no-gutters">
+										<div class="col-auto">
+											<div class="entry-image">
+												<a
+													href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"><img
+														src="{% if news.image %}{{ news.image.url }} {% endif %}"
+														alt="Image"></a>
 											</div>
-											<div class="portfolio-desc center nobottompadding">
-												<h3><a href="portfolio-single-video.html">Mac Sunglasses</a></h3>
-												<span><a href="#">Graphics</a>, <a href="#">UI Elements</a></span>
+										</div>
+										<div class="col pl-3">
+											<div class="entry-title">
+												<h4 class="font-weight-semibold"><a
+														href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}">{{ news.title|slice:":60"}}...</a>
+												</h4>
+											</div>
+											<div class="entry-meta">
+												<ul>
+													<li><span>by</span> <a href="#">{{ news.author }}</a></li>
+													<li><i class="icon-time"></i><a href="#">{{ news.created_on }}</a>
+													</li>
+												</ul>
 											</div>
 										</div>
 									</div>
-
-									<div class="oc-item">
-										<div class="iportfolio">
-											<div class="portfolio-image">
-												<a href="portfolio-single.html">
-													<img src="{% static 'base/assets/images/portfolio/4/1.jpg' %}" alt="Open Imagination">
-												</a>
-												<div class="portfolio-overlay">
-													<a href="images/blog/full/1.jpg" class="center-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-												</div>
-											</div>
-											<div class="portfolio-desc center nobottompadding">
-												<h3><a href="portfolio-single.html">Open Imagination</a></h3>
-												<span><a href="#">Media</a>, <a href="#">Icons</a></span>
-											</div>
-										</div>
-									</div>
-
 								</div>
-
-
+								{% endfor %}
 							</div>
 
-							<div class="widget clearfix">
+						</div>
+						<div class="widget clearfix">
 
-								<h4>Tag Cloud</h4>
-								<div class="tagcloud">
-									<a href="#">general</a>
-									<a href="#">videos</a>
-									<a href="#">music</a>
-									<a href="#">media</a>
-									<a href="#">photography</a>
-									<a href="#">parallax</a>
-									<a href="#">ecommerce</a>
-									<a href="#">terms</a>
-									<a href="#">coupons</a>
-									<a href="#">modern</a>
+
+							<h4>Зөвлөгөө</h4>
+							<div class="line line-xs line-lifestyle"></div>
+
+							<div class="fslider testimonial border-0 p-0 shadow-none" data-animation="slide"
+								data-arrows="false">
+								<div class="flexslider">
+									<div class="slider-wrap">
+										{% for advice in advice %}
+										<div class="slide">
+											<div class="testi-image">
+												<a href="#"><img
+														src="{% static 'base/assets/images/advice/advice.png' %}"
+														alt="Customer Testimonails"></a>
+											</div>
+											<div class="testi-content">
+												{{ advice.title }}
+												<p>{{ advice.content|safe|slice:":100" }}</p>
+												<div class="testi-meta">
+													{{ advice.author }}
+													<span>{{ advice.category }}.</span>
+												</div>
+											</div>
+										</div>
+										{% endfor %}
+									</div>
 								</div>
-
 							</div>
 
 						</div>
 
-					</div><!-- .sidebar end -->
-				</div>
 
-				</div>
 
-            </div>
+						<div class="widget clearfix">
+
+							<h4>Зургын цомог</h4>
+							<div id="oc-portfolio-sidebar" class="owl-carousel carousel-widget" data-items="1"
+								data-margin="10" data-loop="true" data-nav="false" data-autoplay="5000">
+
+								{% for gallery in gallery %}
+								<div class="oc-item">
+									<div class="portfolio-item">
+										<div class="portfolio-image">
+											<a href="portfolio-single.html">
+												<img src="{{ gallery.image.url }}" alt="Gallery">
+											</a>
+											<div class="bg-overlay">
+												<div class="bg-overlay-content dark" data-hover-animate="fadeIn"
+													data-hover-speed="350">
+													<a href="{{ gallery.image.url }}"
+														class="overlay-trigger-icon bg-light text-dark"
+														data-hover-animate="zoomIn" data-hover-speed="350"
+														data-lightbox="image"><i class="icon-line-plus"></i></a>
+												</div>
+												<div class="bg-overlay-bg dark" data-hover-animate="fadeIn"
+													data-hover-speed="350">
+												</div>
+											</div>
+										</div>
+										<div class="portfolio-desc text-center pb-0">
+											{% comment %} <h3><a href="portfolio-single.html">{{ gallery.title}}</a>
+											</h3> {% endcomment %}
+
+										</div>
+									</div>
+								</div>
+								{% endfor %}
+
+							</div>
+
+
+						</div>
+
+						<div class="widget clearfix">
+
+							<h4>Aнгилал</h4>
+							<div class="tagcloud">
+								{% for category in category_list %}
+								<a href="#">{{category}}</a>
+								{% endfor %}
+							</div>
+
+						</div>
+
+					</div>
+
+				</div><!-- .sidebar end -->
 			</div>
 
-		</section><!-- #content end -->
+		</div>
+	</div>
+</section><!-- #content end -->
 
 {% endblock content %}

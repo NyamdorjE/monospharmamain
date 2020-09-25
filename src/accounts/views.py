@@ -28,7 +28,7 @@ from .forms import (
     RestorePasswordForm, RestorePasswordViaEmailOrUsernameForm, RemindUsernameForm,
     ResendActivationCodeForm, ResendActivationCodeViaEmailForm, ChangeProfileForm, ChangeEmailForm,
 )
-from .models import Activation
+from .models import Profile
 
 
 class GuestOnlyView(View):
@@ -113,14 +113,17 @@ class SignUpView(GuestOnlyView, FormView):
             user.save()
 
         if settings.ENABLE_USER_ACTIVATION:
-            code = get_random_string(20)
 
-            act = Activation()
-            act.code = code
+            act = Profile()
             act.user = user
+            act.email = user.email
+            act.phone = user.phone
+            act.register = user.register
+            act.district = user.district
+            act.organization_name = user.organization_name
+            act.category = user.category
+            act.license_number = user.license_number
             act.save()
-
-            send_activation_email(request, user.email, code)
 
             messages.success(
                 request, _('You are signed up. To activate the account, follow the link sent to the mail.'))
@@ -132,13 +135,13 @@ class SignUpView(GuestOnlyView, FormView):
 
             messages.success(request, _('You are successfully signed up!'))
 
-        return redirect('index')
+        return redirect('accounts:log_in')
 
 
 class ActivateView(View):
     @staticmethod
     def get(request, code):
-        act = get_object_or_404(Activation, code=code)
+        act = get_object_or_404(Profile, code=code)
 
         # Activate profile
         user = act.user
@@ -172,7 +175,7 @@ class ResendActivationCodeView(GuestOnlyView, FormView):
 
         code = get_random_string(20)
 
-        act = Activation()
+        act = Profile()
         act.code = code
         act.user = user
         act.save()
@@ -252,7 +255,7 @@ class ChangeEmailView(LoginRequiredMixin, FormView):
         if settings.ENABLE_ACTIVATION_AFTER_EMAIL_CHANGE:
             code = get_random_string(20)
 
-            act = Activation()
+            act = Profile()
             act.code = code
             act.user = user
             act.email = email
@@ -274,7 +277,7 @@ class ChangeEmailView(LoginRequiredMixin, FormView):
 class ChangeEmailActivateView(View):
     @staticmethod
     def get(request, code):
-        act = get_object_or_404(Activation, code=code)
+        act = get_object_or_404(Profile, code=code)
 
         # Change the email
         user = act.user

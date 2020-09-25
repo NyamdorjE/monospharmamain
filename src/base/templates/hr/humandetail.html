@@ -5,15 +5,15 @@
 
 {% block content %}
 
+<!-- Page Title
+		============================================= -->
 <section id="page-title">
 
-	<div class="container">
-		<h1>Page</h1>
-		<span>A Blank Page</span>
+	<div class="container clearfix">
+		<h1>Хүний нөөц</h1>
 		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="#">Home</a></li>
-			<li class="breadcrumb-item"><a href="#">Library</a></li>
-			<li class="breadcrumb-item active" aria-current="page">Data</li>
+			<li class="breadcrumb-item"><a href="{% url 'website-homepage'%}">Нүүр</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Хүний нөөц</li>
 		</ol>
 	</div>
 
@@ -66,20 +66,37 @@
 					</div>
 
 					<div class="form-widget">
-						{% if error_message %}
-						<div class="alert alert-success" role="alert">
-							{{error_message}}
-						</div>
-						{% endif %}
 
-						{% if email_form %}
+
+
+						{% if form %}
 						<form method="POST" action="" enctype="multipart/form-data">
 							{% csrf_token %}
-							{{email_form|crispy}}
+							{{form|crispy}}
 							<button type="submit" class="button button-border button-circle button-dark">Анкет
 								илгээх</button>
 						</form>
 						{% endif %}
+						{% if messages %}
+						<div class="row">
+							<div class="col-sm-6 col-sm-offset-3">
+								{% for message in messages %}
+								<div class="alert alert-{{ message.success }}" role="alert">
+									<p>{{ message }}</p>
+								</div>
+								{% endfor %}
+							</div>
+
+						</div>
+						{% endif %}
+
+
+						{% if error_message %}
+						<div class="alert alert-primary" role="alert">
+							{{error_message}}
+						</div>
+						{% endif %}
+
 						{% comment %} <form method="post">
 							{% csrf_token %}
 							<div class="form-process"></div>
