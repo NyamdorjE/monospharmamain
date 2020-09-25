@@ -11,9 +11,9 @@ ALLOWED_HOSTS = ['10.0.0.153', 'localhost']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'monospharm',
-        'USER': 'pharmauser',
-        'PASSWORD': '#DiyjoT42u#M',
+        'NAME': 'mnpharma',
+        'USER': 'mnpharmauser',
+        'PASSWORD': 'mnpharmauser',
         'HOST': 'localhost',
         'PORT': '5432'
     }
