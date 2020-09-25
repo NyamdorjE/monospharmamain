@@ -69,7 +69,7 @@ class Product(models.Model):
     product_id = models.IntegerField(
         verbose_name=_("Product id"), primary_key=True)
     classification = models.ForeignKey("Classification", verbose_name=_(
-        "Classification"), on_delete=models.CASCADE)
+        "Classification"), on_delete=models.CASCADE, null=True, blank=True)
     producttype = models.ForeignKey("Type", verbose_name=_(
         "producttype"), on_delete=models.CASCADE)
     productForm = models.ForeignKey("ProductForm", verbose_name=_(
