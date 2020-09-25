@@ -6,7 +6,7 @@ Production settings
 
 from .common import *
 
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['10.0.0.153', 'localhost']
 DATABASES = {
     'default': {
