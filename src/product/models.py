@@ -27,16 +27,16 @@ class ProductCategory(models.Model):
         return Product.objects.filter(category=self)
 
 
-class Classification(models.Model):
-    classification_name = models.CharField(
-        max_length=255, verbose_name=_('Classification type'))
+# class Classification(models.Model):
+#     classification_name = models.CharField(
+#         max_length=255, verbose_name=_('Classification type'))
 
-    class Meta:
-        verbose_name = _('Classification')
-        ordering = ['classification_name']
+#     class Meta:
+#         verbose_name = _('Classification')
+#         ordering = ['classification_name']
 
-    def __str__(self):
-        return self.classification_name
+#     def __str__(self):
+#         return self.classification_name
 
 
 class Type(models.Model):
@@ -68,8 +68,8 @@ class Product(models.Model):
         "Category"), on_delete=models.CASCADE, related_name="Product")
     product_id = models.IntegerField(
         verbose_name=_("Product id"), primary_key=True)
-    classification = models.ForeignKey("Classification", verbose_name=_(
-        "Classification"), on_delete=models.CASCADE, null=True, blank=True)
+    # classification = models.ForeignKey("Classification", verbose_name=_(
+    #     "Classification"), on_delete=models.CASCADE, null=True, blank=True)
     producttype = models.ForeignKey("Type", verbose_name=_(
         "producttype"), on_delete=models.CASCADE)
     productForm = models.ForeignKey("ProductForm", verbose_name=_(
