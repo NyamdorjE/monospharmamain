@@ -1,3 +1,4 @@
+from os import pipe
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
@@ -109,25 +110,38 @@ class Lesson(models.Model):
         ordering = ['title']
 
 
-class Post(models.Model):
-    post = models.CharField(max_length=500)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+# class Post(models.Model):
+#     post = models.CharField(max_length=500)
+#     created = models.DateTimeField(auto_now_add=True)
+#     updated = models.DateTimeField(auto_now=True)
 
 
-class Review(models.Model):
-    text = models.CharField(verbose_name=_('Question text'), max_length=250)
-    student = models.ForeignKey(User, verbose_name=_(
-        'Student'), null=False, on_delete=models.CASCADE)
-    lesson = models.ForeignKey(Lesson, verbose_name=_(
-        'Lesson'), on_delete=models.CASCADE)
-    created_at = models.DateTimeField(
-        verbose_name=_('Created at '), auto_now_add=True)
+# class Review(models.Model):
+#     text = models.CharField(verbose_name=_('Question text'), max_length=250)
+#     student = models.ForeignKey(User, verbose_name=_(
+#         'Student'), null=False, on_delete=models.CASCADE)
+#     lesson = models.ForeignKey(Lesson, verbose_name=_(
+#         'Lesson'), on_delete=models.CASCADE)
+#     created_at = models.DateTimeField(
+#         verbose_name=_('Created at '), auto_now_add=True)
 
-    class Meta:
-        verbose_name = _("Review")
-        verbose_name_plural = _("Reviews")
-        ordering = ['-created_at']
+#     class Meta:
+#         verbose_name = _("Review")
+#         verbose_name_plural = _("Reviews")
+#         ordering = ['-created_at']
 
-    def __unicode__(self):
-        return u'{0}'.format(self.question)
+#     def __unicode__(self):
+#         return u'{0}'.format(self.question)
+
+
+# class FeedBackStudent(models.Model):
+#     lesson = models.ForeignKey(Lesson, verbose_name=_(
+#         'Lesson'), related_name="lesson", on_delete=models.CASCADE)
+#     id = models.AutoField(primary_key=True)
+#     student_id = models.ForeignKey(
+#         User, verbose_name=_('Student'), on_delete=models.CASCADE)
+#     feedback = models.TextField()
+#     feedback_reply = models.TextField()
+#     created_at = models.DateTimeField(auto_now_add=True)
+#     updated_at = models.DateTimeField(auto_now=True)
+#     objects = models.Manager()
