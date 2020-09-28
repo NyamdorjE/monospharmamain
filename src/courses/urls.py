@@ -19,6 +19,4 @@ urlpatterns = [
     path('search/', SearchView, name='search_course'),
 
 
-
-
 ]

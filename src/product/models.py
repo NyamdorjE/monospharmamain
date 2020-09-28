@@ -87,8 +87,7 @@ class Product(models.Model):
         auto_now_add=True, verbose_name=_('Created on'))
     image = models.ImageField(verbose_name=_(
         'Picture'), upload_to='media/product/image/')
-    price = models.CharField(
-        max_length=150, verbose_name=_('Price'),  default="₮")
+
     is_product_new = models.BooleanField(default=False)
     link = models.CharField(verbose_name=_(
         'Link to emonos'), max_length=355, null=True)

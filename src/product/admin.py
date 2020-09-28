@@ -6,8 +6,8 @@ from .models import Product, ProductCategory,  Type, ProductForm
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('name', 'price', 'is_product_new')
-    search_fields = ('name', 'price')
+    list_display = ('name', 'is_product_new')
+    search_fields = ('name',)
     list_filter = ['categories']
     prepopulated_fields = {'slug': ('name',)}
 

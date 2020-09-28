@@ -64,7 +64,8 @@ class LessonDetailView(FormView, LoginRequiredMixin):
             lesson = get_object_or_404(Lesson, slug=lesson_slug)
             print('EEEEEEEEEEEEEEEEEEEEEE', lesson)
 
-            context = {'lesson': lesson, 'course': course}
+            context = {'lesson': lesson, 'course': course,
+                       }
             return render(request, "courses/lesson_detail.html", context)
         else:
             return redirect('courses:suggest')
@@ -170,3 +171,29 @@ def SearchView(request):
             'results': results
         }
         return render(request, 'courses/search_result.html', context)
+
+
+# def student_feedback(request):
+#     feedback_data = FeedBackStudent.objects.filter()
+#     context = {
+#         "feedback_data": feedback_data
+#     }
+#     return render(request, "courses/student_feedback.html", context)
+
+
+# def student_feedback_save(request):
+#     if request.method != "POST":
+#         messages.error(request, "Invalid Method.")
+#         return redirect('student_feedback')
+#     else:
+#         feedback = request.POST.get('feedback_message')
+
+#         try:
+#             add_feedback = FeedBackStudent(
+#                 feedback=feedback, feedback_reply="")
+#             add_feedback.save()
+#             messages.success(request, "Feedback Sent.")
+#             return redirect('student_feedback')
+#         except:
+#             messages.error(request, "Failed to Send Feedback.")
+#             return redirect('student_feedback')
