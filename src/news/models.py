@@ -5,9 +5,11 @@ from django.utils.translation import ugettext_lazy as _
 import re
 from django.db.models import Q
 from ckeditor.fields import RichTextField
-
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
+
+
 class Category(models.Model):
     title = models.CharField(max_length=255, verbose_name=_('Title'))
     category_type = (
@@ -38,7 +40,8 @@ class News(models.Model):
         max_length=255, verbose_name=_('News Slug'), unique=True)
     author = models.CharField(
         max_length=255, verbose_name=_('Created by'), default="Админ")
-    content = RichTextField(blank=True, null=True, verbose_name=_('Content'))
+    content = RichTextUploadingField(
+        blank=True, null=True, verbose_name=_('Content'))
     image = models.ImageField(verbose_name=(
         'Picture'), upload_to='media/news/')
     created_on = models.DateTimeField(

@@ -100,3 +100,15 @@ class Gallery(models.Model):
 
     # def __str__(self):
     #     return self.title
+
+
+class Counter(models.Model):
+    number = models.IntegerField(verbose_name=_('Counter number'))
+    content = models.CharField(
+        max_length=255, verbose_name=_("Counter number description"))
+    position = models.IntegerField()
+    picture = models.FileField(upload_to="media/counter")
+
+    class Meta:
+        verbose_name = _("Counter")
+        ordering = ['position']

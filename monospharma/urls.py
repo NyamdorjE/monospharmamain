@@ -37,6 +37,7 @@ urlpatterns = [
     path('humanresource/<slug:slug>/',
          EmailAttachementView.as_view(), name="humandetailview"),
     path('request/', request.request, name='request'),
+    path('ckeditor', include('ckeditor_uploader.urls')),
     # path('contact/', contact.contact, name='contact'),
     # path('contact/', contact.contactview, name='contact'),
     # path('contact/', EmailAttachementView.as_view(), name='emailattachment'),
@@ -51,4 +52,4 @@ urlpatterns = [
     # url(r'^contact/', include('contact.urls', namespace='contact')),
 
 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

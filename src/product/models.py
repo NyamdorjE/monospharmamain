@@ -67,7 +67,7 @@ class Product(models.Model):
     categories = models.ForeignKey(ProductCategory, verbose_name=_(
         "Category"), on_delete=models.CASCADE, related_name="Product")
     product_id = models.IntegerField(
-        verbose_name=_("Product id"), primary_key=True)
+        verbose_name=_("Бүтээгдэхүүн дотоод код"), primary_key=True)
     # classification = models.ForeignKey("Classification", verbose_name=_(
     #     "Classification"), on_delete=models.CASCADE, null=True, blank=True)
     producttype = models.ForeignKey("Type", verbose_name=_(

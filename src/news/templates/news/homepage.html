@@ -142,9 +142,9 @@
 	<div class="content-wrap">
 		<div class="container clearfix">
 			<div class="fancy-title title-border title-center topmargin-sm" data-animate="fadeInUp">
-				<h4>Хамтран ажиллагчдын сэтгэгдэл </h4>
+				<h4>Гарчиг энд байрлана </h4>
 			</div>
-			<div class="row" style="margin-bottom: 70px;" data-animate="fadeInUp">
+			<div class="row" style="margin-left:80px; margin-bottom: 70px; padding-top: 15px;" data-animate="fadeInUp">
 				{% comment %} <div class="col-lg-4 parallax" data-bottom-top="margin-top:-50px"
 					data-top-bottom="margin-top:50px">
 					<small class="text-muted text-uppercase font-weight-light ls4 mb-1 d-block">Experience</small>
@@ -328,32 +328,19 @@
 								</div>
 							</div>
 							{% endfor %}
-							{% for news in news|slice:"3:4" %}
+							{% for advice in advice|slice:"0:1" %}
 							<div class="col-12">
-								<div class="grid-inner" style="height: 280px;">
-									<img src="{% if news.image %}{{ news.image.url }}{% endif %}" alt="Image"
-										style="width: 100%; height: 100%;">
-									<div class="bg-overlay">
-										<div
-											class="bg-overlay-content text-overlay-mask dark align-items-start justify-content-between">
-											<div>
-												<span class="badge badge-danger">{{ news.category }}</span>
-												<div class="portfolio-desc">
-
-													<h3><a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
-															class="font-secondary">{{ news.title }}</a></h3>
-												</div>
-												<div>
-													<a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
-														class="button button-circle button-small font-weight-normal ls1 ml-0 track-list"><i
-															class="icon-play"></i>Цааш үзэх</a>
-
-												</div>
+								<div class="entry-image">
+									<div class="card">
+										<div class="card-body">
+											<div class="author-image">
+												<img src="{% static 'base/assets/images/advice/advice.png' %}"
+													alt="Image" class="rounded-circle"
+													style="width: 80px; height: 80px;">
 											</div>
-										</div>
-										<div class="bg-overlay-floating" data-hover-animate="fadeIn">
-											<a href="#"><i class="icon-line-heart"></i></a>
-											<a href="#"><i class="icon-line-ellipsis"></i></a>
+											<h4>{{ advice.title }}</h4>
+											<p>{{ advice.content|safe }}</p>
+
 										</div>
 									</div>
 								</div>
@@ -419,6 +406,7 @@
 
 							</div>
 						</div>
+
 
 					</div>
 				</div>

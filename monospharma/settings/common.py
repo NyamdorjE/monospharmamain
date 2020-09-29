@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'src.poll.apps.PollConfig',
     'widget_tweaks',
     'ckeditor',
+    'ckeditor_uploader',
     'registration',
     'crispy_forms',
     'bootstrap4',
@@ -58,9 +59,9 @@ INSTALLED_APPS = [
     'src.mcq',
 
 
-
-
 ]
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
