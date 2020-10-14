@@ -68,9 +68,11 @@
 							<p class="d-none d-sm-block" data-animate="fadeInUp" data-delay="200">.</p>
 						</div>
 					</div>
+					{% for banner in banner %}
 					<div class="swiper-slide-bg"
-						style="background-image: url('{% static 'base/assets/images/homebanner/banner3.JPG' %}');">
+						style="background-image: url('{{ banner.photo.url }}');" alt="{{ banner.alt_text }}">
 					</div>
+					{% endfor %}
 				</div>
 				<div class="swiper-slide dark">
 					<div class="container clearfix">
@@ -88,15 +90,7 @@
 						{% endcomment %}
 					</div>
 				</div>
-				<div class="swiper-slide">
-					<div class="container">
-						<div class="slider-caption">
-						</div>
-					</div>
-					<div class="swiper-slide-bg"
-						style="background-image: url('{% static 'base/assets/images/homebanner/banner2.jpg' %}'); background-position: center top;">
-					</div>
-				</div>
+				
 			</div>
 			<div class="slider-arrow-left"><i class="icon-angle-left"></i></div>
 			<div class="slider-arrow-right"><i class="icon-angle-right"></i></div>
@@ -330,7 +324,7 @@
 							{% endfor %}
 							{% for advice in advice|slice:"0:1" %}
 							<div class="col-12">
-								<div class="entry-image">
+								<div class="entry-image" style="boder-bottom-width: 10px;">
 									<div class="card">
 										<div class="card-body">
 											<div class="author-image">
@@ -340,6 +334,7 @@
 											</div>
 											<h4>{{ advice.title }}</h4>
 											<p>{{ advice.content|safe }}</p>
+											<span>{{ advice.author }} | {{ advice.category }} |  {{ advice.created_on}}</span>
 
 										</div>
 									</div>
@@ -504,7 +499,7 @@
 					</div>
 				</div>
 				<div class="bg-overlay-bg op-ts op-1" data-hover-animate="op-0" data-hover-animate-out="op-1"
-					style="background-color: rgb(50 56 49 / 50%);"></div>
+					style="background-color: rgb(63 143 86 / 55%);"></div>
 			</div>
 		</div>
 
@@ -520,7 +515,7 @@
 					</div>
 				</div>
 				<div class="bg-overlay-bg op-ts op-1" data-hover-animate="op-0" data-hover-animate-out="op-1"
-					style="background-color: rgb(50 56 49 / 50%);"></div>
+					style="background-color: rgb(63 143 86 / 55%);"></div>
 			</div>
 		</div>
 
@@ -536,7 +531,7 @@
 					</div>
 				</div>
 				<div class="bg-overlay-bg op-ts op-1" data-hover-animate="op-0" data-hover-animate-out="op-1"
-					style="background-color: rgb(50 56 49 / 50%);"></div>
+					style="background-color: rgb(63 143 86 / 55%);"></div>
 			</div>
 		</div>
 
@@ -552,7 +547,7 @@
 					</div>
 				</div>
 				<div class="bg-overlay-bg op-ts op-1" data-hover-animate="op-0" data-hover-animate-out="op-1"
-					style="background-color: rgb(50 56 49 / 50%);"></div>
+					style="background-color: rgb(63 143 86 / 55%);"></div>
 			</div>
 		</div>
 

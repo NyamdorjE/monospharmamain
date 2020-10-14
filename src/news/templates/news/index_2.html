@@ -53,19 +53,12 @@
 						============================================= -->
             <div class="top-links on-click">
               <ul class="top-links-container">
-                <li class="top-links-item">
-                  <a href="#">EN</a>
-                  <ul class="top-links-sub-menu">
-                    <li>
-                      <a href="#"><img src="{% static 'base/assets/images/icons/flags/french.png' %}" alt="French" />
-                        МН</a>
-                    </li>
-                    <li>
-                      <a href="#"><img src="{% static 'base/assets/images/icons/flags/italian.png' %}" alt="Italian" />
-                        АН</a>
-                    </li>
-                  </ul>
-                </li>
+              <li class="top-links-item"><a href="#">EN<i class="icon-angle-down"></i></a>
+									<ul class="top-links-sub-menu d-block">
+										<li class="top-links-item"><a href="#"><img src="{% static 'base/assets/images/icons/flags/french.png' %}" alt="French"> Монгол</a></li>
+										<li class="top-links-item"><a href="#"><img src="{% static 'base/assets/images/icons/flags/italian.png' %}" alt="Italian"> Англи</a></li>
+									</ul>
+								</li>
 
                 <div class="dropdown mx-3 mr-lg-0">
                   <a href="#" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown"
@@ -77,7 +70,7 @@
                     <a class="dropdown-item text-left"
                       href="{% url 'accounts:change_email' %}">{% trans 'Имайл хаяг солих' %}</a>
                     <a class="dropdown-item text-left"
-                      href="{% url 'accounts:change_profile' %}">{% trans 'Имайл хаяг солих' %}
+                      href="{% url 'accounts:change_profile' %}">{% trans 'Нэвтрэх нэр солих' %}
                     </a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item text-left" href="{% url 'accounts:log_out' %}">{% trans 'Системээс гарах' %}
@@ -110,7 +103,7 @@
               <a href="{% url 'website-homepage'%}" class="standard-logo" style="height: 70px; width: 150px; !Important"
                 data-dark-logo="images/monoslogo.png"><img src="{% static 'base/assets/images/monoslogo.png' %}" /></a>
               <a href="index.html" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src={% static 'base/assets/images/monoslogo.png'
-                  %}alt="Canvas Logo"></a>
+                  %}alt="Монос эм үйлдвэр"></a>
             </div>
             <!-- #logo end -->
 
@@ -609,7 +602,7 @@
                     <div class="row">
                       <div class="col-lg-12 bottommargin-sm">
                         <img src="{% static 'base/assets/images/footer-logo.png' %}"
-                          style="height:90px; width:150px; margin-left:50px;" />
+                          style="height:70px; width:140px; margin-left:80px;" />
                       </div>
 
 

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from src.news.models import Category, News
 from src.courses.models import Course
 from src.product.models import Product, ProductCategory
-from .models import Advice, AdviceCategory, Testimonail, Gallery, FeaturedProduct
+from .models import Advice, AdviceCategory, Testimonail, Gallery, FeaturedProduct, BannerVideo, Banner
 from django.http import HttpResponse
 from django.views import generic
 from django.views.generic import TemplateView
@@ -29,6 +29,8 @@ class Homepage(generic.ListView):
         context['advice'] = Advice.objects.all()
         context['testimonail'] = Testimonail.objects.all()
         context['featured'] = FeaturedProduct.objects.all()
+        context['banner'] = Banner.objects.all()
+        context['bannervideo'] = BannerVideo.objects.all()
         return context
 
     # def get_context_data(self, **kwargs):

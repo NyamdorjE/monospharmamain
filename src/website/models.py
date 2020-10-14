@@ -112,3 +112,18 @@ class Counter(models.Model):
     class Meta:
         verbose_name = _("Counter")
         ordering = ['position']
+
+
+class Banner(models.Model):
+    alt_text = models.CharField(max_length=550, verbose_name=_('Banner'), null=True)
+    photo = models.FileField(upload_to="media/banners", verbose_name=_('Banner photo'))
+    position = models.IntegerField()
+    def __str__(self):
+        return self.alt_text
+    
+    class Meta:
+        verbose_name=_('Banner')
+        ordering = ['position']
+
+class BannerVideo(models.Model):
+    src = models.CharField(max_length=255, verbose_name=_('Banner Video'))
