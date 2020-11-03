@@ -7,10 +7,12 @@ from ckeditor.fields import RichTextField
 
 
 class Testimonail(models.Model):
-    content = RichTextField(blank=True, null=True, verbose_name=_("Content"))
+    content = RichTextField(blank=True, null=True, verbose_name=_("Тэкст"))
     profile = models.FileField(upload_to="media/testimonails/profile")
-    person = models.CharField(max_length=55, verbose_name=_("Author"))
-    job = models.CharField(max_length=128, verbose_name=_("Job"), default="")
+    person = models.CharField(max_length=55, verbose_name=_("Зочин"))
+    job = models.CharField(
+        max_length=128, verbose_name=_("Зочиний ажлын байр"), default=""
+    )
 
     class Meta:
         verbose_name = _("Үйлвэртэй танилцсан сэтгэгдэл")
@@ -34,7 +36,7 @@ class Testimonail(models.Model):
 
 class AdviceCategory(models.Model):
     title = models.CharField(
-        verbose_name=_("Title"),
+        verbose_name=_("Гарчиг"),
         max_length=100,
     )
 
@@ -49,10 +51,10 @@ class AdviceCategory(models.Model):
 
 class Advice(models.Model):
     category = models.ForeignKey(AdviceCategory, on_delete=models.CASCADE)
-    title = models.CharField(verbose_name=_("Title"), max_length=255)
+    title = models.CharField(verbose_name=_("Гарчиг"), max_length=255)
     slug = models.SlugField()
-    content = RichTextField(blank=True, null=True, verbose_name=_("Content"))
-    author = models.CharField(verbose_name=_("Author"), max_length=128)
+    content = RichTextField(blank=True, null=True, verbose_name=_("Тэкст"))
+    author = models.CharField(verbose_name=_("Эмч орж ирнэ"), max_length=128)
     created_on = models.DateTimeField(
         verbose_name=_("Created on"),
         auto_now_add=True,
@@ -68,7 +70,9 @@ class Advice(models.Model):
 
 
 class Partner(models.Model):
-    image = models.FileField(verbose_name=_("Image"), upload_to="media/partner")
+    image = models.FileField(
+        verbose_name=_("Хамтрагч байгуулгын зураг"), upload_to="media/partner"
+    )
     position = models.IntegerField()
 
     class Meta:
@@ -94,15 +98,15 @@ class FeaturedProduct(models.Model):
 
 class Gallery(models.Model):
     title = models.CharField(
-        max_length=255, verbose_name=_("Gallery"), null=True, blank=True
+        max_length=255, verbose_name=_("Гарчиг хэсэг"), null=True, blank=True
     )
     description = models.CharField(
-        max_length=255, verbose_name=_("Description"), null=True, blank=True
+        max_length=255, verbose_name=_("Тайлбар хэсэг"), null=True, blank=True
     )
     image = models.FileField(upload_to="media/gallery")
 
     class Meta:
-        verbose_name = _("Зурагын сан")
+        verbose_name = _("Зургын сан")
         ordering = ["title"]
 
     # def __str__(self):
@@ -110,10 +114,8 @@ class Gallery(models.Model):
 
 
 class Counter(models.Model):
-    number = models.IntegerField(verbose_name=_("Counter number"))
-    content = models.CharField(
-        max_length=255, verbose_name=_("Counter number description")
-    )
+    number = models.IntegerField(verbose_name=_("Тоолуур гүйх тоонууд"))
+    content = models.CharField(max_length=255, verbose_name=_("Тоон доор орох тайлбар"))
     position = models.IntegerField()
     picture = models.FileField(upload_to="media/counter")
 
@@ -123,8 +125,14 @@ class Counter(models.Model):
 
 
 class Banner(models.Model):
-    alt_text = models.CharField(max_length=550, verbose_name=_("Banner"), null=True)
-    photo = models.FileField(upload_to="media/banners", verbose_name=_("Banner photo"))
+    alt_text = models.CharField(
+        max_length=550,
+        verbose_name=_("Баннер зурагын хайлтын системд туслах тэскт"),
+        null=True,
+    )
+    photo = models.FileField(
+        upload_to="media/banners", verbose_name=_("Баннер зураг орох")
+    )
     position = models.IntegerField()
 
     def __str__(self):

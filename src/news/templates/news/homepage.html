@@ -105,28 +105,31 @@
 	<div class="container clearfix">
 		<div class="row">
 			<div class="col-md-2 col-6 center">
-				<i class="i-plain icon-sun2 i-plain i-xlarge mx-auto mb-0"></i>
-				<h5 class="my-1">Тэскт</h5>
+				<i class="i-plain icon-industry
+ i-plain i-xlarge mx-auto mb-0"></i>
+				<h5 class="my-1">Барилга байгууламж, Дэд бүтэц</h5>
 			</div>
 			<div class="col-md-2 col-6 center">
-				<i class="i-plain icon-briefcase i-plain i-xlarge mx-auto mb-0"></i>
-				<h5 class="my-1">Тэскт</h5>
+				<i class="i-plain icon-medical-pharmacy
+ i-plain i-xlarge mx-auto mb-0"></i>
+				<h5 class="my-1">Түүхий эд, матриал</h5>
 			</div>
+
 			<div class="col-md-2 col-6 center">
-				<i class="i-plain icon-barcode i-plain i-xlarge mx-auto mb-0"></i>
-				<h5 class="my-1">Тэскт</h5>
+				<i class="i-plain icon-cogs i-plain i-xlarge mx-auto mb-0"></i>
+				<h5 class="my-1">Тоног төхөөрөмж</h5>
 			</div>
 			<div class="col-md-2 col-6 center">
 				<i class="i-plain icon-user i-plain i-xlarge mx-auto mb-0"></i>
-				<h5 class="my-1">Тэскт.</h5>
+				<h5 class="my-1">Хүн хүчин</h5>
 			</div>
 			<div class="col-md-2 col-6 center">
-				<i class="i-plain icon-laptop i-plain i-xlarge mx-auto mb-0"></i>
-				<h5 class="my-1">Тэскт</h5>
+				<i class="i-plain icon-calendar-check i-plain i-xlarge mx-auto mb-0"></i>
+				<h5 class="my-1">Чанарын баталгаажилт, Баримтжуулалт</h5>
 			</div>
 			<div class="col-md-2 col-6 center">
-				<i class="i-plain icon-cogs i-plain i-xlarge mx-auto mb-0"></i>
-				<h5 class="my-1">Тэскт</h5>
+				<i class="i-plain icon-medical-laboratory i-plain i-xlarge mx-auto mb-0"></i>
+				<h5 class="my-1">Чанарын хяналт</h5>
 			</div>
 		</div>
 	</div>
@@ -136,7 +139,7 @@
 	<div class="content-wrap">
 		<div class="container clearfix">
 			<div class="fancy-title title-border title-center topmargin-sm" data-animate="fadeInUp">
-				<h4>Эм үйлдвэрлэлийг дэлхийн жишигт </h4>
+				<h1>Эм үйлдвэрлэлийг дэлхийн жишигт </h1>
 			</div>
 			<div class="row" style="margin-left:80px; margin-bottom: 70px; padding-top: 15px;" data-animate="fadeInUp">
 				{% comment %} <div class="col-lg-4 parallax" data-bottom-top="margin-top:-50px"
@@ -335,7 +338,7 @@
 											<h4>
 												<a href="">{{ advice.title }}
 											</h4></a>
-											<p>{{ advice.content|safe|slice:":150"}}....</p>
+											<p>{{ advice.content|safe|slice:":250"}}....</p>
 											<span>{{ advice.author }} | {{ advice.category }} |
 												{{ advice.created_on|naturalday:'Y-m-d'}}</span>
 
@@ -353,59 +356,33 @@
 
 			<div class="clear"></div>
 
-			<div class="section bg-transparent" data-animate="fadeInUp">
-				<div class="container">
-					<div class="heading-block mb-4 border-bottom-0">
-						<h2 class="font-weight-normal ls0 nott mb-0"> Онцлох бүтээгдэхүүн </h2>
+
+			<div class="row clearfix mb-0 topmargin-sm align-items-stretch">
+				<div class="col-6">
+					<div class="container">
+						<div class="border">
+							<div class="grid-inner"> <img width="570" height="351" alt="DARHLAA V3" title="DARHLAA V3"
+									data-src="https://monosfoods.mn/wp-content/uploads/2020/03/DARHLAA-V3-570x314.png"
+									class="vc_single_image-img  lazyloaded"
+									src="https://monosfoods.mn/wp-content/uploads/2020/03/DARHLAA-V3-570x314.png">
+								<a href="#" class="button button-border button-circle button-dark bottom-right"><i
+										class="icon-repeat"></i>Цааш унших</a>
+							</div>
+
+						</div>
 					</div>
+				</div>
 
-					<div class="row align-items-center">
-						{% for featured in featured %}
-						<div class="col-lg-3 col-sm-6">
-							<img src="{% if featured.picture %}{{ featured.picture.url }}{% endif %}" alt="Image">
-						</div>
-						<div class="col-lg-4 col-sm-6 mt-3 mt-sm-0">
-							<div class="heading-block">
-								<h2 class="font-weight-bold ls0 mb-0 font-body">{{ featured.title }}</h2>
-								<span class="text-muted">{{ featured.description }}</span>
-							</div>
-							<p class="mb-0">{{ featured.ad }}</p>
-						</div>
-						{% endfor%}
-
-						<div class="col-lg-5 mt-5 mt-lg-0">
-							<h4 class="mb-0 font-weight-normal font-body"> <a href="#">Бидний бүтээгдэхүүн Дэлхийд</a>
-							</h4>
-							<div id="oc-images" class="owl-carousel image-carousel carousel-widget" data-margin="20"
-								data-nav="true" data-pagi="true" data-items-xs="2" data-items-sm="3" data-items-md="3"
-								data-items-lg="2" data-items-xl="2">
-								<div class="oc-item">
-									<a href="#"><img src="{% static 'base/assets/images/world/0205-3.jpg' %}"
-											alt="Image 1"></a>
-								</div>
-								<div class="oc-item">
-									<a href="#"><img src="{% static 'base/assets/images/world/20200216.jpg' %}"
-											alt="Image 2"></a>
-								</div>
-								<div class="oc-item">
-									<a href="#"><img
-											src="{% static 'base/assets/images/world/20200319-1-Recovered.jpg' %}"
-											alt="Image 3"></a>
-								</div>
-								<div class="oc-item">
-									<a href="#"><img
-											src="{% static 'base/assets/images/world/83666078_1043349286030807_5830185415876804608_n.jpg' %}"
-											alt="Image 4"></a>
-								</div>
-								<div class="oc-item">
-									<a href="#"><img src="{% static 'base/assets/images/world/Весул.jpg' %}"
-											alt="Image 5"></a>
-								</div>
-
+				<div class="col-6">
+					<div class="container">
+						<div class="border ">
+							<div class="grid-inner"> <img width="570" height="351" alt=" " title=" "
+									data-src="https://monosfoods.mn/wp-content/uploads/2020/03/TSENEG-DARHLAA-570x351.jpg"
+									src="https://monosfoods.mn/wp-content/uploads/2020/03/TSENEG-DARHLAA-570x351.jpg">
+								<a href="#" class="button button-border button-circle button-dark bottom-left"><i
+										class="icon-repeat"></i>Цааш унших</a>
 							</div>
 						</div>
-
-
 					</div>
 				</div>
 			</div>
@@ -486,7 +463,7 @@
 </section>
 <section>
 	<div class="fancy-title title-border title-center topmargin-sm" data-animate="fadeInUp">
-		<h4>Хамтрагч байгууллагууд</h4>
+		<h4>Гарчиг энд байрлана</h4>
 	</div>
 	<div class="row counters clearfix mb-0 topmargin-sm align-items-stretch" data-animate="fadeInUp">
 
@@ -792,6 +769,18 @@
 		top: 0px;
 		margin-top: 70px;
 		margin-bottom: 90px;
+	}
+
+	.bottom-right {
+		position: absolute;
+		bottom: 90px;
+		right: 100px;
+	}
+
+	.bottom-left {
+		position: absolute;
+		bottom: 90px;
+		left: 100px;
 	}
 </style>
 {% endblock %}

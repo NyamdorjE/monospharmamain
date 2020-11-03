@@ -18,8 +18,8 @@ class Category(models.Model):
     cate_type = models.CharField(max_length=255, choices=category_type, default="news")
 
     class Meta:
-        verbose_name = _("News category")
-        verbose_name_plural = _("News category")
+        verbose_name = _("Мэдээний ангиллал")
+        verbose_name_plural = _("Мэдээний ангиллал")
         ordering = ["title"]
 
     def __str__(self):
@@ -32,19 +32,23 @@ class Category(models.Model):
 class News(models.Model):
     category = models.ForeignKey(
         Category,
-        verbose_name=_("Category"),
+        verbose_name=_("Ангиллал"),
         on_delete=models.CASCADE,
         related_name="News",
     )
-    title = models.CharField(max_length=255, verbose_name=_("Title"), unique=True)
-    slug = models.SlugField(max_length=255, verbose_name=_("News Slug"), unique=True)
-    author = models.CharField(
-        max_length=255, verbose_name=_("Created by"), default="Админ"
+    title = models.CharField(max_length=255, verbose_name=_("Гарчиг"), unique=True)
+    slug = models.SlugField(
+        max_length=255, verbose_name=_("Нөмрөг (оролдож болохгүй)"), unique=True
     )
-    content = RichTextUploadingField(blank=True, null=True, verbose_name=_("Content"))
-    image = models.ImageField(verbose_name=("Picture"), upload_to="media/news/")
+    author = models.CharField(
+        max_length=255, verbose_name=_("Мэдээг оруулсан"), default="Админ"
+    )
+    content = RichTextUploadingField(blank=True, null=True, verbose_name=_("Тэкст"))
+    image = models.ImageField(
+        verbose_name=("Нүүрэнд тавигдах зураг"), upload_to="media/news/"
+    )
     created_on = models.DateTimeField(
-        auto_now_add=False, default=timezone.now, verbose_name=_("Created on")
+        auto_now_add=False, default=timezone.now, verbose_name=_("Оруулсан огноо")
     )
     updated_on = models.DateTimeField(auto_now=True, verbose_name=_("Updated on"))
     is_special = models.BooleanField(default=False)
@@ -60,11 +64,11 @@ class News(models.Model):
 
 class VideoNewsCategory(models.Model):
     category_name = models.CharField(
-        max_length=255, verbose_name=_("Video news category")
+        max_length=255, verbose_name=_("Видео мэдээний ангиллал")
     )
 
     class Meta:
-        verbose_name = _("Video news category")
+        verbose_name = _("Видео мэдээний ангиллал")
         ordering = ["category_name"]
 
     def __str__(self):
@@ -73,14 +77,14 @@ class VideoNewsCategory(models.Model):
 
 class VideoNews(models.Model):
     category = models.ForeignKey(VideoNewsCategory, on_delete=models.CASCADE)
-    title = models.CharField(max_length=255, verbose_name=_("Video news title"))
+    title = models.CharField(max_length=255, verbose_name=_("Гарчиг"))
     video = models.FileField(upload_to="media/videonews", null=True, blank=True)
     youtube_url = models.CharField(
-        max_length=500, verbose_name=_("Youtube video embed url")
+        max_length=500, verbose_name=_("Бичлэгний embed url байрлах")
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        verbose_name = _("Video news")
+        verbose_name = _("Видео мэдээ")
         ordering = ["created_at"]
