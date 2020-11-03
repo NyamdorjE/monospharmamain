@@ -240,7 +240,7 @@
 			</div>
 			<div class="clear"></div>
 			<div class="fancy-title title-border title-center topmargin-sm" data-animate="fadeInUp">
-				<h4>Мэдээ мэдээлэл </h4>
+				<h3>Мэдээ мэдээлэл </h3>
 			</div>
 			<div class="tab-content clearfix" id="tabs-1" data-animate="fadeInUp">
 				<div class="row gutter-20 align-items-stretch">
@@ -335,9 +335,9 @@
 													alt="Image" class="rounded-circle"
 													style="width: 80px; height: 80px;">
 											</div>
-											<h4>
+											<h3>
 												<a href="">{{ advice.title }}
-											</h4></a>
+											</h3></a>
 											<p>{{ advice.content|safe|slice:":250"}}....</p>
 											<span>{{ advice.author }} | {{ advice.category }} |
 												{{ advice.created_on|naturalday:'Y-m-d'}}</span>
@@ -356,32 +356,41 @@
 
 			<div class="clear"></div>
 
-
+			<div class="fancy-title title-border title-center topmargin-sm" data-animate="fadeInUp"
+				style="padding-top:50px; margin-bottom:60px;">
+				<h3>Онцлох бүтээгдэхүүн</h3>
+			</div>
 			<div class="row clearfix mb-0 topmargin-sm align-items-stretch">
-				<div class="col-6">
+				<div class="col-lg-6">
 					<div class="container">
 						<div class="border">
-							<div class="grid-inner"> <img width="570" height="351" alt="DARHLAA V3" title="DARHLAA V3"
-									data-src="https://monosfoods.mn/wp-content/uploads/2020/03/DARHLAA-V3-570x314.png"
-									class="vc_single_image-img  lazyloaded"
-									src="https://monosfoods.mn/wp-content/uploads/2020/03/DARHLAA-V3-570x314.png">
-								<a href="#" class="button button-border button-circle button-dark bottom-right"><i
-										class="icon-repeat"></i>Цааш унших</a>
-							</div>
+							<img width="570" height="351" alt="" title=""
+								data-src="https://monosfoods.mn/wp-content/uploads/2020/03/DARHLAA-V3-570x314.png"
+								class="vc_single_image-img  lazyloaded"
+								src="{% static 'base/assets/images/ontsloh/vitagripp.png' %}">
+							<a href="#" class="button button-border button-circle button-dark bottom-right"
+								style="color: #3f8f56; border: 2px solid #3f8f56 !important;"
+								onmouseover="this.style.background='#dfeed8';"
+								onmouseout="this.style.background='white';"><i class="icon-repeat"></i>Цааш
+								унших</a>
+
 
 						</div>
 					</div>
 				</div>
 
-				<div class="col-6">
+				<div class="col-lg-6">
 					<div class="container">
 						<div class="border ">
-							<div class="grid-inner"> <img width="570" height="351" alt=" " title=" "
-									data-src="https://monosfoods.mn/wp-content/uploads/2020/03/TSENEG-DARHLAA-570x351.jpg"
-									src="https://monosfoods.mn/wp-content/uploads/2020/03/TSENEG-DARHLAA-570x351.jpg">
-								<a href="#" class="button button-border button-circle button-dark bottom-left"><i
-										class="icon-repeat"></i>Цааш унших</a>
-							</div>
+							<img width="570" height="351" alt=" " title=" "
+								data-src="https://monosfoods.mn/wp-content/uploads/2020/03/TSENEG-DARHLAA-570x351.jpg"
+								src="{% static 'base/assets/images/ontsloh/flueless.png' %}">
+							<a href="#" class="button button-border button-circle button-dark bottom-left"
+								style="color: #3f8f56; border: 2px solid #3f8f56 !important;"
+								onmouseover="this.style.background='#dfeed8';"
+								onmouseout="this.style.background='white';"><i class="icon-repeat"></i>Цааш
+								унших</a>
+
 						</div>
 					</div>
 				</div>
@@ -442,7 +451,7 @@
 					<div class="widget widget-filter-links clearfix" data-animate="fadeInRight">
 						<div class="card">
 							<div class="card-body">
-								<h4>Хайлт</h4>
+								<h3>Хайлт</h3>
 								<form action="#" role="form" class="notopmargin nobottommargin">
 									<div class="input-group divcenter">
 										<input type="text" class="form-control" name="search_text"
@@ -463,7 +472,7 @@
 </section>
 <section>
 	<div class="fancy-title title-border title-center topmargin-sm" data-animate="fadeInUp">
-		<h4>Гарчиг энд байрлана</h4>
+		<h3>Статик мэдээлэл</h3>
 	</div>
 	<div class="row counters clearfix mb-0 topmargin-sm align-items-stretch" data-animate="fadeInUp">
 
@@ -472,10 +481,10 @@
 			<div class="bg-overlay">
 				<div class="bg-overlay-content dark">
 					<div>
-						<i class="i-rounded i-bordered icon-check"></i>
-						<div class="counter counter-lined"><span data-from="100" data-to="42762"
-								data-refresh-interval="50" data-speed="2300"></span></div>
-						<h5>Тэкст энд байрлана</h5>
+						<i class="i-rounded i-bordered icon-capsules"></i>
+						<div class="counter counter-lined"><span data-from="0" data-to="143" data-refresh-interval="55"
+								data-speed="2000"></span>сая</div>
+						<h5>Ширхэг капсултай эм</h5>
 					</div>
 				</div>
 				<div class="bg-overlay-bg op-ts op-1" data-hover-animate="op-0" data-hover-animate-out="op-1"
@@ -488,10 +497,10 @@
 			<div class="bg-overlay">
 				<div class="bg-overlay-content dark">
 					<div>
-						<i class="i-rounded i-bordered icon-cogs"></i>
-						<div class="counter counter-lined"><span data-from="3000" data-to="21500"
-								data-refresh-interval="100" data-speed="2500"></span></div>
-						<h5>Тэкст энд байрлана</h5>
+						<i class="i-rounded i-bordered icon-tablets"></i>
+						<div class="counter counter-lined"><span data-from="0" data-to="350" data-refresh-interval="55"
+								data-speed="2000"></span>сая</div>
+						<h5>Ширхэг шахмал эм</h5>
 					</div>
 				</div>
 				<div class="bg-overlay-bg op-ts op-1" data-hover-animate="op-0" data-hover-animate-out="op-1"
@@ -504,10 +513,10 @@
 			<div class="bg-overlay">
 				<div class="bg-overlay-content dark">
 					<div>
-						<i class="i-rounded i-bordered icon-rocket"></i>
-						<div class="counter counter-lined"><span data-from="20" data-to="408" data-refresh-interval="25"
-								data-speed="3500"></span>K</div>
-						<h5>Тэкст энд байрлана</h5>
+						<i class="i-rounded i-bordered icon-mortar-pestle"></i>
+						<div class="counter counter-lined"><span data-from="0" data-to="550" data-refresh-interval="25"
+								data-speed="2000"></span>сая</div>
+						<h5>Ширхэг мөхлөг эм</h5>
 					</div>
 				</div>
 				<div class="bg-overlay-bg op-ts op-1" data-hover-animate="op-0" data-hover-animate-out="op-1"
@@ -520,10 +529,10 @@
 			<div class="bg-overlay">
 				<div class="bg-overlay-content dark">
 					<div>
-						<i class="i-plain i-xlarge mx-auto icon-medical-i-ambulance"></i>
-						<div class="counter counter-lined"><span data-from="60" data-to="140" data-refresh-interval="20"
-								data-speed="2700"></span></div>
-						<h5>Тэкст энд байрлана</h5>
+						<i class="i-rounded i-bordered icon-line-droplet"></i>
+						<div class="counter counter-lined"><span data-from="0" data-to="105" data-refresh-interval="20"
+								data-speed="2000"></span>сая</div>
+						<h5>МЛ Шингэн эм</h5>
 					</div>
 				</div>
 				<div class="bg-overlay-bg op-ts op-1" data-hover-animate="op-0" data-hover-animate-out="op-1"
@@ -539,7 +548,7 @@
 
 	<div class="clear"></div>
 	<div class="fancy-title title-border title-center topmargin-sm" data-animate="fadeInUp">
-		<h4>Хамтрагч байгууллагууд</h4>
+		<h3>Хамтрагч байгууллагууд</h3>
 	</div>
 
 	<ul class="clients-grid grid-2 grid-sm-3 grid-md-6 mb-0" data-animate="fadeInUp">
@@ -633,7 +642,7 @@
 	<div class="content-wrap">
 
 		<div class="fancy-title title-border title-center topmargin-sm">
-			<h4>Хамтран ажиллагчдын сэтгэгдэл </h4>
+			<h3>Сэтгэгдэл </h3>
 		</div>
 
 		<div class="section"
@@ -773,14 +782,14 @@
 
 	.bottom-right {
 		position: absolute;
-		bottom: 90px;
-		right: 100px;
+		bottom: 30px;
+		right: 40px;
 	}
 
 	.bottom-left {
 		position: absolute;
-		bottom: 90px;
-		left: 100px;
+		bottom: 30px;
+		left: 40px;
 	}
 </style>
 {% endblock %}
