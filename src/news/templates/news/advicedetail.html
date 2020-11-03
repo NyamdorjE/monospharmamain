@@ -1,0 +1,213 @@
+{% extends 'news/index_2.html' %}
+{% load static humanize  %}
+{% load i18n %}
+
+
+{% block content %}
+
+<section id="page-title">
+
+    <div class="container clearfix">
+        <h1>Мэдээ</h1>
+        <ol class="breadcrumb">
+            <li><a href="{% url 'website-homepage'%}">Нүүр хуудас </a></li>
+            <li><a href="#">/Мэдээ</a></li>
+        </ol>
+    </div>
+
+</section><!-- #page-title end -->
+
+<!-- Content
+		============================================= -->
+<section id="content">
+    <div class="content-wrap">
+        <div class="container clearfix">
+
+            <div class="row gutter-40 col-mb-80">
+                <!-- Post Content
+						============================================= -->
+                <div class="postcontent col-lg-9">
+
+                    <div class="single-post mb-0">
+
+                        <!-- Single Post
+								============================================= -->
+                        <div class="entry clearfix">
+
+                            <!-- Entry Title
+									============================================= -->
+                            <div class="entry-title">
+                                <h2>{{ news.title }}</h2>
+                            </div><!-- .entry-title end -->
+
+                            <!-- Entry Meta
+									============================================= -->
+                            <div class="entry-meta">
+                                <ul>
+                                    <li><i class="icon-calendar3"></i> {{ news.created_on|naturalday:'Y-m-d'}}</li>
+                                    <li><a href="#"><i class="icon-user"></i> {{ news.author }}</a></li>
+                                    <li><i class="icon-folder-open"></i> <a href="#">{{ news.category }}</a>. </li>
+                                    <li><a href="#"><i class="icon-camera-retro"></i></a></li>
+                                </ul>
+                            </div><!-- .entry-meta end -->
+                            <div id="posts" class="row grid-container gutter-40">
+
+                                {% for advice in advice %}
+                                <div class="entry col-12">
+                                    <div class="grid-inner row no-gutters">
+                                        <div class="col-12">
+                                            <div class="entry-image">
+                                                <h5>
+                                                    <a
+                                                        href="{% url 'website-advice-detail' advice.slug  %}">{{ advice.title }}</a>
+                                                </h5>
+
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        {{ advice.content|safe }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="entry-meta">
+                                                <ul>
+                                                    <li><i class="icon-calendar3"></i>
+                                                        {{ advice.created_on|naturalday:'Y-m-d' }}</li>
+                                                    <li><a href="#"><i class="icon-user"></i> {{ advice.author }}</a>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+
+                            </div><!-- #posts end -->
+
+                            <!-- Entry Content
+									============================================= -->
+
+                        </div><!-- .entry end -->
+                        <div class="line"></div>
+                    </div>
+
+                </div><!-- .postcontent end -->
+
+                <!-- Sidebar
+						============================================= -->
+                <div class="sidebar col-lg-3">
+                    <div class="sidebar-widgets-wrap">
+
+
+
+
+
+                        <div class="widget clearfix">
+
+                            <div class="tabs mb-0 clearfix" id="sidebar-tabs">
+
+                                <ul class="tab-nav clearfix">
+                                    <li><a href="#tabs-1">Онцлох</a></li>
+
+                                </ul>
+
+                                <div class="tab-container">
+
+                                    <div class="tab-content clearfix" id="tabs-1">
+                                        <div class="posts-sm row col-mb-30" id="popular-post-list-sidebar">
+
+                                            {% for news in special %}
+                                            <div class="entry col-12">
+                                                <div class="grid-inner row no-gutters">
+                                                    <div class="col-auto">
+                                                        <div class="entry-image">
+                                                            <a
+                                                                href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"><img
+                                                                    class="rounded-circle"
+                                                                    src="{% if news.image %}{{news.image.url}}{% endif %}"
+                                                                    alt="News image"></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col pl-3">
+                                                        <div class="entry-title">
+                                                            <h4><a
+                                                                    href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}">{{ news.title }}</a>
+                                                            </h4>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="widget clearfix">
+                            <h4>Ангиллал</h4>
+                            <div class="tagcloud">
+                                {% for category in category_list %}
+                                <a href="#">{{category}}</a>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <div class="widget clearfix">
+
+                            <h4>Portfolio Carousel</h4>
+                            <div id="oc-portfolio-sidebar" class="owl-carousel carousel-widget" data-items="1"
+                                data-margin="10" data-loop="true" data-nav="false" data-autoplay="5000">
+
+                                {% for gallery in gallery %}
+                                <div class="oc-item">
+                                    <div class="portfolio-item">
+                                        <div class="portfolio-image">
+                                            <a href="portfolio-single.html">
+                                                <img src="{{ gallery.image.url }}" alt="Gallery">
+                                            </a>
+                                            <div class="bg-overlay">
+                                                <div class="bg-overlay-content dark" data-hover-animate="fadeIn"
+                                                    data-hover-speed="350">
+                                                    <a href="{{ gallery.image.url }}"
+                                                        class="overlay-trigger-icon bg-light text-dark"
+                                                        data-hover-animate="zoomIn" data-hover-speed="350"
+                                                        data-lightbox="image"><i class="icon-line-plus"></i></a>
+                                                </div>
+                                                <div class="bg-overlay-bg dark" data-hover-animate="fadeIn"
+                                                    data-hover-speed="350">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="portfolio-desc text-center pb-0">
+                                            {% comment %} <h3><a href="portfolio-single.html">{{ gallery.title}}</a>
+                                            </h3> {% endcomment %}
+
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+                </div><!-- .sidebar end -->
+            </div>
+
+        </div>
+    </div>
+</section><!-- #content end -->
+
+{% endblock %}

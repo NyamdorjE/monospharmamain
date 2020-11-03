@@ -1,6 +1,6 @@
 {% extends 'news/index_2.html' %}
 
-{% load static %}
+{% load static humanize  %}
 
 
 {% block content %}
@@ -11,7 +11,7 @@
 	<div class="container clearfix">
 		<h1>Бүтээгдэхүүн</h1>
 		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="{% url 'website-homepage'%}">Нүүр</a></li>
+			<li class="breadcrumb-item"><a href="{% url 'website-homepage'%}">Нүүр хуудас</a></li>
 			<li class="breadcrumb-item active" aria-current="page">Бүтээгдэхүүн</li>
 		</ol>
 	</div>
@@ -38,7 +38,9 @@
 								<div class="product-image">
 									<a
 										href="{% if product %}{% url 'product-product-detail-view' product.slug  %} {% endif %}"><img
-											src="{% if product.image %}{{ product.image.url}}{% endif %}" alt=""></a>
+											src="{% if product.image %}{{ product.image.url}}{% endif %}"
+											style="	max-width: 100%;text-align: center;padding: 6px;background: #fbfafb;border: 1px solid #e7e7e7;line-height: 0;margin-bottom: 12px;"
+											alt=""></a>
 									<a
 										href="{% if product %}{% url 'product-product-detail-view' product.slug  %} {% endif %}"><img
 											src="{% if product.image %}{{ product.image.url}}{% endif %}" alt=""></a>
@@ -46,7 +48,7 @@
 										<div class="bg-overlay-content align-items-end justify-content-between"
 											data-hover-animate="fadeIn" data-hover-speed="400">
 											<a href="{% if product %}{% url 'product-product-detail-view' product.slug  %} {% endif %}"
-												class="btn btn-dark mr-2"><i class="icon-shopping-cart"></i></a>
+												class="btn btn-dark mr-2"><i class="icon-zoom-in"></i></a>
 											{% comment %} <a href="#{{ product.product_id}}" data-lightbox="inline"
 												class="btn btn-dark" data-lightbox="ajax"><i
 													class="icon-line-expand"></i></a> {% endcomment %}

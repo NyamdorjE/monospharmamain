@@ -1,5 +1,5 @@
 {% extends 'news/index_2.html'%}
-{% load static %}
+{% load static humanize  %}
 
 {% block content %}
 {% comment %} <section id="slider" class="slider-element dark swiper_wrapper slider-parallax min-vh-75">
@@ -69,8 +69,8 @@
 						</div>
 					</div>
 					{% for banner in banner %}
-					<div class="swiper-slide-bg"
-						style="background-image: url('{{ banner.photo.url }}');" alt="{{ banner.alt_text }}">
+					<div class="swiper-slide-bg" style="background-image: url('{{ banner.photo.url }}');"
+						alt="{{ banner.alt_text }}">
 					</div>
 					{% endfor %}
 				</div>
@@ -90,7 +90,7 @@
 						{% endcomment %}
 					</div>
 				</div>
-				
+
 			</div>
 			<div class="slider-arrow-left"><i class="icon-angle-left"></i></div>
 			<div class="slider-arrow-right"><i class="icon-angle-right"></i></div>
@@ -333,8 +333,9 @@
 													style="width: 80px; height: 80px;">
 											</div>
 											<h4>{{ advice.title }}</h4>
-											<p>{{ advice.content|safe }}</p>
-											<span>{{ advice.author }} | {{ advice.category }} |  {{ advice.created_on}}</span>
+											<p>{{ advice.content|safe|slice:":150"}}</p>
+											<span>{{ advice.author }} | {{ advice.category }} |
+												{{ advice.created_on|naturalday:'Y-m-d'}}</span>
 
 										</div>
 									</div>

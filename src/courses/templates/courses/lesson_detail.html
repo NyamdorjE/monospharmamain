@@ -1,5 +1,5 @@
 {% extends 'news/index_2.html' %}
-{% load static %}
+{% load static humanize  %}
 {% load i18n %}
 
 
@@ -98,7 +98,6 @@
 												<h3 class="card-title">Leave a Feedback Message</h3>
 											</div>
 											<!-- /.card-header -->
-
 											{% comment %} Display Messages {% endcomment %}
 											{% if messages %}
 											<div class="form-group">
@@ -127,7 +126,6 @@
 												</div>
 											</div>
 											{% endif %}
-
 											<form method="POST" action="">
 												{% csrf_token %}
 												<div class="card-body">
@@ -137,26 +135,18 @@
 														<textarea name="feedback_message" class="form-control" rows="6"
 															placeholder="Feedback Message"></textarea>
 													</div>
-
-
 												</div>
 												<!-- /.card-body -->
-
 												<div class="card-footer">
 													<button type="submit" class="btn btn-primary">Leave a
 														Feedback</button>
 												</div>
-
 											</form>
 
 										</div>
 										<!-- /.card -->
-
-
-
 									</div>
 								</div>
-
 								<div class="row">
 									<div class="col-md-12">
 										<div class="card card-success">
@@ -174,7 +164,6 @@
 																<th>Feedback Reply</th>
 															</tr>
 														</thead>
-
 														{% for row in feedback_data %}
 														<tr>
 															<td>{{ row.id }}</td>
@@ -192,27 +181,18 @@
 
 							</div><!-- /.container-fluid -->
 						</section>
-
 					</div>
 					<div class="w-100"></div>
-
 					<div class="col-12">
 						<button type="submit" name="realestate-enquiry-submit" class="btn btn-secondary">Илгээх</button>
 					</div>
-
 					<input type="hidden" name="prefix" value="realestate-enquiry-">
 					</form>
 				</div>
 				<div class="tab-content clearfix" id="tabs-8">
-
-
-
-
 					<ol class="activity-feed">
 						<p><em>Та зөвхөн 1 удаа санал өгөх боломжтой.</em></p>
 						<ol class="activity-feed">
-
-
 							<a href="{% url 'quiz_start_page' slug=lesson.slug %}"
 								class="button button-border button-circle button-dark">{% trans "Шалгалт өгөх" %}</a>
 						</ol>

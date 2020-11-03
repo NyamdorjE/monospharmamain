@@ -1,8 +1,8 @@
 {% extends 'news/index_2.html' %}
-{% load static %}
+{% load static humanize  %}
 {% load i18n %}
 
-{% load humanize %}
+ 
 {% block content %}
 
 <section id="page-title">
@@ -10,7 +10,7 @@
 	<div class="container clearfix">
 		<h1>Мэдээ</h1>
 		<ol class="breadcrumb">
-			<li><a href="{% url 'website-homepage'%}">Нүүр хуудас</a></li>
+			<li><a href="{% url 'website-homepage'%}">Нүүр хуудас </a></li>
 			<li><a href="#">/Мэдээ</a></li>
 		</ol>
 	</div>

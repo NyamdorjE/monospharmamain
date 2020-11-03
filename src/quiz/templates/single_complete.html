@@ -10,9 +10,14 @@
 
 
 {% if user.is_authenticated %}
-  <p>{% trans "You have already sat this exam and only one sitting is permitted" %}.</p>
-{% else %}
-  <p>{% trans "This exam is only accessible to signed in users" %}.</p>
-{% endif %}
+<div class="info" style="margin: auto; width: 50%; padding: 120px; text-align: center;">
+  <p>{% trans "Та аль хэдийн шалгалт өгсөн байна. Дахин өгөх боломжгүй" %}.</p>
+  <p>Нүүр хуудаслуу буцах бол<p><a href="{% url 'website-homepage'%}">ЭНД ДАР</a>
+      {% else %}
+      <p>{% trans "Сайтад нэвтэрч орсны дараа шалгалт өгөх боломжтой" %}.</p>
+      <p><a href="{% url 'accounts:log_in' %}"> Нэвтрэх бол энд дар</a></p>
+      {% endif %}
 
-{% endblock %}
+      {% endblock %}
+
+</div>

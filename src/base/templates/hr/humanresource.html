@@ -1,5 +1,5 @@
 {% extends 'news/index_2.html' %}
-{% load static %}
+{% load static humanize  %}
 {% block content %}
 <!-- Page Title
 		============================================= -->
@@ -8,7 +8,7 @@
 	<div class="container clearfix">
 		<h1>Хүний нөөц</h1>
 		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="{% url 'website-homepage'%}">Нүүр</a></li>
+			<li class="breadcrumb-item"><a href="{% url 'website-homepage'%}">Нүүр хуудас</a></li>
 			<li class="breadcrumb-item active" aria-current="page">Хүний нөөц</li>
 		</ol>
 	</div>
@@ -48,7 +48,7 @@
 
 				<div class="col-md-6 col-lg-8">
 					<div id="snav-content1">
-						{% for hr in hr %}
+
 						<div class="row">
 							<div class="col-8">
 								<h5>Зарлагдсан ажлын байр</h5>
@@ -58,6 +58,7 @@
 								<h5>Анкет хүлээн авах сүүлийн цаг</h5>
 							</div>
 						</div>
+						{% for hr in hr %}
 						<div class="toggle toggle-border">
 							<div class="toggle-header">
 								<div class="toggle-icon">
@@ -71,7 +72,7 @@
 										</div>
 										<div class="col-4">
 											<i class="icon-calendar3" style="color: #4e9c6a;">
-												{{ hr.deadline }}
+												{{ hr.deadline|naturalday:'Y-m-d' }}
 											</i>
 										</div>
 									</div>
@@ -81,7 +82,7 @@
 								{{ hr.description }}
 								<a href="{% url 'humandetailview' hr.slug %}"
 									class="button button-mini button-border button-circle button-dark"><i
-										class="icon-trash2"></i>Дэлгэрэнгүй</a>
+										class="icon-line-corner-down-right"></i>Дэлгэрэнгүй</a>
 							</div>
 						</div>
 						{% endfor %}

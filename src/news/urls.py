@@ -8,16 +8,15 @@ from django.utils.translation import gettext_lazy as _
 
 
 urlpatterns = [
-    Nurl('') > 'src.website.views.Homepage',
-    Nurl('news/') > 'src.news.views.NewsList',
-    Nurl('news/<slug:slug>/') > 'src.news.views.NewsDetail',
-    Nurl('news/') > 'src.news.views.NewsList',
-    Nurl('special/') > 'src.news.views.SpecialNews',
-    Nurl('advice/') > 'src.website.views.AdviceNews',
-    Nurl('productnews/') > 'src.news.views.ProductNews',
-    Nurl('ourparticipation/') > 'src.news.views.OurParticipation',
-    Nurl('videonews/') > 'src.news.views.VideoNewsList',
-
+    Nurl("") > "src.website.views.Homepage",
+    Nurl("news/") > "src.news.views.NewsList",
+    Nurl("news/<slug:slug>/") > "src.news.views.NewsDetail",
+    Nurl("news/") > "src.news.views.NewsList",
+    Nurl("special/") > "src.news.views.SpecialNews",
+    Nurl("advice/") > "src.website.views.AdviceNews",
+    Nurl("advicedetail/<slug:slug>") > "src.website.views.AdviceDetail",
+    Nurl("productnews/") > "src.news.views.ProductNews",
+    Nurl("ourparticipation/") > "src.news.views.OurParticipation",
+    Nurl("videonews/") > "src.news.views.VideoNewsList",
     # Nurl('index/') > 'src.website.views.Index',
-
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

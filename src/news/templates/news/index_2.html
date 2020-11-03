@@ -1,4 +1,4 @@
-{% load static %} {% load humanize %} {% load i18n %} {% load widget_tweaks %} {% load bootstrap4 %}
+{% load static humanize  %} {% load i18n %} {% load widget_tweaks %} {% load bootstrap4 %}
 
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
@@ -53,12 +53,14 @@
 						============================================= -->
             <div class="top-links on-click">
               <ul class="top-links-container">
-              <li class="top-links-item"><a href="#">EN<i class="icon-angle-down"></i></a>
-									<ul class="top-links-sub-menu d-block">
-										<li class="top-links-item"><a href="#"><img src="{% static 'base/assets/images/icons/flags/french.png' %}" alt="French"> Монгол</a></li>
-										<li class="top-links-item"><a href="#"><img src="{% static 'base/assets/images/icons/flags/italian.png' %}" alt="Italian"> Англи</a></li>
-									</ul>
-								</li>
+                <li class="top-links-item"><a href="#">EN<i class="icon-angle-down"></i></a>
+                  <ul class="top-links-sub-menu d-block">
+                    <li class="top-links-item"><a href="#"><img
+                          src="{% static 'base/assets/images/icons/flags/mn.png' %}" alt="Монгол"> Монгол</a></li>
+                    <li class="top-links-item"><a href="#"><img
+                          src="{% static 'base/assets/images/icons/flags/en_US.png' %}" alt="Англи"> Англи</a></li>
+                  </ul>
+                </li>
 
                 <div class="dropdown mx-3 mr-lg-0">
                   <a href="#" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown"
@@ -77,7 +79,10 @@
                       <i class="icon-signout"></i></a>
                     {% else %}
                     <a class="dropdown-item text-left" href="{% url 'accounts:log_in' %}">{% trans 'Нэвтрэх' %}</a>
-                    <a class="dropdown-item text-left" href="{% url 'accounts:sign_up' %}">{% trans 'Бүртгүүлэх' %}</a>
+                    <a class="dropdown-item text-left"
+                      href="{% url 'accounts:pharmasign_up' %}">{% trans 'Эмчээр Бүртгүүлэх' %}</a>
+                    <a class="dropdown-item text-left"
+                      href="{% url 'accounts:sign_up' %}">{% trans 'Эм зүйчээр Бүртгүүлэх' %}</a>
                     {% endif %}
 
                   </ul>
@@ -431,7 +436,7 @@
                                       <div class="entry-meta">
                                         <ul>
                                           <li>{{ news.author }}</li>
-                                          <li><i class="icon-time"></i>{{ news.created_on }}</li>
+                                          <li><i class="icon-time"></i>{{ news.created_on|naturalday:'Y-m-d' }}</li>
                                         </ul>
                                       </div>
                                     </div>
@@ -485,17 +490,13 @@
     <!-- #header end -->
 
     <div class="si-sticky si-sticky-right d-none d-lg-block" style="z-index: 399;">
-      <a href="#" class="social-icon si-colored si-facebook" data-animate="bounceInRight">
+      <a href="" class="social-icon si-colored si-facebook" data-animate="bounceInRight">
         <i class="icon-facebook"></i>
         <i class="icon-facebook"></i>
       </a>
       <a href="#" class="social-icon si-colored si-twitter" data-animate="bounceInRight" data-delay="100">
         <i class="icon-twitter"></i>
         <i class="icon-twitter"></i>
-      </a>
-      <a href="#" class="social-icon si-colored si-pinterest" data-animate="bounceInRight" data-delay="200">
-        <i class="icon-pinterest"></i>
-        <i class="icon-pinterest"></i>
       </a>
       <a href="#" class="social-icon si-colored si-instagram" data-animate="bounceInRight" data-delay="300">
         <i class="icon-instagram"></i>
@@ -505,10 +506,7 @@
         <i class="icon-gplus"></i>
         <i class="icon-gplus"></i>
       </a>
-      <a href="#" class="social-icon si-colored si-rss" data-animate="bounceInRight" data-delay="700">
-        <i class="icon-rss"></i>
-        <i class="icon-rss"></i>
-      </a>
+
     </div>
     <!-- Content
 		============================================= -->

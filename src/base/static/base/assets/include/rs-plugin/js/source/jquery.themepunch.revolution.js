@@ -1760,7 +1760,7 @@ var initSlider = function (container,opt) {
 		if (opt.sliderType!=="standard") opt.lazyType = "all";
 		
 		
-		// PRELOAD STATIC LAYERS			
+		// PREload static humanize  LAYERS			
 		loadImages(container.find('.tp-static-layers'),opt,0,true);
 
 		waitForCurrentImages(container.find('.tp-static-layers'),opt,function() {
@@ -1864,7 +1864,7 @@ var initSlider = function (container,opt) {
 				opt.waitForFirstSlide = true;
 				if (_v.presize) {
 					var nextli = jQuery(opt.li[0]);
-					// PRELOAD STATIC LAYERS			
+					// PREload static humanize  LAYERS			
 						loadImages(nextli,opt,0,true);
 						waitForCurrentImages(nextli.find('.tp-layers'),opt,function() {							
 							_R.animateTheCaptions({slide:nextli,opt:opt, preset:true});							

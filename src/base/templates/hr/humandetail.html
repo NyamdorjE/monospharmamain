@@ -1,5 +1,5 @@
 {% extends 'news/index_2.html' %}
-{% load static %}
+{% load static humanize  %}
 {% load i18n %}
 {% load crispy_forms_tags %}
 
@@ -12,7 +12,7 @@
 	<div class="container clearfix">
 		<h1>Хүний нөөц</h1>
 		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="{% url 'website-homepage'%}">Нүүр</a></li>
+			<li class="breadcrumb-item"><a href="{% url 'website-homepage'%}">Нүүр хуудас</a></li>
 			<li class="breadcrumb-item active" aria-current="page">Хүний нөөц</li>
 		</ol>
 	</div>
@@ -22,7 +22,6 @@
 <section id="content">
 	<div class="content-wrap">
 		<div class="container clearfix">
-
 			<div class="row col-mb-50">
 				<div class="col-md-7">
 					<div class="fancy-title title-bottom-border">
@@ -50,25 +49,16 @@
 							</ul>
 						</div>
 						{% endfor %}
-
 					</div>
-
 					<a href="#" data-scrollto="#job-apply" class="button button-3d button-black m-0">Анкет татах</a>
-
 					<div class="divider divider-sm"><i class="icon-star3"></i></div>
-
-
 				</div>
-
 				<div class="col-md-5">
 					<div id="job-apply" class="heading-block highlight-me">
 						<h2>Анкет бөглөх</h2>
 					</div>
 
 					<div class="form-widget">
-
-
-
 						{% if form %}
 						<form method="POST" action="" enctype="multipart/form-data">
 							{% csrf_token %}
@@ -86,17 +76,13 @@
 								</div>
 								{% endfor %}
 							</div>
-
 						</div>
 						{% endif %}
-
-
 						{% if error_message %}
 						<div class="alert alert-primary" role="alert">
 							{{error_message}}
 						</div>
 						{% endif %}
-
 						{% comment %} <form method="post">
 							{% csrf_token %}
 							<div class="form-process"></div>
@@ -115,12 +101,9 @@
 								{% endif %}
 							</div>
 						</form> {% endcomment %}
-
 					</div>
-
 				</div>
 			</div>
-
 		</div>
 	</div>
 </section><!-- #content end -->

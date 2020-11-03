@@ -1502,7 +1502,7 @@ var initSlider = function (container,opt) {
 		if (opt.sliderType!=="standard") opt.lazyType = "all";
 		
 		
-		// PRELOAD STATIC LAYERS			
+		// PREload static humanize  LAYERS			
 		loadImages(container.find('.tp-static-layers'),opt,0,true);
 
 		waitForCurrentImages(container.find('.tp-static-layers'),opt,function() {

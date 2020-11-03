@@ -47,11 +47,11 @@ urlpatterns = [
         name='quiz_marking_detail'),
 
 
-    url(regex=r'^(?P<slug>[\w-]+)/$',
+    url(regex=r'^lesson(?P<slug>[\w-]+)/$',
         view=LessonQuizView.as_view(),
         name='quiz_start_page'),
 
-    url(regex=r'^(?P<slug>[\w-]+)/(?P<quiz_name>[\w-]+)/take/$',
+    url(regex=r'^lesson(?P<slug>[\w-]+)/(?P<quiz_name>[\w-]+)/take/$',
         view=QuizTake.as_view(),
         name='quiz_question'),
 ]

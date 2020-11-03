@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load i18n %}
-{% block title %}{% trans "Quizzes related to" %} {{ category.category }}{% endblock %}
+{% block title %}{% trans "Энэ шалгалтын ангиллал нь" %} {{ category.category }}{% endblock %}
 
 {% block content %}
 <h1>{% trans "Quizzes in the" %} <strong>{{ category.category }} </strong>{% trans "category" %}</h1>
@@ -17,7 +17,7 @@
   {% endfor %}
 </ul>
 {% else %}
-<p>{% trans "There are no quizzes" %}</p>
+<p>{% trans "Шалгалт байхгүй байна" %}</p>
 {% endif %}
 {% endwith %}
 {% endblock %}
