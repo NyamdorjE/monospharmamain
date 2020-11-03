@@ -4,6 +4,8 @@ from django.shortcuts import render, get_object_or_404
 from django.utils.translation import ugettext_lazy as _
 import re
 from django.db.models import Q
+from django.utils import timezone
+
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 
@@ -41,7 +43,9 @@ class News(models.Model):
     )
     content = RichTextUploadingField(blank=True, null=True, verbose_name=_("Content"))
     image = models.ImageField(verbose_name=("Picture"), upload_to="media/news/")
-    created_on = models.DateTimeField(auto_now_add=True, verbose_name=_("Created on"))
+    created_on = models.DateTimeField(
+        auto_now_add=False, default=timezone.now, verbose_name=_("Created on")
+    )
     updated_on = models.DateTimeField(auto_now=True, verbose_name=_("Updated on"))
     is_special = models.BooleanField(default=False)
 
