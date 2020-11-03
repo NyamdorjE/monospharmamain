@@ -335,7 +335,7 @@
 											<h4>
 												<a href="{% url 'website-advice-detail' advice.slug  %}">{{ advice.title }}
 											</h4></a>
-											<p>{{ advice.content|safe|slice:":150"}}</p>
+											<p>{{ advice.content|safe|slice:":150"}}....</p>
 											<span>{{ advice.author }} | {{ advice.category }} |
 												{{ advice.created_on|naturalday:'Y-m-d'}}</span>
 

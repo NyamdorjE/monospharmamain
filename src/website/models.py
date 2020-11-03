@@ -13,8 +13,8 @@ class Testimonail(models.Model):
     job = models.CharField(max_length=128, verbose_name=_("Job"), default="")
 
     class Meta:
-        verbose_name = _("Testimonail")
-        verbose_name_plural = _("Testimonails")
+        verbose_name = _("Үйлвэртэй танилцсан сэтгэгдэл")
+        verbose_name_plural = _("Үйлвэртэй танилцсан сэтгэгдэл")
 
     def __str__(self):
         return self.person
@@ -39,8 +39,8 @@ class AdviceCategory(models.Model):
     )
 
     class Meta:
-        verbose_name = _("Advice category")
-        verbose_name_plural = _("Advice categories")
+        verbose_name = _("Зөвөлгөөний ангиллал")
+        verbose_name_plural = _("Зөвөлгөөний ангиллал")
         ordering = ["-title"]
 
     def __str__(self):
@@ -59,8 +59,8 @@ class Advice(models.Model):
     )
 
     class Meta:
-        verbose_name = _("Advice")
-        verbose_name_plural = _("Advices")
+        verbose_name = _("Зөвлөгөө")
+        verbose_name_plural = _("Зөвлөгөө")
         ordering = ["-created_on"]
 
     def __str__(self):
@@ -72,8 +72,8 @@ class Partner(models.Model):
     position = models.IntegerField()
 
     class Meta:
-        verbose_name = _("Partner")
-        verbose_name = _("Partners")
+        verbose_name = _("Хамтрагч байгуулгын зураг")
+        verbose_name = _("Хамтрагч байгуулгын зураг")
         ordering = ["-position"]
 
 
@@ -85,7 +85,7 @@ class FeaturedProduct(models.Model):
     picture = models.FileField(upload_to="media/Featuredproduct/")
 
     class Meta:
-        verbose_name = _("Featured Product")
+        verbose_name = _("Танилцуулга бүтээгдэхүүн")
         ordering = ["title"]
 
     def __str__(self):
@@ -102,7 +102,7 @@ class Gallery(models.Model):
     image = models.FileField(upload_to="media/gallery")
 
     class Meta:
-        verbose_name = _("Gallery")
+        verbose_name = _("Зурагын сан")
         ordering = ["title"]
 
     # def __str__(self):
@@ -118,7 +118,7 @@ class Counter(models.Model):
     picture = models.FileField(upload_to="media/counter")
 
     class Meta:
-        verbose_name = _("Counter")
+        verbose_name = _("Тоолуур")
         ordering = ["position"]
 
 
@@ -131,9 +131,9 @@ class Banner(models.Model):
         return self.alt_text
 
     class Meta:
-        verbose_name = _("Banner")
+        verbose_name = _("Баннер зураг")
         ordering = ["position"]
 
 
 class BannerVideo(models.Model):
-    src = models.CharField(max_length=255, verbose_name=_("Banner Video"))
+    src = models.CharField(max_length=255, verbose_name=_("Баннер бичлэг"))
