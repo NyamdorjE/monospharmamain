@@ -447,24 +447,44 @@
 
 					</div>
 				</div>
-				<div class="col-3" style="padding-top: 100px;">
-					<div class="widget widget-filter-links clearfix" data-animate="fadeInRight">
-						<div class="card">
-							<div class="card-body">
-								<h3>Хайлт</h3>
-								<form action="#" role="form" class="notopmargin nobottommargin">
-									<div class="input-group divcenter">
-										<input type="text" class="form-control" name="search_text"
-											placeholder="Энд хайх утгаа бичнэ үү." value="{{ search_text }}">
-										<span class="input-group-btn">
-											<button class="btn btn-success" type="submit"><i
-													class="icon-email2"></i></button>
-										</span>
+				<div class="widget clearfix">
+
+					<h4>Зургын цомог</h4>
+					<div id="oc-portfolio-sidebar" class="owl-carousel carousel-widget" data-items="1" data-margin="10"
+						data-loop="true" data-nav="false" data-autoplay="5000">
+
+						{% for gallery in gallery %}
+						<div class="oc-item">
+							<div class="portfolio-item">
+								<div class="portfolio-image">
+									<a href="portfolio-single.html">
+										<img src="{{ gallery.image.url }}" alt="Gallery">
+									</a>
+									<div class="bg-overlay">
+										<div class="bg-overlay-content dark" data-hover-animate="fadeIn"
+											data-hover-speed="350">
+											<a href="{{ gallery.image.url }}"
+												class="overlay-trigger-icon bg-light text-dark"
+												data-hover-animate="zoomIn" data-hover-speed="350"
+												data-lightbox="image"><i class="icon-line-plus"></i></a>
+										</div>
+										<div class="bg-overlay-bg dark" data-hover-animate="fadeIn"
+											data-hover-speed="350">
+										</div>
 									</div>
-								</form>
+								</div>
+								<div class="portfolio-desc text-center pb-0">
+									{% comment %} <h3><a href="portfolio-single.html">{{ gallery.title}}</a>
+									</h3> {% endcomment %}
+
+								</div>
 							</div>
 						</div>
+						{% endfor %}
+
 					</div>
+
+
 				</div>
 			</div>
 
@@ -552,30 +572,35 @@
 	</div>
 
 	<ul class="clients-grid grid-2 grid-sm-3 grid-md-6 mb-0" data-animate="fadeInUp">
-		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/parthner/1.jpg' %}" alt="Clients"
+		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/1.png' %}" alt="Clients"
 					style="height:70px; width:70px;"></a></li>
-		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/parthner/2.jpg' %}" alt="Clients"
+		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/2.png' %}" alt="Clients"
 					style="height:70px; width:70px;"></a></li>
-		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/parthner/3.png' %}" alt="Clients"
+		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/3.png' %}" alt="Clients"
 					style="height:70px; width:70px;"></a></li>
-		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/parthner/4.png' %}" alt="Clients"
+		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/4.png' %}" alt="Clients"
 					style="height:70px; width:70px;"></a></li>
-		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/parthner/5.jpg' %}" alt="Clients"
+		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/5.png' %}" alt="Clients"
 					style="height:100px; width:100px;"></a></li>
-		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/parthner/6.png' %}" alt="Clients"
+		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/6.png' %}" alt="Clients"
 					style="height:80px; width:80px;"></a></li>
-		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/parthner/7.png' %}" alt="Clients"
+		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/7.png' %}" alt="Clients"
 					style="height:90px; width:90px;"></a></li>
-		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/logo/8.png' %}"
-					alt="Clients"></a></li>
-		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/logo/9.png' %}"
-					alt="Clients"></a></li>
-		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/logo/10.png' %}"
-					alt="Clients"></a></li>
-		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/logo/11.png' %}"
-					alt="Clients"></a></li>
-		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/logo/12.png' %}"
-					alt="Clients"></a></li>
+		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/8.png' %}" alt="Clients"
+					style="height:90px; width:90px;"></a>
+		</li>
+		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/9.png' %}" alt="Clients"
+					style="height:90px; width:90px;"></a>
+		</li>
+		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/10.png' %}" alt="Clients"
+					style="height:90px; width:90px;"></a>
+		</li>
+		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/11.png' %}" alt="Clients"
+					style="height:90px; width:90px;"></a>
+		</li>
+		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/12.png' %}" alt="Clients"
+					style="height:90px; width:90px;"></a>
+		</li>
 
 	</ul>
 
