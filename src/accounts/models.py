@@ -18,6 +18,9 @@ class Profile(models.Model):
     category = models.CharField(_("Category"), max_length=50)
     license_number = models.CharField(_("License number "), max_length=50)
 
+    class Meta:
+        verbose_name = _("Эмч")
+        verbose_name_plural = _("Эмч")
 
 class PharmaProfile(models.Model):
     """
@@ -33,3 +36,7 @@ class PharmaProfile(models.Model):
     organization_name = models.CharField(_("Organization name"), max_length=255)
     category = models.CharField(_("Category"), max_length=50)
     license_number = models.CharField(_("License number "), max_length=50)
+
+    class Meta:
+        verbose_name = _("Эм зүйч")
+        verbose_name_plural = _("Эм зүйч")

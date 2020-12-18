@@ -49,7 +49,7 @@ class Type(models.Model):
     type_name = models.CharField(max_length=255, verbose_name=_("Type of product"))
 
     class Meta:
-        verbose_name = _("Type of product")
+        verbose_name = _("Бүтээгдэхүүний төрөл")
         ordering = ["type_name"]
 
     def __str__(self):
@@ -60,7 +60,7 @@ class ProductForm(models.Model):
     form_name = models.CharField(max_length=255, verbose_name=_("ProductForm "))
 
     class Meta:
-        verbose_name = _("ProductForm")
+        verbose_name = _("Бүтээгдэхүүний хэлбэр")
         ordering = ["form_name"]
 
     def __str__(self):
@@ -152,8 +152,8 @@ class Product(models.Model):
     )
 
     class Meta:
-        verbose_name = _("Product")
-        verbose_name_plural = _("Prodcuts")
+        verbose_name = _("Бүтээгдэхүүн")
+        verbose_name_plural = _("Бүтээгдэхүүн")
         ordering = ["name"]
 
     # @property
