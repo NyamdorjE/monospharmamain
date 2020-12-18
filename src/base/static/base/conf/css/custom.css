@@ -1,0 +1,123 @@
+@media (min-width: 576px) {
+  .modal-dialog-scrollable .modal-content {
+    max-height: calc(100vh - 3.5rem);
+  }
+}
+
+.modal-dialog-scrollable .modal-content {
+  max-height: calc(100vh - 1rem);
+  overflow: hidden;
+}
+
+.modal-dialog-scrollable .modal-content .modal-body {
+  overflow-y: auto;
+}
+
+.shareholder-main ul {
+  font-size: 14px;
+}
+
+.shareholder-main .nav-pills > li > .nav-link {
+  margin-top: 0;
+}
+
+.shareholder-main .card-body {
+  background-color: #fff;
+}
+
+.shareholder-body.login-body {
+  background-image: url(/static/conf/img/bg.jpg);
+  background-size: cover;
+}
+
+.shareholder-body.login-body .card-body {
+  background: #a7a97708;
+}
+
+.shareholder-body.login-body .close {
+  color: #fff;
+  opacity: 1;
+}
+
+.shareholder-body button {
+  background: #122133 !important;
+}
+
+.shareholder-body button:hover, .shareholder-body button:focus {
+  background: #0B98A6 !important;
+}
+
+.shareholder-body .main-header {
+  background-color: #122133 !important;
+}
+
+.shareholder-body .main-header .logo-header {
+  background-color: #122133 !important;
+}
+
+.shareholder-body .main-header .navbar-header {
+  background-color: #122133 !important;
+}
+
+.shareholder-body .meeting-detail .nav-pills .nav-link {
+  border: 1px solid #122133;
+}
+
+.shareholder-body .meeting-detail .nav-pills .nav-link.active {
+  background: #122133;
+  color: #fff;
+}
+
+.shareholder-body .meeting-detail .nav-pills .nav-link:hover, .shareholder-body .meeting-detail .nav-pills .nav-link:focus {
+  background: #122133;
+  color: #fff;
+}
+
+.shareholder-body .meeting-detail .tab-pane#question {
+  font-size: 16px;
+}
+
+.shareholder-body .meeting-detail .tab-pane#question a {
+  color: #122133;
+  font-size: 16px;
+}
+
+.shareholder-body .meeting-detail .tab-pane#question label {
+  font-weight: 400;
+}
+
+.shareholder-body .meeting-detail .g-recaptcha {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.shareholder-body .table-intro thead tr {
+  border-bottom: 3px solid #000000;
+}
+
+.shareholder-body .table-intro .table-info td, .shareholder-body .table-intro .table-info th, .shareholder-body .table-intro .table-info > td td, .shareholder-body .table-intro .table-info > td th, .shareholder-body .table-intro .table-info > th td, .shareholder-body .table-intro .table-info > th th {
+  color: #122133;
+}
+
+.shareholder-body .table-intro .table-info th, .shareholder-body .table-intro .table-info > td th, .shareholder-body .table-intro .table-info > th th {
+  font-size: 16px;
+  border-bottom: 2px solid #000000;
+}
+
+.meeting-live {
+  padding: 10px;
+  background: #122133;
+  color: #fff;
+  border-radius: 5px;
+  border: 1px solid #122133;
+  font-weight: inherit;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+#yDmH0d {
+  overflow-y: hidden;
+}
+/*# sourceMappingURL=custom.css.map */

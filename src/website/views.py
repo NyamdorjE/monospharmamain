@@ -7,7 +7,8 @@ from .models import (
     AdviceCategory,
     Testimonail,
     Gallery,
-    FeaturedProduct,
+    LeftFeaturedProduct,
+    RightFeaturedProduct,
     BannerVideo,
     Banner,
 )
@@ -36,7 +37,8 @@ class Homepage(generic.ListView):
         context["newproduct"] = Product.objects.filter(is_product_new=True)
         context["advice"] = Advice.objects.all()
         context["testimonail"] = Testimonail.objects.all()
-        context["featured"] = FeaturedProduct.objects.all()
+        context["leftfeatured"] = LeftFeaturedProduct.objects.all()
+        context["rigthfeatured"] = LeftFeaturedProduct.objects.all()
         context["banner"] = Banner.objects.all()
         context["bannervideo"] = BannerVideo.objects.all()
         return context

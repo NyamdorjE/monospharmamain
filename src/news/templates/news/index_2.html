@@ -27,7 +27,7 @@
 
   <!-- Document Title
 	============================================= -->
-  <title>Монос Фарм ХХК</title>
+  <title>Монос Фарм ХХК | Эм үйлдвэрлэлийг дэлхийн жишигт</title>
 
   <style></style>
 </head>
@@ -302,18 +302,18 @@
                               <div class="portfolio-item">
                                 <div class="portfolio-image">
                                   <a
-                                    href="{% if product.slug %}{% url 'product-product-detail-view' product.slug %}{% endif %}"><img
-                                      src="{% if product.image %}{{ product.image.url }}{% endif %}"
+                                    href="{% if product.pk %}{% url 'product-product-detail-view' product.pk %}{% endif %}"><img
+                                      src="https://back.emonos.mn/{% if product.photo %}{{ product.photo.url }}{% endif %}"
                                       style="width: 200px; height:250px;"></a>
 
                                 </div>
                                 <div class="portfolio-desc pb-0">
                                   <div>
                                     <h3><a
-                                        href="{% if product %}{% url 'product-product-detail-view' product.slug  %} {% endif %}">{{ product.name }}</a>
+                                        href="{% url 'product-product-detail-view' product.pk  %}">{{ product.name }}</a>
                                     </h3>
                                     <span class="mt-0"><a
-                                        href="{% if product %}{% url 'product-product-detail-view' product.slug  %} {% endif %}">{{ product.category }}</a></span>
+                                        href="{% url 'product-product-detail-view' product.pk  %}">{{ product.category }}</a></span>
                                     <div class="rating-stars">
                                       <i class="icon-star3"></i><i class="icon-star3"></i><i class="icon-star3"></i><i
                                         class="icon-star3"></i><i class="icon-star3"></i>
@@ -337,21 +337,20 @@
                               <h4 class="highlight-me">Онцлох бүтээгдэхүүн</h4>
 
                               <div class="posts-sm row col-mb-30" id="recent-shop-list-sidebar">
-                                {% for product in newproduct|slice:"0:3" %}
+                                {% for product in newproduct|slice:"1:4" %}
                                 <div class="entry col-12">
                                   <div class="grid-inner row no-gutters">
                                     <div class="col-auto">
                                       <div class="entry-image">
-                                        <a
-                                          href="{% if product.slug %}{% url 'product-product-detail-view' product.slug %}{% endif %}"><img
-                                            src="{% if product.image %}{{ product.image.url }}{% endif %}"
+                                        <a href="{% url 'product-product-detail-view' product.pk %}"><img
+                                            src="https://back.emonos.mn/{% if product.photo %}{{ product.photo.url }}{% endif %}"
                                             alt="Image"></a>
                                       </div>
                                     </div>
                                     <div class="col pl-3">
                                       <div class="entry-title">
                                         <h4><a
-                                            href="{% if product.slug %}{% url 'product-product-detail-view' product.slug %}{% endif %}">{{ product.name }}</a>
+                                            href="{% url 'product-product-detail-view' product.pk %}">{{ product.name }}</a>
                                         </h4>
                                       </div>
                                       <div class="entry-meta no-separator">
@@ -490,22 +489,22 @@
     <!-- #header end -->
 
     <div class="si-sticky si-sticky-right d-none d-lg-block" style="z-index: 399;">
-      <a href="https://www.facebook.com/monospharma" class="social-icon si-colored si-facebook"
+      <a href="https://www.facebook.com/monospharma" target="_blank" class="social-icon si-colored si-facebook"
         data-animate="bounceInRight" style="margin-top:400px;">
         <i class="icon-facebook"></i>
         <i class="icon-facebook"></i>
       </a>
-      <a href="https://twitter.com/monospharma" class="social-icon si-colored si-twitter" data-animate="bounceInRight"
-        data-delay="100">
+      <a href="https://twitter.com/monospharma" target="_blank" class="social-icon si-colored si-twitter"
+        data-animate="bounceInRight" data-delay="100">
         <i class="icon-twitter"></i>
         <i class="icon-twitter"></i>
       </a>
-      <a href="https://www.instagram.com/monospharma/" class="social-icon si-colored si-instagram"
+      <a href="https://www.instagram.com/monospharma/" target="_blank" class="social-icon si-colored si-instagram"
         data-animate="bounceInRight" data-delay="300">
         <i class="icon-instagram"></i>
         <i class="icon-instagram"></i>
       </a>
-      <a href="https://youtube.com/user/monospharma" class="social-icon si-colored si-youtube"
+      <a href="https://youtube.com/user/monospharma" target="_blank" class="social-icon si-colored si-youtube"
         data-animate="bounceInRight" data-delay="600">
         <i class="icon-youtube"></i>
         <i class="icon-youtube"></i>
@@ -629,7 +628,8 @@
                   <div class="widget clearfix" style="margin-bottom: -20px;">
                     <div class="row">
                       <div class="col-6 col-md-12 col-lg-6 clearfix bottommargin-sm">
-                        <a href="#" class="social-icon si-dark si-colored si-facebook mb-0" style="margin-right: 10px;">
+                        <a href="https://www.facebook.com/monospharma"
+                          class="social-icon si-dark si-colored si-facebook mb-0" style="margin-right: 10px;">
                           <i class="icon-facebook"></i>
                           <i class="icon-facebook"></i>
                         </a>
@@ -641,7 +641,8 @@
                           <i class="icon-youtube"></i>
                           <i class="icon-youtube"></i>
                         </a>
-                        <a href="#"><small style="display: block; margin-top: 3px;"><strong>Бидэнтэй
+                        <a href="https://youtube.com/user/monospharma"><small
+                            style="display: block; margin-top: 3px;"><strong>Бидэнтэй
                               нэгдэх</strong><br />
                             Youtube
                           </small></a>
@@ -668,45 +669,23 @@
 
             <div class="col-md-6 text-center text-md-right">
               <div class="d-flex justify-content-center justify-content-md-end">
-                <a href="#" class="social-icon si-small si-borderless si-facebook">
+                <a href="#" class="social-icon si-small si-borderless si-facebook" target="_blank">
                   <i class="icon-facebook"></i>
                   <i class="icon-facebook"></i>
                 </a>
 
-                <a href="#" class="social-icon si-small si-borderless si-twitter">
+                <a href="#" class="social-icon si-small si-borderless si-twitter" target="_blank">
                   <i class="icon-twitter"></i>
                   <i class="icon-twitter"></i>
                 </a>
 
-                <a href="#" class="social-icon si-small si-borderless si-gplus">
+                <a href="#" class="social-icon si-small si-borderless si-gplus" target="_blank">
                   <i class="icon-gplus"></i>
                   <i class="icon-gplus"></i>
                 </a>
 
-                <a href="#" class="social-icon si-small si-borderless si-pinterest">
-                  <i class="icon-pinterest"></i>
-                  <i class="icon-pinterest"></i>
-                </a>
 
-                <a href="#" class="social-icon si-small si-borderless si-vimeo">
-                  <i class="icon-vimeo"></i>
-                  <i class="icon-vimeo"></i>
-                </a>
 
-                <a href="#" class="social-icon si-small si-borderless si-github">
-                  <i class="icon-github"></i>
-                  <i class="icon-github"></i>
-                </a>
-
-                <a href="#" class="social-icon si-small si-borderless si-yahoo">
-                  <i class="icon-yahoo"></i>
-                  <i class="icon-yahoo"></i>
-                </a>
-
-                <a href="#" class="social-icon si-small si-borderless si-linkedin">
-                  <i class="icon-linkedin"></i>
-                  <i class="icon-linkedin"></i>
-                </a>
               </div>
 
               <div class="clear"></div>
@@ -731,83 +710,41 @@
   <script src="{% static 'base/assets/js/jquery.js' %}"></script>
   <script src="{% static 'base/assets/js/plugins.min.js' %}"></script>
 
+
+
+  <script>
+    jQuery(window).on('pluginTabsReady', function () {
+      $("#processTabs").tabs({
+        show: {
+          effect: "fade",
+          duration: 400
+        }
+      });
+      $(".tab-linker").click(function () {
+        $("#processTabs").tabs("option", "active", $(this).attr('rel') - 1);
+        return false;
+      });
+    });
+    $(function () {
+      $("#processTabs").tabs({
+        show: {
+          effect: "fade",
+          duration: 400
+        }
+      });
+      $(".tab-linker").click(function () {
+        $("#processTabs").tabs("option", "active", $(this).attr('rel') - 1);
+        return false;
+      });
+    });
+  </script>
   <!-- Footer Scripts
 	============================================= -->
   <script src="{% static 'base/assets/js/functions.js' %}"></script>
 
   <!-- SLIDER REVOLUTION 5.x SCRIPTS  -->
 
-  <script>
-    var tpj = jQuery;
-    tpj.noConflict();
-    var $ = jQuery.noConflict();
 
-    tpj(document).ready(function () {
-      var apiRevoSlider = tpj("#rev_slider_ishop")
-        .show()
-        .revolution({
-          sliderType: "standard",
-          jsFileLocation: "include/rs-plugin/js/",
-          sliderLayout: "fullwidth",
-          dottedOverlay: "none",
-          delay: 9000,
-          navigation: {},
-          responsiveLevels: [1200, 992, 768, 480, 320],
-          gridwidth: 1140,
-          gridheight: 500,
-          lazyType: "none",
-          shadow: 0,
-          spinner: "off",
-          autoHeight: "off",
-          disableProgressBar: "on",
-          hideThumbsOnMobile: "off",
-          hideSliderAtLimit: 0,
-          hideCaptionAtLimit: 0,
-          hideAllCaptionAtLilmit: 0,
-          debugMode: false,
-          fallbacks: {
-            simplifyAll: "off",
-            disableFocusListener: false,
-          },
-          navigation: {
-            keyboardNavigation: "off",
-            keyboard_direction: "horizontal",
-            mouseScrollNavigation: "off",
-            onHoverStop: "off",
-            touch: {
-              touchenabled: "on",
-              swipe_threshold: 75,
-              swipe_min_touches: 1,
-              swipe_direction: "horizontal",
-              drag_block_vertical: false,
-            },
-            arrows: {
-              style: "ares",
-              enable: true,
-              hide_onmobile: false,
-              hide_onleave: false,
-              tmp: '<div class="tp-title-wrap">	<span class="tp-arr-titleholder">{{title}}</span> </div>',
-              left: {
-                h_align: "left",
-                v_align: "center",
-                h_offset: 10,
-                v_offset: 0,
-              },
-              right: {
-                h_align: "right",
-                v_align: "center",
-                h_offset: 10,
-                v_offset: 0,
-              },
-            },
-          },
-        });
-
-      apiRevoSlider.on("revolution.slide.onloaded", function (e) {
-        SEMICOLON.slider.sliderDimensions();
-      });
-    }); //ready
-  </script>
 </body>
 
 </html>

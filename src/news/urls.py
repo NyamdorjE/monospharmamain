@@ -18,5 +18,6 @@ urlpatterns = [
     Nurl("productnews/") > "src.news.views.ProductNews",
     Nurl("ourparticipation/") > "src.news.views.OurParticipation",
     Nurl("videonews/") > "src.news.views.VideoNewsList",
+    Nurl("videonews/<slug:slug>") > "src.news.views.VideoDetail",
     # Nurl('index/') > 'src.website.views.Index',
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

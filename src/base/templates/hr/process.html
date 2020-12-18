@@ -1,0 +1,79 @@
+{% load static humanize  %}
+
+{% block content %}
+<style>
+    .process-steps li {
+        pointer-events: none;
+    }
+</style>
+
+<div id="processTabs" data-plugin="tabs" class="customjs">
+    <ul class="process-steps row col-mb-30">
+        <li class="col-sm-6 col-lg-3">
+            <a href="#ptab1" class="i-circled i-bordered i-alt mx-auto">1</a>
+            <h5>Анкет бөглөх</h5>
+        </li>
+        <li class="col-sm-6 col-lg-3">
+            <a href="#ptab2" class="i-circled i-bordered i-alt mx-auto">2</a>
+            <h5>Өрөгдөл хүлээн авах</h5>
+        </li>
+        <li class="col-sm-6 col-lg-3">
+            <a href="#ptab3" class="i-circled i-bordered i-alt mx-auto">3</a>
+            <h5>Сонгон шалгаруулалт</h5>
+        </li>
+        <li class="col-sm-6 col-lg-3">
+            <a href="#ptab4" class="i-circled i-bordered i-alt mx-auto">4</a>
+            <h5>Дууссан</h5>
+        </li>
+    </ul>
+    <div>
+        <div id="ptab1">
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, ipsa, fuga,
+                modi, corporis maiores illum fugit ratione cumque dolores sint obcaecati quod
+                temporibus. Expedita, sapiente, veritatis, impedit iusto labore sed itaque sunt
+                fugiat non quis nihil hic quos necessitatibus officiis mollitia nesciunt neque!
+                Minus, mollitia at iusto unde voluptate repudiandae.</p>
+
+            <a href="#" class="button button-3d m-0 float-right tab-linker" rel="2">Дараах
+                &rArr;</a>
+
+        </div>
+        <div id="ptab2">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, modi, odit,
+                aspernatur veritatis ipsum molestiae impedit iusto blanditiis voluptatem ab voluptas
+                ullam expedita repellendus porro assumenda non deserunt repellat eius rem dolorem
+                corporis temporibus voluptatibus ut! Quod, corporis, tempora, dolore, sint earum
+                minus deserunt eveniet natus error magnam aliquam nemo.</p>
+            <div class="line line-sm mb-4"></div>
+            <a href="#" class="button button-3d m-0 tab-linker" rel="1">Өмнөх</a>
+            <a href="#" class="button button-3d m-0 float-right tab-linker" rel="3">Дараах</a>
+        </div>
+        <div id="ptab3">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, sit, culpa,
+                placeat, tempora quibusdam molestiae cupiditate atque tempore nemo tenetur facere
+                voluptates autem aliquid provident distinctio beatae odio maxime pariatur eos
+                ratione quae itaque quod. Distinctio, temporibus, cupiditate, eaque vero illo
+                molestiae vel doloremque dolorum repellat ullam possimus modi dicta eum debitis
+                ratione est in sunt et corrupti adipisci quibusdam praesentium optio laborum tempora
+                ipsam aut cum consectetur veritatis dolorem.</p>
+            <div class="line line-sm mb-4"></div>
+            <a href="#" class="button button-3d m-0 tab-linker" rel="2">Өмнөх</a>
+            <a href="#" class="button button-3d m-0 float-right tab-linker" rel="4">Дараах</a>
+        </div>
+        <div id="ptab4">
+            <div class="alert alert-success">
+                <strong>Thank You.</strong> Your order will be processed once we verify the Payment.
+
+            </div>
+            <div class="line line-sm mb-4"></div>
+            <a href="#" class="button button-3d m-0 tab-linker" rel="2">Өмнөх</a>
+        </div>
+    </div>
+</div>
+
+<div class="clear"></div>
+
+<div class="divider divider-center"><i class="icon-circle"></i></div>
+
+{% endblock %}

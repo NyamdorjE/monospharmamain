@@ -1,22 +1,11 @@
 {% extends 'news/index_2.html' %}
+{% load crispy_forms_tags %}
 {% load static humanize  %}
 {% load i18n %}
 
 
-
-{% if request.user == course.subject.course.students and request.user.is_authenticated %}
-
-
-{% block post_detail_link %}
-
-{% endblock %}
-
 {% block content %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<!-- Page info -->
-
-
-<!-- Page info end -->
 
 <div id="video" class='container'>
 	<div class="alert alert-info" role="alert">
@@ -24,15 +13,31 @@
 	</div>
 	<div class='row'>
 		<div class='col-sm-7 col-md-7 col-lg-7'>
-
 			{% if lesson is not None %}
 			<iframe width="460" height="315" src="https://www.youtube.com/embed/{{ lesson.youtube_code }}"
 				allowfullscreen></iframe>
-			<h3> {{ lesson.title}} </h3>
+			{% comment %} <div class="button-container">
+				<a href="#" style="color: #3f8f56; border-color: #3f8f56;"
+					class="button button-border button-rounded button-fill course-button"><span>Өмнөх</span></a>
+				<a href="#" style="color: #3f8f56; border-color: #3f8f56; margin-right:10px;"
+					class="button button-border button-rounded button-fill course-button"><span>Дараах</span></a>
+			</div> {% endcomment %}
+			<div class="fancy-title title-bottom-border">
+				<h4>{{ lesson.title }}</h4>
+			</div>
+
 			<div class="blog-post-title">
 				<p style="overflow-wrap:break-word;"> {{ lesson.content|safe  }}</p>
+				<h4><i class="icon-files">Хичээлд хавсаргасан файлууд</i> </h4>
+				<ul>
+					<li><a
+							href="{% if lesson.pdf_file %}{{ lesson.pdf_file.url }}">{{ lesson.pdf_file_name }}{% endif %}</a>
+					</li>
+				</ul>
 			</div>
-			<h3> Суртчилгаа</h3>
+			<div class="fancy-title title-bottom-border">
+				<h4>Суртчилгаа</h4>
+			</div>
 			<iframe width="460" height="315" src="https://www.youtube.com/embed/{{ lesson.embedurl }}"
 				allowfullscreen></iframe>
 			<div class="text-center" style="margin-top: 25px; margin-bottom: 25px;">
@@ -40,23 +45,17 @@
 			</div>
 			{% endif %}
 		</div>
-
-
 		<div class='col-sm-5 col-md-5'>
 			<div class="tabs tabs-bordered clearfix" id="tab-2">
-
 				<ul class="tab-nav clearfix">
 					<li><a href="#tabs-5">Хичээлүүд</a></li>
 					<li><a href="#tabs-6">Тайлбар</a></li>
 					<li><a href="#tabs-7">Асуулт</a></li>
 					<li class="hidden-phone"><a href="#tabs-8">Шалгалт</a></li>
 				</ul>
-
 				<div class="tab-container">
-
 					<div class="tab-content clearfix" id="tabs-5">
 						<div class="cl-item" id="lessons">
-
 							<div class="cl-item" id="lessons">
 								<h4 style="padding-top: 15px;">Энэ ангид орох хичээлүүд</h4>
 								{% if course.lessons != None  %}
@@ -73,7 +72,6 @@
 								<div class="alert alert-danger">Хичээл байхгүй байна.!!</div>
 								{% endif %}
 							</div>
-
 						</div>
 					</div>
 					<div class="tab-content clearfix" id="tabs-6">
@@ -89,125 +87,48 @@
 					<div class="tab-content clearfix" id="tabs-7">
 						<section class="content">
 							<div class="container-fluid">
-
 								<div class="row">
 									<div class="col-md-12">
 										<!-- general form elements -->
-										<div class="card card-primary">
-											<div class="card-header">
-												<h3 class="card-title">Leave a Feedback Message</h3>
+										<form action="#">
+											<div class="form-row align-items-center">
+												<input type="text" class="form-control form-control-lg mb-2"
+													id="f_question" placeholder="Асуулт" required>
+												{% comment %} <div class="g-recaptcha"
+													data-sitekey="6Le7WegUAAAAAMX-h-VJbadSXa1OwQzjt9gi_tgH"></div>
+												{% endcomment %}
+												<button type="button" onclick="send_review()"
+													class="btn btn-primary btn-lg">
+													<i class="fas fa-paper-plane"></i> Илгээх</button>
 											</div>
-											<!-- /.card-header -->
-											{% comment %} Display Messages {% endcomment %}
-											{% if messages %}
-											<div class="form-group">
-												<div class="col-12">
-													{% for message in messages %}
-													{% if message.tags == "error" %}
-													<div class="alert alert-danger alert-dismissible fade show"
-														role="alert" style="margin-top: 10px;">
-														{{ message }}
-														<button type="button" class="close" data-dismiss="alert"
-															aria-label="Close">
-															<span aria-hidden="true">&times;</span>
-														</button>
-													</div>
-													{% elif message.tags == "success" %}
-													<div class="alert alert-success alert-dismissible fade show"
-														role="alert" style="margin-top: 10px;">
-														{{ message }}
-														<button type="button" class="close" data-dismiss="alert"
-															aria-label="Close">
-															<span aria-hidden="true">&times;</span>
-														</button>
-													</div>
-													{% endif %}
-													{% endfor %}
-												</div>
-											</div>
-											{% endif %}
-											<form method="POST" action="">
-												{% csrf_token %}
-												<div class="card-body">
-
-													<div class="form-group">
-														<label>Feedback Message </label>
-														<textarea name="feedback_message" class="form-control" rows="6"
-															placeholder="Feedback Message"></textarea>
-													</div>
-												</div>
-												<!-- /.card-body -->
-												<div class="card-footer">
-													<button type="submit" class="btn btn-primary">Leave a
-														Feedback</button>
-												</div>
-											</form>
-
-										</div>
+										</form>
 										<!-- /.card -->
 									</div>
 								</div>
-								<div class="row">
-									<div class="col-md-12">
-										<div class="card card-success">
-											<div class="card-header">
-												<h3 class="card-title">Feedback History</h3>
-											</div>
-
-											<div class="card-body">
-												<div class="table-responsive">
-													<table class="table">
-														<thead class="thead-light">
-															<tr>
-																<th>#ID</th>
-																<th>Feedback Message</th>
-																<th>Feedback Reply</th>
-															</tr>
-														</thead>
-														{% for row in feedback_data %}
-														<tr>
-															<td>{{ row.id }}</td>
-															<td>{{ row.feedback }}</td>
-															<td>{{ row.feedback_reply }}</td>
-														</tr>
-														{% endfor %}
-													</table>
-												</div>
-											</div>
-											<!-- /.card-body -->
-										</div>
-									</div>
-								</div>
-
 							</div><!-- /.container-fluid -->
 						</section>
 					</div>
-					<div class="w-100"></div>
-					<div class="col-12">
-						<button type="submit" name="realestate-enquiry-submit" class="btn btn-secondary">Илгээх</button>
-					</div>
-					<input type="hidden" name="prefix" value="realestate-enquiry-">
-					</form>
-				</div>
-				<div class="tab-content clearfix" id="tabs-8">
-					<ol class="activity-feed">
-						<p><em>Та зөвхөн 1 удаа санал өгөх боломжтой.</em></p>
+					<div class="tab-content clearfix" id="tabs-8">
+						{% if course.state.subject == "over" %}
+						Хичээл дууссан байна
+						{% else %}
 						<ol class="activity-feed">
-							<a href="{% url 'quiz_start_page' slug=lesson.slug %}"
-								class="button button-border button-circle button-dark">{% trans "Шалгалт өгөх" %}</a>
+							<p><em>Та зөвхөн 1 удаа санал өгөх боломжтой.</em></p>
+							<ol class="activity-feed">
+								<a href="{% url 'quiz_start_page' slug=lesson.slug %}"
+									class="button button-border button-circle button-dark">{% trans "Шалгалт өгөх" %}</a>
+							</ol>
 						</ol>
-					</ol>
+						{% endif %}
+						<input type="hidden" name="prefix" value="realestate-enquiry-">
+					</div>
 				</div>
-
 			</div>
-
 		</div>
-
 	</div>
 </div>
 </div>
-
-
+{% endblock content %}
 <style>
 	.blog-post-title p {
 		padding: 5px 0;
@@ -221,11 +142,91 @@
 	.hidden-desktop {
 		display: none !important;
 	}
+
+	.course-button {
+		color: #3f8f56;
+		border-color: #3f8f56;
+
+	}
 </style>
-{% endblock content %}
+<script src="{% static 'base/js/core/jquery.3.2.1.min.js' %}"></script>
 
+<script src="{% static 'conf/js/core/jquery.3.2.1.min.js' %}"></script>
+<script src="{% static 'conf/js/core/popper.min.js' %}"></script>
+<script src="{% static 'conf/js/core/bootstrap.min.js' %}"></script>
+<!-- jQuery UI -->
+<script src="{% static 'conf/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js' %}"></script>
+<script src="{% static 'conf/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js' %}"></script>
+<script src="{% static 'conf/js/plugin/sweetalert/sweetalert.min.js' %}"></script>
 
-{% else%}
-<p>hello</p>
+<script src="{% static 'conf/js/plugin/bootstrap-notify/bootstrap-notify.min.js' %}"></script>
 
-{% endif %}
+<!-- jQuery Scrollbar -->
+<script src="{% static 'conf/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js' %}"></script>
+<!-- Atlantis JS -->
+<script src="{% static 'conf/js/atlantis.min.js' %}"></script>
+<script src="{% static 'conf/js/pdfobject.min.js' %}"></script>
+{% block js %}
+<script type='text/javascript'>
+	var myInterval = setInterval(change_live, 40000);
+
+	function change_live() {
+		var today = new Date();
+		if (today.getHours() == 14 && today.getMinutes() == 30) {
+			window.location.reload(1);
+			clearInterval(myInterval);
+		}
+	};
+
+	$(function () {
+		PDFObject.embed("{% static 'conf/pdf/tailan.pdf' %}", "#report_pdf");
+
+		$('#f_question').on('keypress', function (e) {
+			if (e.which == 13)
+				send_review();
+		});
+	});
+
+	function send_review() {
+		let val = $('#f_question').val();
+
+		if (val) {
+			var content = {};
+			$.post('/shareholder/meeting/review/{{meeting.id}}/', {
+					'question': val,
+					csrfmiddlewaretoken: '{{ csrf_token }}'
+				}, function () {})
+				.done(function () {
+					content.message = "Баярлалаа";
+					content.title = 'Таны асуулт амжилттай илгээгдлээ.';
+					content.icon = 'fa fa-bell';
+
+					$.notify(content, {
+						type: 'primary',
+						placement: {
+							from: 'top',
+							align: 'right'
+						},
+						time: 1000,
+					});
+					$('#f_question').val('');
+				})
+				.fail(function (err) {
+
+					content.message = 'Уучлаарай';
+					content.title = 'Асуулт илгээхэд алдаа гарлаа.';
+					content.icon = 'fa fa-bell';
+
+					$.notify(content, {
+						type: 'warning',
+						placement: {
+							from: 'top',
+							align: 'right'
+						},
+						time: 1000,
+					});
+				})
+		}
+	};
+</script>
+{% endblock %}

@@ -1,47 +1,41 @@
-from django.shortcuts import render
 from .models import ProductCategory, Product
-from django.http import HttpResponse
 from django.views import generic
-from django.views.generic import TemplateView
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.contrib.auth.views import LoginView, LogoutView
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib import messages
 from django.db.models import Q
-from django.http import HttpResponseRedirect
+from django.views.generic import ListView
 from django.utils.translation import gettext as _
 
 
-class ProductList(generic.ListView):
+class ProductList(ListView):
+    paginate_by = 12
     queryset = Product.objects.all()
-    template_name = 'product/product.html'
-    paginate_by = 2
+    template_name = "product/product.html"
 
     def get_context_data(self, **kwargs):
         context = super(ProductList, self).get_context_data(**kwargs)
-        context['product'] = self.get_queryset()
-        context['category'] = ProductCategory.objects.all()
-        context['newproduct'] = Product.objects.all()
+        context["product"] = self.get_queryset()
+        context["category"] = ProductCategory.objects.all()
+        context["newproduct"] = Product.objects.all()
         return context
 
     def get_queryset(self):
         queryset = super(ProductList, self).get_queryset()
-        search_text = self.request.GET.get('search_text', None)
-        cat_id = self.request.GET.get('cat_id')
+        search_text = self.request.GET.get("search_text", None)
+        cat_id = self.request.GET.get("cat_id")
         if search_text:
             queryset = queryset.filter(
-                Q(name__icontains=search_text) |
-                Q(suggest__icontains=search_text)
+                Q(name__icontains=search_text)
+                | Q(instructions__icontains=search_text)
+                | Q(ingredients__icontains=search_text)
+                | Q(warnings__icontains=search_text)
+                | Q(description__icontains=search_text)
             )
             return queryset
 
-        else:
-            product_list = Product.objects.filter(categories__id=cat_id)
-            product = Product.objects.all()
-
-        if product_list:
+        if cat_id:
+            product_list = Product.objects.filter(web_category_id=cat_id)
             return product_list
         else:
+            product = Product.objects.all()
             return product
 
 
@@ -56,34 +50,33 @@ class ProductList(generic.ListView):
 #         return context
 class ProductDetailView(generic.DetailView):
     model = Product
-    template_name = 'product/productdetail.html'
+    template_name = "product/productdetail.html"
 
 
 class ProductAlphabet(generic.ListView):
-    queryset = Product.objects.order_by('name')
-    template_name = 'product/productalphabet.html'
+    queryset = Product.objects.order_by("name")
+    template_name = "product/productalphabet.html"
     paginate_by = 2
 
     def get_context_data(self, **kwargs):
         context = super(ProductAlphabet, self).get_context_data(**kwargs)
-        context['product'] = self.get_queryset()
-        context['category'] = ProductCategory.objects.all()
-        context['newproduct'] = Product.objects.order_by('name')
+        context["product"] = self.get_queryset()
+        context["category"] = ProductCategory.objects.all()
+        context["newproduct"] = Product.objects.order_by("name")
         return context
 
     def get_queryset(self):
         queryset = super(ProductAlphabet, self).get_queryset()
-        search_text = self.request.GET.get('search_text', None)
-        cat_id = self.request.GET.get('cat_id')
+        search_text = self.request.GET.get("search_text", None)
+        cat_id = self.request.GET.get("cat_id")
         if search_text:
             queryset = queryset.filter(
-                Q(name__icontains=search_text) |
-                Q(suggest__icontains=search_text)
+                Q(name__icontains=search_text) | Q(suggest__icontains=search_text)
             )
             return queryset
 
         else:
-            product_list = Product.objects.filter(categories__id=cat_id)
+            product_list = Product.objects.filter(web_category=cat_id)
             product = Product.objects.all()
 
         if product_list:

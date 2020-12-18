@@ -1,59 +1,92 @@
 {% extends 'news/index_2.html'%}
 {% load static humanize  %}
+{% load thumbnail %}
 
 {% block content %}
-{% comment %} <section id="slider" class="slider-element dark swiper_wrapper slider-parallax min-vh-75">
-	<div class="slider-inner" style="transform: translate3d(0px, 0px, 0px); height: 459px; !important">
-		<div class="swiper-container swiper-parent">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide dark">
-					<div class="container">
-						<div class="slider-caption">
-							<div>
-								<h2 class="nott" data-animate="fadeInUp">Help the Homeless.</h2>
-								<a href="#" data-animate="fadeInUp" data-delay="400"
-									class="button button-rounded button-large button-light shadow nott ls0 ml-0 mt-4">Know
-									More</a>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide-bg"
-						style="background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.5)), url({% static 'base/assets/images/pharma.jpg' %}) no-repeat center center; background-size: cover;">
-					</div>
-				</div>
-				<div class="swiper-slide dark">
-					<div class="container">
-						<div class="slider-caption">
-							<div>
-								<h2 class="nott" data-animate="fadeInUp">Donate with Kindness.</h2>
-								<a href="#" data-animate="fadeInUp" data-delay="400"
-									class="button button-rounded button-large button-light shadow nott ls0 ml-0 mt-4">Know
-									More</a>
-							</div>
-						</div>
-					</div>
-					<div class="swiper-slide-bg"
-						style="background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.8)), url('demos/nonprofit/images/slider/2.jpg') no-repeat center center; background-size: cover;">
-					</div>
-				</div>
-			</div>
-			<div class="swiper-navs">
-				<div class="slider-arrow-left"><i class="icon-line-arrow-left"></i></div>
-				<div class="slider-arrow-right"><i class="icon-line-arrow-right"></i></div>
-			</div>
-			<div class="swiper-scrollbar">
-				<div class="swiper-scrollbar-drag">
-					<div class="slide-number">
-						<div class="slide-number-current"></div><span>/</span>
-						<div class="slide-number-total"></div>
-					</div>
-				</div>
-			</div>
-		</div>
 
-	</div>
-</section> {% endcomment %}
+<style>
+	/* Testimonials Carousel
+-----------------------------------------------------------------*/
+	.test-carousel .owl-stage {
+		padding-top: 40px;
+	}
 
+	.test-carousel .owl-item {
+		opacity: 0.6;
+		transition: transform 0.3s ease;
+		transform: scale(0.8);
+	}
+
+	.test-carousel .owl-item.active.center {
+		opacity: 1;
+		transform: scale(1);
+	}
+
+	.test {
+		border: 0;
+		box-shadow: 0 0 35px rgb(0 0 0 / 43%);
+		border-radius: 0.25rem;
+		padding: 25px;
+	}
+
+	.testi-image .test {
+		float: none;
+		margin: -55px auto 0;
+		margin-bottom: 20px;
+	}
+
+	.testi-content p {
+		text-align: center;
+		font-style: normal;
+		font-family: var(--fontfamily);
+		font-size: var(--basefontsize);
+	}
+
+	.testi-meta {
+		text-align: center;
+		margin-top: 20px;
+		margin-right: 70px;
+
+	}
+
+	.human {
+		background: rgb(74 74 74 / 14%);
+		border-radius: 5px;
+		padding: 15px;
+		left: 0px;
+		top: 0px;
+		margin-top: 70px;
+		margin-bottom: 90px;
+	}
+
+	.bottom-right {
+		position: absolute;
+		bottom: 30px;
+		right: 40px;
+	}
+
+	.bottom-left {
+		position: absolute;
+		bottom: 30px;
+		left: 40px;
+	}
+
+	i-plain-custom {}
+
+	.i-plain {
+		color: #4e9e6f;
+
+	}
+
+	.my-1 {
+		color: #406c4d;
+	}
+
+
+	.bg-overlay-bg op-ts op-1 {
+		background-color: rgb(34 64 43 / 55%);
+	}
+</style>
 
 <!-- Content
 		============================================= -->
@@ -69,8 +102,9 @@
 						</div>
 					</div>
 					{% for banner in banner %}
-					<div class="swiper-slide-bg" style="background-image: url('{{ banner.photo.url }}');"
-						alt="{{ banner.alt_text }}">
+					<div class="swiper-slide-bg" data-interval="5000"
+						style="background-image: url('{{ banner.photo.url }}');" alt="{{ banner.alt_text }}"
+						preload="auto" loop autoplay>
 					</div>
 					{% endfor %}
 				</div>
@@ -95,13 +129,13 @@
 			<div class="slider-arrow-left"><i class="icon-angle-left"></i></div>
 			<div class="slider-arrow-right"><i class="icon-angle-right"></i></div>
 			<div class="slide-number">
-				<div class="slide-number-current"></div><span>/</span>
+				<div class="slide-number-current"></div><span></span>
 				<div class="slide-number-total"></div>
 			</div>
 		</div>
 	</div>
 </section>
-<div class="section mt-0" style="padding: 30px 0; margin-bottom: 0px;">
+<div class="section i-plain-custom mt-0" style="padding: 30px 0; margin-bottom: 0px;">
 	<div class="container clearfix">
 		<div class="row">
 			<div class="col-md-2 col-6 center">
@@ -110,8 +144,7 @@
 				<h5 class="my-1">Барилга байгууламж, Дэд бүтэц</h5>
 			</div>
 			<div class="col-md-2 col-6 center">
-				<i class="i-plain icon-medical-pharmacy
- i-plain i-xlarge mx-auto mb-0"></i>
+				<i class="i-plain icon-pills i-plain i-xlarge mx-auto mb-0"></i>
 				<h5 class="my-1">Түүхий эд, матриал</h5>
 			</div>
 
@@ -128,7 +161,7 @@
 				<h5 class="my-1">Чанарын баталгаажилт, Баримтжуулалт</h5>
 			</div>
 			<div class="col-md-2 col-6 center">
-				<i class="i-plain icon-medical-laboratory i-plain i-xlarge mx-auto mb-0"></i>
+				<i class="i-plain icon-clipboard-list i-plain i-xlarge mx-auto mb-0"></i>
 				<h5 class="my-1">Чанарын хяналт</h5>
 			</div>
 		</div>
@@ -164,7 +197,8 @@
 										</a>
 									</div>
 								</div>
-								<div class="flip-card-back dark">
+								<div class="flip-card-back dark"
+									style="background-image: url('{% static 'base/assets/images/fliplogo/GMP.png' %}'); width: 300px; height:300px;">
 									<div class="flip-card-inner mt-3">
 
 										<div class="feature-box media-box fbox-sm">
@@ -191,7 +225,8 @@
 										</a>
 									</div>
 								</div>
-								<div class="flip-card-back dark">
+								<div class="flip-card-back dark"
+									style="background-image: url('{% static 'base/assets/images/fliplogo/iso.png' %}'); width: 300px; height:300px;">
 									<div class="flip-card-inner mt-3">
 
 										<div class="feature-box media-box fbox-sm">
@@ -218,7 +253,8 @@
 										</a>
 									</div>
 								</div>
-								<div class="flip-card-back dark">
+								<div class="flip-card-back dark"
+									style="background-image: url('{% static 'base/assets/images/fliplogo/PECB.png' %}'); width: 300px; height:300px;">
 									<div class="flip-card-inner mt-3">
 
 										<div class="feature-box media-box fbox-sm">
@@ -331,12 +367,19 @@
 									<div class="card">
 										<div class="card-body">
 											<div class="author-image">
+												{% if advice.photo %}
+												{% thumbnail advice.photo "200x200" as photo %}
+												<img src="{{ photo.url }}" alt="Image" class="rounded-circle">
+												{% endthumbnail %}
+
+												{% else %}
 												<img src="{% static 'base/assets/images/advice/advice.png' %}"
 													alt="Image" class="rounded-circle"
 													style="width: 80px; height: 80px;">
+												{% endif %}
 											</div>
 											<h3>
-												<a href="">{{ advice.title }}
+												<a href="{% url 'website-advice-detail' advice.slug  %}">{{ advice.title }}
 											</h3></a>
 											<p>{{ advice.content|safe|slice:":250"}}....</p>
 											<span>{{ advice.author }} | {{ advice.category }} |
@@ -347,7 +390,6 @@
 								</div>
 							</div>
 							{% endfor %}
-
 						</div>
 					</div>
 
@@ -360,15 +402,15 @@
 				style="padding-top:50px; margin-bottom:60px;">
 				<h3>Онцлох бүтээгдэхүүн</h3>
 			</div>
-			<div class="row clearfix mb-0 topmargin-sm align-items-stretch">
-				<div class="col-lg-6">
+			<div class="row no-gap">
+				{% for leftfeatured in leftfeatured %}
+				<div class="col-lg-6 padding-0">
 					<div class="container">
 						<div class="border">
-							<img width="570" height="351" alt="" title=""
-								data-src="https://monosfoods.mn/wp-content/uploads/2020/03/DARHLAA-V3-570x314.png"
-								class="vc_single_image-img  lazyloaded"
-								src="{% static 'base/assets/images/ontsloh/vitagripp.png' %}">
-							<a href="#" class="button button-border button-circle button-dark bottom-right"
+							<img width="570" height="351" alt="" title="" class="vc_single_image-img  lazyloaded"
+								src="{% if leftfeatured.picture %}{{ leftfeatured.picture.url }}{% endif %}">
+							<a href="{{ leftfeatured.link_to_emonos }}"
+								class="button button-border button-circle button-dark bottom-right"
 								style="color: #3f8f56; border: 2px solid #3f8f56 !important;"
 								onmouseover="this.style.background='#dfeed8';"
 								onmouseout="this.style.background='white';"><i class="icon-repeat"></i>Цааш
@@ -378,14 +420,15 @@
 						</div>
 					</div>
 				</div>
-
-				<div class="col-lg-6">
+				{% endfor %}
+				{% for rigthfeatured in rigthfeatured %}
+				<div class="col-lg-6 padding-0">
 					<div class="container">
 						<div class="border ">
 							<img width="570" height="351" alt=" " title=" "
-								data-src="https://monosfoods.mn/wp-content/uploads/2020/03/TSENEG-DARHLAA-570x351.jpg"
-								src="{% static 'base/assets/images/ontsloh/flueless.png' %}">
-							<a href="#" class="button button-border button-circle button-dark bottom-left"
+								src="{% if rigthfeatured.picture %}{{ rigthfeatured.picture.url }}{% endif %}">
+							<a href="{{ rigthfeatured.link_to_emonos }}"
+								class="button button-border button-circle button-dark bottom-left"
 								style="color: #3f8f56; border: 2px solid #3f8f56 !important;"
 								onmouseover="this.style.background='#dfeed8';"
 								onmouseout="this.style.background='white';"><i class="icon-repeat"></i>Цааш
@@ -394,17 +437,18 @@
 						</div>
 					</div>
 				</div>
+				{% endfor %}
 			</div>
 
 			<div class="row">
-				<div class="col-9">
+				<div class="col-12">
 					<div class="tabs topmargin-lg clearfix" id="tab-3" data-animate="fadeInUp">
 						<ul class="tab-nav clearfix">
 							<li><a href="#tabs-9">Бүтээгдэхүүн</a></li>
 						</ul>
 						<div id="oc-products" class="owl-carousel products-carousel carousel-widget" data-margin="20"
 							data-loop="true" data-autoplay="5000" data-nav="true" data-pagi="false" data-items-xs="1"
-							data-items-sm="2" data-items-md="3" data-items-lg="3" data-items-xl="4">
+							data-items-sm="2" data-items-md="3" data-items-lg="3" data-items-xl="6">
 							<!-- Shop Item 5
 						============================================= -->
 							{% for product in newproduct %}
@@ -413,14 +457,14 @@
 								<div class="product">
 									<div class="product-image">
 										<a
-											href="{% if product %}{% url 'product-product-detail-view' product.slug  %} {% endif %}"><img
-												src="{% if product.image %}{{ product.image.url }} {% endif %}"
+											href="{% if product %}{% url 'product-product-detail-view' product.pk  %} {% endif %}"><img
+												src="https://back.emonos.mn/{% if product.photo %}{{ product.photo.url }} {% endif %}"
 												alt=""></a>
 										<div class="bg-overlay">
 											<div class="bg-overlay-content align-items-end justify-content-between"
 												data-hover-animate="fadeIn" data-hover-speed="400">
 
-												<a href="{% if product %}{% url 'product-product-detail-view' product.slug  %} {% endif %}"
+												<a href="{% if product %}{% url 'product-product-detail-view' product.pk  %} {% endif %}"
 													class="btn btn-dark"><i class="icon-line-expand"></i></a>
 											</div>
 											<div class="bg-overlay-bg bg-transparent"></div>
@@ -428,7 +472,7 @@
 									</div>
 									<div class="product-desc">
 										<div class="product-title">
-											<h5><a href="{% if product %}{% url 'product-product-detail-view' product.slug  %} {% endif %}"
+											<h5><a href="{% if product %}{% url 'product-product-detail-view' product.pk  %} {% endif %}"
 													style="color: #020202; !important">{{ product.name }}</a>
 											</h5>
 										</div>
@@ -447,45 +491,7 @@
 
 					</div>
 				</div>
-				<div class="widget clearfix">
 
-					<h4>Зургын цомог</h4>
-					<div id="oc-portfolio-sidebar" class="owl-carousel carousel-widget" data-items="1" data-margin="10"
-						data-loop="true" data-nav="false" data-autoplay="5000">
-
-						{% for gallery in gallery %}
-						<div class="oc-item">
-							<div class="portfolio-item">
-								<div class="portfolio-image">
-									<a href="portfolio-single.html">
-										<img src="{{ gallery.image.url }}" alt="Gallery">
-									</a>
-									<div class="bg-overlay">
-										<div class="bg-overlay-content dark" data-hover-animate="fadeIn"
-											data-hover-speed="350">
-											<a href="{{ gallery.image.url }}"
-												class="overlay-trigger-icon bg-light text-dark"
-												data-hover-animate="zoomIn" data-hover-speed="350"
-												data-lightbox="image"><i class="icon-line-plus"></i></a>
-										</div>
-										<div class="bg-overlay-bg dark" data-hover-animate="fadeIn"
-											data-hover-speed="350">
-										</div>
-									</div>
-								</div>
-								<div class="portfolio-desc text-center pb-0">
-									{% comment %} <h3><a href="portfolio-single.html">{{ gallery.title}}</a>
-									</h3> {% endcomment %}
-
-								</div>
-							</div>
-						</div>
-						{% endfor %}
-
-					</div>
-
-
-				</div>
 			</div>
 
 			<div class="clear bottommargin-sm"></div>
@@ -501,14 +507,13 @@
 			<div class="bg-overlay">
 				<div class="bg-overlay-content dark">
 					<div>
-						<i class="i-rounded i-bordered icon-capsules"></i>
+						<i class="i-rounded i-bordered icon-capsules" style="margin-left: 55px;"></i>
 						<div class="counter counter-lined"><span data-from="0" data-to="143" data-refresh-interval="55"
 								data-speed="2000"></span>сая</div>
-						<h5>Ширхэг капсултай эм</h5>
+						<h4>Ширхэг капсултай эм</h4>
 					</div>
 				</div>
-				<div class="bg-overlay-bg op-ts op-1" data-hover-animate="op-0" data-hover-animate-out="op-1"
-					style="background-color: rgb(63 143 86 / 55%);"></div>
+				<div class="bg-overlay-bg op-ts op-1" data-hover-animate="op-0" data-hover-animate-out="op-1"></div>
 			</div>
 		</div>
 
@@ -517,14 +522,13 @@
 			<div class="bg-overlay">
 				<div class="bg-overlay-content dark">
 					<div>
-						<i class="i-rounded i-bordered icon-tablets"></i>
+						<i class="i-rounded i-bordered icon-tablets" style="margin-left: 55px;"></i>
 						<div class="counter counter-lined"><span data-from="0" data-to="350" data-refresh-interval="55"
 								data-speed="2000"></span>сая</div>
-						<h5>Ширхэг шахмал эм</h5>
+						<h4>Ширхэг шахмал эм</h4>
 					</div>
 				</div>
-				<div class="bg-overlay-bg op-ts op-1" data-hover-animate="op-0" data-hover-animate-out="op-1"
-					style="background-color: rgb(63 143 86 / 55%);"></div>
+				<div class="bg-overlay-bg op-ts op-1" data-hover-animate="op-0" data-hover-animate-out="op-1"></div>
 			</div>
 		</div>
 
@@ -533,14 +537,13 @@
 			<div class="bg-overlay">
 				<div class="bg-overlay-content dark">
 					<div>
-						<i class="i-rounded i-bordered icon-mortar-pestle"></i>
+						<i class="i-rounded i-bordered icon-mortar-pestle" style="margin-left: 55px;"></i>
 						<div class="counter counter-lined"><span data-from="0" data-to="550" data-refresh-interval="25"
 								data-speed="2000"></span>сая</div>
-						<h5>Ширхэг мөхлөг эм</h5>
+						<h4>Ширхэг мөхлөг эм</h4>
 					</div>
 				</div>
-				<div class="bg-overlay-bg op-ts op-1" data-hover-animate="op-0" data-hover-animate-out="op-1"
-					style="background-color: rgb(63 143 86 / 55%);"></div>
+				<div class="bg-overlay-bg op-ts op-1" data-hover-animate="op-0" data-hover-animate-out="op-1"></div>
 			</div>
 		</div>
 
@@ -549,14 +552,13 @@
 			<div class="bg-overlay">
 				<div class="bg-overlay-content dark">
 					<div>
-						<i class="i-rounded i-bordered icon-line-droplet"></i>
+						<i class="i-rounded i-bordered icon-line-droplet" style="margin-left: 55px;"></i>
 						<div class="counter counter-lined"><span data-from="0" data-to="105" data-refresh-interval="20"
 								data-speed="2000"></span>сая</div>
-						<h5>МЛ Шингэн эм</h5>
+						<h4>МЛ Шингэн эм</h4>
 					</div>
 				</div>
-				<div class="bg-overlay-bg op-ts op-1" data-hover-animate="op-0" data-hover-animate-out="op-1"
-					style="background-color: rgb(63 143 86 / 55%);"></div>
+				<div class="bg-overlay-bg op-ts op-1" data-hover-animate="op-0" data-hover-animate-out="op-1"></div>
 			</div>
 		</div>
 
@@ -573,17 +575,17 @@
 
 	<ul class="clients-grid grid-2 grid-sm-3 grid-md-6 mb-0" data-animate="fadeInUp">
 		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/1.png' %}" alt="Clients"
-					style="height:70px; width:70px;"></a></li>
+					style="height:90px; width:90px;"></a></li>
 		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/2.png' %}" alt="Clients"
-					style="height:70px; width:70px;"></a></li>
+					style="height:90px; width:90px;"></a></li>
 		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/3.png' %}" alt="Clients"
-					style="height:70px; width:70px;"></a></li>
+					style="height:90px; width:90px;"></a></li>
 		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/4.png' %}" alt="Clients"
-					style="height:70px; width:70px;"></a></li>
+					style="height:90px; width:90px;"></a></li>
 		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/5.png' %}" alt="Clients"
-					style="height:100px; width:100px;"></a></li>
+					style="height:90px; width:90px;"></a></li>
 		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/6.png' %}" alt="Clients"
-					style="height:80px; width:80px;"></a></li>
+					style="height:90px; width:90px;"></a></li>
 		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/7.png' %}" alt="Clients"
 					style="height:90px; width:90px;"></a></li>
 		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/8.png' %}" alt="Clients"
@@ -617,7 +619,8 @@
 						</div>
 						<div class="fbox-content">
 							<h3>Бүтээгдэхүүн</h3>
-							<p class="mt-0">We guarantee you the sale of Original Brands.</p>
+							{% comment %} <p class="mt-0">We guarantee you the sale of Original Brands.</p>
+							{% endcomment %}
 						</div>
 					</div>
 				</div>
@@ -629,7 +632,8 @@
 						</div>
 						<div class="fbox-content">
 							<h3>Нээлттэй ажлын байр</h3>
-							<p class="mt-0">We accept Visa, MasterCard and American Express.</p>
+							{% comment %} <p class="mt-0">We accept Visa, MasterCard and American Express.</p>
+							{% endcomment %}
 						</div>
 					</div>
 				</div>
@@ -641,7 +645,8 @@
 						</div>
 						<div class="fbox-content">
 							<h3>Хүргэлт үйлчилгээ</h3>
-							<p class="mt-0">Free Delivery to 100+ Locations on orders above $40.</p>
+							{% comment %} <p class="mt-0">Free Delivery to 100+ Locations on orders above $40.</p>
+							{% endcomment %}
 						</div>
 					</div>
 				</div>
@@ -652,8 +657,9 @@
 							<i class="icon-undo"></i>
 						</div>
 						<div class="fbox-content">
-							<h3>Онлайн туслажм</h3>
-							<p class="mt-0">Return or exchange items purchased within 30 days.</p>
+							<h3>Онлайн тусламж</h3>
+							{% comment %} <p class="mt-0">Return or exchange items purchased within 30 days.</p>
+							{% endcomment %}
 						</div>
 					</div>
 				</div>
@@ -752,69 +758,4 @@
 </section><!-- #content end -->
 
 
-<style>
-	/* Testimonials Carousel
------------------------------------------------------------------*/
-	.test-carousel .owl-stage {
-		padding-top: 40px;
-	}
-
-	.test-carousel .owl-item {
-		opacity: 0.6;
-		transition: transform 0.3s ease;
-		transform: scale(0.8);
-	}
-
-	.test-carousel .owl-item.active.center {
-		opacity: 1;
-		transform: scale(1);
-	}
-
-	.test {
-		border: 0;
-		box-shadow: 0 0 35px rgb(0 0 0 / 43%);
-		border-radius: 0.25rem;
-		padding: 25px;
-	}
-
-	.testi-image .test {
-		float: none;
-		margin: -55px auto 0;
-		margin-bottom: 20px;
-	}
-
-	.testi-content p {
-		text-align: center;
-		font-style: normal;
-		font-family: var(--fontfamily);
-		font-size: var(--basefontsize);
-	}
-
-	.testi-meta {
-		text-align: center;
-		margin-top: 20px;
-	}
-
-	.human {
-		background: rgb(74 74 74 / 14%);
-		border-radius: 5px;
-		padding: 15px;
-		left: 0px;
-		top: 0px;
-		margin-top: 70px;
-		margin-bottom: 90px;
-	}
-
-	.bottom-right {
-		position: absolute;
-		bottom: 30px;
-		right: 40px;
-	}
-
-	.bottom-left {
-		position: absolute;
-		bottom: 30px;
-		left: 40px;
-	}
-</style>
 {% endblock %}

@@ -32,22 +32,20 @@
 					<!-- Shop
 							============================================= -->
 					<div id="shop" class="shop row grid-container gutter-20" data-layout="fitRows">
-						{% for product in product %}
+						{% for product in page_obj %}
 						<div class="product col-md-4 col-sm-6 col-12">
 							<div class="grid-inner">
-								<div class="product-image">
+								<div class="product-photo">
 									<a
-										href="{% if product %}{% url 'product-product-detail-view' product.slug  %} {% endif %}"><img
-											src="{% if product.image %}{{ product.image.url}}{% endif %}"
+										href="https://back.emonos.mn/{% if product %}{% url 'product-product-detail-view' product.pk  %} {% endif %}"><img
+											src="https://back.emonos.mn/{{ product.photo.url}}"
 											style="	max-width: 100%;text-align: center;padding: 6px;background: #fbfafb;border: 1px solid #e7e7e7;line-height: 0;margin-bottom: 12px;"
 											alt=""></a>
-									<a
-										href="{% if product %}{% url 'product-product-detail-view' product.slug  %} {% endif %}"><img
-											src="{% if product.image %}{{ product.image.url}}{% endif %}" alt=""></a>
+
 									<div class="bg-overlay">
 										<div class="bg-overlay-content align-items-end justify-content-between"
 											data-hover-animate="fadeIn" data-hover-speed="400">
-											<a href="{% if product %}{% url 'product-product-detail-view' product.slug  %} {% endif %}"
+											<a href="{% if product %}{% url 'product-product-detail-view' product.pk  %} {% endif %}"
 												class="btn btn-dark mr-2"><i class="icon-zoom-in"></i></a>
 											{% comment %} <a href="#{{ product.product_id}}" data-lightbox="inline"
 												class="btn btn-dark" data-lightbox="ajax"><i
@@ -59,7 +57,7 @@
 								<div class="product-desc" style="text-align: center;">
 									<div class="product-title">
 										<h3 style="font-size: 17px; "> <a
-												href="{% if product %}{% url 'product-product-detail-view' product.slug  %} {% endif %}">{{ product.name }}</a>
+												href="{% if product %}{% url 'product-product-detail-view' product.pk  %} {% endif %}">{{ product.name }}</a>
 										</h3>
 									</div>
 									<div class="product-price"><ins style="font-size : 16px;">{{ product.price }}</ins>
@@ -69,6 +67,7 @@
 							</div>
 						</div>
 
+
 						<!--Modal -->
 
 						<div class="modalone mfp-hide" id="{{ product.product_id}}" style="position: absolute !important; top: 50% !important; left: 50% !important; transform: translate(-50%, -50%)
@@ -77,11 +76,11 @@
 								<div class="product modal-padding" style="background-color: white;">
 									<div class="row gutter-40 col-mb-50">
 										<div class="col-md-6">
-											<div class="product-image">
+											<div class="product-photo">
 												<div class="fslider" data-pagi="false">
 													<div class="flexslider">
 														<img
-															src="{% if product.image %}{{ product.image.url}}{% endif %}">
+															src="{% if product.photo %}{{ product.photo.url}}{% endif %}">
 													</div>
 												</div>
 											</div>
@@ -120,6 +119,7 @@
 						<!-- Endmodal -->
 						{% endfor %}
 					</div><!-- #shop end -->
+					{% include "news/pagination.html" %}
 				</div><!-- .postcontent end -->
 
 				<!-- Sidebar
