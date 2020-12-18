@@ -9,5 +9,8 @@ from django.utils.translation import gettext_lazy as _
 
 urlpatterns = [
     Nurl('about/') > 'src.website.views.About',
+    Nurl("360_virtual") > 'src.website.views.Virtual',
+
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
