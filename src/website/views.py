@@ -2,6 +2,9 @@ from django.shortcuts import render
 from src.news.models import Category, News
 from src.courses.models import Course
 from src.product.models import Product, ProductCategory
+from django.template import RequestContext
+
+
 from .models import (
     Advice,
     AdviceCategory,
@@ -108,3 +111,7 @@ class AdviceDetail(generic.DetailView):
         context["advice"] = Advice.objects.all()
 
         return context
+
+
+class Virtual(TemplateView):
+    template_name = "virtual_tour/index.html"
