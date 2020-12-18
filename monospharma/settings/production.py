@@ -7,7 +7,7 @@ Production settings
 from .common import *
 
 DEBUG = True
-ALLOWED_HOSTS = ["10.0.0.153", "localhost"]
+ALLOWED_HOSTS = ["10.0.0.153", "localhost", "127.0.0.1"]
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
