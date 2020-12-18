@@ -1,6 +1,6 @@
 {% extends 'news/index_2.html'%}
 {% load static humanize  %}
- 
+
 
 {% comment %}
 <link rel="stylesheet" href="{% static 'base/assets/demos/course/course.css' %}" type="text/css" />
@@ -8,8 +8,9 @@
 {% block content %}
 
 <head>
-	<section id="page-title">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
+	<section id="page-title">
 		<div class="container clearfix">
 			<h1>Сургалт</h1>
 			<ol class="breadcrumb">
@@ -19,34 +20,59 @@
 		</div>
 
 	</section><!-- #page-title end -->
-
 </head>
 <!-- Content
 		============================================= -->
 <div class="section topmargin-lg parallax" style="padding: 80px 0 60px; background-image: url({% static "/base/assets/demos/course/images/icon-pattern.jpg" %});
 	background-size: auto; background-repeat: repeat" data-bottom-top="background-position:0px 100px;"
 	data-top-bottom="background-position:0px -500px;">
-
 	<!-- Wave Shape Divider
 					============================================= -->
 	<div class="wave-top"
 		style="position: absolute; top: 0; left: 0; width: 100%; background-image: url({% static '/base/assets/demos/course/images/wave-3.svg' %}); height: 12px; z-index: 2; background-repeat: repeat-x;">
 	</div>
-
 	<div class="container">
 
 		<div class="heading-block border-bottom-0 mb-5 center">
 			<h3>Сургалтууд</h3>
 			<span></span>
 		</div>
-
 		<div class="clear"></div>
-
 		<div class="row mt-2">
-
 			<!-- Course 1
 							============================================= -->
+
 			{% for cat in category %}
+
+			{% if cat.state ==  "over" %}
+			<div class="col-md-4 mb-5">
+				<div class="card course-card hover-effect border-0">
+					<a href="" data-notify-position="bottom-center" data-notify-type="error"
+						data-notify-msg="<i class=icon-remove-sign></i> Хичээл дууссан байна!"
+						onclick="SEMICOLON.widget.notifications({ el: this }); return false;"><img class="card-img-top"
+							src="{% if cat.image %}{{ cat.image.url}}{% endif %}" alt=""></a>
+					<div class="card-body">
+						<h4 class="card-title font-weight-bold mb-2"><a href=""
+								onclick="alert('Хичээл дууссан байна!');">{{ cat.title }}</a>
+						</h4>
+						<p class="mb-2 card-title-sub text-uppercase font-weight-normal ls1"><a href=""
+								class="text-black-50" onclick="alert('Хичээл дууссан байна!');">{{ cat.category }}</a>
+						</p>
+						<div class="rating-stars mb-2"><i class="icon-star3"></i><i class="icon-star3"></i><i
+								class="icon-star3"></i><i class="icon-star3"></i><i class="icon-star-half-full"></i>
+							<span>4.7</span></div>
+						<p class="card-text text-black-50 mb-1">{{ cat.description|slice:":60" | safe}}...</p>
+					</div>
+					<div class="card-footer py-3 d-flex justify-content-between align-items-center bg-white text-muted">
+						<div class="badge alert-primary">{{ cat.price }}</div>
+						<div class="badge alert-danger"> {{ cat.get_state_display }}</div>
+
+						{% comment %} <a href="/courses/{{ cat.id }}" class="text-dark position-relative"><i
+								class="icon-line2-user"></i> <span class="author-number">1</span></a> {% endcomment %}
+					</div>
+				</div>
+			</div>
+			{% else %}
 
 			<div class="col-md-4 mb-5">
 				<div class="card course-card hover-effect border-0">
@@ -64,18 +90,18 @@
 					</div>
 					<div class="card-footer py-3 d-flex justify-content-between align-items-center bg-white text-muted">
 						<div class="badge alert-primary">{{ cat.price }}</div>
+						<div class="badge alert-warning"> {{ cat.get_state_display }}</div>
+
 						{% comment %} <a href="/courses/{{ cat.id }}" class="text-dark position-relative"><i
 								class="icon-line2-user"></i> <span class="author-number">1</span></a> {% endcomment %}
 					</div>
 				</div>
 			</div>
+			{% endif %}
 			{% endfor %}
-
-
 		</div>
 	</div>
 	<div class="pagination">
-
 		{% if is_paginated %}
 		<ul class="pagination justify-content-center">
 			{% if page_obj.has_previous %}
@@ -98,9 +124,7 @@
 			{% endif %}
 		</ul>
 		{% endif %}
-
 	</div>
-
 	<!-- Wave Shape Divider - Bottom
 					============================================= -->
 	<div class="wave-bottom"
@@ -108,6 +132,11 @@
 	</div>
 </div>
 
+<script>
+	$(document).on("click", "#link", function () {
+		alert("I am a pop up ! ");
+	});
+</script>
 <style>
 	/* Course Categories
 ---------------------------------------------------------------------------- */

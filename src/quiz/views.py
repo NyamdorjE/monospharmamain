@@ -16,7 +16,7 @@ from src.courses.models import Lesson
 
 class QuizMarkerMixin(object):
     @method_decorator(login_required)
-    @method_decorator(permission_required('quiz.view_sittings'))
+    @method_decorator(permission_required("quiz.view_sittings"))
     def dispatch(self, *args, **kwargs):
         return super(QuizMarkerMixin, self).dispatch(*args, **kwargs)
 
@@ -24,7 +24,7 @@ class QuizMarkerMixin(object):
 class SittingFilterTitleMixin(object):
     def get_queryset(self):
         queryset = super(SittingFilterTitleMixin, self).get_queryset()
-        quiz_filter = self.request.GET.get('quiz_filter')
+        quiz_filter = self.request.GET.get("quiz_filter")
         if quiz_filter:
             queryset = queryset.filter(quiz__title__icontains=quiz_filter)
 
@@ -33,7 +33,7 @@ class SittingFilterTitleMixin(object):
 
 class LessonQuizView(DetailView):
     model = Lesson
-    template_name = 'quiz/quiz_list.html'
+    template_name = "quiz/quiz_list.html"
 
     def get(self, request, *args, **kwargs):
         self.object = self.get_object()
@@ -41,101 +41,28 @@ class LessonQuizView(DetailView):
         context = self.get_context_data(object=self.object)
         return self.render_to_response(context)
 
-    # # # @login_required
-    # def get(self, request, lesson_slug, *args, **kwargs):
-    #     lesson = Lesson.objects.all()
-    #     # quiz = Quiz.objects.filter(url=lesson_slug)
-    #     # quizs = Quiz.objects.all()
-    #     # context = {"lesson": lesson, "quiz": quiz, "quizs": quizs}
-    #     return render(request, "quiz/quiz_list.html")
 
-    # def get_context_data(self, **kwargs):
-    #     context = super(QuizListView, self).get_context_data(**kwargs)
-    #     context['lesson'] = Lesson.objects.all()
-    #     context['quiz'] = Quiz.objects.all()
-
-    #     return context
-
-
-# class QuizDetailView(DetailView):
-#     model = Quiz
-#     slug_field = 'url'
-
-#     def get(self, request, *args, **kwargs):
-#         self.object = self.get_object()
-
-#         if self.object.draft and not request.user.has_perm('quiz.change_quiz'):
-#             raise PermissionDenied
-
-#         context = self.get_context_data(object=self.object)
-#         return self.render_to_response(context)
 class QuizDetailView(DetailView):
     model = Quiz
-    slug_field = 'url'
+    slug_field = "url"
 
     def get(self, request, *args, **kwargs):
         self.object = self.get_object()
 
-        if self.object.draft and not request.user.has_perm('quiz.change_quiz'):
+        if self.object.draft and not request.user.has_perm("quiz.change_quiz"):
             raise PermissionDenied
 
         context = self.get_context_data(object=self.object)
         return self.render_to_response(context)
 
 
-class CategoriesListView(ListView):
-    model = Category
-
-
-class ViewQuizListByCategory(ListView):
-    model = Quiz
-    template_name = 'view_quiz_category.html'
-
-    def dispatch(self, request, *args, **kwargs):
-        self.category = get_object_or_404(
-            Category,
-            category=self.kwargs['category_name']
-        )
-
-        return super(ViewQuizListByCategory, self).\
-            dispatch(request, *args, **kwargs)
-
-    def get_context_data(self, **kwargs):
-        context = super(ViewQuizListByCategory, self)\
-            .get_context_data(**kwargs)
-
-        context['category'] = self.category
-        return context
-
-    def get_queryset(self):
-        queryset = super(ViewQuizListByCategory, self).get_queryset()
-        return queryset.filter(category=self.category, draft=False)
-
-
-class QuizUserProgressView(TemplateView):
-    template_name = 'progress.html'
-
-    @method_decorator(login_required)
-    def dispatch(self, request, *args, **kwargs):
-        return super(QuizUserProgressView, self)\
-            .dispatch(request, *args, **kwargs)
-
-    def get_context_data(self, **kwargs):
-        context = super(QuizUserProgressView, self).get_context_data(**kwargs)
-        progress, c = Progress.objects.get_or_create(user=self.request.user)
-        context['cat_scores'] = progress.list_all_cat_scores
-        context['exams'] = progress.show_exams()
-        return context
-
-
 class QuizMarkingList(QuizMarkerMixin, SittingFilterTitleMixin, ListView):
     model = Sitting
 
     def get_queryset(self):
-        queryset = super(QuizMarkingList, self).get_queryset()\
-                                               .filter(complete=True)
+        queryset = super(QuizMarkingList, self).get_queryset().filter(complete=True)
 
-        user_filter = self.request.GET.get('user_filter')
+        user_filter = self.request.GET.get("user_filter")
         if user_filter:
             queryset = queryset.filter(user__username__icontains=user_filter)
 
@@ -151,7 +78,7 @@ class QuizMarkingDetail(QuizMarkerMixin, DetailView):
     def post(self, request, *args, **kwargs):
         sitting = self.get_object()
 
-        q_to_toggle = request.POST.get('qid', None)
+        q_to_toggle = request.POST.get("qid", None)
         if q_to_toggle:
             q = Question.objects.get_subclass(id=int(q_to_toggle))
             if int(q_to_toggle) in sitting.get_incorrect_questions:
@@ -163,29 +90,26 @@ class QuizMarkingDetail(QuizMarkerMixin, DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(QuizMarkingDetail, self).get_context_data(**kwargs)
-        context['questions'] =\
-            context['sitting'].get_questions(with_answers=True)
+        context["questions"] = context["sitting"].get_questions(with_answers=True)
         return context
 
 
 class QuizTake(FormView):
     form_class = QuestionForm
-    template_name = 'question.html'
+    template_name = "question.html"
 
     def dispatch(self, request, *args, **kwargs):
-        self.lesson = get_object_or_404(
-            Lesson, slug=self.kwargs['slug'])
-        self.quiz = get_object_or_404(Quiz, url=self.kwargs['quiz_name'])
-        if self.quiz.draft and not request.user.has_perm('quiz.change_quiz'):
+        self.lesson = get_object_or_404(Lesson, slug=self.kwargs["slug"])
+        self.quiz = get_object_or_404(Quiz, url=self.kwargs["quiz_name"])
+        if self.quiz.draft and not request.user.has_perm("quiz.change_quiz"):
             raise PermissionDenied
 
         self.logged_in_user = self.request.user.is_authenticated
 
         if self.logged_in_user:
-            self.sitting = Sitting.objects.user_sitting(request.user,
-                                                        self.quiz)
+            self.sitting = Sitting.objects.user_sitting(request.user, self.quiz)
         if self.sitting is False:
-            return render(request, 'single_complete.html')
+            return render(request, "single_complete.html")
 
         return super(QuizTake, self).dispatch(request, *args, **kwargs)
 
@@ -211,18 +135,18 @@ class QuizTake(FormView):
 
     def get_context_data(self, **kwargs):
         context = super(QuizTake, self).get_context_data(**kwargs)
-        context['question'] = self.question
-        context['lesson'] = self.lesson
-        context['quiz'] = self.quiz
-        if hasattr(self, 'previous'):
-            context['previous'] = self.previous
-        if hasattr(self, 'progress'):
-            context['progress'] = self.progress
+        context["question"] = self.question
+        context["lesson"] = self.lesson
+        context["quiz"] = self.quiz
+        if hasattr(self, "previous"):
+            context["previous"] = self.previous
+        if hasattr(self, "progress"):
+            context["progress"] = self.progress
         return context
 
     def form_valid_user(self, form):
         progress, c = Progress.objects.get_or_create(user=self.request.user)
-        guess = form.cleaned_data['answers']
+        guess = form.cleaned_data["answers"]
         is_correct = self.question.check_if_correct(guess)
 
         if is_correct is True:
@@ -233,12 +157,13 @@ class QuizTake(FormView):
             progress.update_score(self.question, 0, 1)
 
         if self.quiz.answers_at_end is not True:
-            self.previous = {'previous_answer': guess,
-                             'previous_outcome': is_correct,
-                             'previous_question': self.question,
-                             'answers': self.question.get_answers(),
-                             'question_type': {self.question
-                                               .__class__.__name__: True}}
+            self.previous = {
+                "previous_answer": guess,
+                "previous_outcome": is_correct,
+                "previous_question": self.question,
+                "answers": self.question.get_answers(),
+                "question_type": {self.question.__class__.__name__: True},
+            }
         else:
             self.previous = {}
 
@@ -247,51 +172,21 @@ class QuizTake(FormView):
 
     def final_result_user(self):
         results = {
-            'quiz': self.quiz,
-            'score': self.sitting.get_current_score,
-            'max_score': self.sitting.get_max_score,
-            'percent': self.sitting.get_percent_correct,
-            'sitting': self.sitting,
-            'previous': self.previous,
+            "quiz": self.quiz,
+            "score": self.sitting.get_current_score,
+            "max_score": self.sitting.get_max_score,
+            "percent": self.sitting.get_percent_correct,
+            "sitting": self.sitting,
+            "previous": self.previous,
         }
 
         self.sitting.mark_quiz_complete()
 
         if self.quiz.answers_at_end:
-            results['questions'] =\
-                self.sitting.get_questions(with_answers=True)
-            results['incorrect_questions'] =\
-                self.sitting.get_incorrect_questions
+            results["questions"] = self.sitting.get_questions(with_answers=True)
+            results["incorrect_questions"] = self.sitting.get_incorrect_questions
 
         if self.quiz.exam_paper is False:
             self.sitting.delete()
 
-        return render(self.request, 'result.html', results)
-
-
-def index(request):
-    return render(request, 'index.html', {})
-
-
-# def login_user(request):
-
-#     if request.method == 'POST':
-#         username = request.POST['username']
-#         password = request.POST['password']
-#         user = authenticate(request, username=username, password=password)
-#         if user is not None:
-#             login(request, user)
-#             messages.success(request, 'You have successfully logged in')
-#             return redirect("index")
-#         else:
-#             messages.success(request, 'Error logging in')
-#             return redirect('login')
-#     else:
-#         return render(request, 'login.html', {})
-
-
-# def logout_user(request):
-#     logout(request)
-#     messages.success(request, 'You have been logged out!')
-#     print('logout function working')
-#     return redirect('login')
+        return render(self.request, "result.html", results)

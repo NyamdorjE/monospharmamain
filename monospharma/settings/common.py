@@ -56,6 +56,8 @@ INSTALLED_APPS = [
     "django_extensions",
     "src.quiz",
     "src.mcq",
+    "django_social_share",
+    "sorl.thumbnail",
 ]
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
@@ -150,14 +152,12 @@ USE_L10N = True
 USE_TZ = True
 
 LOCALE_PATHS = [os.path.join(BASE_DIR, "locale")]
-print(LOCALE_PATHS)
 
 DATETIME_FORMAT = "Y/m/d H:s"
 
 
 LANGUAGES = [
     ("mn", _("Mongolia")),
-    ("en", _("English")),
 ]
 
 

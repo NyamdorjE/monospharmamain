@@ -7,38 +7,52 @@ from django.views.generic.edit import FormView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import gettext_lazy as _
+from django.db.models import Q
+
 from django.contrib import messages
 
 
 # Create your views here.
 
-class HomeView(TemplateView):
-    template_name = 'course.html'
-    paginate_by = 2
+
+class HomeView(ListView):
+    template_name = "course.html"
+    queryset = Course.objects.all()
+    paginate_by = 6
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        category = Course.objects.all()
-        context['category'] = category
-        context['categorylist'] = CourseCategory.objects.all()
+        context["category"] = self.get_queryset()
+        context["categorylist"] = CourseCategory.objects.all()
         return context
+
+    def get_queryset(self):
+        queryset = super(HomeView, self).get_queryset()
+        search_text = self.request.GET.get("search_text", None)
+        if search_text:
+            queryset = queryset.filter(
+                Q(title__icontains=search_text) | Q(content__icontains=search_text)
+            )
+        return queryset
 
 
 class AboutView(TemplateView):
-    template_name = 'about.html'
+    template_name = "about.html"
 
 
 def CourseListView(request, category):
     courses = Subject.objects.filter(course=category)
+    category = Course.objects.all()
     context = {
-        'courses': courses
+        "courses": courses,
+        "category": category,
     }
-    return render(request, 'courses/course_list.html', context)
+    return render(request, "courses/course_list.html", context)
 
 
 class CourseDetailView(DetailView):
-    context_object_name = 'course'
-    template_name = 'courses/course_detail.html'
+    context_object_name = "course"
+    template_name = "courses/course_detail.html"
     model = Subject
 
 
@@ -47,6 +61,8 @@ class SuggestView(TemplateView):
 
 
 class LessonDetailView(FormView, LoginRequiredMixin):
+    template_name = "courses/lesson_detail.html"
+    success_url = "/thanks/"
 
     # def get_success_url(self):
     #     question = get_object_or_404(Question, pk=self.kwargs['pk'])
@@ -55,25 +71,26 @@ class LessonDetailView(FormView, LoginRequiredMixin):
     def get(self, request, course_slug, lesson_slug, *args, **kwargs):
         courses = Course.objects.all()
         subject = get_object_or_404(Subject, slug=course_slug)
-        print('SSSSSSSSSSSSSSSSSSSSSS', subject)
-        student_ids = Course.objects.get(
-            pk=subject.course.id).students.values_list('id', flat=True)
+        student_ids = Course.objects.get(pk=subject.course.id).students.values_list(
+            "id", flat=True
+        )
         if request.user.id in list(student_ids):
             course = get_object_or_404(Subject, slug=course_slug)
-            print('AAAAAAAAAAAAAAAAA', course)
-            lesson = get_object_or_404(Lesson, slug=lesson_slug)
-            print('EEEEEEEEEEEEEEEEEEEEEE', lesson)
 
-            context = {'lesson': lesson, 'course': course,
-                       }
+            lesson = get_object_or_404(Lesson, slug=lesson_slug)
+
+            context = {
+                "lesson": lesson,
+                "course": course,
+            }
             return render(request, "courses/lesson_detail.html", context)
         else:
-            return redirect('courses:suggest')
+            return redirect("courses:suggest")
 
     # def get_context_data(self, **kwargs):
     #     context = super(LessonDetailView, self).get_context_data(**kwargs)
     #     context["subject"] = Subject.objects.all()
-    #     print('***********!!!!!!!!!!!!!!!!!!!!', context)
+    #
     #     return context
 
     # def post(self, request, *args, **kwargs):
@@ -97,6 +114,7 @@ class LessonDetailView(FormView, LoginRequiredMixin):
     #     question = get_object_or_404(Question, pk=self.kwargs['pk'])
     #     kwargs.update({'question': question})
     #     return kwargs
+
 
 # class AnswerCreate(LoginRequiredMixin, FormView):
 #     form_class = QuestionForm
@@ -164,13 +182,11 @@ class LessonDetailView(FormView, LoginRequiredMixin):
 
 @login_required
 def SearchView(request):
-    if request.method == 'POST':
-        search = request.POST.get('search')
+    if request.method == "POST":
+        search = request.POST.get("search")
         results = Lesson.objects.filter(title__contains=search)
-        context = {
-            'results': results
-        }
-        return render(request, 'courses/search_result.html', context)
+        context = {"results": results}
+        return render(request, "courses/search_result.html", context)
 
 
 # def student_feedback(request):

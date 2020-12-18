@@ -3,20 +3,44 @@
 {% block content %}
 <!-- Page Title
 		============================================= -->
-<section id="page-title">
+<div class="section lazy mt-5 p-0 min-vh-75 lazy-loaded"
+	style="background-position: center center; background-repeat: no-repeat; background-size: cover; background-image: url({% static 'base/assets/images/homebanner/hrdetail.JPG' %});"
+	data-ll-status="loaded">
+	<div class="shape-divider" data-shape="rounded-5" data-height="150" id="shape-divider-3559"><svg
+			xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 140" preserveAspectRatio="none" class="op-ts op-1">
+			<path class="shape-divider-fill" d="M0 0v.48C18.62 9.38 297.81 140 639.5 140 993.24 140 1280 0 1280 0z"
+				opacity="0.3"></path>
+			<path class="shape-divider-fill" d="M0 .6c14 8.28 176.54 99.8 555.45 119.14C952.41 140 1280 0 1280 0H0z"
+				opacity="0.5"></path>
+			<path class="shape-divider-fill"
+				d="M726.29 101.2C1126.36 79.92 1281 0 1281 0H1c.05 0 325.25 122.48 725.29 101.2z"></path>
+		</svg></div>
 
-	<div class="container clearfix">
-		<h1>Хүний нөөц</h1>
-		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="{% url 'website-homepage'%}">Нүүр хуудас</a></li>
-			<li class="breadcrumb-item active" aria-current="page">Хүний нөөц</li>
-		</ol>
+	<div class="shape-divider" data-shape="rounded-5" data-position="bottom" data-height="150" id="shape-divider-3687">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 140" preserveAspectRatio="none" class="op-ts op-1">
+			<path class="shape-divider-fill" d="M0 0v.48C18.62 9.38 297.81 140 639.5 140 993.24 140 1280 0 1280 0z"
+				opacity="0.3"></path>
+			<path class="shape-divider-fill" d="M0 .6c14 8.28 176.54 99.8 555.45 119.14C952.41 140 1280 0 1280 0H0z"
+				opacity="0.5"></path>
+			<path class="shape-divider-fill"
+				d="M726.29 101.2C1126.36 79.92 1281 0 1281 0H1c.05 0 325.25 122.48 725.29 101.2z"></path>
+		</svg></div>
+	<div class="container" style="z-index: 2; margin-top: 250px;">
+
+		<h1 class="nott"
+			style="color: black;  font-size: 40px;   font-weight: 600;  letter-spacing: 2px; text-transform: none !important;">
+			Хүний нөөц
+		</h1>
+
+
+
+
 	</div>
-
-</section><!-- #page-title end -->
+</div>
 
 <!-- Content
 		============================================= -->
+
 <section id="content">
 	<div class="content-wrap">
 		<div class="container clearfix">
@@ -48,6 +72,9 @@
 
 				<div class="col-md-6 col-lg-8">
 					<div id="snav-content1">
+						{% include "hr/counter.html"%}
+
+						<div class="divider divider-rounded divider-center"><i class="icon-pill"></i></div>
 
 						<div class="row">
 							<div class="col-8">
@@ -58,6 +85,8 @@
 								<h5>Анкет хүлээн авах сүүлийн цаг</h5>
 							</div>
 						</div>
+						{% if hr %}
+
 						{% for hr in hr %}
 						<div class="toggle toggle-border">
 							<div class="toggle-header">
@@ -85,31 +114,39 @@
 										class="icon-line-corner-down-right"></i>Дэлгэрэнгүй</a>
 							</div>
 						</div>
-						{% endfor %}
-						<div class="fslider" data-smooth-height="false">
-							<div class="flexslider">
-								<div class="slider-wrap">
-									<div class="slide"><img class="lazy"
-											data-src="{% static 'base/assets/images/about/neelttei.jpg'%}"
-											alt="Нээлттэй ажилын байр"></div>
-								</div>
-							</div>
-						</div>
 
-						<p style="font-weight: bold;">Манай компанид ажилласнаар танд нээгдэж буй боломжууд:</p>
-						<div class="row-fluid">
-							<div class="span12">
-								<ul class="check-list">
-									<li>Олон улсад хүлээн зөвшөөрөгдсөн GMP стандарт хангасан тохилог ажлын байр</li>
-									<li>Хувь хүн мэргэжлийнхээ хувьд өсөн хөгжих боломж</li>
-									<li>Зах зээлд өрсөлдөхүйц цалин хөлс, үр дүнд тулгуурласан шагнал урамшуулал</li>
-									<li>Шинийг санаачлагч, манлайлагч байх урам зориг, хүсэл тэмүүлэл</li>
-								</ul>
-							</div>
-						</div>
+
+						{% endfor %}
+						{% else %}
+						<p> Зарлагдсан ажлын байр байхгүй байна<p>
+								{% endif %}
+								<div class="divider divider-rounded divider-center"><i class="icon-pill"></i></div>
+								<div class="fslider" data-smooth-height="false">
+									<div class="flexslider">
+										<div class="slider-wrap">
+											<div class="slide"><img class="lazy"
+													data-src="{% static 'base/assets/images/about/neelttei.jpg'%}"
+													alt="Нээлттэй ажилын байр"></div>
+										</div>
+									</div>
+								</div>
+								<p style="font-weight: bold;">Манай компанид ажилласнаар танд нээгдэж буй боломжууд:</p>
+								<div class="row-fluid">
+									<div class="span12">
+										<ul class="check-list">
+											<li>Олон улсад хүлээн зөвшөөрөгдсөн GMP стандарт хангасан тохилог ажлын байр
+											</li>
+											<li>Хувь хүн мэргэжлийнхээ хувьд өсөн хөгжих боломж</li>
+											<li>Зах зээлд өрсөлдөхүйц цалин хөлс, үр дүнд тулгуурласан шагнал урамшуулал
+											</li>
+											<li>Шинийг санаачлагч, манлайлагч байх урам зориг, хүсэл тэмүүлэл</li>
+										</ul>
+									</div>
+								</div>
 					</div>
 
 					<div id="snav-content2">
+						{% include "hr/process.html" %}
 						<div class="fslider" data-smooth-height="false">
 							<div class="flexslider">
 								<div class="slider-wrap">
@@ -439,11 +476,11 @@
 	li {
 		line-height: 46px;
 		font-size: 17px;
-		text-color: #0f7a05;
+		text-color: #3e8a4f;
 	}
 
 	li .i {
-		color: #096c2a;
+		color: #3e8a4f;
 	}
 
 	dl,
@@ -454,17 +491,17 @@
 	li {
 		margin: 0;
 		padding: 0;
-		color: #0f7a05;
+		color: #3e8a4f;
 	}
 
 	.toggle-header,
 	.accordion-header {
 
-		color: #3e902a;
+		color: #3e8a4f;
 
 	}
 
-	img {
+	.alignrigth img-responsive {
 		max-width: 100%;
 		text-align: center;
 		padding: 6px;
@@ -474,4 +511,5 @@
 		margin-bottom: 12px;
 	}
 </style>
+
 {% endblock %}

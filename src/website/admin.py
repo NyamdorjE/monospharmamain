@@ -4,9 +4,11 @@ from .models import (
     AdviceCategory,
     Testimonail,
     Gallery,
-    FeaturedProduct,
+    LeftFeaturedProduct,
+    RightFeaturedProduct,
     Banner,
     BannerVideo,
+    Counter,
 )
 
 # Register your models here.
@@ -18,10 +20,12 @@ class AdviceAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
 
 
+admin.site.register(Counter)
 admin.site.register(Advice, AdviceAdmin)
 admin.site.register(AdviceCategory)
 admin.site.register(Testimonail)
 admin.site.register(Gallery)
-admin.site.register(FeaturedProduct)
+admin.site.register(LeftFeaturedProduct)
+admin.site.register(RightFeaturedProduct)
 admin.site.register(Banner)
 admin.site.register(BannerVideo)

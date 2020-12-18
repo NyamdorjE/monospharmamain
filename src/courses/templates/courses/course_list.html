@@ -68,7 +68,13 @@
 						<div data-aos="fade-right">
 							<div class="row">
 								<div class="col-9">
+
+									{% if cat.state == "over" %}
+									Хичээл дууссан байна
+
+									{% else %}
 									<h5 class="pb-3">Хичээл №-{{lesson.position}} </h5>
+									{% endif %}
 								</div>
 								<div class="col-3">
 									<h5 class="pb-3"> <a id="vazhdo" href="{{ lesson.get_absolute_url }}#video"><span

@@ -20,8 +20,13 @@ from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.debug import sensitive_post_parameters
 from django.views.generic import View, FormView, TemplateView
 from django.conf import settings
-from django.views import generic
+from src.quiz.models import Quiz, Category, Progress, Sitting, Question
+from django.contrib.auth.models import User
 
+from django.contrib.auth.decorators import login_required, permission_required
+
+from django.views import generic
+from src.accounts.models import Profile
 from .utils import (
     send_activation_email,
     send_reset_password_email,
@@ -29,8 +34,6 @@ from .utils import (
     send_activation_change_email,
 )
 from .forms import (
-    SignInViaUsernameForm,
-    SignInViaEmailForm,
     SignInViaEmailOrUsernameForm,
     SignUpForm,
     RestorePasswordForm,
@@ -45,26 +48,13 @@ from .forms import (
 from .models import Profile, PharmaProfile
 
 
-class GuestOnlyView(View):
-    def dispatch(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            return redirect(settings.LOGIN_REDIRECT_URL)
-
-        return super().dispatch(request, *args, **kwargs)
-
-
-class LogInView(GuestOnlyView, FormView):
+class LogInView(FormView):
     template_name = "accounts/log_in.html"
 
     @staticmethod
     def get_form_class(**kwargs):
-        if settings.DISABLE_USERNAME or settings.LOGIN_VIA_EMAIL:
-            return SignInViaEmailForm
-
         if settings.LOGIN_VIA_EMAIL_OR_USERNAME:
             return SignInViaEmailOrUsernameForm
-
-        return SignInViaUsernameForm
 
     @method_decorator(sensitive_post_parameters("password"))
     @method_decorator(csrf_protect)
@@ -105,7 +95,7 @@ class LogInView(GuestOnlyView, FormView):
         return redirect(settings.LOGIN_REDIRECT_URL)
 
 
-class SignUpView(GuestOnlyView, FormView):
+class SignUpView(FormView):
     template_name = "accounts/sign_up.html"
     form_class = SignUpForm
 
@@ -160,7 +150,7 @@ class SignUpView(GuestOnlyView, FormView):
         return redirect("accounts:log_in")
 
 
-class PharmaSignUpView(GuestOnlyView, FormView):
+class PharmaSignUpView(FormView):
     template_name = "accounts/pharmasign_up.html"
     form_class = PharmaSignUpView
 
@@ -233,7 +223,7 @@ class ActivateView(View):
         return redirect("accounts:log_in")
 
 
-class ResendActivationCodeView(GuestOnlyView, FormView):
+class ResendActivationCodeView(FormView):
     template_name = "accounts/resend_activation_code.html"
 
     @staticmethod
@@ -266,7 +256,7 @@ class ResendActivationCodeView(GuestOnlyView, FormView):
         return redirect("accounts:resend_activation_code")
 
 
-class RestorePasswordView(GuestOnlyView, FormView):
+class RestorePasswordView(FormView):
     template_name = "accounts/restore_password.html"
 
     @staticmethod
@@ -373,7 +363,7 @@ class ChangeEmailActivateView(View):
         return redirect("accounts:change_email")
 
 
-class RemindUsernameView(GuestOnlyView, FormView):
+class RemindUsernameView(FormView):
     template_name = "accounts/remind_username.html"
     form_class = RemindUsernameForm
 
@@ -428,6 +418,18 @@ class LogOutView(LoginRequiredMixin, BaseLogoutView):
 
 class ProfileView(TemplateView):
     template_name = "accounts/profile.html"
+
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+        return super(ProfileView, self).dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(ProfileView, self).get_context_data(**kwargs)
+        progress, c = Progress.objects.get_or_create(user=self.request.user)
+        context["cat_scores"] = progress.list_all_cat_scores
+        context["exams"] = progress.show_exams()
+        context["user"] = User.objects.all()
+        return context
 
 
 class ChooseSignUpView(TemplateView):

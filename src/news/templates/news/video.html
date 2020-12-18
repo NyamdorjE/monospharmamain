@@ -28,8 +28,9 @@
                                         allowfullscreen></iframe>
                                 </div>
                                 <div class="entry-title">
-                                    <h2><a href="blog-single-full.html">{{ video.title }}</a></h2>
+                                    <h2><a href="{% url 'news-video-detail' video.slug  %}">{{ video.title }}</a></h2>
                                 </div>
+                                <p> {{ video.description }}</p>
                                 <div class="entry-meta">
                                     <ul>
                                         <li><i class="icon-calendar3"></i> {{ video.created_at }}</li>

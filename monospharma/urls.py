@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 from django.urls import path, include, re_path
 from django.contrib.auth import views as auth_views
 from django.conf.urls import include, url
-from src.base.models import humanresource, contact, request
+from src.base.models import humanresource, contact
 from src.base.models.humanresource import EmailAttachementView
 from src.accounts import views as user_views
 from src.courses import views as courses_views
@@ -41,7 +41,7 @@ urlpatterns = [
         EmailAttachementView.as_view(),
         name="humandetailview",
     ),
-    path("request/", request.request, name="request"),
+    path("contact/", contact.contact, name="contact"),
     path("ckeditor", include("ckeditor_uploader.urls")),
     # path('contact/', contact.contact, name='contact'),
     # path('contact/', contact.contactview, name='contact'),

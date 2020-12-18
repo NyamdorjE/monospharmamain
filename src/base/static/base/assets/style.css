@@ -13724,9 +13724,10 @@ blockquote.float-right {
   font-size: 1.5rem;
 }
 
+/* 
 .flip-card-back {
   background-color: #666;
-}
+} */
 
 .flip-card:hover .flip-card-front,
 .flip-card:hover .flip-card-back {
@@ -13754,8 +13755,8 @@ blockquote.float-right {
   content: "";
   display: block;
   opacity: 0.6;
-  background: rgb(21, 50, 3);
-  background: linear-gradient(30deg, rgba(21, 50, 3, 0.8883928571428571) 10%, rgba(93, 149, 85, 0.8183648459383753) 29%, rgba(12, 14, 14, 0.7847514005602241) 77%);
+  /* background: rgb(21, 50, 3);
+  background: linear-gradient(30deg, rgba(21, 50, 3, 0.8883928571428571) 10%, rgba(93, 149, 85, 0.8183648459383753) 29%, rgba(12, 14, 14, 0.7847514005602241) 77%); */
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border-radius: 6px;

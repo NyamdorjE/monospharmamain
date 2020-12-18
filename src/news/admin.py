@@ -1,14 +1,14 @@
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 from .models import News, Category, VideoNews, VideoNewsCategory
+
 # Register your models here.
 
 
 class NewsAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'author',
-                    'created_on', 'is_special', 'category')
-    search_fields = ['title', 'content']
-    prepopulated_fields = {'slug': ('title',)}
+    list_display = ("title", "slug", "author", "created_on", "is_special", "category")
+    search_fields = ["title", "content"]
+    prepopulated_fields = {"slug": ("title",)}
 
 
 admin.site.register(News, NewsAdmin)
@@ -25,8 +25,9 @@ admin.site.register(VideoNewsCategory)
 
 
 class VideoNewsAdmin(admin.ModelAdmin):
-    list_display = ('title', 'created_at', 'category')
-    search_fields = ['title', 'category']
+    list_display = ("title", "created_at", "category")
+    search_fields = ["title", "category"]
+    prepopulated_fields = {"slug": ("title",)}
 
 
 admin.site.register(VideoNews, VideoNewsAdmin)

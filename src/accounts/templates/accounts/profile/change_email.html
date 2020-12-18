@@ -6,56 +6,57 @@
 
 {% block content %}
 
-   	<section id="page-title">
+<section id="page-title">
 
-			<div class="container clearfix">
-				<h1>My Account</h1>
-				<ol class="breadcrumb">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Pages</a></li>
-					<li class="active">Login</li>
-				</ol>
-			</div>
+	<div class="container clearfix">
+		<h1>Миний хаяг</h1>
+		<ol class="breadcrumb">
+			<li><a href="#">Нүүр</a></li>
+			<li class="active">Имайл солих</li>
+		</ol>
+	</div>
 
-		</section><!-- #page-title end -->
+</section><!-- #page-title end -->
 
-		<!-- Content
+<!-- Content
 		============================================= -->
-		<section id="content">
+<section id="content">
 
-			<div class="content-wrap">
+	<div class="content-wrap">
 
-				<div class="container clearfix">
+		<div class="container clearfix">
 
-					<div class="accordion accordion-lg divcenter nobottommargin clearfix" style="max-width: 550px;">
+			<div class="accordion accordion-lg divcenter nobottommargin clearfix" style="max-width: 550px;">
 
-						<div class="acctitle"><i class="acc-closed icon-lock3"></i><i class="acc-open icon-tag"></i>Имайл солих </div>
-						<div class="acc_content clearfix">
-							<form  class="nobottommargin" action="#" method="post">
-							{% csrf_token %}
-								<div class="col_full">
-                                  {{ form|crispy }}
-								</div>
-
-								
-
-								<div class="col_full nobottommargin">
-									<button class="button button-3d button-black nomargin" id="login-form-submit" name="login-form-submit" value="login">Нэвтрэх</button>
-									<a href="{% url 'accounts:sign_up' %}" class="fright">Солих</a>
-								</div>
-							</form>
+				<div class="acctitle"><i class="acc-closed icon-lock3"></i><i class="acc-open icon-tag"></i>Имайл солих
+				</div>
+				<div class="acc_content clearfix">
+					<form class="nobottommargin" action="#" method="post">
+						{% csrf_token %}
+						<div class="col_full">
+							{{ form|crispy }}
 						</div>
 
-						
-						
 
-					</div>
 
+						<div class="col_full nobottommargin">
+							<button class="button button-3d button-black nomargin" id="login-form-submit"
+								name="login-form-submit" value="login">Нэвтрэх</button>
+							<a href="{% url 'accounts:sign_up' %}" class="fright">Солих</a>
+						</div>
+					</form>
 				</div>
+
+
+
 
 			</div>
 
-		</section><!-- #content end -->
-  
+		</div>
+
+	</div>
+
+</section><!-- #content end -->
+
 
 {% endblock %}
