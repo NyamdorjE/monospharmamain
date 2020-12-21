@@ -14,7 +14,7 @@ DATABASES = {
         "NAME": "mnpharma",
         "USER": "mnpharmauser",
         "PASSWORD": "mnpharmauser",
-        "HOST": "10.0.0.153",
+        "HOST": "localhost",
         "PORT": "5432",
     }
 }
