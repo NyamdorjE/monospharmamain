@@ -132,8 +132,7 @@ class Questionnaire(models.Model):
 
 def hrview(request):
     hr = Hr.objects.all()
-    file = Questionnaire.objects.all()
-    context = {"hr": hr, "file": file}
+    context = {"hr": hr}
     return render(request, "hr/humanresource.html", context)
 
 
@@ -153,10 +152,10 @@ class EmailAttachementView(generic.FormView, generic.DetailView):
     template_name = "hr/humandetail.html"
     success_url = reverse_lazy("humandetailview")
 
-    # def get_context_data(self, **kwargs):
-    #     context = super(EmailAttachementView, self).get_context_data(**kwargs)
-    #     context['form'] = self.get_form()
-    #     return context
+    def get_context_data(self, **kwargs):
+        context = super(EmailAttachementView, self).get_context_data(**kwargs)
+        context['anket'] = Questionnaire.objects.all()
+        return context
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST, request.FILES)

@@ -1,12 +1,13 @@
 import secrets
 from django.shortcuts import render, redirect
-from django.views.generic import TemplateView, ListView, DetailView, View
+from django.views.generic import TemplateView, ListView, DetailView
 from src.courses.models import Subject, Lesson, Course, CourseCategory
 from django.shortcuts import render, get_object_or_404
 from django.views.generic.edit import FormView
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.utils.translation import gettext_lazy as _
+from django.utils.decorators import method_decorator
 from django.db.models import Q
 
 from django.contrib import messages
@@ -20,6 +21,9 @@ class HomeView(ListView):
     queryset = Course.objects.all()
     paginate_by = 6
 
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):        
+        return super(HomeView, self).dispatch(request, *args, **kwargs)
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["category"] = self.get_queryset()

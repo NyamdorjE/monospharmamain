@@ -50,7 +50,9 @@
 						</div>
 						{% endfor %}
 					</div>
-					<a href="#" data-scrollto="#job-apply" class="button button-3d button-black m-0">Анкет татах</a>
+					{% for anket in anket %}
+					<a href="{{ anket.anket.url }}" download class="button button-3d button-black m-0">Анкет татах</a>
+					{% endfor %}
 					<div class="divider divider-sm"><i class="icon-star3"></i></div>
 				</div>
 				<div class="col-md-5">
