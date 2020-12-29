@@ -31,9 +31,9 @@
 							<div class="grid-inner row no-gutters">
 								<div class="entry-image col-md-4">
 									<a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
-										data-lightbox="image"><img class="image_fade"
+										data-lightbox="{{ news.image.url }}"><img class="image_fade"
 											src="{% if news.image %}{{news.image.url}}{% endif %}"
-											alt="Standard Post with Image"></a>
+											alt="{{ news.title }}" style="height:auto; width:280px;"></a>
 								</div>
 								<div class="col-md-8 pl-md-4">
 									<div class="entry-title title-sm">
