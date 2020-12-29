@@ -33,7 +33,7 @@
 									<a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
 										data-lightbox="{{ news.image.url }}"><img class="image_fade"
 											src="{% if news.image %}{{news.image.url}}{% endif %}"
-											alt="{{ news.title }}" style="height:auto; width:280px;"></a>
+											alt="{{ news.title }}" style="height:auto; width:250px;"></a>
 								</div>
 								<div class="col-md-8 pl-md-4">
 									<div class="entry-title title-sm">
@@ -60,16 +60,8 @@
 						</div>
 						{% endfor %}
 					</div><!-- #posts end -->
-
-					<!-- Pager
-							============================================= -->
-
 					{% include 'news/pagination.html'%}
-
-					<!-- .pager end -->
-
 				</div><!-- .postcontent end -->
-
 				{% include 'news/sidebar.html'%}
 			</div>
 
