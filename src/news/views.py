@@ -15,7 +15,7 @@ from django.utils.translation import gettext as _
 class NewsList(ListView):
     queryset = News.objects.all()
     template_name = "news/news.html"
-    paginate_by = 6
+    paginate_by = 5
 
     def get_context_data(self, **kwargs):
         context = super(NewsList, self).get_context_data(**kwargs)
