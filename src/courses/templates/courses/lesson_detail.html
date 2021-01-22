@@ -89,20 +89,12 @@
 							<div class="container-fluid">
 								<div class="row">
 									<div class="col-md-12">
-										<!-- general form elements -->
-										<form action="#">
-											<div class="form-row align-items-center">
-												<input type="text" class="form-control form-control-lg mb-2"
-													id="f_question" placeholder="Асуулт" required>
-												{% comment %} <div class="g-recaptcha"
-													data-sitekey="6Le7WegUAAAAAMX-h-VJbadSXa1OwQzjt9gi_tgH"></div>
-												{% endcomment %}
-												<button type="button" onclick="send_review()"
-													class="btn btn-primary btn-lg">
-													<i class="fas fa-paper-plane"></i> Илгээх</button>
-											</div>
+
+										<form action="" method="POST">
+											{% csrf_token %}
+											{{ form.as_p }}
+											<input type="submit" value="Submit" />
 										</form>
-										<!-- /.card -->
 									</div>
 								</div>
 							</div><!-- /.container-fluid -->

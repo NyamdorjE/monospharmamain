@@ -51,7 +51,7 @@
 										</ul>
 									</div>
 									<div class="entry-content">
-										<p>{{ news.content|safe|slice:":100"}}...</p>
+										{% comment %} <p>{{ news.content|safe|slice:":100"}}...</p> {% endcomment %}
 										<a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
 											class="more-link">Цааш унших</a>
 									</div>
