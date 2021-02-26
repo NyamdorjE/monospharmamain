@@ -1,9 +1,11 @@
 {% extends 'news/index_2.html' %}
 {% load static humanize thumbnail %}
 {% load i18n %}
-{% block social_share %}
+{% comment %} {% block social_share %}
 {% with image=news.image.url %}
 {% if image %}
+<head>
+
 <meta property="og:site_name" content="Monospharma.mn" />
 <meta property="og:type" content="news" />
 <meta property="og:title" content="{{ news.title }}" />
@@ -13,9 +15,10 @@
 <meta property="og:image" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{% thumbnail image 800x800 %}" />
 <meta property="og:image.width" content="800" />
 <meta property="og:image.height" content="449" />
+</head>
 {% endif %}
 {% endwith %}
-{% endblock %}
+{% endblock %} {% endcomment %}
 {% block content %}
 
 <section id="page-title">
