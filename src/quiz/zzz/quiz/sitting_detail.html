@@ -31,9 +31,9 @@
 		<tr>
 			<td>
 				{{ question.content }}
-				{% if question.figure %}
+				{% comment %} {% if question.figure %}
 				<div style="max-width: 100px;"><img src="{{ question.figure.url }}" alt="{{ question.figure }}" /></div>
-				{% endif %}
+				{% endif %} {% endcomment %}
 			</td>
 			<td>{{ question|answer_choice_to_string:question.user_answer }}</td>
 			<td>

@@ -1,0 +1,48 @@
+{% extends 'news/index_2.html' %}
+{% load i18n %}
+{% load quiz_tags %}
+{% block title %}{% trans "All Quizzes" %}{% endblock %}
+
+{% block content %}
+
+
+<section id="content">
+	<div class="content-wrap">
+		<div class="container clearfix">
+			<div class="row gutter-40 col-mb-80">
+				<div class="col-12">
+					<h2>{% trans "Шалгалтын мэдээлэл" %}</h2>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>{% trans "Гарчиг" %}</th>
+								<th>{% trans "Ангилал" %}</th>
+								<th>{% trans "Шалгалт" %}</th>
+								<th>{% trans "Нэг л удаа өгнө" %}</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>{{ lesson.quiz.title }}</td>
+								<td>{{ lesson.quiz.category }}</td>
+								<td>{{ lesson.quiz.exam_paper }}</td>
+								<td>{{ lesson.quiz.single_attempt }}</td>
+								<td>
+									<a href="{% url 'quiz_question' slug=lesson.slug quiz_name=lesson.quiz.url %}">
+										{% trans "Шалгалт өгөх" %}
+									</a>
+
+								</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}

@@ -57,7 +57,7 @@ class News(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("post:detail", kwargs={"pk": self.pk})
+        return reverse("news-news-detail", kwargs={"slug": self.slug})
 
 
 class VideoNewsCategory(models.Model):

@@ -92,6 +92,19 @@ class QuizMarkingDetail(QuizMarkerMixin, DetailView):
         context = super(QuizMarkingDetail, self).get_context_data(**kwargs)
         context["questions"] = context["sitting"].get_questions(with_answers=True)
         return context
+class QuizUserProgressView(TemplateView):
+    template_name = "progress.html"
+
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+        return super(QuizUserProgressView, self).dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super(QuizUserProgressView, self).get_context_data(**kwargs)
+        progress, c = Progress.objects.get_or_create(user=self.request.user)
+        context["cat_scores"] = progress.list_all_cat_scores
+        context["exams"] = progress.show_exams()
+        return context
 
 
 class QuizTake(FormView):

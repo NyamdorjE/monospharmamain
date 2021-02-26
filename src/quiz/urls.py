@@ -7,6 +7,7 @@ from .views import (
     QuizMarkingList,
     QuizDetailView,
     QuizMarkingDetail,
+    QuizUserProgressView,
     QuizTake,
 )
 
@@ -30,20 +31,42 @@ urlpatterns = [
     # url(regex=r'^quizzes/$',
     #     view=LessonQuizView.as_view(),
     #     name='quiz_index'),
-    url(regex=r"^marking/$", view=QuizMarkingList.as_view(), name="quiz_marking"),
-    url(
-        regex=r"^marking/(?P<pk>[\d.]+)/$",
+    # url(regex=r"^marking/$", view=QuizMarkingList.as_view(), name="quiz_marking"),
+    # url(
+    #     regex=r"^marking/(?P<pk>[\d.]+)/$",
+    #     view=QuizMarkingDetail.as_view(),
+    #     name="quiz_marking_detail",
+    # ),
+    # url(
+    #     regex=r"^lesson(?P<slug>[\w-]+)/$",
+    #     view=LessonQuizView.as_view(),
+    #     name="quiz_start_page",
+    # ),
+    # url(
+    #     regex=r"^lesson(?P<slug>[\w-]+)/(?P<quiz_name>[\w-]+)/take/$",
+    #     view=QuizTake.as_view(),
+    #     name="quiz_question",
+    # ),
+
+
+    url(regex=r'^progress/$',
+        view=QuizUserProgressView.as_view(),
+        name='quiz_progress'),
+
+    url(regex=r'^marking/$',
+        view=QuizMarkingList.as_view(),
+        name='quiz_marking'),
+
+    url(regex=r'^marking/(?P<pk>[\d.]+)/$',
         view=QuizMarkingDetail.as_view(),
-        name="quiz_marking_detail",
-    ),
-    url(
-        regex=r"^lesson(?P<slug>[\w-]+)/$",
+        name='quiz_marking_detail'),
+
+
+    url(regex=r'^lesson(?P<slug>[\w-]+)/$',
         view=LessonQuizView.as_view(),
-        name="quiz_start_page",
-    ),
-    url(
-        regex=r"^lesson(?P<slug>[\w-]+)/(?P<quiz_name>[\w-]+)/take/$",
+        name='quiz_start_page'),
+
+    url(regex=r'^(?P<slug>[\w-]+)/(?P<quiz_name>[\w-]+)/take/$',
         view=QuizTake.as_view(),
-        name="quiz_question",
-    ),
+        name='quiz_question'),
 ]

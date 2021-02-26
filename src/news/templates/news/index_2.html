@@ -80,9 +80,9 @@
                     {% else %}
                     <a class="dropdown-item text-left" href="{% url 'accounts:log_in' %}">{% trans 'Нэвтрэх' %}</a>
                     <a class="dropdown-item text-left"
-                      href="{% url 'accounts:pharmasign_up' %}">{% trans 'Эмчээр Бүртгүүлэх' %}</a>
+                      href="{% url 'accounts:pharmasign_up' %}">{% trans 'Эм зүйчээр Бүртгүүлэх' %}</a>
                     <a class="dropdown-item text-left"
-                      href="{% url 'accounts:sign_up' %}">{% trans 'Эм зүйчээр Бүртгүүлэх' %}</a>
+                      href="{% url 'accounts:sign_up' %}">{% trans 'Эмчээр Бүртгүүлэх' %}</a>
                     {% endif %}
 
                   </ul>
@@ -251,44 +251,51 @@
                             </a>
                             <ul class="sub-menu-container">
                               <li class="menu-item">
-                                <a class="menu-link" href="services.html">
+                                <a class="menu-link" href="/product/?cat_id=1">
                                   <div>
-                                    <i class="icon-star-of-life"></i>Энгийн эм
+                                    <i class="icon-pill"></i>Эм
                                   </div>
                                 </a>
                               </li>
                               <li class="menu-item">
-                                <a class="menu-link" href="#">
+                                <a class="menu-link" href="/product/?cat_id=2">
                                   <div>
-                                    <i class="icon-calendar3"></i>Зүрх судас
+                                    <i class="icon-briefcase-medical"></i>Эмн.Тусламж
                                   </div>
                                 </a>
                               </li>
                               <li class="menu-item">
-                                <a class="menu-link" href="contact.html">
+                                <a class="menu-link" href="/product/?cat_id=3">
                                   <div>
-                                    <i class="icon-envelope"></i>Хүүхэд
+                                    <i class="icon-pills"></i>Амин дэм
                                   </div>
                                 </a>
                               </li>
                               <li class="menu-item">
-                                <a class="menu-link" href="faqs.html">
+                                <a class="menu-link" href="/product/?cat_id=4">
                                   <div>
-                                    <i class="icon-question-circle"></i>Витамин
+                                    <i class="icon-heartbeat"></i>Гоо сайхан
                                   </div>
                                 </a>
                               </li>
                               <li class="menu-item">
-                                <a class="menu-link" href="faqs.html">
+                                <a class="menu-link" href="/product/?cat_id=5">
                                   <div>
-                                    <i class="icon-question-circle"></i>Бусад
+                                    <i class="icon-hand-holding-medical"></i>Ээж ба хүүхэд
                                   </div>
                                 </a>
                               </li>
                               <li class="menu-item">
-                                <a class="menu-link" href="faqs.html">
+                                <a class="menu-link" href="/product/?cat_id=6">
                                   <div>
-                                    <i class="icon-question-circle"></i>Бусад
+                                    <i class="icon-food2"></i>Хүнс
+                                  </div>
+                                </a>
+                              </li>
+                                <li class="menu-item">
+                                <a class="menu-link" href="/product/?cat_id=7">
+                                  <div>
+                                    <i class="icon-notes-medical"></i>Өргөн хэрэглээ
                                   </div>
                                 </a>
                               </li>
@@ -388,24 +395,11 @@
                           <li class="menu-item">
                             <div class="nav nav-sm tab-hover flex-column nav-pills" id="v-pills-tab" role="tablist"
                               aria-orientation="vertical">
-                              <a class="nav-link bg-color-lifestyle active" id="v-pills-home-tab" data-toggle="pill"
-                                href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Онцлох
-                                мэдээ</a>
-                              <a class="nav-link bg-color-lifestyle" href="{% url 'news-our-participation' %}">Бидний
-                                оролцоо</a>
-                              <a class="nav-link bg-color-lifestyle" href="{% url 'news-product-news' %}">Бүтээгдэхүүн
-                                мэдээлэл</a>
-                              <a class="nav-link bg-color-lifestyle" href="{% url 'news-product-news' %}">Эрүүл
-                                мэндийн
-                                зөвлөмж</a>
-                              <a class="nav-link bg-color-lifestyle" href="{% url 'news-product-news' %}">Үйл
-                                ажиллагаа</a>
-
-                              <a class="nav-link bg-color-lifestyle" id="v-pills-settings-tab" data-toggle="pill"
-                                href="#v-pills-settings" role="tab" aria-controls="v-pills-settings"
-                                aria-selected="false">Судалгаа </a>
-                              <a class="nav-link bg-color-lifestyle" href="{% url 'news-product-news' %}">Видео</a>
-                              <a class="nav-link bg-color-lifestyle" href="{% url 'news-product-news' %}">Нэвтрүүлэг</a>
+                              {% for cat in newscategory %}
+                            <a class="nav-link bg-color-lifestyle" href="/news/?news_id={{cat.id}}">{{ cat }}</a>
+                              {% endfor %}
+                              <a class="nav-link bg-color-lifestyle" href="{% url "website-advice-news" %}">Зөвлөгөө</a>   
+                              <a class="nav-link bg-color-lifestyle" href="{% url "news-video-news-list"%} ">Видео мэдээ</a>
                             </div>
                           </li>
                         </ul>
