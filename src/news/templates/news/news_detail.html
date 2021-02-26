@@ -74,10 +74,28 @@
 								</div><!-- .entry-image end -->
 								<p> {{ news.content|safe}} </p>
 								<div class="clear"></div>
-	
+								<div class="col-md-6">
+							<h4>Share Panel</h4>
+
+							<div class="si-share d-flex justify-content-between align-items-center">
+								<span>Хуваалцах:</span>
+								<div>
+									<a href="https://facebook.com/sharer/sharer.php?display=popup&amp;ref=plugin&amp;src=share_button&amp;u={{ request.get_host }}{% url 'news-news-detail' news.slug %}" class="social-icon si-colored si-facebook" onclick="window.open(this.href,'Facebook','width=600,height=600'); return false;">
+										<i class="icon-facebook"></i>
+										<i class="icon-facebook"></i>
+									</a>
+									<a  href="https://twitter.com/intent/tweet?original_referer={{ request.build_absolute_uri }}&amp;url={{ request.build_absolute_uri }}&amp;text={{ news.title }}"
+									onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;" class="social-icon si-colored si-twitter">
+										<i class="icon-twitter"></i>
+										<i class="icon-twitter"></i>
+									</a>
+									
+								</div>
+							</div>
+						</div>
 							</div>
 						</div><!-- .entry end -->
-						<div class="line"></div>
+					
 					</div>
 
 				</div><!-- .postcontent end -->
@@ -167,23 +185,9 @@
 							</div>
 						</div>
 						<div class="widget clearfix">
-                        <a style="margin-bottom: 0;" class="social-icon si-borderless si-text-color si-facebook"
-                            href="https://facebook.com/sharer/sharer.php?display=popup&amp;ref=plugin&amp;src=share_button&amp;u={{ request.get_host }}{% url 'news-news-detail' news.slug %}"
-                            onclick="window.open(this.href,'Facebook','width=600,height=600'); return false;">
-                            <i class="icon-facebook"></i> Хуваалцах
-                        </a>
-                        <a style="margin-bottom: 0;" class="btn btn-twitter btn-block text-white"
-                            href="https://twitter.com/intent/tweet?original_referer={{ request.build_absolute_uri }}&amp;url={{ request.build_absolute_uri }}&amp;text={{ news.title }}"
-                            class="twitter"
-                            onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
-                            <i class="fa fa-twitter"></i> Жиргэх
-                        </a>
-                        <a style="margin-bottom: 0;" class="btn btn-linkedin btn-block text-white"
-                            href="http://www.linkedin.com/sharenews?url=http://corporate.mn{{ request.get_full_path|urlencode }}&title=<{{ training.title }}>&summary=<your desc>&source=http://corporate.mn"
-                            class="linkedin"
-                            onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
-                            <i class="fa fa-linkedin"></i> Хуваалцах
-                        </a>
+						
+                      
+                      
 						</div>
 					</div>
 				</div><!-- .sidebar end -->

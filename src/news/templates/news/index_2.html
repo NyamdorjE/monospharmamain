@@ -9,6 +9,14 @@
 {% block social_share %}
 {% with image=news.image.url %}
 {% if image %}
+<!-- for twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="Monospharma.mn">
+<meta name="twitter:url" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{ request.path }}">
+<meta name="twitter:title" content="{{ news.title }}">
+<meta name="twitter:description" content="{{ news.content }}">
+<meta name="twitter:image" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{news.image.url}}">
+<!-- for facebook -->
 <meta property="og:site_name" content="Monospharma.mn" />
 <meta property="og:type" content="news" />
 <meta property="og:title" content="{{ news.title }}" />
