@@ -1,31 +1,21 @@
 {% extends 'news/index_2.html' %}
-{% load static humanize  %}
+{% load static humanize thumbnail %}
 {% load i18n %}
-{% load social_share %}
-
+{% block social_share %}
+{% with image=news.image %}
 {% if image %}
-<!-- for twitter -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:site" content="Monospharma.mn">
-<meta name="twitter:url" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{ request.path }}">
-<meta name="twitter:title" content="{{ news.title }}">
-{% comment %}
-<meta name="twitter:description" content="{{ news.body|truncatechars:50 }}"> {% endcomment %}
-<meta name="twitter:description" content="{{ news.description|truncatechars:100 }}">
-<meta name="twitter:image" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}">
-<!-- for facebook -->
 <meta property="og:site_name" content="Monospharma.mn" />
-<meta property="og:type" content="article" />
+<meta property="og:type" content="news" />
 <meta property="og:title" content="{{ news.title }}" />
 
-{% comment %}
-<meta property="og:description" content="{{ news.body|striptags|truncatechars:50 }}" /> {% endcomment %}
 <meta property="og:description" content="{{ news.description|truncatechars:100 }}">
 <meta property="og:url" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{ request.path }}">
-<meta property="og:image" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}" />
+<meta property="og:image" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{% thumbnail image 800x800 %}" />
 <meta property="og:image.width" content="800" />
 <meta property="og:image.height" content="449" />
 {% endif %}
+{% endwith %}
+{% endblock %}
 {% block content %}
 
 <section id="page-title">
@@ -174,24 +164,23 @@
 							</div>
 						</div>
 						<div class="widget clearfix">
-{% load social_share %}
-{% post_to_facebook news.get_absolute_url %}
-{% comment %} 
-{% post_to_gplus <object_or_url> <link_text> <link_class> %}
-
-{% post_to_twitter <text_to_post> <object_or_url> <link_text> <link_class> %}
-
-{% post_to_linkedin <object_or_url> <link_class> %}
-
-{% send_email <subject> <text_to_post> <object_or_url> <link_text> <link_class> %}
-
-{% post_to_reddit <text_to_post> <object_or_url> <link_text> <link_class> %}
-
-{% post_to_telegram <text_to_post> <object_or_url> <link_text>  <link_class> %}
-
-{% post_to_whatsapp <object_or_url> <link_text> <link_class> %}
-
-{% save_to_pinterest <object_or_url>  <link_class> %} {% endcomment %}
+                        <a style="margin-bottom: 0;" class="social-icon si-borderless si-text-color si-facebook"
+                            href="https://facebook.com/sharer/sharer.php?display=popup&amp;ref=plugin&amp;src=share_button&amp;u={{ request.get_host }}{% url 'news-news-detail' news.id %}"
+                            onclick="window.open(this.href,'Facebook','width=600,height=600'); return false;">
+                            <i class="icon-facebook"></i> Хуваалцах
+                        </a>
+                        <a style="margin-bottom: 0;" class="btn btn-twitter btn-block text-white"
+                            href="https://twitter.com/intent/tweet?original_referer={{ request.build_absolute_uri }}&amp;url={{ request.build_absolute_uri }}&amp;text={{ news.title }}"
+                            class="twitter"
+                            onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+                            <i class="fa fa-twitter"></i> Жиргэх
+                        </a>
+                        <a style="margin-bottom: 0;" class="btn btn-linkedin btn-block text-white"
+                            href="http://www.linkedin.com/sharenews?url=http://corporate.mn{{ request.get_full_path|urlencode }}&title=<{{ training.title }}>&summary=<your desc>&source=http://corporate.mn"
+                            class="linkedin"
+                            onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+                            <i class="fa fa-linkedin"></i> Хуваалцах
+                        </a>
 						</div>
 					</div>
 				</div><!-- .sidebar end -->
