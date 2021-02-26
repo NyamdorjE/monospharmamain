@@ -32,11 +32,17 @@ class NewsList(ListView):
     def get_queryset(self):
         queryset = super(NewsList, self).get_queryset()
         search_text = self.request.GET.get("search_text", None)
+        news_id = self.request.GET.get("news_id")
         if search_text:
             queryset = queryset.filter(
                 Q(title__icontains=search_text) | Q(content__icontains=search_text)
             )
-        return queryset
+            return queryset
+        if news_id:
+            news_list = News.objects.filter(category=news_id)
+            return news_list
+        else:
+            return News.objects.all()
 
 
 class NewsDetail(generic.DetailView):
@@ -51,111 +57,6 @@ class NewsDetail(generic.DetailView):
         context["category"] = Course.objects.all()
 
         return context
-
-
-class SpecialNews(generic.ListView):
-    queryset = News.objects.filter(is_special="True")
-    template_name = "news/specialnews.html"
-    paginate_by = 6
-
-    def get_context_data(self, **kwargs):
-        context = super(SpecialNews, self).get_context_data(**kwargs)
-        context["news"] = self.get_queryset()
-        context["latest"] = News.objects.all()
-        context["special"] = News.objects.filter(is_special="True")
-        context["category_list"] = Category.objects.filter(cate_type="news")
-        context["search_text"] = self.request.GET.get("search_text", "")
-        context["category"] = Course.objects.all()
-        return context
-
-    def get_queryset(self):
-        queryset = super(SpecialNews, self).get_queryset()
-        search_text = self.request.GET.get("search_text", None)
-        if search_text:
-            queryset = queryset.filter(
-                Q(title__icontains=search_text) | Q(content__icontains=search_text)
-            )
-        return queryset
-
-
-class ProductNews(generic.ListView):
-    queryset = News.objects.filter(category="2")
-    template_name = "news/productnews.html"
-    paginate_by = 6
-
-    def get_context_data(self, **kwargs):
-        context = super(ProductNews, self).get_context_data(**kwargs)
-        context["news"] = self.get_queryset()
-        context["special"] = News.objects.filter(is_special="True")
-        context["latest"] = News.objects.all()
-        context["category_list"] = Category.objects.filter(cate_type="news")
-        context["category"] = Course.objects.all()
-        context["advice"] = Advice.objects.all()
-        # context['newproduct'] = Product.objects.filter(is_product_new=True)
-
-        return context
-
-    def get_queryset(self):
-        queryset = super(ProductNews, self).get_queryset()
-        search_text = self.request.GET.get("search_text", None)
-        if search_text:
-            queryset = queryset.filter(
-                Q(title__icontains=search_text) | Q(content__icontains=search_text)
-            )
-        return queryset
-
-
-class OurParticipation(generic.ListView):
-    queryset = News.objects.filter(category="1")
-    template_name = "news/Ourpart.html"
-    paginate_by = 6
-
-    def get_context_data(self, **kwargs):
-        context = super(OurParticipation, self).get_context_data(**kwargs)
-        context["news"] = self.get_queryset()
-        context["special"] = News.objects.filter(is_special="True")
-        context["latest"] = News.objects.all()
-        context["category_list"] = Category.objects.filter(cate_type="news")
-        context["category"] = Course.objects.all()
-        context["advice"] = Advice.objects.all()
-        # context['newproduct'] = Product.objects.filter(is_product_new=True)
-
-        return context
-
-    def get_queryset(self):
-        queryset = super(OurParticipation, self).get_queryset()
-        search_text = self.request.GET.get("search_text", None)
-        if search_text:
-            queryset = queryset.filter(
-                Q(title__icontains=search_text) | Q(content__icontains=search_text)
-            )
-        return queryset
-
-
-# class OurParticipation(generic.ListView):
-#     queryset = News.objects.filter(category="3")
-#     template_name = "news/Ourpart.html"
-#     paginate_by = 6
-
-#     def get_context_data(self, **kwargs):
-#         context = super(OurParticipation, self).get_context_data(**kwargs)
-#         context["news"] = self.get_queryset()
-#         context["special"] = News.objects.filter(is_special="True")
-#         context["category_list"] = Category.objects.filter(cate_type="news")
-#         context["category"] = Course.objects.all()
-#         context["advice"] = Advice.objects.all()
-#         # context['newproduct'] = Product.objects.filter(is_product_new=True)
-
-#         return context
-
-#     def get_queryset(self):
-#         queryset = super(OurParticipation, self).get_queryset()
-#         search_text = self.request.GET.get("search_text", None)
-#         if search_text:
-#             queryset = queryset.filter(
-#                 Q(title__icontains=search_text) | Q(content__icontains=search_text)
-#             )
-#         return queryset
 
 
 class VideoNewsList(generic.ListView):

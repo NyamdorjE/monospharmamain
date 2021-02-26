@@ -13,7 +13,7 @@
 		<h1>Бүтээгдэхүүн</h1>
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="{% url 'website-homepage'%}">Нүүр хуудас</a></li>
-			<li class="breadcrumb-item"><a href="#">Бүтээгдэхүүн</a></li>
+			<li class="breadcrumb-item"><a href="{% url "product-product-list" %}">Бүтээгдэхүүн</a></li>
 			<li class="breadcrumb-item active" aria-current="page">Сонгосон бүтээгдэхүүн</li>
 		</ol>
 	</div>
@@ -51,10 +51,6 @@
 								<h3>{{ product.name }}</h3>
 								<div class="product-price"><ins>{{ product.price }}</ins></div>
 							</div>
-							<div class="line"></div>
-							<!-- Product Single - Short Description
-									============================================= -->
-							<p>{{ product.description|safe }}</p>
 							<ul class="list-group list-group-flush">
 								<li class="list-group-item d-flex justify-content-between align-items-center px-0">
 									<span class="text-muted">Олон улсын нэршил:</span><span
@@ -85,38 +81,49 @@
 										class="text-dark font-weight-semibold">{{ product.daatgal}}</span>
 								</li>
 							</ul>
-							<a href="{{ product.link }}" target="_blank" class=" button button-small button-circle
+								<a href="{{ product.link }}" target="_blank" class=" button button-small button-circle
 								button-green" style="background-color: #42935b; !important"><i class="icon-hand-right"></i>Худалдаж
 								авах</a>
-
-							<!-- Product Single - Share
-									============================================= -->
+							
+							<div class="line"></div>
+						
 
 						</div>
 
 						<div class="w-100"></div>
 
-						<div class="col-12 mt-5">
+						
+					</div>
+					<div class="col-12 mt-5">
 
-							<div class="tabs clearfix mb-0" id="tab-1">
-								<ul class="tab-nav clearfix">
-									<li><a href="#tabs-1"><i class="icon-align-justify2"></i><span
+							<div class="tabs tabs-alt tabs-tb clearfix ui-tabs ui-corner-all ui-widget ui-widget-content" id="tab-8">
+								<ul class="tab-nav clearfix ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
+								<li><a href="#tabs-1"><i class="icon-line-info"></i><span
+												class="d-none d-md-inline-block"> Бүтээгдэхүүний тайлбар</span></a></li>
+									<li><a href="#tabs-2"><i class="icon-align-justify2"></i><span
 												class="d-none d-md-inline-block"> Орц</span></a></li>
-									<li><a href="#tabs-2"><i class="icon-info-sign"></i><span
+									<li><a href="#tabs-3"><i class="icon-info-sign"></i><span
 												class="d-none d-md-inline-block"> Хэрэглэх заавар</span></a></li>
+									<li><a href="#tabs-4"><i class="icon-warning-sign"></i><span
+												class="d-none d-md-inline-block"> Анхааруулга</span></a></li>
 								</ul>
 								<div class="tab-container">
-									<div class="tab-content clearfix" id="tabs-1">
-										<p>{{ product.ingredients|safe }}</p>
+								<div class="tab-content clearfix" id="tabs-1">
+										<p>{{ product.description|safe }}</p>
 									</div>
 									<div class="tab-content clearfix" id="tabs-2">
-										<p> {{ product.suggest|safe }}</p>
+										<p>{{ product.ingredients|safe }}</p>
+									</div>
+									<div class="tab-content clearfix" id="tabs-3">
+										<p> {{ product.instructions|safe }}</p>
+									</div>
+									<div class="tab-content clearfix" id="tabs-4">
+										<p> {{ product.warnings|safe }}</p>
 									</div>
 
 								</div>
 							</div>
 						</div>
-					</div>
 				</div>
 			</div>
 			<div class="line"></div>

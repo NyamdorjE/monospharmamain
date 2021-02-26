@@ -40,7 +40,6 @@ class SignIn(UserCacheMixin, forms.Form):
         return password
 
 
-
 class SignInViaEmailOrUsernameForm(SignIn):
     email_or_username = forms.CharField(
         label=_("Имайл & Нэр"),
@@ -105,25 +104,36 @@ class SignUpForm(UserCreationForm):
         widget=forms.TextInput(attrs={"class": "form-control", "placeholder": "   "}),
     )
     phone = forms.CharField(
+        required=False,
         label=_("Утас дугаар"),
         widget=forms.TextInput(attrs={"class": "form-control", "placeholder": " "}),
     )
     register = forms.CharField(
+        required=False,
         label=_("Регистер"),
         widget=forms.TextInput(attrs={"class": "form-control", "placeholder": " "}),
     )
     district = forms.CharField(
+        required=False,
         label=_("Аймаг/дүүрэг"),
         widget=forms.TextInput(attrs={"class": "form-control", "placeholder": " "}),
     )
     organization_name = forms.CharField(
+        required=False,
         label=_("Байгууллагын нэр"),
         widget=forms.TextInput(attrs={"class": "form-control", "placeholder": " "}),
     )
-    category = forms.ChoiceField(choices=status_choices)
+    category = forms.ChoiceField(required=False, choices=status_choices)
     license_number = forms.CharField(
+        required=False,
         label=_("Лицензийн дугаар"),
-        widget=forms.TextInput(attrs={"class": "form-control", "placeholder": " "}),
+        help_text=_("Заавал бөглөх шаардлаггүй"),
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-control",
+                "placeholder": "",
+            }
+        ),
     )
     password1 = forms.CharField(
         label=_("Нууц үг"),
@@ -184,23 +194,29 @@ class PharmaSignUpView(UserCreationForm):
         widget=forms.TextInput(attrs={"class": "form-control", "placeholder": "   "}),
     )
     phone = forms.CharField(
+        required=False,
         label=_("Утас дугаар"),
         widget=forms.TextInput(attrs={"class": "form-control", "placeholder": " "}),
     )
     register = forms.CharField(
+        required=False,
         label=_("Регистер"),
         widget=forms.TextInput(attrs={"class": "form-control", "placeholder": " "}),
     )
     district = forms.CharField(
+        required=False,
         label=_("Аймаг/дүүрэг"),
         widget=forms.TextInput(attrs={"class": "form-control", "placeholder": " "}),
     )
     organization_name = forms.CharField(
+        required=False,
         label=_("Байгууллагын нэр"),
         widget=forms.TextInput(attrs={"class": "form-control", "placeholder": " "}),
     )
-    category = forms.ChoiceField(choices=status_choices)
+    category = forms.ChoiceField(required=False, choices=status_choices)
     license_number = forms.CharField(
+        help_text=_("Заавал бөглөх шаардлаггүй"),
+        required=False,
         label=_("Лицензийн дугаар"),
         widget=forms.TextInput(attrs={"class": "form-control", "placeholder": " "}),
     )

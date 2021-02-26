@@ -1,0 +1,51 @@
+{% extends 'news/index_2.html' %}
+{% load i18n %}
+
+{% load quiz_tags %}
+
+{% block title %} {% trans "Progress Page" %} {% endblock %}
+{% block description %} {% trans "User Progress Page" %} {% endblock %}
+
+{% block content %}
+
+
+{% if exams %}
+
+<hr>
+
+<h1>{% trans "Шалгалтын түүх" %}</h1>
+<p class="lead">
+</p>
+
+<table class="table table-bordered table-striped">
+
+	<thead>
+		<tr>
+			<th>{% trans "Шалгалтын нэр" %}</th>
+			<th>{% trans "Авсан оноо" %}</th>
+			<th>{% trans "Авах боломжтой оноо" %}</th>
+			<th>{% trans "Авсан дүн" %}%</th>
+		</tr>
+	</thead>
+
+	<tbody>
+
+		{% for exam in exams %}
+
+		<tr>
+			<td>{{ exam.quiz.title }}</td>
+			<td>{{ exam.current_score }}</td>
+			<td>{{ exam.get_max_score }}</td>
+			<td>{{ exam.get_percent_correct }}</td>
+		</tr>
+
+		{% endfor %}
+
+	</tbody>
+
+</table>
+
+{% endif %}
+
+
+{% endblock %}

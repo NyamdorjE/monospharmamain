@@ -89,7 +89,7 @@
           {% correct_answer_for_all question %}
 
           {% if question.user_answer %}
-          <p>{% trans "Your answer" %}: {{ question|answer_choice_to_string:question.user_answer }}</p>
+          <p>{% trans "Таны сонгосон хариулт" %}: {{ question|answer_choice_to_string:question.user_answer }}</p>
           {% endif %}
 
           <p><strong>{% trans "Explanation" %}:</strong></p>
@@ -108,5 +108,13 @@
     </div>
   </div>
 </section>
+<script type="text/javascript">
+  history.pushState(null, null, location.href);
+  history.back();
+  history.forward();
+  window.onpopstate = function () {
+    history.go(1);
+  };
+</script>
 
 {% endblock %}

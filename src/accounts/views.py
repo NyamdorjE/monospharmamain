@@ -150,6 +150,11 @@ class SignUpView(FormView):
         return redirect("accounts:log_in")
 
 
+"""
+Эмчээр бүртгүүлэх
+"""
+
+
 class PharmaSignUpView(FormView):
     template_name = "accounts/pharmasign_up.html"
     form_class = PharmaSignUpView
@@ -159,7 +164,6 @@ class PharmaSignUpView(FormView):
         user = form.save(commit=False)
 
         if settings.DISABLE_USERNAME:
-            # Set a temporary username
             user.username = get_random_string()
         else:
             user.username = form.cleaned_data["username"]
