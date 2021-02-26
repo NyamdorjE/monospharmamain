@@ -2,7 +2,7 @@
 {% load static humanize thumbnail %}
 {% load i18n %}
 {% block social_share %}
-{% with image=news.image %}
+{% with image=news.image.url %}
 {% if image %}
 <meta property="og:site_name" content="Monospharma.mn" />
 <meta property="og:type" content="news" />
