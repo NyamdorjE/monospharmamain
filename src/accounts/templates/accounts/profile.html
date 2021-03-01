@@ -13,8 +13,10 @@
 
 				<div class="col-md-9">
 
-					<img src="images/icons/avatar.jpg" class="alignleft img-circle img-thumbnail my-0" alt="Avatar"
+					<img src="{% static 'base/assets/images/avatar.jpg' %}" class="alignleft img-circle img-thumbnail my-0" alt="Avatar"
 						style="max-width: 84px;">
+					<iframe width=700 height=200 src="htt‍ps://www‍.youtube.com/live_chat?v=zFQFquAw74o&embed_domain=MONOSPHARMA.MN"></iframe>
+
 
 					<div class="heading-block border-0">
 						<h3>{{ user.username }}</h3>
@@ -32,19 +34,16 @@
 
 								<ul class="tab-nav clearfix">
 									<li><a href="#tab-feeds"><i class="icon-rss2"></i> Шалгалтын түүх</a></li>
-									<li><a href="#tab-posts"><i class="icon-pencil2"></i> Posts</a></li>
+									{% comment %} <li><a href="#tab-posts"><i class="icon-pencil2"></i> Posts</a></li>
 									<li><a href="#tab-replies"><i class="icon-reply"></i> Replies</a></li>
-									<li><a href="#tab-connections"><i class="icon-users"></i> Connections</a></li>
+									<li><a href="#tab-connections"><i class="icon-users"></i> Connections</a></li> {% endcomment %}
 								</ul>
 
 								<div class="tab-container">
 
 									<div class="tab-content clearfix" id="tab-feeds">
 
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium harum ea
-											quo! Nulla fugiat earum, sed corporis amet iste non, id facilis dolorum,
-											suscipit, deleniti ea. Nobis, temporibus magnam doloribus. Reprehenderit
-											necessitatibus esse dolor tempora ea unde, itaque odit. Quos.</p>
+										
 
 										<table class="table table-bordered table-striped">
 
@@ -75,7 +74,7 @@
 										</table>
 
 									</div>
-									<div class="tab-content clearfix" id="tab-posts">
+									{% comment %} <div class="tab-content clearfix" id="tab-posts">
 
 										<!-- Posts
 												============================================= -->
@@ -191,8 +190,8 @@
 											</div>
 										</div>
 
-									</div>
-									<div class="tab-content clearfix" id="tab-replies">
+									</div> {% endcomment %}
+									{% comment %} <div class="tab-content clearfix" id="tab-replies">
 
 										<div class="clear topmargin-sm"></div>
 										<ol class="commentlist border-0 m-0 p-0 clearfix">
@@ -286,8 +285,8 @@
 
 										</ol>
 
-									</div>
-									<div class="tab-content clearfix" id="tab-connections">
+									</div> {% endcomment %}
+									{% comment %} <div class="tab-content clearfix" id="tab-connections">
 
 										<div class="row topmargin-sm">
 											<div class="col-lg-3 col-md-6 bottommargin">
@@ -411,7 +410,7 @@
 											</div>
 										</div>
 
-									</div>
+									</div> {% endcomment %}
 
 								</div>
 
