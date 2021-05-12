@@ -154,7 +154,7 @@ class EmailAttachementView(generic.FormView, generic.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(EmailAttachementView, self).get_context_data(**kwargs)
-        context['anket'] = Questionnaire.objects.all()
+        context["anket"] = Questionnaire.objects.all()
         return context
 
     def post(self, request, *args, **kwargs):

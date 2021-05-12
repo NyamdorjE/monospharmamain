@@ -202,7 +202,7 @@ LOGIN_VIA_EMAIL = False
 LOGIN_VIA_EMAIL_OR_USERNAME = True
 LOGIN_REDIRECT_URL = "/"
 LOGIN_URL = "accounts:log_in"
-USE_REMEMBER_ME = False
+USE_REMEMBER_ME = True
 
 # Email verf
 RESTORE_PASSWORD_VIA_EMAIL_OR_USERNAME = True
@@ -230,3 +230,5 @@ SIGN_UP_FIELDS = [
 ]
 if DISABLE_USERNAME:
     SIGN_UP_FIELDS = ["email", "password1", "password2"]
+
+DEFAULT_FROM_EMAIL = "elastinex@gmail.com"
