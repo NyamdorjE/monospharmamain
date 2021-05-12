@@ -35,7 +35,7 @@ urlpatterns = [
     path("pharmasign-up/", PharmaSignUpView.as_view(), name="pharmasign_up"),
     path("register/", ChooseSignUpView.as_view(), name="register"),
     path("activate/<code>/", ActivateView.as_view(), name="activate"),
-    path("restore/password/", RestorePasswordView.as_view(), name="restore_password"),
+    path("restore/password/", RestorePasswordView.as_view(), name="restore-password"),
     path(
         "restore/password/done/",
         RestorePasswordDoneView.as_view(),
