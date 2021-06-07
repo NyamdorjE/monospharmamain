@@ -31,6 +31,7 @@
 
 					<!-- Shop
 							============================================= -->
+					{% if product %}
 					<div id="shop" class="shop row grid-container gutter-20" data-layout="fitRows">
 						{% for product in page_obj %}
 						<div class="product col-md-4 col-sm-6 col-12">
@@ -119,6 +120,10 @@
 						<!-- Endmodal -->
 						{% endfor %}
 					</div><!-- #shop end -->
+					{% else %}
+
+					<p> Бүтээгдэхүүн хоосон байна </p>
+					{% endif%}
 					{% include "news/pagination.html" %}
 				</div><!-- .postcontent end -->
 
@@ -126,19 +131,6 @@
 						============================================= -->
 				<div class="sidebar col-lg-3">
 					<div class="sidebar-widgets-wrap">
-
-						<div class="widget widget_links clearfix">
-							<h4>Ангиллал</h4>
-							<ul data-active-class="active-filter">
-								<li><a href="{% url 'product-product-list'%}" value="{{ cat_id }}">Бүгд</a></li>
-								{% for category in category %}
-								<li><a href="/product?cat_id={{category.id}}" value="{{ cat_id }}">{{ category }}</a>
-								</li>
-								{% endfor %}
-								<li><a href="{% url 'product-product-alphabet'%}">Үсгийн дараалал</a></li>
-							</ul>
-						</div>
-
 						<div class="widget widget-filter-links clearfix">
 
 							<h4>Хайлт</h4>
@@ -155,12 +147,17 @@
 
 
 						</div>
-
-
-
-
-
-
+						<div class="widget widget_links clearfix">
+							<h4>Ангиллал</h4>
+							<ul data-active-class="active-filter">
+								<li><a href="{% url 'product-product-list'%}" value="{{ cat_id }}">Бүгд</a></li>
+								{% for category in category %}
+								<li><a href="/product?cat_id={{category.id}}" value="{{ cat_id }}">{{ category }}</a>
+								</li>
+								{% endfor %}
+								<li><a href="{% url 'product-product-alphabet'%}">Үсгийн дараалал</a></li>
+							</ul>
+						</div>
 
 					</div>
 				</div><!-- .sidebar end -->
