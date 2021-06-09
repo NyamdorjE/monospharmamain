@@ -235,15 +235,15 @@ if DISABLE_USERNAME:
 
 DEFAULT_FROM_EMAIL = "elastinex@gmail.com"
 
-ASGI_APPLICATION = "monospharma.routing.application"
+# ASGI_APPLICATION = "monospharma.routing.application"
 
-ASGI_APPLICATION = "tchan.routing.application"
+ASGI_APPLICATION = "chatty.asgi.application"
 
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [("127.0.0.1", 8001)],
+            "hosts": [("127.0.0.1", 6379)],
         },
-    },
+    }
 }
