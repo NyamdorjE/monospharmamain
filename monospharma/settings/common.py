@@ -237,7 +237,7 @@ DEFAULT_FROM_EMAIL = "elastinex@gmail.com"
 
 # ASGI_APPLICATION = "monospharma.routing.application"
 
-ASGI_APPLICATION = "chatty.asgi.application"
+ASGI_APPLICATION = "monospharma.asgi.application"
 
 CHANNEL_LAYERS = {
     "default": {
