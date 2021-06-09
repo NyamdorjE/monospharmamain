@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "src.news.apps.NewsConfig",
     "src.website.apps.WebsiteConfig",
     "src.poll.apps.PollConfig",
+    "src.chat.apps.ChatConfig",
     "widget_tweaks",
     "ckeditor",
     "ckeditor_uploader",
@@ -58,6 +59,7 @@ INSTALLED_APPS = [
     "src.mcq",
     "django_social_share",
     "sorl.thumbnail",
+    "channels",
 ]
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
@@ -232,3 +234,7 @@ if DISABLE_USERNAME:
     SIGN_UP_FIELDS = ["email", "password1", "password2"]
 
 DEFAULT_FROM_EMAIL = "elastinex@gmail.com"
+
+ASGI_APPLICATION = "monospharma.routing.application"
+
+CHANNEL_LAYERS = {"default": {"BACKEND": "channels.layers.InMemoryChannelLayer"}}
