@@ -7,7 +7,7 @@ from django.core.asgi import get_asgi_application
 
 import chat.routing
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "chatty.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "monospharma.settings.production")
 
 application = ProtocolTypeRouter(
     {
