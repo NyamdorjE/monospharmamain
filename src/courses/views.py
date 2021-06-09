@@ -1,7 +1,5 @@
-import secrets
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, ListView, DetailView
-from src.courses.models import Subject, Lesson, Course, CourseCategory
 from django.shortcuts import render, get_object_or_404
 from django.views.generic.edit import FormView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -9,11 +7,10 @@ from django.contrib.auth.decorators import login_required
 from django.utils.translation import gettext_lazy as _
 from django.utils.decorators import method_decorator
 from django.db.models import Q
+from django.contrib.auth.models import User
 
-from django.contrib import messages
-
-
-# Create your views here.
+from src.courses.models import Subject, Lesson, Course, CourseCategory
+from src.chat.models import Message
 
 
 class HomeView(ListView):
@@ -22,8 +19,9 @@ class HomeView(ListView):
     paginate_by = 6
 
     @method_decorator(login_required)
-    def dispatch(self, request, *args, **kwargs):        
+    def dispatch(self, request, *args, **kwargs):
         return super(HomeView, self).dispatch(request, *args, **kwargs)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["category"] = self.get_queryset()
@@ -68,12 +66,11 @@ class LessonDetailView(FormView, LoginRequiredMixin):
     template_name = "courses/lesson_detail.html"
     success_url = "/thanks/"
 
-    # def get_success_url(self):
-    #     question = get_object_or_404(Question, pk=self.kwargs['pk'])
-    #     return reverse_lazy("courses-lesson-detail-view", kwargs={'pk': question.lesson.pk})
-
     def get(self, request, course_slug, lesson_slug, *args, **kwargs):
-        courses = Course.objects.all()
+        lesson1 = get_object_or_404(Lesson, slug=lesson_slug)
+        username = User.objects.filter(id=request.user.id).first()
+        messages = Message.objects.filter(lesson=lesson1)[0:25]
+
         subject = get_object_or_404(Subject, slug=course_slug)
         student_ids = Course.objects.get(pk=subject.course.id).students.values_list(
             "id", flat=True
@@ -84,104 +81,14 @@ class LessonDetailView(FormView, LoginRequiredMixin):
             lesson = get_object_or_404(Lesson, slug=lesson_slug)
 
             context = {
+                "name": username,
+                "messages": messages,
                 "lesson": lesson,
                 "course": course,
             }
             return render(request, "courses/lesson_detail.html", context)
         else:
             return redirect("courses:suggest")
-
-    # def get_context_data(self, **kwargs):
-    #     context = super(LessonDetailView, self).get_context_data(**kwargs)
-    #     context["subject"] = Subject.objects.all()
-    #
-    #     return context
-
-    # def post(self, request, *args, **kwargs):
-    #     for k, v in request.POST.items():
-    #         if k != 'csrfmiddlewaretoken':
-    #             answer = Answer.objects.filter(question__id=int(
-    #                 k.replace('_answers', '')), student=self.request.user).first()
-    #             if answer:
-    #                 messages.add_message(self.request, messages.ERROR,
-    #                                      u'%s асуултанд санал өгсөн байна. Дахин санал өгөх боломжгүй.' % answer.question.text)
-    #             else:
-    #                 Answer.objects.create(
-    #                     question_id=int(k.replace('_answers', '')),
-    #                     choice_id=int(v),
-    #                     student=request.user,
-    #                 )
-    #                 answered = True
-
-    # def get_form_kwargs(self):
-    #     kwargs = super(LessonDetailView, self).get_form_kwargs()
-    #     question = get_object_or_404(Question, pk=self.kwargs['pk'])
-    #     kwargs.update({'question': question})
-    #     return kwargs
-
-
-# class AnswerCreate(LoginRequiredMixin, FormView):
-#     form_class = QuestionForm
-
-#     def get_success_url(self):
-#         question = get_object_or_404(Question, pk=self.kwargs['pk'])
-#         return super(AnswerCreate, kwargs={'pk': question.meeting.pk})
-
-#     def get_context_data(self, **kwargs):
-#         context = super(AnswerCreate, self).get_context_data(**kwargs)
-#         question = get_object_or_404(Question, pk=self.kwargs['pk'])
-#         context['question'] = question
-#         return context
-
-#     def get_initial(self):
-#         initial = super(AnswerCreate, self).get_initial()
-#         question = get_object_or_404(Question, pk=self.kwargs['pk'])
-#         student = self.request.user
-#         if Answer.objects.filter(question=question, student=student).exists():
-#             initial['choice'] = Answer.objects.get(
-#                 question=question, student=student).choice
-#         return initial
-
-#     def get_form_kwargs(self):
-#         kwargs = super(AnswerCreate, self).get_form_kwargs()
-#         question = get_object_or_404(Question, pk=self.kwargs['pk'])
-#         kwargs.update({'question': question})
-#         return kwargs
-
-#     def form_valid(self, form):
-#         question = get_object_or_404(Question, pk=self.kwargs['pk'])
-#         student = self.request.user
-#         choice = get_object_or_404(Choice, pk=form.cleaned_data['choice'].id)
-#         if Answer.objects.filter(question=question, student=student).exists():
-#             form.add_error(None, u"Таны санал өгөх эрх дууссан байна.")
-#             return super(AnswerCreate, self).form_invalid(form)
-#         Answer.objects.create(
-#             question=question,
-#             choice=choice,
-#             student=student
-#         )
-#         messages.add_message(self.request, messages.SUCCESS,
-#                              u'Санал өгсөн танд баярлалаа.')
-#         return super(AnswerCreate, self).form_valid(form)
-
-# def get(self,request,course_slug,lesson_slug,*args,**kwargs):
-#
-#     course_qs = Course.objects.filter(slug=course_slug)
-#     if course_qs.exists():
-#         course = course_qs.first()
-#     lesson_qs = course.lessons.filter(slug=lesson_slug)
-#     if lesson_qs.exists():
-#         lesson = lesson_qs.first()
-#     user_membership = UserMembership.objects.filter(user=request.user).first()
-#     user_membership_type = user_membership.membership.membership_type
-#
-#     course_allowed_membership_type = course.allowed_memberships.all()
-#     context = {'lessons':None}
-#
-#     if course_allowed_membership_type.filter(membership_type=user_membership_type).exists():
-#         context = {'lesson':lesson}
-#
-#     return render(request,'courses/lesson_detail.html',context)
 
 
 @login_required
@@ -191,29 +98,3 @@ def SearchView(request):
         results = Lesson.objects.filter(title__contains=search)
         context = {"results": results}
         return render(request, "courses/search_result.html", context)
-
-
-# def student_feedback(request):
-#     feedback_data = FeedBackStudent.objects.filter()
-#     context = {
-#         "feedback_data": feedback_data
-#     }
-#     return render(request, "courses/student_feedback.html", context)
-
-
-# def student_feedback_save(request):
-#     if request.method != "POST":
-#         messages.error(request, "Invalid Method.")
-#         return redirect('student_feedback')
-#     else:
-#         feedback = request.POST.get('feedback_message')
-
-#         try:
-#             add_feedback = FeedBackStudent(
-#                 feedback=feedback, feedback_reply="")
-#             add_feedback.save()
-#             messages.success(request, "Feedback Sent.")
-#             return redirect('student_feedback')
-#         except:
-#             messages.error(request, "Failed to Send Feedback.")
-#             return redirect('student_feedback')
