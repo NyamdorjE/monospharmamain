@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<krpano>
+
+<!-- ************************ -->
+<!--         Messages         -->
+<!-- ************************ -->
+
+  <data name="en_project_title"><![CDATA[monos]]></data>
+
+
+
+  <data name="en_pano10_title"><![CDATA[гадаа талбай]]></data>
+  <data name="en_spotpoint48_tooltip"><![CDATA[очих]]></data>
+
+
+  <data name="en_pano11_title"><![CDATA[гутал солих өрөө]]></data>
+  <data name="en_spotpolygon53_tooltip"><![CDATA[гарах]]></data>
+  <data name="en_spotpolygon54_tooltip"><![CDATA[орох]]></data>
+
+
+  <data name="en_pano12_title"><![CDATA[капсул өнгөлөх өрөө]]></data>
+  <data name="en_spotpolygon62_tooltip"><![CDATA[гарах]]></data>
+
+
+  <data name="en_pano13_title"><![CDATA[савалгааны өрөө]]></data>
+  <data name="en_spotpolygon78_tooltip"><![CDATA[гарах]]></data>
+
+
+  <data name="en_pano14_title"><![CDATA[хатаах өрөө]]></data>
+  <data name="en_spotpolygon86_tooltip"><![CDATA[гарах]]></data>
+
+
+  <data name="en_pano15_title"><![CDATA[хяналтын өрөө]]></data>
+  <data name="en_spotpolygon204_tooltip"><![CDATA[гарах]]></data>
+
+
+  <data name="en_pano16_title"><![CDATA[эм шахах өрөө]]></data>
+  <data name="en_spotpolygon64_tooltip"><![CDATA[гарах]]></data>
+
+
+  <data name="en_pano24_title"><![CDATA[44]]></data>
+  <data name="en_spotpoint79_tooltip"><![CDATA[очих]]></data>
+  <data name="en_spotpoint80_tooltip"><![CDATA[очих]]></data>
+  <data name="en_spotpoint81_tooltip"><![CDATA[очих]]></data>
+
+
+  <data name="en_pano25_title"><![CDATA[55]]></data>
+  <data name="en_spotpoint59_tooltip"><![CDATA[очих]]></data>
+  <data name="en_spotpoint60_tooltip"><![CDATA[очих]]></data>
+  <data name="en_spotpolygon61_tooltip"><![CDATA[капсул өнгөлөх өрөө]]></data>
+
+
+  <data name="en_pano26_title"><![CDATA[66]]></data>
+  <data name="en_spotpolygon55_tooltip"><![CDATA[хяналтын өрөө]]></data>
+  <data name="en_spotpolygon56_tooltip"><![CDATA[гутал солих өрөө]]></data>
+  <data name="en_spotpoint57_tooltip"><![CDATA[очих]]></data>
+  <data name="en_spotpoint58_tooltip"><![CDATA[очих]]></data>
+
+
+  <data name="en_pano27_title"><![CDATA[77]]></data>
+  <data name="en_spotpolygon63_tooltip"><![CDATA[эм шахах өрөө]]></data>
+  <data name="en_spotpolygon65_tooltip"><![CDATA[бүрэгч машины өрөө]]></data>
+  <data name="en_spotpoint67_tooltip"><![CDATA[очих]]></data>
+  <data name="en_spotpoint68_tooltip"><![CDATA[очих]]></data>
+
+
+  <data name="en_pano28_title"><![CDATA[88]]></data>
+  <data name="en_spotpoint49_tooltip"><![CDATA[очих]]></data>
+  <data name="en_spotpolygon51_tooltip"><![CDATA[гутал солих өрөө]]></data>
+  <data name="en_spotpolygon52_tooltip"><![CDATA[гутал солих өрөө]]></data>
+
+
+  <data name="en_pano34_title"><![CDATA[100]]></data>
+
+
+  <data name="en_pano35_title"><![CDATA[99]]></data>
+  <data name="en_spotpolygon192_tooltip"><![CDATA[гарах]]></data>
+  <data name="en_spotpolygon193_tooltip"><![CDATA[Үйлдвэрлэлийн бүс]]></data>
+
+
+  <data name="en_pano38_title"><![CDATA[бүрэгч машины өрөө]]></data>
+  <data name="en_spotpolygon66_tooltip"><![CDATA[гарах]]></data>
+
+
+  <data name="en_pano39_title"><![CDATA[бүрэн холигч өрөө]]></data>
+  <data name="en_spotpolygon84_tooltip"><![CDATA[гарах]]></data>
+
+
+  <data name="en_pano42_title"><![CDATA[22]]></data>
+  <data name="en_spotpolygon75_tooltip"><![CDATA[орох]]></data>
+  <data name="en_spotpolygon76_tooltip"><![CDATA[орох]]></data>
+  <data name="en_spotpoint77_tooltip"><![CDATA[очих]]></data>
+
+
+  <data name="en_pano43_title"><![CDATA[11]]></data>
+  <data name="en_spotpolygon83_tooltip"><![CDATA[бүрэн холигч өрөө]]></data>
+  <data name="en_spotpolygon85_tooltip"><![CDATA[хатаах өрөө]]></data>
+  <data name="en_spotpoint178_tooltip"><![CDATA[очих]]></data>
+
+
+  <data name="en_pano44_title"><![CDATA[33]]></data>
+  <data name="en_spotpolygon70_tooltip"><![CDATA[савалгааны өрөө]]></data>
+  <data name="en_spotpoint71_tooltip"><![CDATA[очих]]></data>
+  <data name="en_spotpoint72_tooltip"><![CDATA[очих]]></data>
+  <data name="en_spotpoint73_tooltip"><![CDATA[очих]]></data>
+
+
+  <data name="en_pano95_title"><![CDATA[88.]]></data>
+  <data name="en_spotpoint96_tooltip"><![CDATA[очих]]></data>
+  <data name="en_spotpolygon97_tooltip"><![CDATA[гутал солих өрөө]]></data>
+  <data name="en_spotpolygon98_tooltip"><![CDATA[гутал солих өрөө]]></data>
+
+
+  <data name="en_pano108_title"><![CDATA[гутал солих өрөө.]]></data>
+  <data name="en_spotpolygon109_tooltip"><![CDATA[гарах]]></data>
+  <data name="en_spotpolygon110_tooltip"><![CDATA[орох]]></data>
+
+
+  <data name="en_pano118_title"><![CDATA[66.]]></data>
+  <data name="en_spotpolygon119_tooltip"><![CDATA[хяналтын өрөө]]></data>
+  <data name="en_spotpolygon120_tooltip"><![CDATA[гутал солих өрөө]]></data>
+  <data name="en_spotpoint121_tooltip"><![CDATA[очих]]></data>
+  <data name="en_spotpoint122_tooltip"><![CDATA[очих]]></data>
+
+
+  <data name="en_pano134_title"><![CDATA[77.]]></data>
+  <data name="en_spotpolygon135_tooltip"><![CDATA[эм шахах өрөө]]></data>
+  <data name="en_spotpolygon136_tooltip"><![CDATA[бүрэгч машины өрөө]]></data>
+  <data name="en_spotpoint137_tooltip"><![CDATA[очих]]></data>
+  <data name="en_spotpoint138_tooltip"><![CDATA[очих]]></data>
+
+
+  <data name="en_pano150_title"><![CDATA[33.]]></data>
+  <data name="en_spotpolygon151_tooltip"><![CDATA[савалгааны өрөө]]></data>
+  <data name="en_spotpoint152_tooltip"><![CDATA[очих]]></data>
+  <data name="en_spotpoint153_tooltip"><![CDATA[очих]]></data>
+  <data name="en_spotpoint154_tooltip"><![CDATA[очих]]></data>
+
+
+  <data name="en_pano166_title"><![CDATA[44.]]></data>
+  <data name="en_spotpoint167_tooltip"><![CDATA[очих]]></data>
+  <data name="en_spotpoint168_tooltip"><![CDATA[очих]]></data>
+  <data name="en_spotpoint169_tooltip"><![CDATA[очих]]></data>
+
+
+  <data name="en_pano180_title"><![CDATA[55.]]></data>
+  <data name="en_spotpoint181_tooltip"><![CDATA[очих]]></data>
+  <data name="en_spotpoint182_tooltip"><![CDATA[очих]]></data>
+  <data name="en_spotpolygon183_tooltip"><![CDATA[капсул өнгөлөх өрөө]]></data>
+
+
+  <data name="en_pano195_title"><![CDATA[99.]]></data>
+  <data name="en_spotpolygon196_tooltip"><![CDATA[гарах]]></data>
+  <data name="en_spotpolygon197_tooltip"><![CDATA[Үйлдвэрлэлийн бүс]]></data>
+
+
+
+
+	<data name="en_project_floor_title"><![CDATA[monos]]></data>
+	<data name="en_spotmap385_tooltip"><![CDATA[]]></data>
+	<data name="en_spotmap386_tooltip"><![CDATA[]]></data>
+	<data name="en_spotmap387_tooltip"><![CDATA[]]></data>
+	<data name="en_spotmap388_tooltip"><![CDATA[]]></data>
+	<data name="en_spotmap389_tooltip"><![CDATA[]]></data>
+	<data name="en_spotmap390_tooltip"><![CDATA[]]></data>
+	<data name="en_spotmap391_tooltip"><![CDATA[]]></data>
+	<data name="en_spotmap392_tooltip"><![CDATA[]]></data>
+	<data name="en_spotmap393_tooltip"><![CDATA[]]></data>
+	<data name="en_spotmap394_tooltip"><![CDATA[]]></data>
+	<data name="en_spotmap395_tooltip"><![CDATA[]]></data>
+	<data name="en_spotmap396_tooltip"><![CDATA[]]></data>
+	<data name="en_spotmap397_tooltip"><![CDATA[]]></data>
+	<data name="en_spotmap398_tooltip"><![CDATA[]]></data>
+	<data name="en_spotmap399_tooltip"><![CDATA[]]></data>
+	<data name="en_spotmap400_tooltip"><![CDATA[]]></data>
+	<data name="en_spotmap401_tooltip"><![CDATA[]]></data>
+	<data name="en_spotmap402_tooltip"><![CDATA[]]></data>
+	<data name="en_spotmap403_tooltip"><![CDATA[]]></data>
+	<data name="en_spotmap405_tooltip"><![CDATA[]]></data>
+
+
+  <data name="en_controlBar_classicopenFsTip"><![CDATA[Enter fullscreen]]></data>
+  <data name="en_controlBar_classiccloseFsTip"><![CDATA[Exit fullscreen]]></data>
+  <data name="en_controlBar_classicsoundsOnTip"><![CDATA[Start sounds]]></data>
+  <data name="en_controlBar_classicsoundsOffTip"><![CDATA[Stop sounds]]></data>
+  <data name="en_controlBar_classicgyroOnTip"><![CDATA[Enable gyroscope]]></data>
+  <data name="en_controlBar_classicgyroOffTip"><![CDATA[Disable gyroscope]]></data>
+  <data name="en_controlBar_classicgyroNotTip"><![CDATA[Gyroscope is unavailable]]></data>
+  <data name="en_controlBar_classicdisplayFloorplanTip"><![CDATA[Show floorplan]]></data>
+  <data name="en_controlBar_classichideFloorplanTip"><![CDATA[Hide floorplan]]></data>
+  <data name="en_controlBar_classicdisplayInfoTip"><![CDATA[Show information]]></data>
+  <data name="en_controlBar_classichideInfoTip"><![CDATA[Hide information]]></data>
+  <data name="en_controlBar_classicenterVRTip"><![CDATA[VR mode]]></data>
+  <data name="en_controlBar_classicenterVRNotTip"><![CDATA[VR mode is unavailable]]></data>
+  <data name="en_floorPlanmenu_label"><![CDATA[Select a floor plan]]></data>
+
+
+  <data name="en_vr_setup_hmd0"><![CDATA[SELECT YOUR HMD]]></data>
+  <data name="en_vr_setup_advanced"><![CDATA[ADVANCED SETTINGS]]></data>
+  <data name="en_vr_setup_title"><![CDATA[WEB VR SETTINGS]]></data>
+  <data name="en_vr_setup_dvn1"><![CDATA[Device:]]></data>
+  <data name="en_vr_setup_siz1"><![CDATA[Screen size:]]></data>
+  <data name="en_vr_setup_ipd1"><![CDATA[IPD:]]></data>
+  <data name="en_vr_setup_hmd1"><![CDATA[HMD:]]></data>
+  <data name="en_vr_setup_hmd3"><![CDATA[Customize]]></data>
+  <data name="en_vr_setup_cal"><![CDATA[Calibrate gyroscope]]></data>
+  <data name="en_vr_setup_sav"><![CDATA[SAVE]]></data>
+  <data name="en_vr_setup_rst"><![CDATA[RESET]]></data>
+  <data name="en_vr_setup_simple"><![CDATA[SIMPLE]]></data>
+  <data name="en_vr_setup_cls"><![CDATA[CLOSE]]></data>
+  <data name="en_vr_setup_m31"><![CDATA[HMD SETTINGS]]></data>
+  <data name="en_vr_setup_fov1"><![CDATA[FOV:]]></data>
+  <data name="en_vr_setup_dst1"><![CDATA[Distortion:]]></data>
+  <data name="en_vr_setup_d2tx"><![CDATA[Distortion 2:]]></data>
+  <data name="en_vr_setup_vig1"><![CDATA[Vignette:]]></data>
+  <data name="en_vr_setup_cac1"><![CDATA[Chromatic aberration:]]></data>
+  <data name="en_vr_setup_olp1"><![CDATA[Overlap:]]></data>
+  <data name="en_vr_setup_m35"><![CDATA[RETURN]]></data>
+  <data name="en_vr_setup_cb1"><![CDATA[GYROSCOPE]]></data>
+  <data name="en_vr_setup_cb2"><![CDATA[Place the device on a flat and[br]stable surface and tab CALIBRATE[br]to correct a gyroscope drifting.]]></data>
+  <data name="en_vr_setup_cb3"><![CDATA[CALIBRATE]]></data>
+  <data name="en_vr_setup_cb4"><![CDATA[RESET]]></data>
+  <data name="en_vr_setup_cb5"><![CDATA[RETURN]]></data>
+  <data name="en_vr_setup_cb6"><![CDATA[Calibrating...]]></data>
+  <data name="en_vr_setup_cb7"><![CDATA[Successful calibration]]></data>
+  <data name="en_vr_setup_cb8"><![CDATA[Calibration failed]]></data>
+  <data name="en_vr_setup_unavailable"><![CDATA[VR mode[br]is unavailable on your device]]></data>
+
+
+
+
+  <data name="en_pano10_description"><![CDATA[<p style="text-align:justify;text-justify:inter-ideograph;line-height:115%"><span lang="MN" style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-ansi-language:MN;mso-bidi-language:MN-MONG-CN">“Монос групп”-ын ерөнхийлөгч Л.Хүрэлбаатарын санаачилсан “Олон Улсын GMP стандартад нийцсэн эмийн үйлдвэрийнцогцолбор байгуулах” төсөл 2012 оноос эхэлсэн ба энэхүү төслийн үндсэн хөрөнгө оруулалт 9,8 сая доллар</span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-bidi-language:MN-MONG-CN"> (</span><span lang="MN" style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-ansi-language:MN;mso-bidi-language:MN-MONG-CN">20 орчим сая төгрөг</span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-bidi-language:MN-MONG-CN">)</span><span lang="MN" style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-ansi-language:MN;mso-bidi-language:MN-MONG-CN"> бөгөөд Монгол Улсын эм үйлдвэрлэлийн салбарт хийгдэж буй хамгийн том хөрөнгө оруулалт юм.</span><span lang="MN" style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-bidi-language:MN-MONG-CN"> </span><span lang="MN" style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-ansi-language:MN;mso-bidi-language:MN-MONG-CN">Энэхүү үйлдвэр ашиглалтад орсноор хуучин үйлдвэрийн хүчин чадлыг 3,5-4 дахин нэмэгдүүлж байгаа. </span><span lang="MN" style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-ansi-language:MN">Үйлдвэрийн бүсийнмодулийг ОХУ, казакстан, америк зэрэг дэлхийн олон орнуудад </span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">GMP </span><span lang="MN" style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-ansi-language:MN">модуль угсралтыг гүйцэтгэж байсан хонгконгт төвтэй Austar компани гүйцэтгэсэн ба үйлдвэрийн ерөнхий зохион байгуулалт нь .... <o:p></o:p></span></p><p style="text-align:justify;text-justify:inter-ideograph;line-height:115%"><span lang="MN" style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-ansi-language:MN">Зургийг монголд туршлага байхгүй тул тайван улсын эмүйлдвэрлэлийн зургийн эрх бүхий МАА инженеринг компаниар хийлэгсэн.&nbsp;<o:p></o:p></span></p>]]></data>
+
+
+
+  <data name="en_pano11_description"><![CDATA[<span style="font-family: 'Times New Roman', serif; line-height: 18.3999996185303px; text-align: justify;">Та бүхэн хувцас солих өрөөнд орж хамгаалах хувцас өмсөөд нэг удаагийн улавч өмсөж давдаг тавцангаар дамжин үйлдвэрлэлийн хэсэгт орно. Хамгаалах хувцас өмсөх зааварчилгааг орох хэсгийн өрөөний хананд байршуулсан ба зааварчилгааны дагуу хувцасаа өмссөн байх ёстой. &nbsp;</span>]]></data>
+
+
+
+  <data name="en_pano12_description"><![CDATA[<span lang="MN" style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-theme-font:minor-fareast;mso-ansi-language:MN;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">Z40 маркийн машинд капсулд дүүргэгдэх ба энэ машин нь&nbsp; цагт 40,000 ширхэг капсул дүүргэх хүчинчадалтай, метал илрүүлэгч, тоос сорогч төхөөрөмж давхар суурилуулагдсан. Энэхүү машины онцлог нь шахмал-шахмал, шахмал мөхлөг зэрэг хосолсон байдлаар эмийг савлах боломжтой төхөөрөмж&nbsp;</span>]]></data>
+
+
+
+  <data name="en_pano13_description"><![CDATA[<span lang="MN" style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-theme-font:minor-fareast;mso-ansi-language:MN;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">DPP 170 маркийн машин нь цагт 14,000 блистр эм савлах хүчин чадалтай бахуучин үйлдвэрийн хүчин чадлыг даруй 2 дахин нэмсэн байгаа. Энэ машинд гэрлээс хамгаалсан савлагааны материалаар эмийг савлах боломжтой.&nbsp;</span>]]></data>
+
+
+
+  <data name="en_pano14_description"><![CDATA[<p style="margin-left:.25in;mso-add-space:auto;text-align:justify;text-justify:inter-ideograph;text-indent:-.25in;line-height:115%;mso-list:l0 level2 lfo1"><span lang="MN" style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-ansi-language:MN">F</span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">L-</span><span lang="MN" style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-ansi-language:MN">200 маркийн мөхлөгжүүлэн хатаах төхөөрөмж нь </span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">дулаанагаар ашиглаж тоосруулан хатаах&nbsp;зарчимтай</span><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-ansi-language:MN"> <span lang="MN">ба энэ машины онцлог нь холбогч бодисын уусмалыг өөрөөсөө шүршигчтэй ба шүрших хурдыг тохируулан мөхлөг үүсэлтийг зохицуулдгаараа онцлог. Өөрөөр хэлбэл уламжлалт эм хатаах, нойтон болон хуурай мөхлөгжүүлэх олон үйлдлийг нэг зэрэг гүйцэтгэж, үйлдвэрлэлийн хугацааг 10 дахин богиносгох боломжтой.</span></span></p><p style="margin-left:.25in;mso-add-space:auto;text-align:justify;text-justify:inter-ideograph;text-indent:-.25in;line-height:115%;mso-list:l0 level2 lfo1"><span style="font-family: 'Times New Roman', serif; line-height: 115%; text-indent: -0.25in;">SMG400 маркийн холигч, мөхлөгжүүлэгч нь эмийн түүхий эдболон холбогч бодисыг нойтон болон хуурай хольдог ба FG200 маркийн хатаагчийн хатаадаг.Энэхүү төхөөрөмж нь мөн адил 400кг-ийн багтаамжтай 200 кг хүчин чадалтай байна.&nbsp;</span></p>]]></data>
+
+
+
+  <data name="en_pano15_description"><![CDATA[<span lang="MN" style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-theme-font:minor-fareast;mso-ansi-language:MN;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">Энэ хэсэгт чанарын хяналтын хэсгээс цуврал тус бүрээс дээж авч шаардлагатай хяналтыг Эм бэлдмэлийн сорилтын лабораторид гүйцэтгэх ба шаардлага хангасан найрлагууд дараагийн дамжлагад шилжих эрхтэй болно.&nbsp;&nbsp;</span>]]></data>
+
+
+
+  <data name="en_pano16_description"><![CDATA[<span lang="MN" style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-theme-font:minor-fareast;mso-ansi-language:MN;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">S250 маркийн эм шахаж хэлбэржүүлэх машин харагдаж байна. Машиныг германы дэлхийд алдартай Килиан пүүсийн патентаар итали хятадын хамтарсан үйлдвэрт үйлдвэрлэгдсэн. Энэхүү төхөөрөмж нь </span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-theme-font:minor-fareast;mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">(</span><span lang="MN" style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-theme-font:minor-fareast;mso-ansi-language:MN;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">26-32 пуансонтой</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-theme-font:minor-fareast;mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">)</span><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-theme-font:minor-fareast;mso-ansi-language:MN;mso-fareast-language:EN-US;mso-bidi-language:AR-SA"> <span lang="MN">цагт 250,000 ширхэг шахмал буюу&nbsp; жилд </span></span><span lang="MN" style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-theme-font:minor-fareast;mso-ansi-language:MN;mso-fareast-language:EN-US;mso-bidi-language:MN-MONG-CN">352 сая&nbsp;</span><span lang="MN" style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-theme-font:minor-fareast;mso-ansi-language:EN-US;mso-fareast-language:EN-US;mso-bidi-language:MN-MONG-CN"></span><span lang="MN" style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-theme-font:minor-fareast;mso-ansi-language:MN;mso-fareast-language:EN-US;mso-bidi-language:MN-MONG-CN">ширхэг шахмал эм үйлдвэрлэх хүчин чадалтай өөрөөр хэлбэр монгол улсын 1 хүн бүрд 100 шахмал ноогдохоор байна гэж үзэж болно. Ганц энэ машинаар монгол улсын шахмалын эмийн хэрэгцээг хангаж чадахаар болсон гэж ойлгож болно. </span><span lang="MN" style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;mso-fareast-theme-font:minor-fareast;mso-ansi-language:MN;mso-fareast-language:EN-US;mso-bidi-language:AR-SA">Метал илрүүлэгч, тооссорогч төхөөрөмж суурилуулагдсан энэ машин нь өөрөө шахаж буй эмийнхээ дундаж жинг хянаж шаардлага хангаагүй тохиолдолд ялгах чадвартайгаас гадна ямар нэгалдаа илэрвэл машин автоматаар зогсохоор программчилагдсан байгаа.&nbsp; Энэхүү машины давуу тал нь эм шахах голыгсалгаж цэвэрлэх боломжийг олгосон ба үйлдвэрлэлийн явцад цэвэрлэгээний цагхугацааг 4 дахин хэмнэх боломжийг хангаж өгсөнөөрөө онцлог байгаа</span>]]></data>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <data name="en_pano38_description"><![CDATA[<p style="text-align:justify;text-justify:inter-ideograph;text-indent:.5in;line-height:115%"></p><p style="text-align:justify;text-justify:inter-ideograph;text-indent:.5in;line-height:115%"><span lang="MN" style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-ansi-language:MN">BGB150 маркийн шахмал эм бүрэх машиныөрөө болон түүний техник үйлчилгээний өрөө байна. Энэ машин нь шахмал эмэнд ходоодонд болон нарийн гэдсэнд уусдаг хальсан бүрхүүл тавих төхөөрөмж ба 1цувралд 100-150 кг шахмал эмийг /3-4 цагт 1 цуврал бүтээгдэхүүн/ бүрэх хүчин чадалтай ба усан суурьтай уусмал ашиглан бүрэх ажиллагааг явуулдгаараа онцлог.<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>]]></data>
+
+
+
+  <data name="en_pano39_description"><![CDATA[<p style="margin-left:.25in;mso-add-space:auto;text-align:justify;text-justify:inter-ideograph;text-indent:-.25in;line-height:115%;mso-list:l0 level2 lfo1"><span lang="MN" style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;;mso-ansi-language:MN">Найрлагын хэсгээс бэлтгэгдэн гарсан мөхлөг бүтээгдэхүүнийг YHA-1 маркийн бүрэн холигч төхөөрөмжид оруулж холих ба &nbsp;эргэлдэх зарчмаар ажиллаж туслах бодисыг хольжөгдөг.&nbsp; Энэ төхөөрөмж нь 1 цувралд 400-600 кг бүтээгдэхүүн бэлтгэх хүчин чадалтай.&nbsp; Төхөөрөмж нь үйлдлээ хадгалах, хэвлэх ажиллагаатай ба аюулгүйн хэт улаан туяаны хамгаалалттай байна.&nbsp;<o:p></o:p></span></p>]]></data>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <data name="en_pano108_description"><![CDATA[<p style="text-align:justify;text-justify:inter-ideograph;line-height:115%"><span style="font-family: 'Times New Roman', serif; line-height: 18.3999996185303px;">Та бүхэн хувцас солих өрөөнд орж хамгаалах хувцас өмсөөд нэг удаагийн улавч өмсөж давдаг тавцангаар дамжин үйлдвэрлэлийн хэсэгт орно. Хамгаалах хувцас өмсөх зааварчилгааг орох хэсгийн өрөөний хананд байршуулсан ба зааварчилгааны дагуу хувцасаа өмссөн байх ёстой. &nbsp;</span></p><p style="text-align:justify;text-justify:inter-ideograph;line-height:115%"><span style="font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">&nbsp;<o:p></o:p></span></p>]]></data>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</krpano>

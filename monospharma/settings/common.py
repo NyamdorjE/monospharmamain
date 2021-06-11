@@ -12,10 +12,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 from django.utils.translation import gettext_lazy as _
 import os
-
+from pathlib import Path 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
+#BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -66,6 +66,7 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+   #'whitenoise.middleware.WhiteNoiseMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -74,6 +75,9 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.locale.LocaleMiddleware",
 ]
+
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 ROOT_URLCONF = "monospharma.urls"
 
@@ -157,6 +161,7 @@ LOCALE_PATHS = [os.path.join(BASE_DIR, "locale")]
 
 DATETIME_FORMAT = "Y/m/d H:s"
 
+use_websockets = True
 
 LANGUAGES = [
     ("mn", _("Mongolia")),

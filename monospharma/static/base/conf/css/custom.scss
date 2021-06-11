@@ -1,0 +1,137 @@
+@media (min-width: 576px) {
+    .modal-dialog-scrollable .modal-content {
+        max-height: calc(100vh - 3.5rem);
+    }
+}
+
+.modal-dialog-scrollable .modal-content {
+    max-height: calc(100vh - 1rem);
+    overflow: hidden;
+
+    .modal-body {
+        overflow-y: auto;
+    }
+}
+
+.shareholder-main {
+    ul {
+        font-size: 14px;
+    }
+
+    .nav-pills > li > .nav-link {
+        margin-top: 0;
+    }
+
+    .card-body {
+        background-color: #fff;
+    }
+}
+
+.shareholder-body {
+    &.login-body {
+        background-image: url(/static/conf/img/bg.jpg);
+        background-size: cover;
+
+        .card-body {
+            background: #a7a97708;
+        }
+
+        .close {
+            color: #fff;
+            opacity: 1;
+        }
+    }
+
+    button {
+        background: #122133 !important;
+
+        &:hover, &:focus {
+            background: #0B98A6 !important;
+        }
+    }
+
+    .main-header {
+        background-color: #122133 !important;
+
+        .logo-header {
+            background-color: #122133 !important;
+        }
+
+        .navbar-header {
+            background-color: #122133 !important;
+        }
+    }
+
+    .meeting-detail {
+        .nav-pills {
+            .nav-link {
+                &.active {
+                    background: #122133;
+                    color: #fff;
+                }
+
+                border: 1px solid #122133;
+
+                // background: #0B98A6;
+                // color: #fff;
+
+                &:hover, &:focus {
+                    background: #122133;
+                    color: #fff;
+                }
+            }
+        }
+
+        .tab-pane#question {
+            a {
+                color: #122133;
+                font-size: 16px;
+            }
+
+            font-size: 16px;
+
+            label {
+                font-weight: 400;
+            }
+        }
+
+        .g-recaptcha {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+    }
+
+    .table-intro {
+        thead tr {
+            border-bottom: 3px solid #000000;
+        }
+
+        .table-info, .table-info > td, .table-info > th {
+            // background-color: #0b98a673 !important;
+
+            td, th {
+                color: #122133;
+            }
+
+            th {
+                font-size: 16px;
+                border-bottom: 2px solid #000000;
+            }
+        }
+    }
+}
+
+.meeting-live{
+    padding: 10px;
+    background: #122133;
+    color: #fff;
+    border-radius: 5px;
+    border: 1px solid #122133;
+    font-weight: inherit;
+    width: max-content;
+}
+
+#yDmH0d{
+    overflow-y: hidden;
+}
