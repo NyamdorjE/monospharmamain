@@ -1,12 +1,9 @@
 {% extends 'news/index_2.html'%}
 {% load static humanize  %}
-{% load thumbnail %}
 
 {% block content %}
 
 <style>
-	/* Testimonials Carousel
------------------------------------------------------------------*/
 	.test-carousel .owl-stage {
 		padding-top: 40px;
 	}
@@ -84,12 +81,23 @@
 
 
 	.bg-overlay-bg op-ts op-1 {
-		background-color: rgb(34 64 43 / 55%);
+		background-color: rgb(34 64 43 / 90%);
+	}
+
+	.title-go {
+		font-size: 16px;
+		line-height: 18px;
+
+	}
+
+	.title-go>a {
+		font-family: "Raleway", sans-serif;
+		font-size: 16px;
+		line-height: 16px;
 	}
 </style>
 
-<!-- Content
-		============================================= -->
+
 <section id="slider" class="slider-element swiper_wrapper min-vh-75">
 	<div class="slider-inner">
 		<div class="swiper-container swiper-parent">
@@ -120,8 +128,7 @@
 								type='video/webm' />
 							<source src="{% static 'base/assets/images/videos/videoplayback.mp4' %}" type='video/mp4' />
 						</video>
-						{% comment %} <div class="video-overlay" style="background-color: rgba(0,0,0,0.55);"></div>
-						{% endcomment %}
+
 					</div>
 				</div>
 
@@ -175,326 +182,310 @@
 				<h1>Эм үйлдвэрлэлийг дэлхийн жишигт </h1>
 			</div>
 			<div class="row" style="margin-left:80px; margin-bottom: 70px; padding-top: 15px;" data-animate="fadeInUp">
-				{% comment %} <div class="col-lg-4 parallax" data-bottom-top="margin-top:-50px"
-					data-top-bottom="margin-top:50px">
-					<small class="text-muted text-uppercase font-weight-light ls4 mb-1 d-block">Experience</small>
-					<h2 class="font-weight-bold ls0 mb-4" style="font-size: 38px;">I have been taking photographs for
-						the last 7 years.</h2>
-					<p class="text-muted" style="font-size: 16px;">Lorem ipsum dolor sit amet, consectetur adipisicing
-						elit. Consequatur blanditiis saepe dolore tempora nihil praesentium dolorum unde, earum, nostrum
-						odit?</p>
-				</div> {% endcomment %}
-				{% comment %} <div class="col-lg-7"> {% endcomment %}
-					{% comment %} <div class="row"> {% endcomment %}
-						<div class="col-sm-4" style="max-width: 47%;">
-							<!-- Flip Card
+
+				<div class="col-sm-4" style="max-width: 47%;">
+					<!-- Flip Card
 										============================================= -->
-							<div class="flip-card">
-								<div class="flip-card-front no-after"
-									style="background-image: url('{% static 'base/assets/images/fliplogo/GMP.png' %}'); width: 300px; height:300px;">
-									<div class="flip-card-inner">
+					<div class="flip-card">
+						<div class="flip-card-front no-after"
+							style="background-image: url('{% static 'base/assets/images/fliplogo/GMP.png' %}'); width: 300px; height:300px;">
+							<div class="flip-card-inner">
 
-										</a>
+								</a>
+							</div>
+						</div>
+						<div class="flip-card-back dark"
+							style="background-image: url('{% static 'base/assets/images/fliplogo/GMP.png' %}'); width: 300px; height:300px;">
+							<div class="flip-card-inner mt-3">
+
+								<div class="feature-box media-box fbox-sm">
+									<div class="fbox-icon position-relative mb-4">
+
 									</div>
-								</div>
-								<div class="flip-card-back dark"
-									style="background-image: url('{% static 'base/assets/images/fliplogo/GMP.png' %}'); width: 300px; height:300px;">
-									<div class="flip-card-inner mt-3">
 
-										<div class="feature-box media-box fbox-sm">
-											<div class="fbox-icon position-relative mb-4">
-
-											</div>
-											{% comment %} <div class="fbox-content">
-												<h3 class="font-weight-normal nott">Дэлгэрэнгүй</h3>
-
-											</div> {% endcomment %}
-										</div>
-									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-4 mb-5" style="max-width: 47%;">
-							<!-- Flip Card
+					</div>
+				</div>
+				<div class="col-sm-4 mb-5" style="max-width: 47%;">
+					<!-- Flip Card
 										============================================= -->
-							<div class="flip-card">
-								<div class="flip-card-front no-after"
-									style="background-image: url('{% static 'base/assets/images/fliplogo/iso.png' %}'); width: 300px; height:300px;">
-									<div class="flip-card-inner">
+					<div class="flip-card">
+						<div class="flip-card-front no-after"
+							style="background-image: url('{% static 'base/assets/images/fliplogo/iso.png' %}'); width: 300px; height:300px;">
+							<div class="flip-card-inner">
 
-										</a>
+								</a>
+							</div>
+						</div>
+						<div class="flip-card-back dark"
+							style="background-image: url('{% static 'base/assets/images/fliplogo/iso.png' %}'); width: 300px; height:300px;">
+							<div class="flip-card-inner mt-3">
+
+								<div class="feature-box media-box fbox-sm">
+									<div class="fbox-icon position-relative mb-4">
+
 									</div>
-								</div>
-								<div class="flip-card-back dark"
-									style="background-image: url('{% static 'base/assets/images/fliplogo/iso.png' %}'); width: 300px; height:300px;">
-									<div class="flip-card-inner mt-3">
 
-										<div class="feature-box media-box fbox-sm">
-											<div class="fbox-icon position-relative mb-4">
-
-											</div>
-											{% comment %} <div class="fbox-content">
-												<h3 class="font-weight-normal nott">Дэлгэрэнгүй</h3>
-
-											</div> {% endcomment %}
-										</div>
-									</div>
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-4 mb-5" style="max-width: 47%;">
-							<!-- Flip Card
+					</div>
+				</div>
+				<div class="col-sm-4 mb-5" style="max-width: 47%;">
+					<!-- Flip Card
 										============================================= -->
-							<div class="flip-card">
-								<div class="flip-card-front no-after"
-									style="background-image: url('{% static 'base/assets/images/fliplogo/PECB.png' %}'); width: 300px; height:300px;">
-									<div class="flip-card-inner">
+					<div class="flip-card">
+						<div class="flip-card-front no-after"
+							style="background-image: url('{% static 'base/assets/images/fliplogo/PECB.png' %}'); width: 300px; height:300px;">
+							<div class="flip-card-inner">
 
-										</a>
+								</a>
+							</div>
+						</div>
+						<div class="flip-card-back dark"
+							style="background-image: url('{% static 'base/assets/images/fliplogo/PECB.png' %}'); width: 300px; height:300px;">
+							<div class="flip-card-inner mt-3">
+
+								<div class="feature-box media-box fbox-sm">
+									<div class="fbox-icon position-relative mb-4">
+
 									</div>
-								</div>
-								<div class="flip-card-back dark"
-									style="background-image: url('{% static 'base/assets/images/fliplogo/PECB.png' %}'); width: 300px; height:300px;">
-									<div class="flip-card-inner mt-3">
+									{% comment %} <div class="fbox-content">
+										<h3 class="font-weight-normal nott">Дэлгэрэнгүй</h3>
 
-										<div class="feature-box media-box fbox-sm">
-											<div class="fbox-icon position-relative mb-4">
-
-											</div>
-											{% comment %} <div class="fbox-content">
-												<h3 class="font-weight-normal nott">Дэлгэрэнгүй</h3>
-
-											</div> {% endcomment %}
-										</div>
-									</div>
+									</div> {% endcomment %}
 								</div>
 							</div>
 						</div>
-						{% comment %}
-					</div> {% endcomment %}
-					{% comment %} </div> {% endcomment %}
+					</div>
+				</div>
+				{% comment %}
+			</div> {% endcomment %}
+			{% comment %}
+		</div> {% endcomment %}
+	</div>
+	<div class="clear"></div>
+	<div class="fancy-title title-border title-center topmargin-sm" data-animate="fadeInUp">
+		<h3>Мэдээ мэдээлэл </h3>
+	</div>
+	<div class="tab-content clearfix" id="tabs-1" data-animate="fadeInUp">
+		<div class="row gutter-20 align-items-stretch">
+
+			{% for news in news|slice:"0:1" %}
+			<div class="col-md-6 min-vh-40">
+
+				<div class="grid-item">
+					<div class="grid-inner"
+						style="background: linear-gradient(to bottom, transparent, rgba(0,0,0,.5) 65%, rgba(0,0,0,0.9) 100%), url('{% if news.image %}{{ news.image.url }}{% endif %}') no-repeat center center / cover; height: 510px">
+						<div class="bg-overlay position-relative">
+							<div
+								class="bg-overlay-content flex-column justify-content-end align-items-start px-5 py-4 dark">
+								<div class="entry-meta mb-3">
+									<span class="badge badge-danger">{{ news.category }}</span>
+								</div>
+								<div class="entry-title title-sm">
+									<h3><a
+											href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}">{{ news.title }}.</a>
+									</h3>
+								</div>
+								<a href="#"><i class="icon-line-arrow-right btn-more"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="clear"></div>
-			<div class="fancy-title title-border title-center topmargin-sm" data-animate="fadeInUp">
-				<h3>Мэдээ мэдээлэл </h3>
-			</div>
-			<div class="tab-content clearfix" id="tabs-1" data-animate="fadeInUp">
-				<div class="row gutter-20 align-items-stretch">
-					{% for news in news|slice:"0:1" %}
-					<div class="col-md-6 min-vh-40">
-						<div class="grid-inner h-100"
-							style="background-image: url('{% if news.image %}{{ news.image.url }}{% endif %}');">
+			{% endfor %}
+
+			<div class="col-md-6 px-0">
+				<div class="row mx-0 gutter-20">
+
+					{% for news in news|slice:"1:2" %}
+					<div class="col-6">
+						<div class="grid-inner"
+							style="background: linear-gradient(to bottom, transparent, rgba(0,0,0,.5) 65%, rgba(0,0,0,0.9) 100%), url('{% if news.image %}{{ news.image.url }}{% endif %}') no-repeat center center / cover; height: 280px;">
+
 							<div class="bg-overlay">
+								<span class="badge badge-danger">{{ news.category }}</span>
+
 								<div
 									class="bg-overlay-content text-overlay-mask dark align-items-start justify-content-between">
-									<div>
-										<span class="badge badge-danger">{{ news.category }}</span>
-										<div class="portfolio-desc">
-											{% comment %} <span class="font-primary text-uppercase">Justin Bieber</span>
-											{% endcomment %}
-											<h3><a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
-													class="font-secondary">{{ news.title }}</a></h3>
-										</div>
-										<div>
+									<div class="portfolio-desc py-0">
+										<h3 class="title-go">
 											<a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
-												class="button button-circle button-small font-weight-normal ls1 ml-0 track-list"
-												data-track="demos/music/tracks/fallin-extended-mix.mp3"
-												data-poster="demos/music/tracks/poster-images/fallin-extended-mix.jpg"
-												data-title="Fallin Extended Mix" data-singer="Justin"><i
-													class="icon-play"></i>Цааш үзэх</a>
-										</div>
+												class="font-secondary">{{ news.title }}</a></h3>
 									</div>
 								</div>
-
+								<div class="bg-overlay-floating" data-hover-animate="fadeIn">
+									<a href="#"><i class="icon-line-heart"></i></a>
+									<a href="#"><i class="icon-line-ellipsis"></i></a>
+								</div>
 							</div>
 						</div>
 					</div>
 					{% endfor %}
+					{% for news in news|slice:"2:3" %}
+					<div class="col-6">
+						<div class="grid-inner"
+							style="background: linear-gradient(to bottom, transparent, rgba(0,0,0,.5) 65%, rgba(0,0,0,0.9) 100%), url('{% if news.image %}{{ news.image.url }}{% endif %}') no-repeat center center / cover; height: 280px;">
 
-					<div class="col-md-6 px-0">
-						<div class="row mx-0 gutter-20">
+							<div class="bg-overlay">
+								<span class="badge badge-danger">{{ news.category }}</span>
 
-							{% for news in news|slice:"1:2" %}
-							<div class="col-6">
-								<div class="grid-inner" style="height: 280px;">
-									<img src="{% if news.image %}{{ news.image.url }}{% endif %}" alt=""
-										style="width: 100%; height: 100%;">
-									<div class="bg-overlay">
-										<span class="badge badge-danger">{{ news.category }}</span>
-
-										<div
-											class="bg-overlay-content text-overlay-mask dark align-items-start justify-content-between">
-											<div class="portfolio-desc py-0">
-												<h3><a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
-														class="font-secondary">{{ news.title }}</a></h3>
-											</div>
-										</div>
-										<div class="bg-overlay-floating" data-hover-animate="fadeIn">
-											<a href="#"><i class="icon-line-heart"></i></a>
-											<a href="#"><i class="icon-line-ellipsis"></i></a>
-										</div>
+								<div
+									class="bg-overlay-content text-overlay-mask dark align-items-start justify-content-between">
+									<div class="portfolio-desc py-0">
+										<h3 class="title-go">
+											<a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
+												class="font-secondary">{{ news.title }}</a></h3>
 									</div>
 								</div>
-							</div>
-							{% endfor %}
-							{% for news in news|slice:"2:3" %}
-							<div class="col-6">
-								<div class="grid-inner" style="height: 280px;">
-									<img src="{% if news.image %}{{ news.image.url }}{% endif %}" alt=""
-										style="width: 100%; height: 100%;">
-									<div class="bg-overlay">
-										<span class="badge badge-danger">{{ news.category }}</span>
-
-										<div
-											class="bg-overlay-content text-overlay-mask dark align-items-start justify-content-between">
-											<div class="portfolio-desc py-0">
-
-												<h3><a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
-														class="font-secondary">{{ news.title }}</a></h3>
-											</div>
-										</div>
-										<div class="bg-overlay-floating" data-hover-animate="fadeIn">
-											<a href="#"><i class="icon-line-heart"></i></a>
-											<a href="#"><i class="icon-line-ellipsis"></i></a>
-										</div>
-									</div>
+								<div class="bg-overlay-floating" data-hover-animate="fadeIn">
+									<a href="#"><i class="icon-line-heart"></i></a>
+									<a href="#"><i class="icon-line-ellipsis"></i></a>
 								</div>
 							</div>
-							{% endfor %}
-							{% for advice in advice|slice:"0:1" %}
-							<div class="col-12">
-								<div class="entry-image" style="boder-bottom-width: 10px;">
-									<div class="card">
-										<div class="card-body">
-											<div class="author-image">
-												{% if advice.photo %}
-												{% thumbnail advice.photo "200x200" as photo %}
-												<img src="{{ photo.url }}" alt="Image" class="rounded-circle">
-												{% endthumbnail %}
-
-												{% else %}
-												<img src="{% static 'base/assets/images/advice/advice.png' %}"
-													alt="Image" class="rounded-circle"
-													style="width: 80px; height: 80px;">
-												{% endif %}
-											</div>
-											<h3>
-												<a href="{% url 'website-advice-detail' advice.slug  %}">{{ advice.title }}
-											</h3></a>
-											<p>{{ advice.content|safe|slice:":250"}}....</p>
-											<span>{{ advice.author }} | {{ advice.category }} |
-												{{ advice.created_on|naturalday:'Y-m-d'}}</span>
-
-										</div>
-									</div>
-								</div>
-							</div>
-							{% endfor %}
 						</div>
 					</div>
-
+					{% endfor %}
+					{% for advice in advice|slice:"0:1" %}
+					<div class="col-12">
+						<div class="entry-image" style="boder-bottom-width: 10px; height:210px;">
+							<div class="card" style="height:210px;">
+								<div class="card-body">
+									<div class="author-image">
+										{% if advice.photo %}
+										<img src="{{ photo.url }}" alt="Image" class="rounded-circle">
+										{% else %}
+										<img src="{% static 'base/assets/images/advice/advice.png' %}" alt="Image"
+											class="rounded-circle" style="width: 80px; height: 80px;">
+										{% endif %}
+									</div>
+									<a href="{% url 'website-advice-detail' advice.slug  %}">
+										<h3 class="title-go">
+											{{ advice.title }}
+										</h3>
+									</a>
+									<div class="entry-content">
+										<p style="font-size:12px;">{{ advice.content|safe|striptags|slice:":60"}}....
+										</p>
+										<span class="badge badge-danger">{{ advice.category }}</span>
+										<span style="margin-bottom:10px;"> | {{ advice.author }} |
+											{{ advice.created_on|naturalday:'Y-m-d'}}</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
 				</div>
 			</div>
 
-			<div class="clear"></div>
+		</div>
+	</div>
 
-			{% comment %} <div class="fancy-title title-border title-center topmargin-sm" data-animate="fadeInUp"
-				style="padding-top:50px; margin-bottom:60px;">
-				<h3>Онцлох бүтээгдэхүүн</h3>
+	<div class="clear"></div>
+
+
+
+	{% comment %} <div class="fancy-title title-border title-center topmargin-sm" data-animate="fadeInUp"
+		style="padding-top:50px; margin-bottom:60px;">
+		<h3>Онцлох бүтээгдэхүүн</h3>
+	</div>
+	<div class="row no-gap">
+		{% for leftfeatured in leftfeatured %}
+		<div class="col-lg-6 padding-0">
+			<div class="container">
+				<div class="border">
+					<img width="570" height="351" alt="" title="" class="vc_single_image-img  lazyloaded"
+						src="{% if leftfeatured.picture %}{{ leftfeatured.picture.url }}{% endif %}">
+					<a href="{{ leftfeatured.link_to_emonos }}"
+						class="button button-border button-circle button-dark bottom-right"
+						style="color: #3f8f56; border: 2px solid #3f8f56 !important;"
+						onmouseover="this.style.background='#dfeed8';" onmouseout="this.style.background='white';"><i
+							class="icon-repeat"></i>Цааш
+						унших</a>
+
+
+				</div>
 			</div>
-			<div class="row no-gap">
-				{% for leftfeatured in leftfeatured %}
-				<div class="col-lg-6 padding-0">
-					<div class="container">
-						<div class="border">
-							<img width="570" height="351" alt="" title="" class="vc_single_image-img  lazyloaded"
-								src="{% if leftfeatured.picture %}{{ leftfeatured.picture.url }}{% endif %}">
-							<a href="{{ leftfeatured.link_to_emonos }}"
-								class="button button-border button-circle button-dark bottom-right"
-								style="color: #3f8f56; border: 2px solid #3f8f56 !important;"
-								onmouseover="this.style.background='#dfeed8';"
-								onmouseout="this.style.background='white';"><i class="icon-repeat"></i>Цааш
-								унших</a>
+		</div>
+		{% endfor %}
+		{% for rigthfeatured in rigthfeatured %}
+		<div class="col-lg-6 padding-0">
+			<div class="container">
+				<div class="border ">
+					<img width="570" height="351" alt=" " title=" "
+						src="{% if rigthfeatured.picture %}{{ rigthfeatured.picture.url }}{% endif %}">
+					<a href="{{ rigthfeatured.link_to_emonos }}"
+						class="button button-border button-circle button-dark bottom-left"
+						style="color: #3f8f56; border: 2px solid #3f8f56 !important;"
+						onmouseover="this.style.background='#dfeed8';" onmouseout="this.style.background='white';"><i
+							class="icon-repeat"></i>Цааш
+						унших</a>
 
-
-						</div>
-					</div>
 				</div>
-				{% endfor %}
-				{% for rigthfeatured in rigthfeatured %}
-				<div class="col-lg-6 padding-0">
-					<div class="container">
-						<div class="border ">
-							<img width="570" height="351" alt=" " title=" "
-								src="{% if rigthfeatured.picture %}{{ rigthfeatured.picture.url }}{% endif %}">
-							<a href="{{ rigthfeatured.link_to_emonos }}"
-								class="button button-border button-circle button-dark bottom-left"
-								style="color: #3f8f56; border: 2px solid #3f8f56 !important;"
-								onmouseover="this.style.background='#dfeed8';"
-								onmouseout="this.style.background='white';"><i class="icon-repeat"></i>Цааш
-								унших</a>
+			</div>
+		</div>
+		{% endfor %}
+	</div> {% endcomment %}
 
-						</div>
-					</div>
-				</div>
-				{% endfor %}
-			</div> {% endcomment %}
-
-			<div class="row">
-				<div class="col-12">
-					<div class="tabs topmargin-lg clearfix" id="tab-3" data-animate="fadeInUp">
-						<ul class="tab-nav clearfix">
-							<li><a href="#tabs-9">Бүтээгдэхүүн</a></li>
-						</ul>
-						<div id="oc-products" class="owl-carousel products-carousel carousel-widget" data-margin="20"
-							data-loop="true" data-autoplay="5000" data-nav="true" data-pagi="false" data-items-xs="1"
-							data-items-sm="2" data-items-md="3" data-items-lg="3" data-items-xl="6">
-							<!-- Shop Item 5
+	<div class="row">
+		<div class="col-12">
+			<div class="tabs topmargin-lg clearfix" id="tab-3" data-animate="fadeInUp">
+				<ul class="tab-nav clearfix">
+					<li><a href="#tabs-9">Бүтээгдэхүүн</a></li>
+				</ul>
+				<div id="oc-products" class="owl-carousel products-carousel carousel-widget" data-margin="20"
+					data-loop="true" data-autoplay="5000" data-nav="true" data-pagi="false" data-items-xs="1"
+					data-items-sm="2" data-items-md="3" data-items-lg="3" data-items-xl="6">
+					<!-- Shop Item 5
 						============================================= -->
-							{% for product in newproduct %}
+					{% for product in newproduct %}
 
-							<div class="oc-item">
-								<div class="product">
-									<div class="product-image">
-										<a
-											href="{% if product %}{% url 'product-product-detail-view' product.pk  %} {% endif %}"><img
-												src="https://back.emonos.mn/{% if product.photo %}{{ product.photo.url }} {% endif %}"
-												alt=""></a>
-										<div class="bg-overlay">
-											<div class="bg-overlay-content align-items-end justify-content-between"
-												data-hover-animate="fadeIn" data-hover-speed="400">
+					<div class="oc-item">
+						<div class="product">
+							<div class="product-image">
+								<a
+									href="{% if product %}{% url 'product-product-detail-view' product.pk  %} {% endif %}"><img
+										src="https://back.emonos.mn/{% if product.photo %}{{ product.photo.url }} {% endif %}"
+										alt=""></a>
+								<div class="bg-overlay">
+									<div class="bg-overlay-content align-items-end justify-content-between"
+										data-hover-animate="fadeIn" data-hover-speed="400">
 
-												<a href="{% if product %}{% url 'product-product-detail-view' product.pk  %} {% endif %}"
-													class="btn btn-dark"><i class="icon-line-expand"></i></a>
-											</div>
-											<div class="bg-overlay-bg bg-transparent"></div>
-										</div>
+										<a href="{% if product %}{% url 'product-product-detail-view' product.pk  %} {% endif %}"
+											class="btn btn-dark"><i class="icon-line-expand"></i></a>
 									</div>
-									<div class="product-desc">
-										<div class="product-title">
-											<h5><a href="{% if product %}{% url 'product-product-detail-view' product.pk  %} {% endif %}"
-													style="color: #020202; !important">{{ product.name }}</a>
-											</h5>
-										</div>
-										<div class="product-price"> <ins
-												style="text-size: 15px; !important">{{ product.price }}</ins></div>
-
-									</div>
+									<div class="bg-overlay-bg bg-transparent"></div>
 								</div>
-
-
+							</div>
+							<div class="product-desc">
+								<div class="product-title">
+									<h5><a href="{% if product %}{% url 'product-product-detail-view' product.pk  %} {% endif %}"
+											style="color: #020202; !important">{{ product.name }}</a>
+									</h5>
+								</div>
+								<div class="product-price"> <ins
+										style="text-size: 15px; !important">{{ product.price }}</ins></div>
 
 							</div>
-							{% endfor %}
-
 						</div>
 
+
+
 					</div>
+					{% endfor %}
+
 				</div>
 
 			</div>
+		</div>
 
-			<div class="clear bottommargin-sm"></div>
+	</div>
+
+	<div class="clear bottommargin-sm"></div>
 </section>
 <section>
 	<div class="fancy-title title-border title-center topmargin-sm" data-animate="fadeInUp">

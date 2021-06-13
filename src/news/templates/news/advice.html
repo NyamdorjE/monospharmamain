@@ -16,7 +16,7 @@
 					<!-- Posts
 							============================================= -->
 					<div id="posts" class="row grid-container gutter-40">
-
+						{% if advice %}
 						{% for advice in advice %}
 						<div class="entry col-12">
 							<div class="grid-inner row no-gutters">
@@ -29,7 +29,7 @@
 
 										<div class="card">
 											<div class="card-body">
-												{{ advice.content|safe|slice:":250" }}...
+												{{ advice.content|striptags|safe|slice:":250" }}...
 											</div>
 										</div>
 									</div>
@@ -45,7 +45,9 @@
 							</div>
 						</div>
 						{% endfor %}
-
+						{% else %}
+						Зөвлөгөө байхгүй байна
+						{% endif %}
 
 					</div><!-- #posts end -->
 

@@ -17,7 +17,7 @@
 							============================================= -->
                     <div id="posts" class="row grid-container gutter-30">
 
-
+                        {% if video %}
                         {% for video in video %}
                         <div class="entry col-12">
                             <div class="grid-inner">
@@ -45,7 +45,10 @@
                         </div>
                         {% endfor %}
 
+                        {% else %}
+                        <p>Мэдээ олдсонгүй ....</p>
 
+                        {% endif %}
 
 
                     </div><!-- #posts end -->

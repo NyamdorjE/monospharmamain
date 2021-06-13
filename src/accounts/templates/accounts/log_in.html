@@ -1,65 +1,137 @@
-{% extends 'accounts/sign_up.html' %}
-{% load bootstrap4 %}
-{% load i18n %}
+{% load static %}
 {% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
 
-{% block content %}
+<head>
 
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="SemiColonWeb" />
 
-<section id="page-title">
+    <!-- Stylesheets
+	============================================= -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Lato:wght@400;500;600;700&display=swap"
+        rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{% static 'base/assets/css/bootstrap.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'base/assets/style.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'base/assets/css/swiper.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'base/assets/css/dark.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'base/assets/css/font-icons.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'base/assets/css/animate.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'base/assets/css/magnific-popup.css' %}" type="text/css" />
 
-	<div class="container clearfix">
-		<h1>Миний хаяг</h1>
-		<ol class="breadcrumb">
-			<li><a href="{% url 'website-homepage'%}">Нүүр хуудас/ </a></li>
-			<li class="active">Бүртгүүлэх</li>
-		</ol>
-	</div>
+    <link rel="stylesheet" href="{% static 'base/assets/css/custom.css '%}" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-</section><!-- #page-title end -->
+    <!-- Document Title
+	============================================= -->
+    <title>Нэвтрэх</title>
 
-<!-- Content
+    <style>
+        .svg-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 0;
+        }
+    </style>
+
+</head>
+
+<body class="stretched">
+
+    <!-- Document Wrapper
+	============================================= -->
+    <div id="wrapper" class="clearfix">
+
+        <!-- Hero Section
 		============================================= -->
-<section id="content">
+        <section id="slider" class="slider-element">
 
-	<div class="content-wrap">
+            <img src="{% static 'base/assets/images/log-in/hero-16.svg' %}" class="svg-bg d-none d-lg-block" alt="">
 
-		<div class="container clearfix">
+            <div class="vertical-middle min-vh-lg-100">
+                <div class="container py-5 py-lg-0">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-lg-5">
+                            <img style="height:600px;" src="{% static 'base/assets/images/log-in/chitamon.jpg' %}"
+                                alt="image" class="rounded-6 shadow border border-width border-width-5">
+                        </div>
+                        <div class="col-lg-5 mt-5 mt-lg-0">
+                            <div class="card border-0 p-4 rounded-4 shadow-lg">
+                                <div class="card-body">
+                                    <h2 class="mb-1">Нэвтрэх</h2>
+                                    <p class="mb-0" style="font-size:13px;">Эмчээр бүртүүлэх бол? <a
+                                            href="{% url 'accounts:sign_up' %}"> Энд дарна уу.</a></p>
+                                    <p class="mb-0" style="font-size:13px;">Эм зүйчээр бүртүүлэх бол? <a
+                                            href="{% url 'accounts:pharmasign_up' %}"> Энд дарна уу.</a></p>
+                                    <hr class="my-4">
 
-			<div class="accordion accordion-lg divcenter nobottommargin clearfix" style="max-width: 550px;">
+                                    <div class="d-flex">
 
-				<div class="acctitle"></i><i class="acc-open icon-unlock"></i>    Нэвтэрч
-					орох</div>
-				<div class="acc_content clearfix">
-					<form class="nobottommargin" action="#" method="post">
-						{% csrf_token %}
-						<div class="col_full">
-							{{ form.email_or_username|as_crispy_field }}
-						</div>
+                                    </div>
+                                    <form id="login-form" name="login-form" class="row mb-0 mt-4" action="#"
+                                        method="post">
+                                        {% csrf_token %}
 
-						<div class="col_full">
-							{{ form.password|as_crispy_field }}
-						</div>
+                                        <div class="col-12 form-group">
+                                            {{ form.email_or_username|as_crispy_field }}
 
-						<div class="col_full nobottommargin">
-							<button class="button button-3d button-black nomargin" id="login-form-submit"
-								name="login-form-submit" value="login">Нэвтрэх</button>
-							<a href="{% url 'accounts:sign_up' %}" class="fright">Бүртгүүлэх</a>
-						</div>
-					</form>
-				</div>
+                                        </div>
+
+                                        <div class="col-12 form-group">
+                                            {{ form.password|as_crispy_field }}
+
+                                        </div>
+
+                                        <div class="col-12 form-group">
+
+                                        </div>
+
+                                        <div class="col-12 mt-2">
+                                            <button class="button button-dark bg-dark m-0 w-100 rounded"
+                                                id="register-form-submit" name="register-form-submit" value="register">
+                                                Нэвтрэх</button>
+                                        </div>
+                                    </form>
+                                    <p class="mb-0" style="font-size:13px;">Вэб сайтлуу буцах бол -> <a
+                                            href="{% url 'website-homepage' %}">Энд дарна уу?</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Content
+		============================================= -->
+        <section id="content">
+            <div class="content-wrap py-0">
+
+            </div>
+        </section><!-- #content end -->
 
 
+    </div><!-- #wrapper end -->
 
+    <!-- Go To Top
+	============================================= -->
+    <div id="gotoTop" class="icon-angle-up"></div>
 
-			</div>
+    <!-- JavaScripts
+	============================================= -->
+    <script src="{% static 'base/assets/js/jquery.js' %}"></script>
+    <script src="{% static 'base/assets/js/plugins.min.js' %}"></script>
 
-		</div>
+    <script src="{% static 'base/assets/js/jquery.hotspot.js' %}"></script>
 
-	</div>
+    <!-- Footer Scripts
+	============================================= -->
+    <script src="{% static 'base/assets/js/functions.js' %}"></script>
 
-</section><!-- #content end -->
+</body>
 
-
-
-{% endblock %}
+</html>

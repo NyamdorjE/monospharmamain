@@ -110,7 +110,7 @@ class SignUpView(FormView):
             user.username = form.cleaned_data["username"]
 
         if settings.ENABLE_USER_ACTIVATION:
-            user.is_active = False
+            user.is_active = True
 
         # Create a user record
         user.save()
@@ -121,7 +121,6 @@ class SignUpView(FormView):
             user.save()
 
         if settings.ENABLE_USER_ACTIVATION:
-
             act = Profile()
             act.user = user
             act.email = user.email
@@ -169,7 +168,7 @@ class PharmaSignUpView(FormView):
             user.username = form.cleaned_data["username"]
 
         if settings.ENABLE_USER_ACTIVATION:
-            user.is_active = False
+            user.is_active = True
 
         # Create a user record
         user.save()
