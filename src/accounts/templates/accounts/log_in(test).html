@@ -1,0 +1,65 @@
+{% extends 'accounts/sign_up.html' %}
+{% load bootstrap4 %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+<section id="page-title">
+
+	<div class="container clearfix">
+		<h1>Миний хаяг</h1>
+		<ol class="breadcrumb">
+			<li><a href="{% url 'website-homepage'%}">Нүүр хуудас/ </a></li>
+			<li class="active">Бүртгүүлэх</li>
+		</ol>
+	</div>
+
+</section><!-- #page-title end -->
+
+<!-- Content
+		============================================= -->
+<section id="content">
+
+	<div class="content-wrap">
+
+		<div class="container clearfix">
+
+			<div class="accordion accordion-lg divcenter nobottommargin clearfix" style="max-width: 550px;">
+
+				<div class="acctitle"></i><i class="acc-open icon-unlock"></i>    Нэвтэрч
+					орох</div>
+				<div class="acc_content clearfix">
+					<form class="nobottommargin" action="#" method="post">
+						{% csrf_token %}
+						<div class="col_full">
+							{{ form.email_or_username|as_crispy_field }}
+						</div>
+
+						<div class="col_full">
+							{{ form.password|as_crispy_field }}
+						</div>
+
+						<div class="col_full nobottommargin">
+							<button class="button button-3d button-black nomargin" id="login-form-submit"
+								name="login-form-submit" value="login">Нэвтрэх</button>
+							<a href="{% url 'accounts:sign_up' %}" class="fright">Бүртгүүлэх</a>
+						</div>
+					</form>
+				</div>
+
+
+
+
+			</div>
+
+		</div>
+
+	</div>
+
+</section><!-- #content end -->
+
+
+
+{% endblock %}

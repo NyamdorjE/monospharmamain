@@ -52,78 +52,108 @@
 								<div class="product-price"><ins>{{ product.price }}</ins></div>
 							</div>
 							<ul class="list-group list-group-flush">
+								{% if product.international_name %}
 								<li class="list-group-item d-flex justify-content-between align-items-center px-0">
 									<span class="text-muted">Олон улсын нэршил:</span><span
 										class="text-dark font-weight-semibold">{{ product.international_name}}</span>
 								</li>
+								{% else %}
+								{% endif %}
+								{% if product.categories %}
 								<li class="list-group-item d-flex justify-content-between align-items-center px-0">
 									<span class="text-muted">Тогтолцоо:</span><span
 										class="text-dark font-weight-semibold">{{ product.categories}}</span>
 								</li>
+								{% else %}
+								{% endif %}
+								{% if product.classification %}
+
 								<li class="list-group-item d-flex justify-content-between align-items-center px-0">
 									<span class="text-muted">Ангилал:</span><span
 										class="text-dark font-weight-semibold">{{ product.classification }}</span>
 								</li>
+								{% else %}
+								{% endif %}
+								{% if product.producttype %}
+
 								<li class="list-group-item d-flex justify-content-between align-items-center px-0">
 									<span class="text-muted">Төрөл:</span><span
 										class="text-dark font-weight-semibold">{{ product.producttype }}</span>
 								</li>
+								{% else %}
+								{% endif %}
+								{% if product.productForm %}
+
 								<li class="list-group-item d-flex justify-content-between align-items-center px-0">
 									<span class="text-muted">Хэлбэр:</span><span
 										class="text-dark font-weight-semibold">{{ product.productForm}}</span>
 								</li>
+								{% else %}
+								{% endif %}
+								{% if product.jor %}
+
 								<li class="list-group-item d-flex justify-content-between align-items-center px-0">
 									<span class="text-muted">Жор:</span><span
 										class="text-dark font-weight-semibold">{{ product.jor}}</span>
 								</li>
+								{% else %}
+								{% endif %}
+								{% if product.daatgal %}
+
 								<li class="list-group-item d-flex justify-content-between align-items-center px-0">
 									<span class="text-muted">Даатгал:</span><span
 										class="text-dark font-weight-semibold">{{ product.daatgal}}</span>
 								</li>
+								{% else %}
+								{% endif %}
 							</ul>
-								<a href="{{ product.link }}" target="_blank" class=" button button-small button-circle
+							<a href="" target="_blank" class=" button button-small button-circle
 								button-green" style="background-color: #42935b; !important"><i class="icon-hand-right"></i>Худалдаж
 								авах</a>
-							
+							{% comment %} <a href="{{ product.link }}" class="link link-11 text-uppercase">Худалдаж
+								авах</a> {% endcomment %}
+
 							<div class="line"></div>
-						
+
 
 						</div>
 
 						<div class="w-100"></div>
 
-						
+
 					</div>
 					<div class="col-12 mt-5">
 
-							<div class="tabs tabs-alt tabs-tb clearfix ui-tabs ui-corner-all ui-widget ui-widget-content" id="tab-8">
-								<ul class="tab-nav clearfix ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
+						<div class="tabs tabs-alt tabs-tb clearfix ui-tabs ui-corner-all ui-widget ui-widget-content"
+							id="tab-8">
+							<ul
+								class="tab-nav clearfix ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header">
 								<li><a href="#tabs-1"><i class="icon-line-info"></i><span
-												class="d-none d-md-inline-block"> Бүтээгдэхүүний тайлбар</span></a></li>
-									<li><a href="#tabs-2"><i class="icon-align-justify2"></i><span
-												class="d-none d-md-inline-block"> Орц</span></a></li>
-									<li><a href="#tabs-3"><i class="icon-info-sign"></i><span
-												class="d-none d-md-inline-block"> Хэрэглэх заавар</span></a></li>
-									<li><a href="#tabs-4"><i class="icon-warning-sign"></i><span
-												class="d-none d-md-inline-block"> Анхааруулга</span></a></li>
-								</ul>
-								<div class="tab-container">
+											class="d-none d-md-inline-block"> Бүтээгдэхүүний тайлбар</span></a></li>
+								<li><a href="#tabs-2"><i class="icon-align-justify2"></i><span
+											class="d-none d-md-inline-block"> Орц</span></a></li>
+								<li><a href="#tabs-3"><i class="icon-info-sign"></i><span
+											class="d-none d-md-inline-block"> Хэрэглэх заавар</span></a></li>
+								<li><a href="#tabs-4"><i class="icon-warning-sign"></i><span
+											class="d-none d-md-inline-block"> Анхааруулга</span></a></li>
+							</ul>
+							<div class="tab-container">
 								<div class="tab-content clearfix" id="tabs-1">
-										<p>{{ product.description|safe }}</p>
-									</div>
-									<div class="tab-content clearfix" id="tabs-2">
-										<p>{{ product.ingredients|safe }}</p>
-									</div>
-									<div class="tab-content clearfix" id="tabs-3">
-										<p> {{ product.instructions|safe }}</p>
-									</div>
-									<div class="tab-content clearfix" id="tabs-4">
-										<p> {{ product.warnings|safe }}</p>
-									</div>
-
+									<p>{{ product.description|striptags|safe }}</p>
 								</div>
+								<div class="tab-content clearfix" id="tabs-2">
+									<p>{{ product.ingredients|striptags|safe }}</p>
+								</div>
+								<div class="tab-content clearfix" id="tabs-3">
+									<p> {{ product.instructions|striptags|safe }}</p>
+								</div>
+								<div class="tab-content clearfix" id="tabs-4">
+									<p> {{ product.warnings|striptags|safe }}</p>
+								</div>
+
 							</div>
 						</div>
+					</div>
 				</div>
 			</div>
 			<div class="line"></div>

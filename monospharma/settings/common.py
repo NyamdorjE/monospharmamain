@@ -12,10 +12,12 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 from django.utils.translation import gettext_lazy as _
 import os
-from pathlib import Path 
+from pathlib import Path
+import mimetypes
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-#BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent 
+# BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -47,26 +49,29 @@ INSTALLED_APPS = [
     "src.website.apps.WebsiteConfig",
     "src.poll.apps.PollConfig",
     "src.chat.apps.ChatConfig",
-    "widget_tweaks",
+    # "widget_tweaks",
     "ckeditor",
     "ckeditor_uploader",
     "registration",
     "crispy_forms",
-    "bootstrap4",
+    # "bootstrap4",
     "nested_inline",
-    "django_extensions",
-    "src.quiz",
-    "src.mcq",
-    "django_social_share",
-    "sorl.thumbnail",
+    # "django_extensions",
+    "src.quiz.apps.QuizConfig",
+    "src.mcq.apps.McqConfig",
+    # "django_social_share",
+    # "sorl.thumbnail",
     "channels",
 ]
+
+mimetypes.add_type("text/css", ".css", True)
+
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
-   #'whitenoise.middleware.WhiteNoiseMiddleware',
+    #'whitenoise.middleware.WhiteNoiseMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -76,7 +81,7 @@ MIDDLEWARE = [
     "django.middleware.locale.LocaleMiddleware",
 ]
 
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 ROOT_URLCONF = "monospharma.urls"

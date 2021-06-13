@@ -5,7 +5,13 @@
 
 {% block content %}
 
+<style>
+	.widget-container-shadow {
+		outline: 2px solid rgba(188, 187, 155, 0.22);
 
+		outline-offset: 19px;
+	}
+</style>
 <section id="page-title">
 
 	<div class="container clearfix">
@@ -34,35 +40,32 @@
 					{% if product %}
 					<div id="shop" class="shop row grid-container gutter-20" data-layout="fitRows">
 						{% for product in page_obj %}
-						<div class="product col-md-4 col-sm-6 col-12">
-							<div class="grid-inner">
-								<div class="product-photo">
+						<div class="product col-md-4 col-sm-6 text-center">
+							<div class="grid-inner card border-0 h-shadow h-translatey-sm all-ts">
+								<div class="product-image">
 									<a
-										href="https://back.emonos.mn/{% if product %}{% url 'product-product-detail-view' product.pk  %} {% endif %}"><img
-											src="https://back.emonos.mn/{{ product.photo.url}}"
-											style="	max-width: 100%;text-align: center;padding: 6px;background: #fbfafb;border: 1px solid #e7e7e7;line-height: 0;margin-bottom: 12px;"
-											alt=""></a>
+										href="{% if product %}{% url 'product-product-detail-view' product.pk  %} {% endif %}"><img
+											src="https://back.emonos.mn//media/product/60000355308875375892464071513032465516589616737587144599.JPG"
+											alt="Product Image"></a>
+
 
 									<div class="bg-overlay">
 										<div class="bg-overlay-content align-items-end justify-content-between"
 											data-hover-animate="fadeIn" data-hover-speed="400">
+
 											<a href="{% if product %}{% url 'product-product-detail-view' product.pk  %} {% endif %}"
-												class="btn btn-dark mr-2"><i class="icon-zoom-in"></i></a>
-											{% comment %} <a href="#{{ product.product_id}}" data-lightbox="inline"
-												class="btn btn-dark" data-lightbox="ajax"><i
-													class="icon-line-expand"></i></a> {% endcomment %}
+												class="btn btn-dark"><i class="icon-line-expand"></i></a>
 										</div>
 										<div class="bg-overlay-bg bg-transparent"></div>
 									</div>
 								</div>
-								<div class="product-desc" style="text-align: center;">
+								<div class="product-desc">
 									<div class="product-title">
-										<h3 style="font-size: 17px; "> <a
+										<h3><a
 												href="{% if product %}{% url 'product-product-detail-view' product.pk  %} {% endif %}">{{ product.name }}</a>
 										</h3>
 									</div>
-									<div class="product-price"><ins style="font-size : 16px;">{{ product.price }}</ins>
-									</div>
+
 
 								</div>
 							</div>
@@ -71,7 +74,7 @@
 
 						<!--Modal -->
 
-						<div class="modalone mfp-hide" id="{{ product.product_id}}" style="position: absolute !important; top: 50% !important; left: 50% !important; transform: translate(-50%, -50%)
+						{% comment %} <div class="modalone mfp-hide" id="{{ product.product_id}}" style="position: absolute !important; top: 50% !important; left: 50% !important; transform: translate(-50%, -50%)
 							!important;">
 							<div class="block divcenter">
 								<div class="product modal-padding" style="background-color: white;">
@@ -116,7 +119,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> {% endcomment %}
 						<!-- Endmodal -->
 						{% endfor %}
 					</div><!-- #shop end -->
@@ -131,32 +134,40 @@
 						============================================= -->
 				<div class="sidebar col-lg-3">
 					<div class="sidebar-widgets-wrap">
-						<div class="widget widget-filter-links clearfix">
+						<div class="widget-container-shadow">
+							<div class="widget widget-filter-links clearfix">
+								<h4>Хайлт</h4>
+								<div class="line line-xs line-lifestyle"></div>
 
-							<h4>Хайлт</h4>
-							<form action="#" role="form" class="notopmargin nobottommargin">
-								<div class="input-group divcenter">
-									<input type="text" class="form-control" name="search_text"
-										placeholder="Энд хайх утгаа бичнэ үү." value="{{ search_text }}">
-									<span class="input-group-btn">
-										<button class="btn btn-success" type="submit"><i
-												class="icon-email2"></i></button>
-									</span>
-								</div>
-							</form>
+								<form action="#" role="form" class="notopmargin nobottommargin">
+									<div class="input-group divcenter">
+										<input type="text" class="form-control" name="search_text"
+											placeholder="Энд хайх утгаа бичнэ үү." value="{{ search_text }}">
+										<span class="input-group-btn">
+											<button class="btn btn-success" type="submit"><i
+													class="icon-email2"></i></button>
+										</span>
+									</div>
+								</form>
 
-
+							</div>
 						</div>
 						<div class="widget widget_links clearfix">
-							<h4>Ангиллал</h4>
-							<ul data-active-class="active-filter">
-								<li><a href="{% url 'product-product-list'%}" value="{{ cat_id }}">Бүгд</a></li>
-								{% for category in category %}
-								<li><a href="/product?cat_id={{category.id}}" value="{{ cat_id }}">{{ category }}</a>
-								</li>
-								{% endfor %}
-								<li><a href="{% url 'product-product-alphabet'%}">Үсгийн дараалал</a></li>
-							</ul>
+							<div class="widget-container-shadow">
+
+								<h4>Ангиллал</h4>
+								<div class="line line-xs line-lifestyle"></div>
+
+								<ul data-active-class="active-filter">
+									<li><a href="{% url 'product-product-list'%}" value="{{ cat_id }}">Бүгд</a></li>
+									{% for category in category %}
+									<li><a href="/product?cat_id={{category.id}}"
+											value="{{ cat_id }}">{{ category }}</a>
+									</li>
+									{% endfor %}
+									<li><a href="{% url 'product-product-alphabet'%}">Үсгийн дараалал</a></li>
+								</ul>
+							</div>
 						</div>
 
 					</div>

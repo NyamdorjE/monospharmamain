@@ -57,7 +57,7 @@
             </div>
 
         </div>
-        <div class="widget clearfix">
+        {% comment %} <div class="widget clearfix">
 
 
             <h4>Зөвлөгөө</h4>
@@ -86,7 +86,7 @@
                 </div>
             </div>
 
-        </div>
+        </div> {% endcomment %}
 
 
 
@@ -132,8 +132,8 @@
             <h4>Aнгилал</h4>
             <div class="tagcloud">
                 {% for category in category_list %}
-                	<li><a href="/news?news_id={{category.id}}" value="{{ news_id }}">{{ category }}</a>
-								</li>
+                <li><a href="/news?news_id={{category.id}}" value="{{ news_id }}">{{ category }}</a>
+                </li>
                 {% endfor %}
             </div>
 
