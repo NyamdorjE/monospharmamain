@@ -44,9 +44,8 @@
 							<div class="grid-inner card border-0 h-shadow h-translatey-sm all-ts">
 								<div class="product-image">
 									<a
-										href="{% if product %}{% url 'product-product-detail-view' product.pk  %} {% endif %}"><img
-											src="https://back.emonos.mn//media/product/60000355308875375892464071513032465516589616737587144599.JPG"
-											alt="Product Image"></a>
+										href="https://back.emonos.mn/{% if product %}{% url 'product-product-detail-view' product.pk  %} {% endif %}"><img
+											src="https://back.emonos.mn/{{ product.photo.url}}" alt="Product Image"></a>
 
 
 									<div class="bg-overlay">
