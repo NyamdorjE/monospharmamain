@@ -28,9 +28,9 @@
                                         allowfullscreen></iframe>
                                 </div>
                                 <div class="entry-title">
-                                    <h2><a
+                                    {% comment %} <h2><a
                                             href="{% if video %}{% url 'news-video-detail' video.slug  %}{% endif %}">{{ video.title }}</a>
-                                    </h2>
+                                    </h2> {% endcomment %}
                                 </div>
                                 <p> {{ video.description }}</p>
                                 <div class="entry-meta">
@@ -63,7 +63,7 @@
 
                 </div><!-- .postcontent end -->
 
-                {% comment %} {% include 'news/sidebar.html'%} {% endcomment %}
+                {% include 'news/sidebar.html'%}
             </div>
 
         </div>
