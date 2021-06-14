@@ -111,13 +111,11 @@ class Product(models.Model):
         null=True,
         blank=True,
     )
-    description = models.TextField(verbose_name=_("Тайлбар"), null=True, blank=True)
-    instructions = models.TextField(verbose_name=_("Заавар"), null=True, blank=True)
+    description = RichTextField(null=True, blank=True)
+    instructions = RichTextField(null=True, blank=True)
 
-    ingredients = models.TextField(
-        verbose_name=_("Product ingredients"), max_length=500, null=True, blank=True
-    )
-    warnings = models.TextField(verbose_name=_("Warning"), null=True, blank=True)
+    ingredients = RichTextField(null=True, blank=True)
+    warnings = RichTextField(null=True, blank=True)
     created_on = models.DateTimeField(
         auto_now_add=True, verbose_name=_("Created on"), null=True, blank=True
     )
