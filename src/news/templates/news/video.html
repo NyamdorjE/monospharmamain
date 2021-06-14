@@ -28,7 +28,9 @@
                                         allowfullscreen></iframe>
                                 </div>
                                 <div class="entry-title">
-                                    <h2><a href="{% url 'news-video-detail' video.slug  %}">{{ video.title }}</a></h2>
+                                    <h2><a
+                                            href="{% if video %}{% url 'news-video-detail' video.slug  %}{% endif %}">{{ video.title }}</a>
+                                    </h2>
                                 </div>
                                 <p> {{ video.description }}</p>
                                 <div class="entry-meta">

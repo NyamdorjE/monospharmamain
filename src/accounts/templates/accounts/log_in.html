@@ -44,6 +44,7 @@
     <!-- Document Wrapper
 	============================================= -->
     <div id="wrapper" class="clearfix">
+        {% block content %}
 
         <!-- Hero Section
 		============================================= -->
@@ -105,6 +106,7 @@
             </div>
 
         </section>
+        {% endblock %}
 
         <!-- Content
 		============================================= -->
@@ -133,5 +135,6 @@
     <script src="{% static 'base/assets/js/functions.js' %}"></script>
 
 </body>
+
 
 </html>

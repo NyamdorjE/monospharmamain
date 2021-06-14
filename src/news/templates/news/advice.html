@@ -24,7 +24,7 @@
 									<div class="entry-image">
 										<h5>
 											<a
-												href="{% url 'website-advice-detail' advice.slug  %}">{{ advice.title }}</a>
+												href="{% if advice %}{% url 'website-advice-detail' advice.slug  %}{% endif %}">{{ advice.title }}</a>
 										</h5>
 
 										<div class="card">
