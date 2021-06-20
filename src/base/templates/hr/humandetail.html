@@ -18,6 +18,11 @@
 	</div>
 
 </section><!-- #page-title end -->
+{% if error_message %}
+<div class="alert alert-primary" role="alert">
+	{{error_message}}
+</div>
+{% endif %}
 
 <section id="content">
 	<div class="content-wrap">
@@ -69,22 +74,19 @@
 								илгээх</button>
 						</form>
 						{% endif %}
+						{% if msgs %}
+
+						{{ msgs }}
+						{% endif %}
+
 						{% if messages %}
-						<div class="row">
-							<div class="col-sm-6 col-sm-offset-3">
-								{% for message in messages %}
-								<div class="alert alert-{{ message.success }}" role="alert">
-									<p>{{ message }}</p>
-								</div>
-								{% endfor %}
-							</div>
-						</div>
+						<ul class="messages">
+							{% for message in messages %}
+							<li {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+							{% endfor %}
+						</ul>
 						{% endif %}
-						{% if error_message %}
-						<div class="alert alert-primary" role="alert">
-							{{error_message}}
-						</div>
-						{% endif %}
+
 						{% comment %} <form method="post">
 							{% csrf_token %}
 							<div class="form-process"></div>

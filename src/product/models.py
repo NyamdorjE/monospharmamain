@@ -4,33 +4,113 @@ from django.utils.translation import ugettext_lazy as _
 import re
 from django.db.models import Q
 from ckeditor.fields import RichTextField
+from mptt.models import MPTTModel
+from treewidget.fields import TreeForeignKey
 
 # Create your models here.
 
 
-class ProductCategory(models.Model):
-    parent = models.ForeignKey(
+class ProductCategory(MPTTModel):
+    parent = TreeForeignKey(
         "self",
         to_field="id",
         on_delete=models.CASCADE,
         null=True,
         blank=True,
-        db_column="parent_id",
-        verbose_name="Толгой ангилал",
-        related_name="categories",
+        verbose_name=_("Толгой ангилал"),
     )
-    name = models.CharField(max_length=200, verbose_name="Нэр", null=True, blank=True)
-    created_at = models.DateTimeField(
-        auto_now_add=True, verbose_name=_("Created on"), null=True, blank=True
+    name = models.CharField(
+        max_length=200, verbose_name=_("Нэр"), null=True, blank=True
     )
+    slug = models.SlugField(
+        max_length=200, verbose_name=_("Slug"), blank=True, null=True
+    )
+    is_top = models.BooleanField(default=False, verbose_name=_("Онцлох эсэх"))
+    is_active = models.BooleanField(default=True, verbose_name=_("Идэвхитэй эсэх"))
+
+    class MPTTMeta:
+        level_attr = "mptt_level"
+        order_insertion_by = ["name"]
 
     class Meta:
-        ordering = ["created_at", "id"]
-        verbose_name = "Бүтээгдэхүүний ангилал"
-        verbose_name_plural = "Бүтээгдэхүүний ангилал"
+        ordering = ["tree_id", "mptt_level", "lft", "-rght"]
+        verbose_name = _("Бүтээгдэхүүний ангилал")
+        verbose_name_plural = _("Бүтээгдэхүүний ангилал")
 
     def __str__(self):
         return self.name
+        # return '%s%s' % ('-' * self.mptt_level, self.name)
+
+    def master_products(self):
+        list_product = Product.objects.none()
+
+        list_product = Product.objects.filter(
+            Q(categories__id__in=[self.id])
+            | Q(categories__parent__id__in=[self.id])
+            | Q(categories__parent__parent__id__in=[self.id])
+        )
+        return list_product
+
+
+# class ProductCategory(models.Model):
+#     parent = models.ForeignKey(
+#         "self",
+#         to_field="id",
+#         on_delete=models.CASCADE,
+#         null=True,
+#         blank=True,
+#         db_column="parent_id",
+#         verbose_name="Толгой ангилал",
+#         related_name="categories",
+#     )
+#     name = models.CharField(max_length=200, verbose_name="Нэр", null=True, blank=True)
+#     created_at = models.DateTimeField(
+#         auto_now_add=True, verbose_name=_("Created on"), null=True, blank=True
+#     )
+
+#     class Meta:
+#         ordering = ["created_at", "id"]
+#         verbose_name = "Бүтээгдэхүүний ангилал"
+#         verbose_name_plural = "Бүтээгдэхүүний ангилал"
+
+#     def __str__(self):
+#         return self.name
+
+
+# class ChildCategory(models.Model):
+#     parent_category = models.ForeignKey(
+#         ProductCategory, verbose_name="Ангиллал", on_delete=models.CASCADE
+#     )
+#     name = models.CharField(max_length=200, verbose_name="Нэр", null=True, blank=True)
+#     created_at = models.DateTimeField(
+#         auto_now_add=True, verbose_name=_("Created on"), null=True, blank=True
+#     )
+
+#     class Meta:
+#         ordering = ["created_at", "id"]
+#         verbose_name = "бага ангилал"
+#         verbose_name_plural = "бага ангилал"
+
+#     def __str__(self):
+#         return self.name
+
+
+# class MainCategory(models.Model):
+#     parent_category = models.ForeignKey(
+#         ChildCategory, verbose_name="Ангиллал", on_delete=models.CASCADE
+#     )
+#     name = models.CharField(max_length=200, verbose_name="Нэр", null=True, blank=True)
+#     created_at = models.DateTimeField(
+#         auto_now_add=True, verbose_name=_("Created on"), null=True, blank=True
+#     )
+
+#     class Meta:
+#         ordering = ["created_at", "id"]
+#         verbose_name = "main ангиллал"
+#         verbose_name_plural = "main ангиллал"
+
+#     def __str__(self):
+#         return self.name
 
 
 # class Classification(models.Model):
@@ -68,15 +148,11 @@ class ProductForm(models.Model):
 
 
 class Product(models.Model):
-    web_category = models.ForeignKey(
-        "product.productCategory",
-        verbose_name="Ангилал",
-        to_field="id",
-        on_delete=models.CASCADE,
-        null=True,
-        blank=True,
-        db_column="web_category_id",
+    categories = models.ManyToManyField(
+        "ProductCategory",
+        verbose_name="Ангилалууд",
         related_name="products",
+        blank=True,
     )
     product_id = models.IntegerField(
         verbose_name=_("Бүтээгдэхүүн дотоод код"),

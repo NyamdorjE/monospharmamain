@@ -156,16 +156,57 @@
 
 								<h4>Ангиллал</h4>
 								<div class="line line-xs line-lifestyle"></div>
+								{% load mptt_tags %}
+								<ul>
+									{% recursetree category %}
 
-								<ul data-active-class="active-filter">
+									<li>
+										<a href="/product?cat_id={{node.id}}" {% if not node.is_leaf_node %}
+											data-toggle="dropdown" aria-expanded="true" {% endif %}>{{ node.name }}</a>
+										{% if not node.is_leaf_node %}
+										<ul class="children">
+											{{ children }}
+										</ul>
+										{% endif %}
+									</li>
+									{% endrecursetree %}
+
+								</ul>
+
+
+								<div class="toggle">
+
+									<div class="toggle-header">
+										<div class="toggle-icon">
+											<i class="toggle-closed icon-line-plus"></i>
+											<i class="toggle-open icon-line-minus"></i>
+										</div>
+										<div class="toggle-title">
+											<a href="/product?cat_id={{node.id}}" {% if not node.is_leaf_node %}
+												data-toggle="dropdown" aria-expanded="true"
+												{% endif %}>{{ node.name }}</a> </div>
+									</div>
+									{% if not node.is_leaf_node %}
+									<div class="toggle-content" style="display: none;">
+										{{ children }}
+
+									</div>
+									{% endif %}
+
+
+								</div>
+
+								{% comment %} <ul>
 									<li><a href="{% url 'product-product-list'%}" value="{{ cat_id }}">Бүгд</a></li>
-									{% for category in category %}
+									{% for category_product in product %}
 									<li><a href="/product?cat_id={{category.id}}"
-											value="{{ cat_id }}">{{ category }}</a>
+											value="{{ cat_id }}">{{ category_product.web_category }}</a>
 									</li>
 									{% endfor %}
 									<li><a href="{% url 'product-product-alphabet'%}">Үсгийн дараалал</a></li>
-								</ul>
+
+
+								</ul> {% endcomment %}
 							</div>
 						</div>
 

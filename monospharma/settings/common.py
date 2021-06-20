@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     "src.website.apps.WebsiteConfig",
     "src.poll.apps.PollConfig",
     "src.chat.apps.ChatConfig",
+    "treewidget",
+    "mptt",
     # "widget_tweaks",
     "ckeditor",
     "ckeditor_uploader",
