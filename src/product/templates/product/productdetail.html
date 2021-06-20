@@ -59,13 +59,13 @@
 								</li>
 								{% else %}
 								{% endif %}
-								{% if product.categories %}
+								{% comment %} {% if product.categories %}
 								<li class="list-group-item d-flex justify-content-between align-items-center px-0">
 									<span class="text-muted">Тогтолцоо:</span><span
-										class="text-dark font-weight-semibold">{{ product.categories}}</span>
+										class="text-dark font-weight-semibold">{{ product.categories }}</span>
 								</li>
 								{% else %}
-								{% endif %}
+								{% endif %}{% endcomment %}
 								{% if product.classification %}
 
 								<li class="list-group-item d-flex justify-content-between align-items-center px-0">
@@ -145,13 +145,13 @@
 									<p>{{ product.description|safe }}</p>
 								</div>
 								<div class="tab-content clearfix" id="tabs-2">
-									<p>{{ product.ingredients|striptags|safe }}</p>
+									<p>{{ product.ingredients|safe }}</p>
 								</div>
 								<div class="tab-content clearfix" id="tabs-3">
-									<p> {{ product.instructions|striptags|safe }}</p>
+									<p> {{ product.instructions|safe }}</p>
 								</div>
 								<div class="tab-content clearfix" id="tabs-4">
-									<p> {{ product.warnings|striptags|safe }}</p>
+									<p> {{ product.warnings|safe }}</p>
 								</div>
 
 							</div>
