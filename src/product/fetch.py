@@ -31,7 +31,6 @@ def product_emonos(o_list, *args):
         r = Product.objects.filter(product_id=b.get("erp_id")).first()
         if r is None:
             Product.objects.create(
-                web_category_id=b.get("category_id"),
                 name=b.get("name"),
                 photo=b.get("photo"),
                 description=b.get("description"),
@@ -41,7 +40,6 @@ def product_emonos(o_list, *args):
                 link="https://emonos.mn/product/%s" % b.get("product_id"),
             )
         else:
-            r.web_category_id = b.get("category_id")
             r.name = b.get("name")
             r.photo = b.get("photo")
             r.description = b.get("description")
