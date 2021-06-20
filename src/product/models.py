@@ -233,6 +233,8 @@ class Product(models.Model):
     # @property
     # def get_products(self):
     #     return Products.objects.filter(categories__name=self.title)
+    def get_parents(self):
+        return ",".join([str(p) for p in self.categories.all()])
 
     def __str__(self):
         return self.name
