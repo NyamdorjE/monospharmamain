@@ -31,34 +31,38 @@ from src.base.urls import Nurl
 
 app_name = "polls"
 
-urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("humanresource/", humanresource.hrview, name="humanresource"),
-    # path('humanresource/<slug>', HrDetailView.as_view(), name='humandetailview'),
-    # Nurl('humanresource/<slug:slug>/') > 'src.base.models.humanresource.HrDetailView',
-    path(
-        "humanresource/<slug:slug>/",
-        EmailAttachementView.as_view(),
-        name="humandetailview",
-    ),
-    path("contact/", contact.contact, name="contact"),
-    path("ckeditor", include("ckeditor_uploader.urls")),
-    # path('contact/', contact.contact, name='contact'),
-    # path('contact/', contact.contactview, name='contact'),
-    # path('contact/', EmailAttachementView.as_view(), name='emailattachment'),
-    path("", include("src.accounts.urls")),
-    path("", include("src.courses.urls")),
-    path("", include("src.news.urls")),
-    path("", include("src.product.urls")),
-    path("", include("src.poll.urls")),
-    path("", include("src.quiz.urls")),
-    path("", include("src.website.urls")),
-    url(r"^accounts/", include("registration.backends.default.urls")),
-    url(r"^i18n/", include("django.conf.urls.i18n")),
-    path("i18n/", include("django.conf.urls.i18n")),
-    re_path(r"^ckeditor/", include("ckeditor_uploader.urls")),
-    # url(r'^contact/', include('contact.urls', namespace='contact')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-#if settings.DEBUG:
- #   urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
+urlpatterns = (
+    [
+        path("admin/", admin.site.urls),
+        path("humanresource/", humanresource.hrview, name="humanresource"),
+        # path('humanresource/<slug>', HrDetailView.as_view(), name='humandetailview'),
+        # Nurl('humanresource/<slug:slug>/') > 'src.base.models.humanresource.HrDetailView',
+        path(
+            "humanresource/<slug:slug>/",
+            EmailAttachementView.as_view(),
+            name="humandetailview",
+        ),
+        path("contact/", contact.contact, name="contact"),
+        path("ckeditor", include("ckeditor_uploader.urls")),
+        # path('contact/', contact.contact, name='contact'),
+        # path('contact/', contact.contactview, name='contact'),
+        # path('contact/', EmailAttachementView.as_view(), name='emailattachment'),
+        path("", include("src.accounts.urls")),
+        path("", include("src.courses.urls")),
+        path("", include("src.news.urls")),
+        path("", include("src.product.urls")),
+        path("", include("src.poll.urls")),
+        path("", include("src.quiz.urls")),
+        path("", include("src.website.urls")),
+        url(r"^accounts/", include("registration.backends.default.urls")),
+        url(r"^i18n/", include("django.conf.urls.i18n")),
+        url(r"^treewidget/", include("treewidget.urls")),
+        path("i18n/", include("django.conf.urls.i18n")),
+        re_path(r"^ckeditor/", include("ckeditor_uploader.urls")),
+        # url(r'^contact/', include('contact.urls', namespace='contact')),
+    ]
+    + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+)
+# if settings.DEBUG:
+#   urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

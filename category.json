@@ -1,0 +1,20 @@
+[
+  {
+    "model": "src.product.product",
+    "id": 1,
+    "name": "ЭМ",
+    "children": [
+      {
+        "id": 9,
+        "name": "Амьсгалын тогтолцоо",
+        "children": [
+          {
+            "id": 38,
+            "name": "Гуурсан хоолой, багтраа",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]

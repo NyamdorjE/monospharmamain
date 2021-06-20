@@ -32,7 +32,7 @@ class ProductList(ListView):
             return queryset
 
         if cat_id:
-            product_list = Product.objects.filter(web_category_id=cat_id)
+            product_list = Product.objects.filter(categories=cat_id)
             return product_list
         else:
             product = Product.objects.all()
