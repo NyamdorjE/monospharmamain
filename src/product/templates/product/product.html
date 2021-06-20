@@ -11,6 +11,56 @@
 
 		outline-offset: 19px;
 	}
+
+	ul,
+	#myUL {
+		list-style-type: none;
+	}
+
+	/* Remove margins and padding from the parent ul */
+	#myUL {
+		margin: 0;
+		padding: 0;
+	}
+
+	/* Style the caret/arrow */
+	.caret {
+		cursor: pointer;
+		user-select: none;
+		/* Prevent text selection */
+	}
+
+	/* Create the caret/arrow with a unicode, and style it */
+	.caret::before {
+		content: "\25B6";
+		color: black;
+		display: inline-block;
+		margin-right: 6px;
+	}
+
+	/* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+	.caret-down::before {
+		transform: rotate(90deg);
+	}
+
+	/* Hide the nested list */
+	.nested {
+		display: none;
+	}
+
+	/* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+	.active {
+		display: block;
+	}
+
+	li::before {
+		content: none !important;
+		font-family: "font-icons";
+		display: inline-block;
+		position: relative;
+		top: 1px;
+		left: 0;
+	}
 </style>
 <section id="page-title">
 
@@ -157,7 +207,7 @@
 								<h4>Ангиллал</h4>
 								<div class="line line-xs line-lifestyle"></div>
 								{% load mptt_tags %}
-								<ul>
+								{% comment %} <ul>
 									{% recursetree category %}
 
 									<li>
@@ -171,7 +221,36 @@
 									</li>
 									{% endrecursetree %}
 
+								</ul> {% endcomment %}
+
+
+
+
+
+								<ul id="myUL">
+									{% recursetree category %}
+									<li>
+										{% if node.is_leaf_node %}
+										<span class="leaf"><a
+												href="/product?cat_id={{node.id}}">{{ node.name }}</a></span>
+										{% else %}
+										<span class="caret parent">{{ node.name }}</span>
+										<ul class="nested">
+											{{ children }}
+										</ul>
+										{% endif %}
+									</li>
+									{% endrecursetree %}
 								</ul>
+
+
+
+
+
+
+
+
+
 
 
 								{% comment %} <div class="toggle">
@@ -230,5 +309,19 @@
 		transform: translate(-50%, -50%) !important;
 	}
 </style>
+
+<script>
+	'use strict';
+
+	var togglers = document.getElementsByClassName("caret");
+	var i;
+
+	for (i = 0; i < togglers.length; i++) {
+		togglers[i].addEventListener("click", function () {
+			this.parentElement.querySelector(".nested").classList.toggle("active");
+			this.classList.toggle("caret-down");
+		});
+	}
+</script>
 
 {% endblock %}
