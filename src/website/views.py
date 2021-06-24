@@ -104,11 +104,9 @@ class AdviceDetail(generic.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(AdviceDetail, self).get_context_data(**kwargs)
-        context["news"] = self.get_queryset()
         context["special"] = News.objects.filter(is_special="True")
         context["category_list"] = Category.objects.filter(cate_type="news")
         context["category"] = Course.objects.all()
-        context["advice"] = Advice.objects.all()
 
         return context
 

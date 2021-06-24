@@ -11,7 +11,7 @@
         <h1>Мэдээ</h1>
         <ol class="breadcrumb">
             <li><a href="{% url 'website-homepage'%}">Нүүр хуудас </a></li>
-            <li><a href="#">/Мэдээ</a></li>
+            <li><a href="#">/Зөвлөгөө</a></li>
         </ol>
     </div>
 
@@ -36,30 +36,25 @@
 
                             <!-- Entry Title
 									============================================= -->
-                            <div class="entry-title">
-                                <h2>{{ news.title }}</h2>
-                            </div><!-- .entry-title end -->
 
                             <!-- Entry Meta
 									============================================= -->
                             <div class="entry-meta">
                                 <ul>
-                                    <li><i class="icon-calendar3"></i> {{ news.created_on|naturalday:'Y-m-d'}}</li>
-                                    <li><a href="#"><i class="icon-user"></i> {{ news.author }}</a></li>
-                                    <li><i class="icon-folder-open"></i> <a href="#">{{ news.category }}</a>. </li>
+                                    <li><i class="icon-calendar3"></i> {{ advice.created_on|naturalday:'Y-m-d'}}</li>
+                                    <li><a href="#"><i class="icon-user"></i> {{ advice.author }}</a></li>
+                                    <li><i class="icon-folder-open"></i> <a href="#">{{ advice.category }}</a>. </li>
                                     <li><a href="#"><i class="icon-camera-retro"></i></a></li>
                                 </ul>
                             </div><!-- .entry-meta end -->
                             <div id="posts" class="row grid-container gutter-40">
 
-                                {% for advice in advice %}
                                 <div class="entry col-12">
                                     <div class="grid-inner row no-gutters">
                                         <div class="col-12">
                                             <div class="entry-image">
                                                 <h5>
-                                                    <a
-                                                        href="{% url 'website-advice-detail' advice.slug  %}">{{ advice.title }}</a>
+                                                    <a href="#">{{ advice.title }}</a>
                                                 </h5>
 
                                                 <div class="card">
@@ -80,7 +75,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                {% endfor %}
 
 
                             </div><!-- #posts end -->
