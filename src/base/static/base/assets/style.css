@@ -7231,6 +7231,7 @@ body:not(.device-touch) .portfolio {
 }
 
 @media (min-width: 576px) {
+
   .grid-sm-1>.grid-item {
     width: 100%;
   }
@@ -7307,6 +7308,8 @@ body:not(.device-touch) .portfolio {
 }
 
 @media (min-width: 992px) {
+
+
   .grid-lg-1>.grid-item {
     width: 100%;
   }
@@ -8625,6 +8628,8 @@ body:not(.device-touch):not(.device-sm):not(.device-xs) .product-image>a {
 }
 
 @media (max-width: 767.98px) {
+
+
   .cart-product-quantity .quantity {
     -ms-flex-direction: column;
     flex-direction: column;
@@ -8914,6 +8919,10 @@ td.actions {
 }
 
 @media (min-width: 768px) {
+  .static-mobile {
+    display: none;
+  }
+
   /* Countdown - Coming Soon
 	-----------------------------------------------------------------*/
 
@@ -14372,6 +14381,7 @@ h3.titular-title {
   -ms-flex-align: center;
   align-items: center;
   margin-bottom: 2rem;
+  color: rgb(64, 85, 64) !important;
 }
 
 .fancy-title h1,

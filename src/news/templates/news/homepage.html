@@ -1,6 +1,7 @@
 {% extends 'news/index_2.html'%}
 {% load static humanize  %}
 
+
 {% block content %}
 
 <style>
@@ -96,8 +97,6 @@
 		line-height: 16px;
 	}
 </style>
-
-
 <section id="slider" class="slider-element swiper_wrapper min-vh-75">
 	<div class="slider-inner">
 		<div class="swiper-container swiper-parent">
@@ -142,6 +141,8 @@
 		</div>
 	</div>
 </section>
+
+
 <div class="section i-plain-custom mt-0" style="padding: 30px 0; margin-bottom: 0px;">
 	<div class="container clearfix">
 		<div class="row">
@@ -487,7 +488,7 @@
 
 	<div class="clear bottommargin-sm"></div>
 </section>
-<section>
+<section class="static-mobile">
 	<div class="fancy-title title-border title-center topmargin-sm" data-animate="fadeInUp">
 		<h3>Статик мэдээлэл</h3>
 	</div>
@@ -746,7 +747,7 @@
 	</div> {% endcomment %}
 
 
-</section><!-- #content end -->
+</section>
 
 
 {% endblock %}
