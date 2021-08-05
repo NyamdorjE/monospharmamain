@@ -132,8 +132,8 @@
             <h4>Aнгилал</h4>
             <div class="tagcloud">
                 {% for category in category_list %}
-                <li><a href="/news?news_id={{category.id}}" value="{{ news_id }}">{{ category }}</a>
-                </li>
+                <a href="/news?news_id={{category.id}}" value="{{ news_id }}">{{ category }}</a>
+
                 {% endfor %}
             </div>
 

@@ -29,7 +29,7 @@
 		<div class="course-meta-area">
 			<div class="row">
 				{% for course in courses %}
-				<div class="col-6">
+				<div class="col-sm-3 col-lg-6 course-meta-main">
 					<h3>{{course.title|capfirst}}</h3>
 					<div class="course-metas">
 						<div class="course-meta">
@@ -60,7 +60,7 @@
 					<a href="/courses/{{ course.id }}" class="button button-border button-circle button-dark">Буцах</a>
 
 				</div>
-				<div class="col-6" style="text-align: right;">
+				<div class="col-sm-9 col-lg-6" style="text-align: right;">
 					<div class="cl-item" id="lessons">
 						<h4>Энэ ангид орох хичээлүүд</h4>
 						{% if course.lessons != None  %}
@@ -367,6 +367,12 @@
 		font-size: 22px;
 		padding-top: 10px;
 		background: #e1691d;
+	}
+
+	@media (max-width: 991px) {
+		.course-meta-main {
+			display: none;
+		}
 	}
 </style>
 {% endblock %}
