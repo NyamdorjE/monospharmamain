@@ -35,7 +35,7 @@ class ProductCategoryFilter(admin.SimpleListFilter):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ("name", "is_product_new", "get_parents")
+    list_display = ("name", "is_product_new", "get_parents", "product_id")
     search_fields = ("name",)
     prepopulated_fields = {"slug": ("name",)}
     filter_horizontal = ("categories",)
