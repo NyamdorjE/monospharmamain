@@ -244,6 +244,9 @@ class AboutUsCards(models.Model):
         verbose_name_plural = _("Бидний тухай хэсэгын карт")
         ordering = ["position"]
 
+    def __str__(self):
+        return self.title
+
 
 class HrBanner(models.Model):
     alt_text = models.CharField(
