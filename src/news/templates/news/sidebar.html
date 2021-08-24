@@ -40,7 +40,7 @@
                         <div class="col pl-3">
                             <div class="entry-title">
                                 <h4 class="font-weight-semibold"><a
-                                        href="{% if news %}{% url 'website-advice-detail' advice.slug  %} {% endif %}">{{ news.title|slice:":60"}}...</a>
+                                        href="{% if news %}{% url 'website-advice-detail' news.slug  %} {% endif %}">{{ news.title|slice:":60"}}...</a>
                                 </h4>
                             </div>
                             <div class="entry-meta">
