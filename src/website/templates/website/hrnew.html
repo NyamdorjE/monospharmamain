@@ -174,111 +174,56 @@
                         <div class="clear my-3"></div>
                         <div id="snav-content4">
                             <div class="row">
+                                {% for val in object %}
+                                {% if forloop.counter|divisibleby:2 %}
 
                                 <div class="col-12">
                                     <div class="card imagescalein">
                                         <div class="row ">
                                             <div class="col-md-7 d-flex align-self-stretch overflow-hidden">
-                                                <img src="{% static 'base/assets/images/pages/zorilgo/taatai-orchin.jpg' %}"
-                                                    class="rounded-start" alt="...">
+                                                <img src="{{ val.image.url }}" class="rounded-start" alt="...">
                                             </div>
                                             <div class="col-md-5 p-4">
                                                 <div class="card-body">
-                                                    <h3 class="card-title">Бидэнтэй нэгдсэнээр</h3>
-                                                    <p class="card-text mb-2">Монос Группийн соёлыг өөриймсөг
-                                                        сэтгэлгээтэй чадварлаг ажилтнууд маань бүтээдэг, тиймдээ
-                                                        ч
-                                                        Моносын соёл бол
-                                                        Моносын бахархал юм. Монос Групп нь Монголын Улсын ТОП 10 аж
-                                                        ахуйн нэгжийн нэг юм.</p>
-                                                    <p>
-                                                        Энэ
-                                                        нь
-                                                        хамт
-                                                        олны маань хичээл
-                                                        зүтгэл, харилцагч, хэрэглэгчдийн маань итгэл найдвар, түншлэлтэй
-                                                        салшгүй холбоотой
-                                                        билээ.
-                                                    </p>
-                                                    <p>
-
-                                                        Монос
-                                                        Групп нь
-                                                        ажилтнууддаа ажиллах таатай орчин, сурч хөгжих боломж, нийгмийн
-                                                        халамж үзүүлэх болон
-                                                        бусад
-                                                        олон
-                                                        төрлийн хөнгөлөлт
-                                                        урамшуулал, хангамж олгон ажиллаж байна.</p>
+                                                    <h3 class="card-title">{{ val.title }}</h3>
+                                                    <p class="card-text mb-2">{{ val.content|safe }}
 
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
+                                {% else %}
                                 <div class="clear"></div>
-
 
                                 <div class="col-lg-12">
                                     <div class="card imagescalein">
                                         <div class="row g-0 align-items-center">
                                             <div class="col-md-8 p-4">
                                                 <div class="card-body">
-                                                    <h3 class="card-title">Ажиллах таатай орчин</h3>
+                                                    <h3 class="card-title">{{ val.title }}</h3>
                                                     <p class="card-text mb-2">
-                                                        <ul>
-                                                            <li><i></i> Чадварлаг
-                                                                мэргэжлийн нөхөрсөг
-                                                                хамт олон
-
-                                                            </li>
-                                                            <li><i></i> Шинэ санал
-                                                                санаачилгыг байнга
-                                                                дэмжин урамшуулдаг
-
-                                                            </li>
-                                                            <li><i></i> Ажилтан бүрт өсөн
-                                                                дэвших
-                                                                боломж
-                                                                адил тэгш олгогдсон
-                                                            </li>
-                                                            <li><i></i> Гүйцэтгэлд
-                                                                тулгуурласан
-                                                                урамшууллын тогтолцоотой
-                                                            </li>
-                                                            <li><i></i> Мэргэжлийн
-                                                                шалгалтын тест.
-                                                                Шаардлагатай ажлын
-                                                                байранд
-                                                                мэргэжлийн шалгалт авна.
-                                                            </li>
-                                                            <li><i></i>Бизнесийн бусад
-                                                                салбарт хөрвөн
-                                                                ажиллах боломж
-                                                            </li>
-
-                                                            <li><i></i> Өрсөлдөхүйц цалин
-                                                                урамшуулал
-
-                                                            </li>
-                                                        </ul>
+                                                        {{ val.content|safe }}
                                                     </p>
 
                                                 </div>
                                             </div>
                                             <div class="col-md-4 d-flex align-self-stretch overflow-hidden">
-                                                <img src="{% static 'base/assets/images/pages/hr/orchin.jpg' %}"
-                                                    class="rounded-end" alt="...">
+                                                <img src="{{ val.image.url}}" class="rounded-end" alt="...">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                {% endif %}
+                                {% endfor %}
+
+
+
 
 
                                 <div class="clear"></div>
 
-                                <div class="col-12">
+                                {% comment %} <div class="col-12">
                                     <div class="card imagescalein">
                                         <div class="row ">
                                             <div class="col-md-7 d-flex align-self-stretch overflow-hidden">
@@ -453,8 +398,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="clear"></div>
-                                <div class="col-lg-12">
+                                <div class="clear"></div> {% endcomment %}
+                                {% comment %} <div class="col-lg-12">
                                     <div class="card imagescalein">
                                         <div class="row g-0 align-items-center">
                                             <div class="col-md-8 p-4">
@@ -477,7 +422,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> {% endcomment %}
                             </div>
 
 
@@ -564,7 +509,7 @@
                                                         alt="Feature Icon" class="bg-transparent rounded-0 center">
                                                 </div>
                                                 <div class="fbox-content">
-                                                    <h3>4.ШАЛГАЛТ АВАХ</h3>
+                                                    <h3>6.АЖЛЫН САНАЛ ТАВИХ</h3>
 
                                                 </div>
                                             </div>
@@ -597,7 +542,7 @@
                                                         alt="Feature Icon" class="bg-transparent rounded-0 center">
                                                 </div>
                                                 <div class="fbox-content">
-                                                    <h3>6.АЖЛЫН САНАЛ ТАВИХ</h3>
+                                                    <h3>4.ШАЛГАЛТ АВАХ</h3>
 
                                                 </div>
                                             </div>

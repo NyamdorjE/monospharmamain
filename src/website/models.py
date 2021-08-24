@@ -263,5 +263,50 @@ class HrBanner(models.Model):
         return self.alt_text
 
     class Meta:
-        verbose_name = _("HR хуудас баннер")
+        verbose_name = _("Хүний нөөц хуудас баннер")
         ordering = ["position"]
+
+
+class HrContent(models.Model):
+    title = models.CharField(
+        max_length=500, verbose_name=_("Гарчиг"), null=True, blank=True
+    )
+    content = RichTextField(blank=True, null=True, verbose_name=_("Content"))
+    image = models.ImageField(
+        upload_to="hrcontent", verbose_name=_("Зураг"), null=True, blank=True
+    )
+    position = models.IntegerField(null=True, blank=True)
+
+    class Meta:
+        verbose_name = _("Хүний нөөцийн хуудас контент")
+        verbose_name_plural = _("Хүний нөөцийн хуудас контент")
+        ordering = ["position"]
+
+    def __str__(self):
+        return self.title
+
+
+class Taniltsuulga(models.Model):
+    title = models.CharField(
+        max_length=500, verbose_name=_("Гарчиг"), null=True, blank=True
+    )
+    content = RichTextField(blank=True, null=True, verbose_name=_("Content"))
+    image = models.ImageField(
+        upload_to="taniltsuulga", verbose_name=_("Зураг"), null=True, blank=True
+    )
+    gmp = models.ImageField(
+        upload_to="taniltsuulga", verbose_name=_("Эм үйлдвэрлэл"), null=True, blank=True
+    )
+    quality = models.ImageField(
+        upload_to="taniltsuulga", verbose_name=_("Чанар"), null=True, blank=True
+    )
+    lab = models.ImageField(
+        upload_to="taniltsuulga", verbose_name=_("Лаборатори"), null=True, blank=True
+    )
+
+    class Meta:
+        verbose_name = _("Бидний тухай - Танилцуулга")
+        verbose_name_plural = _("Бидний тухай - Танилцуулга")
+
+    def __str__(self):
+        return self.title

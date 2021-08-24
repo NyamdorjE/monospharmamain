@@ -11,7 +11,7 @@ urlpatterns = [
     Nurl("about/") > "src.website.views.About",
     Nurl("360_virtual/") > "src.website.views.Virtual",
     Nurl("aboutus/") > "src.website.views.AboutUs",
-    Nurl("taniltsuulga/") > "src.website.views.Taniltsuulga",
+    Nurl("taniltsuulga/") > "src.website.views.TaniltsuulgaView",
     Nurl("zahiral/") > "src.website.views.Zahiral",
     Nurl("timeline/") > "src.website.views.Timeline",
     Nurl("vision/") > "src.website.views.Vision",

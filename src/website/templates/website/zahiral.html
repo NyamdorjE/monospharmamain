@@ -22,11 +22,11 @@
         color: #363636;
     }
 </style>
-<div class="content-wrap" style="padding-bottom: 15px;">
+{% comment %} <div class="content-wrap" style="padding-bottom: 15px;">
     <div class="container clearfix">
         <h1 class="heading">Захирлын <span class="underline--magical">мэндчилгээ</span> </h1>
     </div>
-</div>
+</div> {% endcomment %}
 
 
 <div class="section lazy mt-5 p-0 min-vh-75 lazy-loaded"
@@ -48,8 +48,11 @@
             <div class="row align-items-center g-0">
 
 
-                <div class="col-md-6 min-vh-50 min-vh-md-100"
-                    style="background: url('{% static 'base/assets/images/pages/zorilgo/zahiral.jpg'%}') center center; background-size: cover;">
+                <div class="col-md-6 min-vh-50 min-vh-md-100">
+                    <img src="{% static 'base/assets/images/pages/zorilgo/zahiral.jpg'%}">
+                    <p style="padding-top: 50px;"><i>Монос Фарм ХХК-ийн гүйцэтгэх захирал<img
+                                src="{% static 'base/assets/images/about/signature.png' %}" width="80px">М.Одгэрэл</i>
+                    </p>
                 </div>
 
                 <!-- Text -->
@@ -57,7 +60,7 @@
                     <h2>
                         <div class="text-rotater" data-separator="|" data-rotate="bounceIn" data-speed="250000"
                             style="text-align:center;">
-                            <h1 class="heading"><span class="underline--magical">Танилцуулга</span> </h1>
+                            <h1 class="heading">Захирлын <span class="underline--magical">мэндчилгээ</span> </h1>
                         </div>
                     </h2>
                     <p style="text-align: justify;">Хүн ардын эрүүл энхийн төлөө хөдөлмөр үйлсээ зориулдаг
@@ -85,9 +88,7 @@
                         хөгжил шинэчлэлийг манлайлан нэвтрүүлж, Монгол хүний оюун сэтгэлгээгээр бүтсэн эм
                         бэлдмэлээр дэлхийд
                         өрсөлдөхөөр зорин ажиллаж байна.</p>
-                    <p><i>Монос Фарм ХХК-ийн гүйцэтгэх захирал<img
-                                src="{% static 'base/assets/images/about/signature.png' %}" width="80px">М.Одгэрэл</i>
-                    </p>
+
 
 
                 </div>

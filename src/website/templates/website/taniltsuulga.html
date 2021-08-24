@@ -20,8 +20,14 @@
 
     .p-tag-text {
         color: #363636;
+        text-align: justify;
+        text-justify: inter-word;
+        text-indent: 50px;
+
     }
 </style>
+{% for val in object %}
+
 <div class="content-wrap" style="padding-bottom: 15px;">
     <div class="container clearfix">
         <h1 class="heading">Бидний <span class="underline--magical">Тухай</span> </h1>
@@ -52,52 +58,17 @@
                     <h2>
                         <div class="text-rotater" data-separator="|" data-rotate="bounceIn" data-speed="250000"
                             style="text-align:center;">
-                            <h1 class="heading"><span class="underline--magical">Танилцуулга</span> </h1>
+                            <h1 class="heading"><span class="underline--magical">{{ val.title }}</span> </h1>
                         </div>
                     </h2>
                     <p class="p-tag-text">
-
-                        Монгол Улсын хувийн хэвшлийн ууган үйлдвэр Монос Фарм ХХК нь 1990 онд
-                        байгуулагдсан. Бид хүмүүний эрүүл мэндийг
-                        тэтгэх эмчилгээний өндөр идэвхт эм бэлдмэл, эмийн чанарыг хамгаас эрхэмлэн эмийн
-                        үйлдвэрлэл, эмзүйн судалгаа,
-                        шинжилгээний чиглэлээр үйл ажиллагаагаа явуулж байна.
+                        {{ val.content|safe }}
                     </p>
-                    <p class="p-tag-text">
-                        Монос Эмийн Үйлдвэр нь эм үйлдвэрлэлийн хөгжлийн түүчээ байж Олон Улсын GMP
-                        стандартад нийцсэн Эмийн Үйлдвэр,
-                        Чанарын Удирдлагын Тогтолцоо ISO9001, Магадлан итгэмжлэгдэж ISO 17025 стандартыг
-                        хангасан Эм бэлдмэлийн
-                        сорилтын лаборатори, Эм зүйн судалгаа шинжилгээгээр дагнасан Эм Судлалын
-                        Хүрээлэн, Ургамал тарималжуулах
-                        Ботаник цэцэрлэг бүхий үндэсний жишиг үйлдвэр юм.
-                    </p>
-
-                    <p class="p-tag-text">
-                        Антибиотик, мөөгөнцрийн эсрэг, өвдөлт намдаах, халуун бууруулах, ханиалга
-                        намдаах, цэр ховхлох, дархлал
-                        сэргээх, витамин, амин дэм, мэдрэлийн систем, харшил,буйлны үрэвсэл, шимэгч
-                        хорхойн эсрэг бэлдмэл эм бэлдмэлүүд
-                        болон чих хамар хоолой, зүрх судас, хоол боловсруулах, бөөр, шээсний замын
-                        тогтолцооны эмчилгээний эм
-                        бэлдмэлүүдийг үйлдвэрлэж байна.
-                    </p>
-                    <p class="p-tag-text">
-
-                        Нийтдээ 80 гаруй нэр төрлийн эм бэлдмэлээс 30 гаруй тус компанийн брэнд
-                        бүтээгдэхүүн бөгөөд Монгол Улсын
-                        зайлшгүй шаардлагатай эмийн жагсаалтад орсон 25 гаруй нэр төрлийн эмийг
-                        үйлдвэрлэдэг, Эм бэлдмэлийг шахмал,
-                        бүрхүүлтэй шахмал, капсул, нунтаг, үрэл, гель, тосон түрхэц, цацлага, шингэн,
-                        ханд, сироп хэлбэрээр үйлдвэрлэж
-                        байна. Нийтдээ 150 гаруй ажиллагсадтай ба нийт ажиллагсдын 60% нь мэргэжлийн
-                        зэрэг, цолтой боловсон хүчин
-                        байна.</p>
                 </div>
                 <!-- Image -->
 
                 <div class="col-md-6 min-vh-50 min-vh-md-100"
-                    style="background: url('{% static 'base/assets/images/about/about1.jpg' %}') center center; background-size: cover;">
+                    style="background: url('{{val.image.url}}') center center; background-size: cover;">
                 </div>
             </div>
             {% comment %} <div class="row">
@@ -179,7 +150,7 @@
 
 <div class="content-wrap" style="padding-bottom: 15px; padding-top:0px;">
     <div class="container clearfix">
-        <h1 class="heading">Чанарын <span class="underline--magical">бодлого</span> </h1>
+        <h1 class="heading">Үйл <span class="underline--magical">ажиллагаа</span> </h1>
 
         <div class="tabs tabs-alt tabs-tb clearfix ui-tabs ui-corner-all ui-widget ui-widget-content" id="tab-8">
 
@@ -206,16 +177,16 @@
 
                 <div class="tab-content clearfix ui-tabs-panel ui-corner-bottom ui-widget-content" id="tabs-30"
                     aria-labelledby="ui-id-14" role="tabpanel" aria-hidden="true" style="display: none;">
-                    <img src="{% static 'base/assets/images/GMP.png' %}">
+                    <img src="{{ val.gmp.url}}">
                 </div>
                 <div class="tab-content clearfix ui-tabs-panel ui-corner-bottom ui-widget-content" id="tabs-31"
                     aria-labelledby="ui-id-15" role="tabpanel" aria-hidden="true" style="display: none;">
-                    <img src="{% static 'base/assets/images/PECB.png' %}">
+                    <img src="{{ val.quality.url }}">
 
                 </div>
                 <div class="tab-content clearfix ui-tabs-panel ui-corner-bottom ui-widget-content" id="tabs-32"
                     aria-labelledby="ui-id-16" role="tabpanel" aria-hidden="true" style="display: none;">
-                    <img src="{% static 'base/assets/images/17025.png' %}">
+                    <img src="{{ val.lab.url }}">
 
 
                 </div>
@@ -225,6 +196,7 @@
         </div>
     </div>
 </div>
+{%endfor %}
 {% block style %}
 <style>
     .image-about {

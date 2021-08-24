@@ -5,6 +5,8 @@ from .models import (
     AdviceCategory,
     BannerAboutUs,
     HrBanner,
+    HrContent,
+    Taniltsuulga,
     Testimonail,
     Gallery,
     LeftFeaturedProduct,
@@ -23,6 +25,10 @@ class AdviceAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
 
 
+class HrContentAdmin(admin.ModelAdmin):
+    list_display = ("title", "position")
+
+
 admin.site.register(Counter)
 admin.site.register(BannerAboutUs)
 admin.site.register(Advice, AdviceAdmin)
@@ -35,3 +41,5 @@ admin.site.register(Banner)
 admin.site.register(BannerVideo)
 admin.site.register(AboutUsCards)
 admin.site.register(HrBanner)
+admin.site.register(HrContent, HrContentAdmin)
+admin.site.register(Taniltsuulga)

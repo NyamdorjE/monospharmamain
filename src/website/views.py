@@ -11,6 +11,8 @@ from .models import (
     AdviceCategory,
     BannerAboutUs,
     HrBanner,
+    HrContent,
+    Taniltsuulga,
     Testimonail,
     Gallery,
     LeftFeaturedProduct,
@@ -97,17 +99,13 @@ class Amjilt(TemplateView):
     template_name = "website/amjilt.html"
 
 
-class Taniltsuulga(TemplateView):
+class TaniltsuulgaView(TemplateView):
     template_name = "website/taniltsuulga.html"
     queryset = News.objects.all().order_by("created_on")
-    paginate_by = 6
 
     def get_context_data(self, **kwargs):
-        context = super(Taniltsuulga, self).get_context_data(**kwargs)
-        context["special"] = News.objects.filter(is_special="True")
-        context["category"] = Course.objects.all()
-        context["banner"] = BannerAboutUs.objects.all()
-        context["news"] = News.objects.all().order_by("-created_on")
+        context = super(TaniltsuulgaView, self).get_context_data(**kwargs)
+        context["object"] = Taniltsuulga.objects.all()
 
         return context
 
@@ -191,5 +189,6 @@ class HrNew(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(HrNew, self).get_context_data(**kwargs)
         context["banner"] = HrBanner.objects.all()
+        context["object"] = HrContent.objects.all().order_by("position")
 
         return context
