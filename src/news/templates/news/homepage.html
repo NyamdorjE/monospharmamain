@@ -200,19 +200,13 @@
 		box-shadow: 0px 5px 6px 0px rgba(0, 0, 0, 0.43);
 	}
 
-
-	.product-image {
-		margin: 1em 0;
-		text-align: center;
-	}
-
-	.product-image img {
-		width: 30vw;
-		height: 30vw;
-	}
-
-	.product-image img {
-		object-fit: cover;
+	.slider-arrow-left,
+	.slider-arrow-right,
+	.flex-prev,
+	.flex-next,
+	.slider-arrow-top-sm,
+	.slider-arrow-bottom-sm {
+		background-color: #2F4B70;
 	}
 </style>
 <style type="text/css">
@@ -331,13 +325,15 @@
 					<!-- Flip Card
 										============================================= -->
 					<div class="flip-card">
-						<div class="flip-card-front no-after"
-							style="background-image: url('{% static 'base/assets/images/fliplogo/GMP.png' %}'); width: 300px; height:300px;">
-							<div class="flip-card-inner">
+						<a href="{% url 'website-taniltsuulga' %}">
+							<div class="flip-card-front no-after"
+								style="background-image: url('{% static 'base/assets/images/fliplogo/GMP.png' %}'); width: 300px; height:300px;">
+								<div class="flip-card-inner">
 
-								</a>
+
+								</div>
 							</div>
-						</div>
+						</a>
 						<div class="flip-card-back dark"
 							style="background-image: url('{% static 'base/assets/images/fliplogo/GMP.png' %}'); width: 300px; height:300px;">
 							<div class="flip-card-inner mt-3">
@@ -356,59 +352,66 @@
 					<!-- Flip Card
 										============================================= -->
 					<div class="flip-card">
-						<div class="flip-card-front no-after"
-							style="background-image: url('{% static 'base/assets/images/fliplogo/iso.png' %}'); width: 300px; height:300px;">
-							<div class="flip-card-inner">
+						<a href="{% url 'website-taniltsuulga' %}">
 
-								</a>
+							<div class="flip-card-front no-after"
+								style="background-image: url('{% static 'base/assets/images/fliplogo/iso.png' %}'); width: 300px; height:300px;">
+								<div class="flip-card-inner">
+
+						</a>
+					</div>
+				</div>
+				</a>
+				<div class="flip-card-back dark"
+					style="background-image: url('{% static 'base/assets/images/fliplogo/iso.png' %}'); width: 300px; height:300px;">
+					<div class="flip-card-inner mt-3">
+
+						<div class="feature-box media-box fbox-sm">
+							<div class="fbox-icon position-relative mb-4">
+
 							</div>
-						</div>
-						<div class="flip-card-back dark"
-							style="background-image: url('{% static 'base/assets/images/fliplogo/iso.png' %}'); width: 300px; height:300px;">
-							<div class="flip-card-inner mt-3">
 
-								<div class="feature-box media-box fbox-sm">
-									<div class="fbox-icon position-relative mb-4">
-
-									</div>
-
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-4 mb-5" style="max-width: 47%;">
-					<!-- Flip Card
+			</div>
+
+		</div>
+		<div class="col-sm-4 mb-5" style="max-width: 47%;">
+			<!-- Flip Card
 										============================================= -->
-					<div class="flip-card">
-						<div class="flip-card-front no-after"
-							style="background-image: url('{% static 'base/assets/images/fliplogo/PECB.png' %}'); width: 300px; height:300px;">
-							<div class="flip-card-inner">
 
-								</a>
-							</div>
+			<div class="flip-card">
+				<a href="{% url 'website-taniltsuulga' %}">
+					<div class="flip-card-front no-after"
+						style="background-image: url('{% static 'base/assets/images/fliplogo/PECB.png' %}'); width: 300px; height:300px;">
+						<div class="flip-card-inner">
+
+
 						</div>
-						<div class="flip-card-back dark"
-							style="background-image: url('{% static 'base/assets/images/fliplogo/PECB.png' %}'); width: 300px; height:300px;">
-							<div class="flip-card-inner mt-3">
+					</div>
+				</a>
+				<div class="flip-card-back dark"
+					style="background-image: url('{% static 'base/assets/images/fliplogo/PECB.png' %}'); width: 300px; height:300px;">
+					<div class="flip-card-inner mt-3">
 
-								<div class="feature-box media-box fbox-sm">
-									<div class="fbox-icon position-relative mb-4">
+						<div class="feature-box media-box fbox-sm">
+							<div class="fbox-icon position-relative mb-4">
 
-									</div>
-									{% comment %} <div class="fbox-content">
-										<h3 class="font-weight-normal nott">Дэлгэрэнгүй</h3>
-
-									</div> {% endcomment %}
-								</div>
 							</div>
+							{% comment %} <div class="fbox-content">
+								<h3 class="font-weight-normal nott">Дэлгэрэнгүй</h3>
+
+							</div> {% endcomment %}
 						</div>
 					</div>
 				</div>
-				{% comment %}
-			</div> {% endcomment %}
-			{% comment %}
-		</div> {% endcomment %}
+			</div>
+		</div>
+		{% comment %}
+	</div> {% endcomment %}
+	{% comment %}
+	</div> {% endcomment %}
 	</div>
 	<div class="clear"></div>
 	<div class="fancy-title title-border title-center topmargin-sm" data-animate="fadeInUp">
@@ -590,11 +593,10 @@
 					<div class="oc-item" style="padding-top:10px; padding-bottom:10px;">
 						<div class="grid-inner card border-0 h-shadow h-translatey-sm all-ts">
 							<div class="product-desc">
-								<div class="product-title"
-									style="text-align:center; font-size: 12px; margin-bottom:5px;">
-									<h4 style="font-size: 12px;"><a
+								<div class="product-title" style="text-align:center;">
+									<h5><a
 											href="{% if product %}{% url 'product-product-detail-view' product.pk  %} {% endif %}">{{ product.name }}</a>
-									</h4>
+									</h5>
 								</div>
 
 								<div class="product-category">
@@ -603,13 +605,9 @@
 								</div>
 							</div>
 							<div class="product-image">
-
-
-
 								<a
 									href="https://back.emonos.mn/{% if product %}{% url 'product-product-detail-view' product.pk  %} {% endif %}"><img
-										src="https://back.emonos.mn/{{ product.photo.url}}" alt="Product Image"
-										style="object-fit: contain;"></a>
+										src="https://back.emonos.mn/{{ product.photo.url}}" alt="Product Image"></a>
 
 
 								<div class="bg-overlay">

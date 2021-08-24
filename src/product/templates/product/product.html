@@ -136,7 +136,7 @@
 	.btn-success {
 		background-color: #2F4B70 !important;
 		border-color: #2F4B70 !important;
-		border-radius: 15px;
+		border-radius: 3px;
 	}
 
 	.form-control {
@@ -153,6 +153,11 @@
 	.category-class:hover {
 		transform: scale(1.050);
 
+	}
+
+	.widget-container-shadow {
+		outline: 0px solid rgb(255 255 255 / 22%) !important;
+		outline-offset: 19px;
 	}
 </style>
 <section id="page-title">
@@ -237,7 +242,10 @@
 										<div class="bg-overlay-bg bg-transparent"></div>
 									</div>
 								</div>
-
+								<div class="product-price">
+									<p><a href="" style="color: #2F4B70;">₮{{ product.price }}</a>
+									</p>
+								</div>
 							</div>
 						</div>
 
