@@ -32,14 +32,15 @@
                     <div class="grid-inner row align-items-center no-gutters">
                         <div class="col-auto">
                             <div class="entry-image">
-                                <a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"><img
-                                        src="{% if news.image %}{{ news.image.url }} {% endif %}" alt="Image"></a>
+                                <a
+                                    href="{% if news %}{% if news %}{% url 'website-advice-detail' news.slug  %}{% endif %} {% endif %}"><img
+                                        src="{% if news.photo %}{{ news.photo.url }} {% endif %}" alt="Image"></a>
                             </div>
                         </div>
                         <div class="col pl-3">
                             <div class="entry-title">
                                 <h4 class="font-weight-semibold"><a
-                                        href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}">{{ news.title|slice:":60"}}...</a>
+                                        href="{% if news %}{% url 'website-advice-detail' advice.slug  %} {% endif %}">{{ news.title|slice:":60"}}...</a>
                                 </h4>
                             </div>
                             <div class="entry-meta">
