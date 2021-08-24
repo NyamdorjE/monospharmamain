@@ -1,7 +1,10 @@
 from django.contrib import admin
 from .models import (
+    AboutUsCards,
     Advice,
     AdviceCategory,
+    BannerAboutUs,
+    HrBanner,
     Testimonail,
     Gallery,
     LeftFeaturedProduct,
@@ -21,6 +24,7 @@ class AdviceAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Counter)
+admin.site.register(BannerAboutUs)
 admin.site.register(Advice, AdviceAdmin)
 admin.site.register(AdviceCategory)
 admin.site.register(Testimonail)
@@ -29,3 +33,5 @@ admin.site.register(LeftFeaturedProduct)
 admin.site.register(RightFeaturedProduct)
 admin.site.register(Banner)
 admin.site.register(BannerVideo)
+admin.site.register(AboutUsCards)
+admin.site.register(HrBanner)

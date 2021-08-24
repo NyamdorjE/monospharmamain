@@ -14,11 +14,29 @@
 	</div>
 </section><!-- #page-title end -->
 
+
 <!-- Content
+
 		============================================= -->
 <section id="content">
+
+	<div class="content-wrap" style="padding:0px; padding-top:25px;">
+		<div class="container clearfix">
+			<div class="tagcloud">
+				{% for category in category_list %}
+				<a href="/news?news_id={{category.id}}" value="{{ news_id }}">{{ category }}</a>
+
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="content">
+
 	<div class="content-wrap">
 		<div class="container clearfix">
+
 			<div class="row gutter-40 col-mb-80">
 				<!-- Post Content
 						============================================= -->
@@ -33,7 +51,7 @@
 									<a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
 										data-lightbox="{{ news.image.url }}"><img class="image_fade"
 											src="{% if news.image %}{{news.image.url}}{% endif %}"
-											alt="{{ news.title }}" style="height:auto; width:250px;"></a>
+											alt="{{ news.title }}" style="height:200px; width:250px;"></a>
 								</div>
 								<div class="col-md-8 pl-md-4">
 									<div class="entry-title title-sm">
@@ -48,12 +66,13 @@
 											</li>
 											<li><a href="#"><i class="icon-user"></i> {{ news.author }}</a></li>
 											<li><a href="#"><i class="icon-newspaper"></i></a></li>
+											<a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
+												class="more-link" style="padding-bottom:8px;">Цааш унших</a>
 										</ul>
 									</div>
 									<div class="entry-content">
-										{% comment %} <p>{{ news.content|safe|slice:":100"}}...</p> {% endcomment %}
-										<a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
-											class="more-link">Цааш унших</a>
+										<p>{{ news.content|safe|striptags|slice:":100"}}...</p>
+
 									</div>
 								</div>
 							</div>

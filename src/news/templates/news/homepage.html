@@ -1,6 +1,6 @@
 {% extends 'news/index_2.html'%}
 {% load static humanize  %}
-
+{% load i18n %}
 
 {% block content %}
 
@@ -92,9 +92,131 @@
 	}
 
 	.title-go>a {
-		font-family: "Raleway", sans-serif;
+		font-family: "Rubik", sans-serif;
 		font-size: 16px;
 		line-height: 16px;
+	}
+
+	.card {
+		-webkit-border-radius: 25px;
+		-moz-border-radius: 25px;
+		border-radius: 25px;
+		-webkit-box-shadow: 10px 10px 5px -10px rgba(0, 0, 0, 0.75);
+		-moz-box-shadow: 10px 10px 5px -10px rgba(0, 0, 0, 0.75);
+		box-shadow: 10px 10px 5px -10px rgba(0, 0, 0, 0.75);
+
+
+	}
+
+	.grid-inner {
+		-webkit-border-radius: 25px;
+		-moz-border-radius: 25px;
+		border-radius: 25px;
+		-webkit-box-shadow: 10px 10px 5px -10px rgba(0, 0, 0, 0.75);
+		-moz-box-shadow: 10px 10px 5px -10px rgba(0, 0, 0, 0.75);
+		box-shadow: 10px 10px 5px -10px rgba(0, 0, 0, 0.75);
+		linear-gradient(to bottom, transparent, rgb(65 65 65 / 8%) 65%, rgb(0 0 0 / 90%) 100%),
+		url(/media/media/news/5th-cover.jpg) no-repeat center center / cover
+	}
+
+	.bg-overlay-content {}
+
+	.demos-filter {
+		margin: 0;
+		text-align: right;
+	}
+
+	.demos-filter li {
+		list-style: none;
+		margin: 10px 0px;
+	}
+
+	.demos-filter li a {
+		display: block;
+		border: 0;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		color: #444;
+	}
+
+	.demos-filter li a:hover,
+	.demos-filter li.activeFilter a {
+		color: #1ABC9C;
+	}
+
+	@media (max-width: 991px) {
+		.demos-filter {
+			text-align: center;
+		}
+
+		.demos-filter li {
+			float: left;
+			width: 33.3%;
+			padding: 0 20px;
+		}
+	}
+
+	@media (max-width: 767px) {
+		.demos-filter li {
+			width: 50%;
+		}
+	}
+
+	#portfolio_wrapper .tp-loader.spinner3 {
+		background-color: #313437 !important;
+	}
+
+	.underline--magical {
+		background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+		background-repeat: no-repeat;
+		background-size: 100% 0.2em;
+		background-position: 0 88%;
+		transition: background-size 0.25s ease-in;
+	}
+
+	.underline--magical:hover {
+		background-size: 100% 88%;
+	}
+
+	.product-desc {
+
+		margin-bottom: -50px;
+	}
+
+	.product-category>p>a {
+		color: black;
+		padding-bottom: 0px;
+	}
+
+	.product-title {
+		margin-bottom: -25px;
+	}
+
+	.grid-inner {
+		border-radius: 15px !Important;
+		border-color: #009473 !Important;
+		-webkit-box-shadow: 0px 5px 6px 0px rgba(0, 0, 0, 0.43);
+		box-shadow: 0px 5px 6px 0px rgba(0, 0, 0, 0.43);
+	}
+</style>
+<style type="text/css">
+	#portfolio .uranus.tparrows {
+		width: 50px;
+		height: 50px;
+		background: rgba(255, 255, 255, 0)
+	}
+
+	#portfolio .uranus.tparrows:before {
+		width: 50px;
+		height: 50px;
+		line-height: 50px;
+		font-size: 40px;
+		transition: all 0.3s;
+		-webkit-transition: all 0.3s
+	}
+
+	#portfolio .uranus.tparrows:hover:before {
+		opacity: 0.75
 	}
 </style>
 <section id="slider" class="slider-element swiper_wrapper min-vh-75">
@@ -149,38 +271,43 @@
 			<div class="col-md-2 col-6 center">
 				<i class="i-plain icon-industry
  i-plain i-xlarge mx-auto mb-0"></i>
-				<h5 class="my-1">Барилга байгууламж, Дэд бүтэц</h5>
+				<h5 class="my-1">{% trans 'Барилга байгууламж, Дэд бүтэц' %}</h5>
 			</div>
 			<div class="col-md-2 col-6 center">
 				<i class="i-plain icon-pills i-plain i-xlarge mx-auto mb-0"></i>
-				<h5 class="my-1">Түүхий эд, матриал</h5>
+				<h5 class="my-1">{% trans 'Түүхий эд, матриал' %}</h5>
 			</div>
 
 			<div class="col-md-2 col-6 center">
 				<i class="i-plain icon-cogs i-plain i-xlarge mx-auto mb-0"></i>
-				<h5 class="my-1">Тоног төхөөрөмж</h5>
+				<h5 class="my-1">{% trans 'Тоног төхөөрөмж' %}</h5>
 			</div>
 			<div class="col-md-2 col-6 center">
 				<i class="i-plain icon-user i-plain i-xlarge mx-auto mb-0"></i>
-				<h5 class="my-1">Хүн хүчин</h5>
+				<h5 class="my-1">{% trans 'Хүн хүчин' %}</h5>
 			</div>
 			<div class="col-md-2 col-6 center">
 				<i class="i-plain icon-calendar-check i-plain i-xlarge mx-auto mb-0"></i>
-				<h5 class="my-1">Чанарын баталгаажилт, Баримтжуулалт</h5>
+				<h5 class="my-1">{% trans 'Чанарын баталгаажилт, Баримтжуулалт' %}</h5>
 			</div>
 			<div class="col-md-2 col-6 center">
 				<i class="i-plain icon-clipboard-list i-plain i-xlarge mx-auto mb-0"></i>
-				<h5 class="my-1">Чанарын хяналт</h5>
+				<h5 class="my-1">{% trans 'Чанарын хяналт' %}</h5>
 			</div>
 		</div>
 	</div>
 </div>
 
 <section id="content">
-	<div class="content-wrap">
+	<div class="content-wrap" style="padding:35px 0;">
 		<div class="container clearfix">
 			<div class="fancy-title title-border title-center topmargin-sm" data-animate="fadeInUp">
-				<h1>Эм үйлдвэрлэлийг дэлхийн жишигт </h1>
+				<h1>
+					<div class="text-rotater" data-separator="|" data-rotate="bounceIn" data-speed="250000"
+						style="text-align:center;">
+						Эм үйлдвэрлэлийг <span class="underline--magical"><span>Дэлхийн жишигт</span></span>
+					</div>
+				</h1>
 			</div>
 			<div class="row" style="margin-left:80px; margin-bottom: 70px; padding-top: 15px;" data-animate="fadeInUp">
 
@@ -269,7 +396,7 @@
 	</div>
 	<div class="clear"></div>
 	<div class="fancy-title title-border title-center topmargin-sm" data-animate="fadeInUp">
-		<h3>Мэдээ мэдээлэл </h3>
+		<h3>{% trans 'Мэдээ мэдээлэл' %} </h3>
 	</div>
 	<div class="tab-content clearfix" id="tabs-1" data-animate="fadeInUp">
 		<div class="row gutter-20 align-items-stretch">
@@ -279,7 +406,7 @@
 
 				<div class="grid-item">
 					<div class="grid-inner"
-						style="background: linear-gradient(to bottom, transparent, rgba(0,0,0,.5) 65%, rgba(0,0,0,0.9) 100%), url('{% if news.image %}{{ news.image.url }}{% endif %}') no-repeat center center / cover; height: 510px">
+						style="background: linear-gradient(to bottom, transparent, rgb(0 0 0 / 0%) 65%, rgb(0 0 0) 100%), url('{% if news.image %}{{ news.image.url }}{% endif %}') no-repeat center center / cover; height: 510px">
 						<div class="bg-overlay position-relative">
 							<div
 								class="bg-overlay-content flex-column justify-content-end align-items-start px-5 py-4 dark">
@@ -287,11 +414,10 @@
 									<span class="badge badge-danger">{{ news.category }}</span>
 								</div>
 								<div class="entry-title title-sm">
-									<h3><a
+									<h3 style="margin-bottom:0px;"><a
 											href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}">{{ news.title }}.</a>
 									</h3>
 								</div>
-								<a href="#"><i class="icon-line-arrow-right btn-more"></i></a>
 							</div>
 						</div>
 					</div>
@@ -305,10 +431,10 @@
 					{% for news in news|slice:"1:2" %}
 					<div class="col-6">
 						<div class="grid-inner"
-							style="background: linear-gradient(to bottom, transparent, rgba(0,0,0,.5) 65%, rgba(0,0,0,0.9) 100%), url('{% if news.image %}{{ news.image.url }}{% endif %}') no-repeat center center / cover; height: 280px;">
+							style="background: linear-gradient(to bottom, transparent, rgb(0 0 0 / 0%) 65%, rgb(0 0 0) 100%), url('{% if news.image %}{{ news.image.url }}{% endif %}') no-repeat center center / cover; height: 280px;">
 
 							<div class="bg-overlay">
-								<span class="badge badge-danger">{{ news.category }}</span>
+								<span class="badge badge-danger" style="padding-left:10px;">{{ news.category }}</span>
 
 								<div
 									class="bg-overlay-content text-overlay-mask dark align-items-start justify-content-between">
@@ -329,10 +455,10 @@
 					{% for news in news|slice:"2:3" %}
 					<div class="col-6">
 						<div class="grid-inner"
-							style="background: linear-gradient(to bottom, transparent, rgba(0,0,0,.5) 65%, rgba(0,0,0,0.9) 100%), url('{% if news.image %}{{ news.image.url }}{% endif %}') no-repeat center center / cover; height: 280px;">
+							style="background: linear-gradient(to bottom, transparent, rgb(0 0 0 / 0%) 65%, rgb(0 0 0) 100%), url('{% if news.image %}{{ news.image.url }}{% endif %}') no-repeat center center / cover; height: 280px;">
 
 							<div class="bg-overlay">
-								<span class="badge badge-danger">{{ news.category }}</span>
+								<span class="badge badge-danger" style="padding-left:10px;">{{ news.category }}</span>
 
 								<div
 									class="bg-overlay-content text-overlay-mask dark align-items-start justify-content-between">
@@ -436,7 +562,7 @@
 		<div class="col-12">
 			<div class="tabs topmargin-lg clearfix" id="tab-3" data-animate="fadeInUp">
 				<ul class="tab-nav clearfix">
-					<li><a href="#tabs-9">Бүтээгдэхүүн</a></li>
+					<li><a href="#tabs-9">{% trans 'Бүтээгдэхүүн' %}</a></li>
 				</ul>
 				<div id="oc-products" class="owl-carousel products-carousel carousel-widget" data-margin="20"
 					data-loop="true" data-autoplay="5000" data-nav="true" data-pagi="false" data-items-xs="1"
@@ -445,7 +571,42 @@
 						============================================= -->
 					{% for product in newproduct %}
 
-					<div class="oc-item">
+					<div class="oc-item" style="padding-top:10px; padding-bottom:10px;">
+						<div class="grid-inner card border-0 h-shadow h-translatey-sm all-ts">
+							<div class="product-desc">
+								<div class="product-title" style="text-align:center;">
+									<h4><a
+											href="{% if product %}{% url 'product-product-detail-view' product.pk  %} {% endif %}">{{ product.name }}</a>
+									</h4>
+								</div>
+
+								<div class="product-category">
+									<p style="font-size:0px;"><a href="">{{ product.category.all|join:", " }}</a>
+									</p>
+								</div>
+							</div>
+							<div class="product-image">
+								<a
+									href="https://back.emonos.mn/{% if product %}{% url 'product-product-detail-view' product.pk  %} {% endif %}"><img
+										src="{{ product.photo.url}}" alt="Product Image"></a>
+
+
+								<div class="bg-overlay">
+									<div class="bg-overlay-content align-items-end justify-content-between"
+										data-hover-animate="fadeIn" data-hover-speed="400">
+
+										<a href="{% if product %}{% url 'product-product-detail-view' product.pk  %} {% endif %}"
+											class="btn btn-dark"><i class="icon-line-expand"></i></a>
+									</div>
+									<div class="bg-overlay-bg bg-transparent"></div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+
+					{% comment %} <div class="oc-item">
 						<div class="product">
 							<div class="product-image">
 								<a
@@ -476,7 +637,8 @@
 
 
 
-					</div>
+					</div> {% endcomment %}
+
 					{% endfor %}
 
 				</div>
@@ -490,7 +652,7 @@
 </section>
 <section class="static-mobile">
 	<div class="fancy-title title-border title-center topmargin-sm" data-animate="fadeInUp">
-		<h3>Статик мэдээлэл</h3>
+		<h3>{% trans 'Статик мэдээлэл' %}</h3>
 	</div>
 	<div class="row counters clearfix mb-0 topmargin-sm align-items-stretch" data-animate="fadeInUp">
 
@@ -501,8 +663,8 @@
 					<div>
 						<i class="i-rounded i-bordered icon-capsules" style="margin-left: 55px;"></i>
 						<div class="counter counter-lined"><span data-from="0" data-to="143" data-refresh-interval="55"
-								data-speed="2000"></span>сая</div>
-						<h4>Ширхэг капсултай эм</h4>
+								data-speed="2000"></span>{% trans 'сая' %}</div>
+						<h4>{% trans 'Ширхэг капсултай эм' %}</h4>
 					</div>
 				</div>
 				<div class="bg-overlay-bg op-ts op-1" data-hover-animate="op-0" data-hover-animate-out="op-1"></div>
@@ -516,8 +678,8 @@
 					<div>
 						<i class="i-rounded i-bordered icon-tablets" style="margin-left: 55px;"></i>
 						<div class="counter counter-lined"><span data-from="0" data-to="350" data-refresh-interval="55"
-								data-speed="2000"></span>сая</div>
-						<h4>Ширхэг шахмал эм</h4>
+								data-speed="2000"></span>{% trans 'сая' %}</div>
+						<h4>{% trans 'Ширхэг шахмал эм' %}</h4>
 					</div>
 				</div>
 				<div class="bg-overlay-bg op-ts op-1" data-hover-animate="op-0" data-hover-animate-out="op-1"></div>
@@ -531,8 +693,8 @@
 					<div>
 						<i class="i-rounded i-bordered icon-mortar-pestle" style="margin-left: 55px;"></i>
 						<div class="counter counter-lined"><span data-from="0" data-to="550" data-refresh-interval="25"
-								data-speed="2000"></span>сая</div>
-						<h4>Ширхэг мөхлөг эм</h4>
+								data-speed="2000"></span>{% trans 'сая' %}</div>
+						<h4>{% trans 'Ширхэг мөхлөг эм' %}</h4>
 					</div>
 				</div>
 				<div class="bg-overlay-bg op-ts op-1" data-hover-animate="op-0" data-hover-animate-out="op-1"></div>
@@ -546,8 +708,8 @@
 					<div>
 						<i class="i-rounded i-bordered icon-line-droplet" style="margin-left: 55px;"></i>
 						<div class="counter counter-lined"><span data-from="0" data-to="105" data-refresh-interval="20"
-								data-speed="2000"></span>сая</div>
-						<h4>МЛ Шингэн эм</h4>
+								data-speed="2000"></span>{% trans 'сая' %}</div>
+						<h4>{% trans 'МЛ Шингэн эм' %}</h4>
 					</div>
 				</div>
 				<div class="bg-overlay-bg op-ts op-1" data-hover-animate="op-0" data-hover-animate-out="op-1"></div>
@@ -559,113 +721,10 @@
 </section>
 
 <section id="content">
-
-	<div class="clear"></div>
-	<div class="fancy-title title-border title-center topmargin-sm" data-animate="fadeInUp">
-		<h3>Хамтрагч байгууллагууд</h3>
-	</div>
-
-	<ul class="clients-grid grid-2 grid-sm-3 grid-md-6 mb-0" data-animate="fadeInUp">
-		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/1.png' %}" alt="Clients"
-					style="height:90px; width:90px;"></a></li>
-		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/2.png' %}" alt="Clients"
-					style="height:90px; width:90px;"></a></li>
-		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/3.png' %}" alt="Clients"
-					style="height:90px; width:90px;"></a></li>
-		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/4.png' %}" alt="Clients"
-					style="height:90px; width:90px;"></a></li>
-		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/5.png' %}" alt="Clients"
-					style="height:90px; width:90px;"></a></li>
-		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/6.png' %}" alt="Clients"
-					style="height:90px; width:90px;"></a></li>
-		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/7.png' %}" alt="Clients"
-					style="height:90px; width:90px;"></a></li>
-		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/8.png' %}" alt="Clients"
-					style="height:90px; width:90px;"></a>
-		</li>
-		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/9.png' %}" alt="Clients"
-					style="height:90px; width:90px;"></a>
-		</li>
-		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/10.png' %}" alt="Clients"
-					style="height:90px; width:90px;"></a>
-		</li>
-		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/11.png' %}" alt="Clients"
-					style="height:90px; width:90px;"></a>
-		</li>
-		<li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/12.png' %}" alt="Clients"
-					style="height:90px; width:90px;"></a>
-		</li>
-
-	</ul>
-
-	</div>
-
-	<div class="section mb-0">
-		<div class="container">
-
-			<div class="row col-mb-50">
-				<div class="col-sm-6 col-lg-3">
-					<div class="feature-box fbox-plain fbox-dark fbox-sm">
-						<div class="fbox-icon">
-							<i class="icon-thumbs-up2"></i>
-						</div>
-						<div class="fbox-content">
-							<h3>Бүтээгдэхүүн</h3>
-							{% comment %} <p class="mt-0">We guarantee you the sale of Original Brands.</p>
-							{% endcomment %}
-						</div>
-					</div>
-				</div>
-
-				<div class="col-sm-6 col-lg-3">
-					<div class="feature-box fbox-plain fbox-dark fbox-sm">
-						<div class="fbox-icon">
-							<i class="icon-credit-cards"></i>
-						</div>
-						<div class="fbox-content">
-							<h3>Нээлттэй ажлын байр</h3>
-							{% comment %} <p class="mt-0">We accept Visa, MasterCard and American Express.</p>
-							{% endcomment %}
-						</div>
-					</div>
-				</div>
-
-				<div class="col-sm-6 col-lg-3">
-					<div class="feature-box fbox-plain fbox-dark fbox-sm">
-						<div class="fbox-icon">
-							<i class="icon-truck2"></i>
-						</div>
-						<div class="fbox-content">
-							<h3>Хүргэлт үйлчилгээ</h3>
-							{% comment %} <p class="mt-0">Free Delivery to 100+ Locations on orders above $40.</p>
-							{% endcomment %}
-						</div>
-					</div>
-				</div>
-
-				<div class="col-sm-6 col-lg-3">
-					<div class="feature-box fbox-plain fbox-dark fbox-sm">
-						<div class="fbox-icon">
-							<i class="icon-undo"></i>
-						</div>
-						<div class="fbox-content">
-							<h3>Онлайн тусламж</h3>
-							{% comment %} <p class="mt-0">Return or exchange items purchased within 30 days.</p>
-							{% endcomment %}
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</div>
-	</div>
-	</div>
-</section>
-<section id="content">
 	<div class="content-wrap" style="padding:0px;">
 
 		<div class="fancy-title title-border title-center topmargin-sm">
-			<h3>Сэтгэгдэл </h3>
+			<h3>{% trans 'Сэтгэгдэл' %} </h3>
 		</div>
 
 		<div class="section"

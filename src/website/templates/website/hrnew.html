@@ -1,0 +1,657 @@
+{% extends 'news/index_2.html' %}
+{% load static humanize  %}
+{% block content %}
+{% load i18n %}
+
+<style>
+    .feature-box {
+        text-align: center;
+        border-radius: 15px !Important;
+
+    }
+
+    .feature-box:hover {
+        border-color: #009473 !Important;
+        -webkit-box-shadow: 6px 3px 6px -5px #000000;
+        box-shadow: 6px 3px 6px -5px #000000;
+    }
+
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .fbox-content {
+        padding-top: 30px;
+        padding-bottom: 50px;
+    }
+
+    .fbox-icon {
+        margin-top: 25px;
+    }
+
+    .content-wrap {
+        padding: 35px !important;
+    }
+
+    .underline--magical {
+        background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+        background-repeat: no-repeat;
+        background-size: 100% 0.2em;
+        background-position: 0 88%;
+        transition: background-size 0.25s ease-in;
+    }
+
+    .underline--magical:hover {
+        background-size: 100% 88%;
+    }
+
+    .arrow-right,
+    .arrow-left,
+    .arrow-down,
+    .long-arrow-down,
+    .long-arrow-right,
+    .long-arrow-left {
+        margin-top: 125px;
+        display: block;
+        width: 25px;
+        height: 25px;
+        border-top: 6px solid #000;
+        border-left: 6px solid #000;
+        border-radius: 5px;
+    }
+
+    .arrow-right,
+    .long-arrow-right {
+        transform: rotate(135deg);
+    }
+
+    .arrow-down,
+    .long-arrow-down {
+        transform: rotate(225deg);
+        position: absolute;
+        right: 143px;
+        top: 171px;
+    }
+
+    .arrow-left,
+    .long-arrow-left {
+        transform: rotate(-45deg);
+    }
+
+    .long-arrow-down::after,
+    .long-arrow-right::after,
+    .long-arrow-left::after {
+        content: "";
+        display: block;
+        width: 2px;
+        height: 45px;
+        background-color: black;
+        transform: rotate(-45deg) translate(15px, 4px);
+        left: 0;
+        top: 0;
+    }
+
+    .zangia {
+        padding-top: 10px;
+        color: #444444;
+        font-family: "Rubik", sans-serif;
+        padding-left: 100px;
+        margin-right: 10px;
+        text-align: center;
+        font-weight: bold;
+
+    }
+</style>
+<section id="slider" class="slider-element swiper_wrapper min-vh-75">
+    <div class="slider-inner">
+        <div class="swiper-container swiper-parent">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide dark">
+                    <div class="container">
+                        <div class="slider-caption slider-caption-center">
+                            <h2 data-animate="fadeInUp" style="color : black"></h2>
+                            <p class="d-none d-sm-block" data-animate="fadeInUp" data-delay="200">.</p>
+                        </div>
+                    </div>
+                    {% for banner in banner %}
+                    <div class="swiper-slide-bg" data-interval="5000"
+                        style="background-image: url('{{ banner.photo.url }}');" alt="{{ banner.alt_text }}"
+                        preload="auto" loop autoplay>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="slider-arrow-left"><i class="icon-angle-left"></i></div>
+            <div class="slider-arrow-right"><i class="icon-angle-right"></i></div>
+            <div class="slide-number">
+                <div class="slide-number-current"></div><span></span>
+                <div class="slide-number-total"></div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="content">
+    <div class="content-wrap">
+        <div class="container clearfix">
+            <h1>
+                <div class="text-rotater" data-separator="|" data-rotate="bounceIn" data-speed="250000"
+                    style="text-align:center;">
+                    Хүний <span class="underline--magical"><span>Нөөц</span></span>
+                </div>
+            </h1>
+            <!-- Content
+		============================================= -->
+
+            <div class="tabs tabs-alt tabs-justify clearfix ui-tabs ui-corner-all ui-widget ui-widget-content"
+                id="tab-10">
+
+                <ul class="tab-nav clearfix ui-tabs-nav ui-corner-all ui-helper-reset ui-helper-clearfix ui-widget-header"
+                    role="tablist">
+                    <li role="tab" tabindex="0"
+                        class="ui-tabs-tab ui-corner-top ui-state-default ui-tab ui-tabs-active ui-state-active"
+                        aria-controls="tabs-37" aria-labelledby="ui-id-25" aria-selected="true" aria-expanded="true"><a
+                            href="#tabs-37" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-25"><i
+                                class="icon-home2 mr-0"></i> Бидэнтэй нэгдсэнээр</a></li>
+                    <li role="tab" tabindex="-1" class="ui-tabs-tab ui-corner-top ui-state-default ui-tab"
+                        aria-controls="tabs-38" aria-labelledby="ui-id-26" aria-selected="false" aria-expanded="false">
+                        <a href="#tabs-38" role="presentation" tabindex="-1" class="ui-tabs-anchor" id="ui-id-26">Сонгон
+                            шалгаруулалт</a></li>
+
+                    <a href="https://www.zangia.mn/company/Monos-Pharma" class="zangia">Нээлттэй
+                        ажлын байр</a>
+
+                    {% comment %} <a href="#tabs-39" role="presentation" tabindex="-1" class="ui-tabs-anchor"
+                        id="ui-id-27"></a></li> {% endcomment %}
+
+                </ul>
+
+                <div class="tab-container">
+
+                    <div class="tab-content clearfix ui-tabs-panel ui-corner-bottom ui-widget-content" id="tabs-37"
+                        aria-labelledby="ui-id-25" role="tabpanel" aria-hidden="false">
+                        <div class="clear my-3"></div>
+                        <div id="snav-content4">
+                            <div class="row">
+
+                                <div class="col-12">
+                                    <div class="card imagescalein">
+                                        <div class="row ">
+                                            <div class="col-md-7 d-flex align-self-stretch overflow-hidden">
+                                                <img src="{% static 'base/assets/images/pages/zorilgo/taatai-orchin.jpg' %}"
+                                                    class="rounded-start" alt="...">
+                                            </div>
+                                            <div class="col-md-5 p-4">
+                                                <div class="card-body">
+                                                    <h3 class="card-title">Бидэнтэй нэгдсэнээр</h3>
+                                                    <p class="card-text mb-2">Монос Группийн соёлыг өөриймсөг
+                                                        сэтгэлгээтэй чадварлаг ажилтнууд маань бүтээдэг, тиймдээ
+                                                        ч
+                                                        Моносын соёл бол
+                                                        Моносын бахархал юм. Монос Групп нь Монголын Улсын ТОП 10 аж
+                                                        ахуйн нэгжийн нэг юм.</p>
+                                                    <p>
+                                                        Энэ
+                                                        нь
+                                                        хамт
+                                                        олны маань хичээл
+                                                        зүтгэл, харилцагч, хэрэглэгчдийн маань итгэл найдвар, түншлэлтэй
+                                                        салшгүй холбоотой
+                                                        билээ.
+                                                    </p>
+                                                    <p>
+
+                                                        Монос
+                                                        Групп нь
+                                                        ажилтнууддаа ажиллах таатай орчин, сурч хөгжих боломж, нийгмийн
+                                                        халамж үзүүлэх болон
+                                                        бусад
+                                                        олон
+                                                        төрлийн хөнгөлөлт
+                                                        урамшуулал, хангамж олгон ажиллаж байна.</p>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="clear"></div>
+
+
+                                <div class="col-lg-12">
+                                    <div class="card imagescalein">
+                                        <div class="row g-0 align-items-center">
+                                            <div class="col-md-8 p-4">
+                                                <div class="card-body">
+                                                    <h3 class="card-title">Ажиллах таатай орчин</h3>
+                                                    <p class="card-text mb-2">
+                                                        <ul>
+                                                            <li><i></i> Чадварлаг
+                                                                мэргэжлийн нөхөрсөг
+                                                                хамт олон
+
+                                                            </li>
+                                                            <li><i></i> Шинэ санал
+                                                                санаачилгыг байнга
+                                                                дэмжин урамшуулдаг
+
+                                                            </li>
+                                                            <li><i></i> Ажилтан бүрт өсөн
+                                                                дэвших
+                                                                боломж
+                                                                адил тэгш олгогдсон
+                                                            </li>
+                                                            <li><i></i> Гүйцэтгэлд
+                                                                тулгуурласан
+                                                                урамшууллын тогтолцоотой
+                                                            </li>
+                                                            <li><i></i> Мэргэжлийн
+                                                                шалгалтын тест.
+                                                                Шаардлагатай ажлын
+                                                                байранд
+                                                                мэргэжлийн шалгалт авна.
+                                                            </li>
+                                                            <li><i></i>Бизнесийн бусад
+                                                                салбарт хөрвөн
+                                                                ажиллах боломж
+                                                            </li>
+
+                                                            <li><i></i> Өрсөлдөхүйц цалин
+                                                                урамшуулал
+
+                                                            </li>
+                                                        </ul>
+                                                    </p>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 d-flex align-self-stretch overflow-hidden">
+                                                <img src="{% static 'base/assets/images/pages/hr/orchin.jpg' %}"
+                                                    class="rounded-end" alt="...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="clear"></div>
+
+                                <div class="col-12">
+                                    <div class="card imagescalein">
+                                        <div class="row ">
+                                            <div class="col-md-7 d-flex align-self-stretch overflow-hidden">
+                                                <img src="{% static 'base/assets/images/pages/hr/tuslamj.jpg' %}"
+                                                    class="rounded-start" alt="...">
+                                            </div>
+                                            <div class="col-md-5 p-4">
+                                                <div class="card-body">
+                                                    <h3 class="card-title">Эрүүл мэнд & Тусламж, дэмжлэг</h3>
+
+                                                    <p class="card-text mb-2"> Монос Групп нь ажилтнуудынхаа нийгмийн
+                                                        асуудалд тогтмол анхаарч ажилладаг.
+                                                        Тухайлбал:<br>
+                                                        <ul class="iconlist">
+                                                            <li><i class="icon-line-square-check"></i> Гэрлэх ёслолоо
+                                                                хийх
+                                                            </li>
+                                                            <li><i class="icon-line-square-check"></i> Гэр бүлд нь шинэ
+                                                                хүн мэндлэх
+                                                            </li>
+                                                            <li><i class="icon-line-square-check"></i> Ар гэрт нь
+                                                                гачигдал тохиолдох
+                                                            </li>
+                                                            <li><i class="icon-line-square-check"></i> Ажилтнуудаа жилд
+                                                                бүр
+                                                                эмнэлгийн
+                                                                бүрэн үзлэг шинжилгээнд болон
+                                                                гэнэтийн ослын даатгалд хамруулах, эрүүл мэндийн дэмжлэг
+                                                                туслалцаа
+                                                                үзүүлэх
+                                                            </li>
+                                                            <li><i class="icon-line-square-check"></i> Өндөр насны
+                                                                тэтгэвэрт гарахад
+                                                            </li>
+                                                            <li><i class="icon-line-square-check"></i> Удаан жилийн
+                                                                нэмэгдэл
+                                                            </li>
+                                                        </ul>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+
+
+                                <div class="col-lg-12">
+                                    <div class="card imagescalein">
+                                        <div class="row g-0 align-items-center">
+                                            <div class="col-md-8 p-4">
+                                                <div class="card-body">
+                                                    <h3 class="card-title"> Орон сууцны болон бусад зээл
+                                                    </h3>
+                                                    <p class="card-text mb-2">
+                                                        Монос Группт оруулсан хувь нэмэр, ажлын гүйцэтгэлийг үндэслэн
+                                                        ажилтнууддаа
+                                                        орон
+                                                        сууцны хөнгөлөлттэй зээл олгодог
+                                                        төдийгүй ажилтан нь “Монос Дэлгэрэх” Хадгаламж Зээлийн Хоршоонд
+                                                        хуримтлалын
+                                                        сан
+                                                        үүсгэж, Инвестос ББСБ-гаас
+                                                        цалингийн зээл авах боломжтой.
+                                                    </p>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 d-flex align-self-stretch overflow-hidden">
+                                                <img src="{% static 'base/assets/images/pages/hr/oronsuuts.jpg' %}"
+                                                    class="rounded-end" alt="...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="clear"></div>
+
+                                <div class="col-12">
+                                    <div class="card imagescalein">
+                                        <div class="row ">
+                                            <div class="col-md-7 d-flex align-self-stretch overflow-hidden">
+                                                <img src="{% static 'base/assets/images/pages/hr/shagnal.jpg' %}"
+                                                    class="rounded-start" alt="...">
+                                            </div>
+                                            <div class="col-md-5 p-4">
+                                                <div class="card-body">
+                                                    <h3 class="card-title"> Шагнал урамшуулал</h3>
+
+                                                    <p class="card-text mb-2"> Монос Групп нь ажилтнуудынхаа нийгмийн
+                                                        асуудалд тогтмол анхаарч ажилладаг.
+                                                        Тухайлбал:<br>
+                                                        Ажилтны гүйцэтгэлийг шударгаар, ил тод үнэлэх гүйцэтгэлийн
+                                                        үнэлгээний
+                                                        урамшууллын тогтолцоотой бөгөөд жил бүр
+                                                        тэргүүний шилдэг ажилтнуудаа шалгаруулан урамшуулдаг.
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="clear"></div>
+                                <div class="col-lg-12">
+                                    <div class="card imagescalein">
+                                        <div class="row g-0 align-items-center">
+                                            <div class="col-md-8 p-4">
+                                                <div class="card-body">
+                                                    <h3 class="card-title"> Олон нийтийн арга хэмжээ
+                                                    </h3>
+                                                    <p class="card-text mb-2">
+                                                        Ажилтнуудын дунд компанийн соёлыг эерэгээр төлөвшүүлэх, ажлын
+                                                        бүтээмжийг
+                                                        дээшлүүлэх, өөрийгөө нээн харуулах
+                                                        боломжийг олгох, багаар ажиллах, хамт олонч уур амьсгал
+                                                        бүрдүүлэх зорилгоор
+                                                        олон
+                                                        нийтийг хамарсан олон
+                                                        сонирхолтой үйл ажиллагааг зохион байгуулдаг ба Цасны баяр,
+                                                        “Моносчууд
+                                                        наадмын
+                                                        талбайд”-Баярын жагсаал,
+                                                        Бэсрэг наадам, Моносчууд ургацын талбайдаа, “Бид нэг хүсэлтэй”
+                                                        спортын их
+                                                        наадам, “Бид Моносчууд” урлагийн
+                                                        наадам, “Бүтээлч орчин хөгжих ирээдүй” шинэ санааны уралдаан,
+                                                        Монос Экспо,
+                                                        Шинэ
+                                                        жил айсуй арга хэмжээ, Эрүүл
+                                                        мэндийн аян зэргийг дурдаж байна. Мөн жил бүр Цагаан сарын
+                                                        баярыг өргөн
+                                                        тэмдэглэдэг ба Ахмадын баярыг угтаж
+                                                        Монос групп компаниас тэтгэвэрт гарсан нийт ахмадуудаа хүлээн
+                                                        авч хүндэтгэл
+                                                        үзүүлдэг.
+                                                    </p>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 d-flex align-self-stretch overflow-hidden">
+                                                <img src="{% static 'base/assets/images/pages/hr/arga-hemjee2.jpg' %}"
+                                                    class="rounded-end" alt="...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="clear"></div>
+
+                                <div class="col-12">
+                                    <div class="card imagescalein">
+                                        <div class="row ">
+                                            <div class="col-md-7 d-flex align-self-stretch overflow-hidden">
+                                                <img src="{% static 'base/assets/images/pages/hr/library.png' %}"
+                                                    class="rounded-start" alt="...">
+                                            </div>
+                                            <div class="col-md-5 p-4">
+                                                <div class="card-body">
+                                                    <h3 class="card-title"> Номын сан</h3>
+
+                                                    <p class="card-text mb-2"> Ажилтнууд маань мэргэжлийн, гадаад
+                                                        хэлний, уран зохиолын, танин мэдэхүйн
+                                                        зэрэг
+                                                        олон нэр төрлийн номуудаас сонголтоо
+                                                        хийн уншиж судлах, мэдлэг оюунаа тэлэх боломжтой.
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                                <div class="col-lg-12">
+                                    <div class="card imagescalein">
+                                        <div class="row g-0 align-items-center">
+                                            <div class="col-md-8 p-4">
+                                                <div class="card-body">
+                                                    <h3 class="card-title"> Хөнгөлөлт
+                                                    </h3>
+                                                    <p class="card-text mb-2">
+                                                        Ажилтнууддаа халуун хоол, гар утасны хөнгөлөлт болон ажлын
+                                                        онцлогоос хамаарч
+                                                        шатахууны хөнгөлөлт эдлүүлэх зэрэг
+                                                        ажилтнуудынхаа нийгмийн нөхцөлийг сайжруулахад анхааран ажиллаж
+                                                        байна.
+                                                    </p>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 d-flex align-self-stretch overflow-hidden">
+                                                <img src="{% static 'base/assets/images/pages/hr/hungulult.jpg' %}"
+                                                    class="rounded-end" alt="...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content clearfix ui-tabs-panel ui-corner-bottom ui-widget-content" id="tabs-38"
+                    aria-labelledby="ui-id-26" role="tabpanel" aria-hidden="true" style="display: none;">
+
+                    <section id="content">
+                        <div class="content-wrap">
+                            <div class="container clearfix">
+                                <div class="row justify-content-center gutter-50 col-mb-50">
+
+                                    <div class="clear my-3"></div>
+                                    <div class="col-lg-3 col-sm-6">
+                                        <a href="#">
+                                            <div class="feature-box fbox-effect flex-column border p-4 rounded-3">
+                                                <div class="fbox-icon mb-4 center">
+                                                    <img src="{% static 'base/assets/demos/seo/images/icons/content_marketing.svg'%}"
+                                                        alt="Feature Icon" class="bg-transparent rounded-0 center">
+                                                </div>
+                                                <div class="fbox-content">
+                                                    <h3>1.АНКЕТ ХҮЛЭЭН АВАХ</h3>
+
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="long-arrow-right"></div>
+
+                                    <div class="col-lg-3 col-sm-6">
+                                        <a href="#">
+                                            <div class="feature-box fbox-effect flex-column border p-4 rounded-3">
+                                                <div class="fbox-icon mb-4 center">
+                                                    <img src="{% static 'base/assets/demos/seo/images/icons/content_marketing.svg'%}"
+                                                        alt="Feature Icon" class="bg-transparent rounded-0 center">
+                                                </div>
+                                                <div class="fbox-content">
+                                                    <h3>2.ШАЛГАРУУЛАЛТ ХИЙХ</h3>
+
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="long-arrow-right"></div>
+
+                                    <div class="col-lg-3 col-sm-6">
+                                        <a href="#">
+                                            <div class="feature-box fbox-effect flex-column border p-4 rounded-3">
+                                                <div class="fbox-icon mb-4 center">
+                                                    <img src="{% static 'base/assets/demos/seo/images/icons/content_marketing.svg'%}"
+                                                        alt="Feature Icon" class="bg-transparent rounded-0 center">
+                                                </div>
+                                                <div class="fbox-content">
+                                                    <h3>3.АНХАН ШАТНЫ ЯРИЛЦЛАГА ХИЙХ</h3>
+
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="long-arrow-down"></div>
+
+                                    </div>
+
+                                    <div class="clear my-3"></div>
+
+
+                                    <div class="col-lg-3 col-sm-6">
+                                        <a href="#">
+                                            <div class="feature-box fbox-effect flex-column border p-4 rounded-3">
+                                                <div class="fbox-icon mb-4 center">
+                                                    <img src="{% static 'base/assets/demos/seo/images/icons/content_marketing.svg'%}"
+                                                        alt="Feature Icon" class="bg-transparent rounded-0 center">
+                                                </div>
+                                                <div class="fbox-content">
+                                                    <h3>4.ШАЛГАЛТ АВАХ</h3>
+
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="long-arrow-left"></div>
+
+
+                                    <div class="col-lg-3 col-sm-6">
+                                        <a href="#">
+                                            <div class="feature-box fbox-effect flex-column border p-4 rounded-3">
+                                                <div class="fbox-icon mb-4 center">
+                                                    <img src="{% static 'base/assets/demos/seo/images/icons/content_marketing.svg'%}"
+                                                        alt="Feature Icon" class="bg-transparent rounded-0 center">
+                                                </div>
+                                                <div class="fbox-content">
+                                                    <h3>5.НЭГЖИЙН УДИРДЛАГА (МЭРГЭЖЛИЙН) ЯРИЛЦЛАГА ХИЙХ</h3>
+
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="long-arrow-left"></div>
+
+                                    <div class="col-lg-3 col-sm-6">
+                                        <a href="#">
+                                            <div class="feature-box fbox-effect flex-column border p-4 rounded-3">
+                                                <div class="fbox-icon mb-4 center">
+                                                    <img src="{% static 'base/assets/demos/seo/images/icons/content_marketing.svg'%}"
+                                                        alt="Feature Icon" class="bg-transparent rounded-0 center">
+                                                </div>
+                                                <div class="fbox-content">
+                                                    <h3>6.АЖЛЫН САНАЛ ТАВИХ</h3>
+
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                {% comment %} <div class="tab-content clearfix ui-tabs-panel ui-corner-bottom ui-widget-content"
+                    id="tabs-39" aria-labelledby="ui-id-27" role="tabpanel" aria-hidden="true" style="display: none;">
+                    <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel
+                        vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non
+                        ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+                        himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus
+                        hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a,
+                        lacus.</p>
+                    Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus.
+                    Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit.
+                    Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id
+                    euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut
+                    sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula
+                    velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus.
+                    Vivamus a libero vitae lectus hendrerit hendrerit.
+                </div>
+                {% endcomment %}
+
+            </div>
+
+        </div>
+
+
+    </div>
+    </div>
+</section><!-- #content end -->
+
+
+
+
+
+{% block style %}
+<style>
+    .image-about {
+        max-width: 100%;
+        text-align: center;
+        padding: 6px;
+        background: #fbfafb;
+        border: 1px solid #e7e7e7;
+        line-height: 0;
+        margin
+</style>
+{% endblock style %}
+{% endblock %}

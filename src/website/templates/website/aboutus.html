@@ -1,0 +1,236 @@
+{% extends 'news/index_2.html' %}
+{% load static humanize  %}
+{% block content %}
+{% load i18n %}
+
+<style>
+    .feature-box {
+        text-align: center;
+        border-radius: 15px !Important;
+
+    }
+
+    .feature-box:hover {
+        border-color: #009473 !Important;
+        -webkit-box-shadow: 6px 3px 6px -5px #000000;
+        box-shadow: 6px 3px 6px -5px #000000;
+    }
+
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .fbox-content {
+        padding-top: 30px;
+        padding-bottom: 50px;
+    }
+
+    .fbox-icon {
+        margin-top: 25px;
+    }
+
+    .content-wrap {
+        padding: 35px !important;
+    }
+
+    .underline--magical {
+        background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+        background-repeat: no-repeat;
+        background-size: 100% 0.2em;
+        background-position: 0 88%;
+        transition: background-size 0.25s ease-in;
+    }
+
+    .underline--magical:hover {
+        background-size: 100% 88%;
+    }
+</style>
+<section id="slider" class="slider-element swiper_wrapper min-vh-75">
+    <div class="slider-inner">
+        <div class="swiper-container swiper-parent">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide dark">
+                    <div class="container">
+                        <div class="slider-caption slider-caption-center">
+                            <h2 data-animate="fadeInUp" style="color : black"></h2>
+                            <p class="d-none d-sm-block" data-animate="fadeInUp" data-delay="200">.</p>
+                        </div>
+                    </div>
+                    {% for banner in banner %}
+                    <div class="swiper-slide-bg" data-interval="5000"
+                        style="background-image: url('{{ banner.photo.url }}');" alt="{{ banner.alt_text }}"
+                        preload="auto" loop autoplay>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="slider-arrow-left"><i class="icon-angle-left"></i></div>
+            <div class="slider-arrow-right"><i class="icon-angle-right"></i></div>
+            <div class="slide-number">
+                <div class="slide-number-current"></div><span></span>
+                <div class="slide-number-total"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Content
+		============================================= -->
+<section id="content">
+    <div class="content-wrap">
+        <div class="container clearfix">
+
+
+            <section id="content">
+                <div class="content-wrap">
+                    <div class="container clearfix">
+                        <div class="row justify-content-center gutter-50 col-mb-50">
+
+                            <div class="col-xl-6 col-lg-8 text-center">
+                                <h1>
+                                    <div class="text-rotater" data-separator="|" data-rotate="bounceIn"
+                                        data-speed="250000" style="text-align:center;">
+                                        Бидний <span class="underline--magical"><span>Тухай</span></span>
+                                    </div>
+                                </h1>
+
+                            </div>
+
+
+                            <div class="clear my-3"></div>
+                            {% for q in queryset|slice:"0:2" %}
+                            <div class="col-lg-4 col-sm-6">
+                                <a href="{{ q.link }}">
+                                    <div class="feature-box fbox-effect flex-column border p-4 rounded-3">
+                                        <div class="fbox-icon mb-4 center">
+                                            <img src="{{ q.image.url }}" alt="Feature Icon"
+                                                class="bg-transparent rounded-0 center">
+                                        </div>
+                                        <div class="fbox-content">
+                                            <h3>{{q.title}}</h3>
+                                            <p style="padding-top:30px; text-aling:justify; color:#484646;">
+                                                {{ q.context }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            {% endfor %}
+
+
+
+
+                            <div class="clear my-3"></div>
+
+                            <div class="col-lg-4 col-sm-6">
+                                <a href="{% url "website-timeline" %}">
+                                    <div class="feature-box fbox-effect flex-column border p-4 rounded-3">
+                                        <div class="fbox-icon mb-4 center">
+                                            <img src="{% static 'base/assets/demos/seo/images/icons/content_marketing.svg' %}"
+                                                alt="Feature Icon" class="bg-transparent rounded-0 center">
+                                        </div>
+                                        <div class="fbox-content">
+                                            <h3>Түүхэн товчоо</h3>
+                                            <p style="padding-top:30px; text-aling:justify; color:#484646;">Монгол Улсын
+                                                хувийн
+                                                хэвшлийн
+                                                ууган үйлдвэр Монос
+                                                Фарм ХХК нь 1990 онд
+                                                байгуулагдсан. Бид хүмүүний эрүүл мэндийг тэтгэх эмчилгээний өндөр
+                                                идэвхт эм
+                                                бэлдмэл, эмийн чанарыг хамгаас эрхэмлэн эмийн үйлдвэрлэл, эмзүйн
+                                                судалгаа,
+                                                шинжилгээний чиглэлээр үйл ажиллагаагаа явуулж байна.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+</section><!-- #content end -->
+<section id="content">
+    <div class="content-wrap">
+        <div class="container clearfix">
+            <div class="clear"></div>
+
+            <h2>
+                <div class="text-rotater" data-separator="|" data-rotate="bounceIn" data-speed="250000"
+                    style="text-align:center !important;">
+                    Хамтын <span class="underline--magical"><span>ажиллагаа</span></span>
+                </div>
+            </h2>
+
+
+            <ul class="clients-grid grid-2 grid-sm-3 grid-md-6 mb-0" data-animate="fadeInUp">
+                <li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/1.png' %}"
+                            alt="Clients"></a>
+                </li>
+                <li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/2.png' %}"
+                            alt="Clients"></a>
+                </li>
+                <li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/3.png' %}"
+                            alt="Clients"></a>
+                </li>
+                <li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/4.png' %}"
+                            alt="Clients"></a>
+                </li>
+                <li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/5.png' %}"
+                            alt="Clients"></a>
+                </li>
+                <li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/6.png' %}"
+                            alt="Clients"></a>
+                </li>
+                <li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/7.png' %}"
+                            alt="Clients"></a>
+                </li>
+                <li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/8.png' %}"
+                            alt="Clients"></a>
+                </li>
+                <li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/9.png' %}"
+                            alt="Clients"></a>
+                </li>
+                <li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/10.png' %}"
+                            alt="Clients"></a>
+                </li>
+                <li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/11.png' %}"
+                            alt="Clients"></a>
+                </li>
+                <li class="grid-item"><a href="#"><img src="{% static 'base/assets/images/clients/12.png' %}"
+                            alt="Clients"></a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+    </div>
+    </div>
+    </div>
+</section>
+{% block style %}
+<style>
+    .image-about {
+        max-width: 100%;
+        text-align: center;
+        padding: 6px;
+        background: #fbfafb;
+        border: 1px solid #e7e7e7;
+        line-height: 0;
+        margin
+</style>
+{% endblock style %}
+{% endblock %}

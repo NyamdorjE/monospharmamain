@@ -1,0 +1,665 @@
+{% extends 'news/index_2.html' %}
+{% load static humanize  %}
+{% block content %}
+{% load i18n %}
+
+<style>
+    .feature-box {
+        text-align: center;
+        border-radius: 15px !Important;
+
+    }
+
+    .underline--magical {
+        background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+        background-repeat: no-repeat;
+        background-size: 100% 0.2em;
+        background-position: 0 88%;
+        transition: background-size 0.25s ease-in;
+    }
+
+    .underline--magical:hover {
+        background-size: 100% 88%;
+    }
+
+    .feature-box:hover {
+        border-color: #009473 !Important;
+        -webkit-box-shadow: 6px 3px 6px -5px #000000;
+        box-shadow: 6px 3px 6px -5px #000000;
+    }
+
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+
+    .fbox-content {
+        padding-top: 30px;
+        padding-bottom: 50px;
+    }
+
+    .fbox-icon {
+        margin-top: 25px;
+    }
+
+    .content-wrap {
+        padding: 35px !important;
+    }
+
+    .accordion {
+        padding-top: 55px;
+    }
+</style>
+
+
+<!-- Content
+		============================================= -->
+<section id="content">
+    <div class="content-wrap">
+        <div class="container clearfix">
+
+
+            <section id="content">
+                <div class="content-wrap">
+                    <div class="container clearfix">
+                        <div class="row justify-content-center gutter-50 col-mb-50">
+
+                            <h2>
+                                <h1 class="heading">Бидний <span class="underline--magical">амжилт</span> </h1>
+
+                            </h2>
+                        </div>
+
+                        <div class="accordion" id="accordion">
+                            <div class="toggle toggle-bg">
+                                <div class="toggle-header">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapse1">
+                                        Амжилт-2016 он
+                                    </a>
+                                </div>
+                                <div id="collapse1" class="accordion-body collapse">
+                                    <div class="accordion-inner">
+                                        <div class="mb-40">
+                                            <div class="sub_heading">
+                                                <img class="image-about"
+                                                    src="{% static 'base/assets/images/shagnal.png' %}">
+                                            </div>
+                                            <ul class="award-list" style="margin-left: 55px; margin-top: -18px;">
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    Forbes Mongolia сэтгүүлээс зохион байгуулсан "Монголын
+                                                    Шилдэг Барилга
+                                                    байгууламж 2015" шагнал гардуулах ёслолоос “Шилдэг
+                                                    үйлдвэрийн барилга”-аар
+                                                    тодорлоо.
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toggle toggle-bg">
+                                <div class="toggle-header">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapse2">
+                                        Амжилт-2014 он
+                                    </a>
+                                </div>
+                                <div id="collapse2" class="accordion-body collapse">
+                                    <div class="accordion-inner">
+                                        <div class="mb-40">
+                                            <div class="sub_heading">
+                                                <img class="image-about"
+                                                    src="{% static 'base/assets/images/shagnal.png' %}">
+                                            </div>
+                                            <ul class="award-list" style="margin-left: 55px; margin-top: -18px;">
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    “Тонзилмон” бэлдмэл нь “Эрүүл мэндийн онцлох
+                                                    бүтээгдэхүүн”-ээр шалгарав.
+                                                    (МҮХАҮТ)
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toggle toggle-bg">
+                                <div class="toggle-header">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapse3">
+                                        Амжилт-2013 он
+                                    </a>
+                                </div>
+                                <div id="collapse3" class="accordion-body collapse">
+                                    <div class="accordion-inner">
+                                        <div class="mb-40">
+                                            <div class="sub_heading">
+                                                <img class="image-about"
+                                                    src="{% static 'base/assets/images/shagnal.png' %}">
+                                            </div>
+                                            <ul class="award-list" style="margin-left: 55px; margin-top: -18px;">
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    “Эм бэлдмэлийн сорилтын лаборатори” нь 70 гаруй нэрийн
+                                                    эмийн
+                                                    шинжилгээг 50
+                                                    үзүүлэлтээр, 40 гаруй нэрийн эмийн үндсэн болон туслах
+                                                    түүхий эдийн шинжилгээг
+                                                    19 үзүүлэлтээр, 25 нэрийн эмийн бэлдмэл, эмийн түүхий
+                                                    эдийн
+                                                    химийн шинжилгээг
+                                                    ӨИШХ-ийн аргаар 3 үзүүлэлт тодорхойлохоор итгэмжлэлийн
+                                                    хугацааг 3 жилээр
+                                                    сунгуулав. (СХЗГ-ын Итгэмжлэлийн хэлтэс)
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toggle toggle-bg">
+                                <div class="toggle-header">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapse4">
+                                        Амжилт-2012 он
+                                    </a>
+                                </div>
+                                <div id="collapse4" class="accordion-body collapse">
+                                    <div class="accordion-inner">
+                                        <div class="mb-40">
+                                            <div class="sub_heading">
+                                                <img class="image-about"
+                                                    src="{% static 'base/assets/images/shagnal.png' %}">
+                                            </div>
+                                            <ul class="award-list" style="margin-left: 55px; margin-top: -18px;">
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    Монголд анх удаа эмийн үйлдвэрийн Олон Улсын GSP
+                                                    стандартын
+                                                    шинэ эмийн агуулах
+                                                    ашиглалтад оруулав.
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toggle toggle-bg">
+                                <div class="toggle-header">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapse5">
+                                        Амжилт-2011 он
+                                    </a>
+                                </div>
+                                <div id="collapse5" class="accordion-body collapse">
+                                    <div class="accordion-inner">
+                                        <div class="mb-40">
+                                            <div class="sub_heading">
+                                                <img class="image-about"
+                                                    src="{% static 'base/assets/images/shagnal.png' %}">
+                                            </div>
+                                            <ul class="award-list" style="margin-left: 55px; margin-top: -18px;">
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    “Салимон”, “Нефромон”, “Читамон”, “Энхжин” цуврал
+                                                    брэндүүд
+                                                    “Made in organic
+                                                    Mongolia” ногоон шошго авав. (МҮХАҮТ)
+                                                </li>
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    “Оны шилдэг нийгмийн хариуцлагыг хэрэгжүүлэгч хамт олон”
+                                                    шагнал авав.
+                                                </li>
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    “Хүүхдэд ээлтэй байгууллага”-аар шалгарав. (НЗДТГ)
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toggle toggle-bg">
+                                <div class="toggle-header">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapse6">
+                                        Амжилт-2009 он
+                                    </a>
+                                </div>
+                                <div id="collapse6" class="accordion-body collapse">
+                                    <div class="accordion-inner">
+                                        <div class="mb-40">
+                                            <div class="sub_heading">
+                                                <img class="image-about"
+                                                    src="{% static 'base/assets/images/shagnal.png' %}">
+                                            </div>
+                                            <ul class="award-list" style="margin-left: 55px; margin-top: -18px;">
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    Монголд анх удаа эмийн салбарын хамгийн анхны хамгийн
+                                                    том
+                                                    хөрөнгө оруулалтыг
+                                                    эхлүүлсэн. Европын Сэргээн Босголт Хөгжлийн банктай
+                                                    хамтарсан ОУын GMP
+                                                    стандарт хангасан “Эмийн Үйлдвэрийн Цогцолбор” төслийг
+                                                    эхлүүлэв.
+                                                </li>
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    Ургамлын гаралтай бүтээгдэхүүнүүдээрээ “Төрд өгөөжтэй,
+                                                    түмэнд тустай
+                                                    бүтээгдэхүүн” өргөмжлөл авав. (Татварын Ерөнхий Газар)
+                                                </li>
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    “Азитрон” бүтээгдэхүүнээрээ “Эх орны эмийн үйлдвэрийн
+                                                    шилдэг
+                                                    бүтээгдэхүүн’
+                                                    МЭЗБН “ЭМ” холбоо
+                                                </li>
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    “Салимон”, “Нефромон” бэлдмэлүүд “Үндэсний шилдэг
+                                                    брэнд”-аар
+                                                    шалгарав.
+                                                    (МҮХАҮТ)
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toggle toggle-bg">
+                                <div class="toggle-header">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapse7">
+                                        Амжилт-2008 он
+                                    </a>
+                                </div>
+                                <div id="collapse7" class="accordion-body collapse">
+                                    <div class="accordion-inner">
+                                        <div class="mb-40">
+                                            <div class="sub_heading">
+                                                <img class="image-about"
+                                                    src="{% static 'base/assets/images/shagnal.png' %}">
+                                            </div>
+                                            <ul class="award-list" style="margin-left: 55px; margin-top: -18px;">
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    “Хаан жимс” брэндийн дараагийн цуврал бүтээгдэхүүнийг
+                                                    тос,
+                                                    үрэл хэлбэрээр
+                                                    үйлдвэрлэж эхлэв. “Шилдэг эмийн үйлдвэр”-ээр шалгарав.
+                                                    (Эм
+                                                    Холбоо)
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toggle toggle-bg">
+                                <div class="toggle-header">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapse8">
+                                        Амжилт-2007 он
+                                    </a>
+                                </div>
+                                <div id="collapse8" class="accordion-body collapse">
+                                    <div class="accordion-inner">
+                                        <div class="mb-40">
+                                            <div class="sub_heading">
+                                                <img class="image-about"
+                                                    src="{% static 'base/assets/images/shagnal.png' %}">
+                                            </div>
+                                            <ul class="award-list" style="margin-left: 55px; margin-top: -18px;">
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    “Эм бэлдмэлийн сорилтын лаборатори” нь 61 нэрийн эм
+                                                    бэлдмэлийн, 40 нэрийн
+                                                    түүхий эдийн химийн болон микробиологийн шинжилгээг 62
+                                                    үзүүлэлтээр СХЗГ-ын
+                                                    Итгэмжлэлийн хэлтэст магадлан итгэмжлэгдэв.
+                                                </li>
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    Монголд анх удаа эмийн салбарт Өндөр идэвхит шингэний
+                                                    хроматографийн эмийн
+                                                    шинжилгээний аргыг үйл ажиллагаандаа нэвтрүүлэв. </li>
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    “Буянтай байгууллага”-аар шалгарав. (Монголын
+                                                    Залуучуудын
+                                                    Холбоо) </li>
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    “Салимон” бэлдмэл “Импортыг орлох шилдэг
+                                                    бүтээгдэхүүн”-ээр
+                                                    шалгарав. (МҮХАҮТ)
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toggle toggle-bg">
+                                <div class="toggle-header">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapse9">
+                                        Амжилт-2006 он
+                                    </a>
+                                </div>
+                                <div id="collapse9" class="accordion-body collapse">
+                                    <div class="accordion-inner">
+                                        <div class="mb-40">
+                                            <div class="sub_heading">
+                                                <img class="image-about"
+                                                    src="{% static 'base/assets/images/shagnal.png' %}">
+                                            </div>
+                                            <ul class="award-list" style="margin-left: 55px; margin-top: -18px;">
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    “Үндэсний шилдэг үйлдвэрлэгч Энтрепренёр”-ээр шалгарав.
+                                                    (МҮХАҮТ)
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toggle toggle-bg">
+                                <div class="toggle-header">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapse10">
+                                        Амжилт-2005 он
+                                    </a>
+                                </div>
+                                <div id="collapse10" class="accordion-body collapse">
+                                    <div class="accordion-inner">
+                                        <div class="mb-40">
+                                            <div class="sub_heading">
+                                                <img class="image-about"
+                                                    src="{% static 'base/assets/images/shagnal.png' %}">
+                                            </div>
+                                            <ul class="award-list" style="margin-left: 55px; margin-top: -18px;">
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    Монголын хувийн хэвшлийн лабораториудаас хамгийн анх “Эм
+                                                    бэлдмэлийн сорилтын
+                                                    лаборатори” нь MNS/ ISO 17025 ОУ-ын стандартын
+                                                    шаардлагыг
+                                                    хангаж СХЗГ-ын
+                                                    Итгэмжлэлийн хэлтсээс 40 нэрийн эм бэлдмэлийн химийн
+                                                    болон
+                                                    микробиологийн
+                                                    шинжилгээг 29 үзүүлэлтээр шинжилгээг гүйцэтгэхээр
+                                                    итгэмжлэгдэв.
+                                                </li>
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    “Үндэсний шилдэг үйлдвэр” алтан медаль авав. (Монгол ёс
+                                                    заншил судлалын
+                                                    холбоо)
+                                                </li>
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    “Оны Шилдэг үйлдвэр”-ээр шалгарав. (Монголын үндэсний
+                                                    үйлдвэрлэгчдийн холбоо)
+                                                </li>
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    “Ариун үйлстэн” хамт олон болов. (Монголын Улаан
+                                                    Загалмайн
+                                                    Нийгэмлэг)
+                                                </li>
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    Шилдгийн шилдэг компани “Гранпри” шагнал авав. (МҮХАҮТ)
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toggle toggle-bg">
+                                <div class="toggle-header">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapse11">
+                                        Амжилт-2004 он
+                                    </a>
+                                </div>
+                                <div id="collapse11" class="accordion-body collapse">
+                                    <div class="accordion-inner">
+                                        <div class="mb-40">
+                                            <div class="sub_heading">
+                                                <img class="image-about"
+                                                    src="{% static 'base/assets/images/shagnal.png' %}">
+                                            </div>
+                                            <ul class="award-list" style="margin-left: 55px; margin-top: -18px;">
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    “Технологийн шилдэг брэнд” шагнал авав. (Үйлдвэр,
+                                                    Худалдааны
+                                                    Яам)
+                                                </li>
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    “Шилдэг үйлдвэрлэгч”-ээр шалгарав. (Эрүүл Мэндийн Яам)
+                                                </li>
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    “Нийгмийн эрүүл мэндийг дэмжигч байгууллага”-аар
+                                                    шалгарав.
+                                                    (НЭМГ)
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toggle toggle-bg">
+                                <div class="toggle-header">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapse12">
+                                        Амжилт-2003 он
+                                    </a>
+                                </div>
+                                <div id="collapse12" class="accordion-body collapse">
+                                    <div class="accordion-inner">
+                                        <div class="mb-40">
+                                            <div class="sub_heading">
+                                                <img class="image-about"
+                                                    src="{% static 'base/assets/images/shagnal.png' %}">
+                                            </div>
+                                            <ul class="award-list" style="margin-left: 55px; margin-top: -18px;">
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    МУ-ын Ерөнхийлөгчийн нэрэмжит “Үндэсний бүтээмжийн
+                                                    шагнал”
+                                                    авав.
+                                                </li>
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    “Шилдэг эмийн үйлдвэр”-ээр шалгарав. (Эм холбоо, НЭМГ)
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toggle toggle-bg">
+                                <div class="toggle-header">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapse13">
+                                        Амжилт-2002 он
+                                    </a>
+                                </div>
+                                <div id="collapse13" class="accordion-body collapse">
+                                    <div class="accordion-inner">
+                                        <div class="mb-40">
+                                            <div class="sub_heading">
+                                                <img class="image-about"
+                                                    src="{% static 'base/assets/images/shagnal.png' %}">
+                                            </div>
+                                            <ul class="award-list" style="margin-left: 55px; margin-top: -18px;">
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    “Гаалийн шилдэг харилцагч”- аар шалгарав. (Монгол Улсын
+                                                    Гаалийн Ерөнхий Газар)
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toggle toggle-bg">
+                                <div class="toggle-header">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapse14">
+                                        Амжилт-2001 он
+                                    </a>
+                                </div>
+                                <div id="collapse14" class="accordion-body collapse">
+                                    <div class="accordion-inner">
+                                        <div class="mb-40">
+                                            <div class="sub_heading">
+                                                <img class="image-about"
+                                                    src="{% static 'base/assets/images/shagnal.png' %}">
+                                            </div>
+                                            <ul class="award-list" style="margin-left: 55px; margin-top: -18px;">
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    “Хлорфенамин” эм нь “Шилдэг эм”-ээр шалгарав. (МҮХАҮТ,
+                                                    Монголын эм
+                                                    үйлдвэрлэгчдийн холбоо)
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toggle toggle-bg">
+                                <div class="toggle-header">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapse15">
+                                        Амжилт-2000 он
+                                    </a>
+                                </div>
+                                <div id="collapse15" class="accordion-body collapse">
+                                    <div class="accordion-inner">
+                                        <div class="mb-40">
+                                            <div class="sub_heading">
+                                                <img class="image-about"
+                                                    src="{% static 'base/assets/images/shagnal.png' %}">
+                                            </div>
+                                            <ul class="award-list" style="margin-left: 55px; margin-top: -18px;">
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    Монголын анхны хувийн хэвшлийн “Эмийн бэлдмэлийн
+                                                    сорилтын
+                                                    лаборатори”
+                                                    байгуулагдаж, бүх бүтээгдэхүүнээ улсын стандартын дагуу
+                                                    шинжлэн чанарын
+                                                    баталгаа өгч эхлэв.
+                                                </li>
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    “Читамон” бэлдмэл нь “Хэрэглэгчдийн таашаалд нийцсэн
+                                                    бүтээгдэхүүн”-ээр
+                                                    шалгарав. (СХЗҮТ)
+                                                </li>
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    Оны шилдэг аж ахуйн нэгжээр шалгарч “Хийморь” одон авав.
+                                                    (МҮХАҮТ)
+                                                    “Хлорфенамин” эм “Шилдэг эм”-ээр шалгарав. (МҮХАҮТ, Эм
+                                                    холбоо)
+                                                </li>
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    “Хэрэглэгчийг хаанд өргөмжилсөн” хамт олноор шагнагдав.
+                                                    (Монголын
+                                                    хэрэглэгчдийн эрх ашгийг хамгаалах нийгэмлэг)
+                                                </li>
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    “Шилдэг үйлдвэрлэгч” шагнал авав. (Монголын эм
+                                                    үйлдвэрлэгчдийн холбоо)
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toggle toggle-bg">
+                                <div class="toggle-header">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapse16">
+                                        Амжилт-1999 он
+                                    </a>
+                                </div>
+                                <div id="collapse16" class="accordion-body collapse">
+                                    <div class="accordion-inner">
+                                        <div class="mb-40">
+                                            <div class="sub_heading">
+                                                <img class="image-about"
+                                                    src="{% static 'base/assets/images/shagnal.png' %}">
+                                            </div>
+                                            <ul class="award-list" style="margin-left: 55px; margin-top: -18px;">
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    “Натурвит” бэлдмэл нь “Оны шилдэг бүтээгдэхүүн”-ээр
+                                                    шалгарав. (МҮХАҮТ)
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toggle toggle-bg">
+                                <div class="toggle-header">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapse17">
+                                        Амжилт-1997 он
+                                    </a>
+                                </div>
+                                <div id="collapse17" class="accordion-body collapse">
+                                    <div class="accordion-inner">
+                                        <div class="mb-40">
+                                            <div class="sub_heading">
+                                                <img class="image-about"
+                                                    src="{% static 'base/assets/images/shagnal.png' %}">
+                                            </div>
+                                            <ul class="award-list" style="margin-left: 55px; margin-top: -18px;">
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    Оны шилдэг аж ахуй нэгжээр шалгарав. (МҮХАҮТ)
+                                                </li>
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    "Алтан тэмдэг" шагнал авав. (Монголын Ажил Олгогч Эздийн
+                                                    Нэгдсэн Холбоо)
+                                                </li>
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    “Эрвалкор” эм “Чанартай бүтээгдэхүүн” диплом авав.
+                                                    (СХЗҮТ)
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="toggle toggle-bg">
+                                <div class="toggle-header">
+                                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                                        href="#collapse18">
+                                        Амжилт-1992 он
+                                    </a>
+                                </div>
+                                <div id="collapse18" class="accordion-body collapse">
+                                    <div class="accordion-inner">
+                                        <div class="mb-40">
+                                            <div class="sub_heading">
+                                                <img class="image-about"
+                                                    src="{% static 'base/assets/images/shagnal.png' %}">
+                                            </div>
+                                            <ul class="award-list" style="margin-left: 55px; margin-top: -18px;">
+                                                <li style="list-style: outside none disc; color: #555">
+                                                    Зүрхний үйл ажиллагаанд нөлөөлөх “Эрвалкор” бэлдмэлийг
+                                                    үйлдвэрлэж Монголын
+                                                    анхны брэнд эм үйлдвэрлэгч болов.
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</section> <!-- #content end -->
+
+{% block style %}
+<style>
+    .image-about {
+        max-width: 100%;
+        text-align: center;
+        padding: 6px;
+        background: #fbfafb;
+        border: 1px solid #e7e7e7;
+        line-height: 0;
+        margin
+</style>
+{% endblock style %}
+{% endblock %}

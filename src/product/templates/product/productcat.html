@@ -1,0 +1,188 @@
+{% extends 'news/index_2.html' %}
+
+{% load static humanize  %}
+
+
+{% block content %}
+
+<style>
+    .content-wrap {
+        padding: 50px;
+    }
+
+    .widget-container-shadow {
+        outline: 2px solid rgba(188, 187, 155, 0.22);
+
+        outline-offset: 19px;
+    }
+
+    ul,
+    #myUL {
+        list-style-type: none;
+    }
+
+    #myUL {
+        margin: 0;
+        padding: 0;
+    }
+
+    .caret {
+        cursor: pointer;
+        user-select: none;
+        /* Prevent text selection */
+    }
+
+    .caret::before {
+        content: "\25B6";
+        color: #2f7751;
+        display: inline-block;
+        margin-right: 6px;
+    }
+
+    .caret-down::before {
+        transform: rotate(90deg);
+    }
+
+    /* Hide the nested list */
+    .nested {
+        display: none;
+    }
+
+    .active {
+        display: block;
+    }
+
+    li::before {
+        content: none !important;
+        font-family: "font-icons";
+        display: inline-block;
+        position: relative;
+        top: 1px;
+        left: 0;
+    }
+
+    .btn-success {
+        background-color: #2F4B70 !important;
+        border-color: #2F4B70 !important;
+    }
+
+    .form-control {
+        border-radius: 15px;
+    }
+
+    .category-class {
+
+        -webkit-box-shadow: 5px 5px 15px 5px rgb(0 0 0 / 15%);
+        box-shadow: 2px 5px 15px 5px rgb(0 0 0 / 15%);
+        border-radius: 37px;
+
+    }
+
+    .category-class:hover {
+        transform: scale(1.050);
+    }
+</style>
+<section id="page-title">
+
+    <div class="container clearfix">
+        <h1>Бүтээгдэхүүн</h1>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'website-homepage'%}">Нүүр хуудас</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Бүтээгдэхүүн</li>
+        </ol>
+    </div>
+
+</section><!-- #page-title end -->
+
+<!-- Content
+		============================================= -->
+
+<section id="content">
+    <div class="content-wrap">
+        <div class="container clearfix">
+            <div class="row justify-content-center mw-lg mx-auto gutter-20" style" justify-content: flex-end;
+                !important">
+
+                <form action="#" role="form" class="notopmargin nobottommargin" style="    padding-left: 500px;">
+                    <div class="input-group divcenter">
+                        <input type="text" class="form-control" name="search_text"
+                            placeholder="Энд хайх утгаа бичнэ үү." value="{{ search_text }}"
+                            style="padding-left:100px; padding-right:100px;">
+                        <span class="input-group-btn">
+                            <button class="btn btn-success" type="submit"><i class="icon-line-search"></i></button>
+                        </span>
+                    </div>
+                </form>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</section>
+<section id="content">
+    <div class="content-wrap">
+        <div class="container clearfix">
+            <div class="row justify-content-center mw-lg mx-auto gutter-20">
+
+
+
+                <div class="w-100 mt-4"></div>
+                {% for obj in cat %}
+                <div class="col-md-3">
+                    <a href="/product?cat_id={{obj.id}}">
+                        <img class="category-class" src="{{ obj.photo.url }}">
+                    </a>
+                </div>
+                {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <div class="w-100"></div>
+
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<style>
+    modal-center {
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+    }
+</style>
+
+<script>
+    'use strict';
+
+    var togglers = document.getElementsByClassName("caret");
+    var i;
+
+    for (i = 0; i < togglers.length; i++) {
+        togglers[i].addEventListener("click", function () {
+            this.parentElement.querySelector(".nested").classList.toggle("active");
+            this.classList.toggle("caret-down");
+        });
+    }
+</script>
+
+{% endblock %}

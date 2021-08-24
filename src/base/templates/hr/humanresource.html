@@ -1,5 +1,6 @@
 {% extends 'news/index_2.html' %}
 {% load static humanize  %}
+{% load i18n %}
 {% block content %}
 <!-- Page Title
 		============================================= -->
@@ -29,7 +30,7 @@
 
 		<h1 class="nott"
 			style="color: black;  font-size: 40px;   font-weight: 600;  letter-spacing: 2px; text-transform: none !important;">
-			Хүний нөөц
+			{% trans "Хүний нөөц" %}
 		</h1>
 
 
@@ -51,7 +52,7 @@
 					<div class="sticky-sidebar">
 
 						<ul class="sidenav">
-							<li><a href="#snav-content1"><i class="icon-screen"></i>Нээлттэй ажлын байр<i
+							<li><a href="#snav-content1"><i class="icon-screen"></i>{% trans "Нээлттэй ажлын байр" %}<i
 										class="icon-chevron-right"></i></a></li>
 							<li><a href="#snav-content2"><i class="icon-user21"></i>Сонгон шалгаруулалт<i
 										class="icon-chevron-right"></i></a></li>

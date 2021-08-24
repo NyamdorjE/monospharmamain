@@ -52,29 +52,33 @@ class ProductCategory(MPTTModel):
         return list_product
 
 
-# class ProductCategory(models.Model):
-#     parent = models.ForeignKey(
-#         "self",
-#         to_field="id",
-#         on_delete=models.CASCADE,
-#         null=True,
-#         blank=True,
-#         db_column="parent_id",
-#         verbose_name="Толгой ангилал",
-#         related_name="categories",
-#     )
-#     name = models.CharField(max_length=200, verbose_name="Нэр", null=True, blank=True)
-#     created_at = models.DateTimeField(
-#         auto_now_add=True, verbose_name=_("Created on"), null=True, blank=True
-#     )
+class ProductCategoryImage(models.Model):
 
-#     class Meta:
-#         ordering = ["created_at", "id"]
-#         verbose_name = "Бүтээгдэхүүний ангилал"
-#         verbose_name_plural = "Бүтээгдэхүүний ангилал"
+    name = models.CharField(
+        max_length=200, verbose_name=_("Нэр"), null=True, blank=True
+    )
+    slug = models.SlugField(
+        max_length=200, verbose_name=_("Slug"), blank=True, null=True
+    )
+    photo = models.ImageField(
+        verbose_name=_("Picture"),
+        upload_to="media/product/category/",
+        null=True,
+        blank=True,
+    )
+    is_top = models.BooleanField(default=False, verbose_name=_("Онцлох эсэх"))
+    is_active = models.BooleanField(default=True, verbose_name=_("Идэвхитэй эсэх"))
+    created_at = models.DateTimeField(
+        auto_now_add=True, verbose_name=_("Created on"), null=True, blank=True
+    )
 
-#     def __str__(self):
-#         return self.name
+    class Meta:
+        ordering = ["created_at", "id"]
+        verbose_name = "Бүтээгдэхүүний ангилал"
+        verbose_name_plural = "Бүтээгдэхүүний ангилал"
+
+    def __str__(self):
+        return self.name
 
 
 # class ChildCategory(models.Model):
@@ -151,6 +155,12 @@ class Product(models.Model):
     categories = models.ManyToManyField(
         "ProductCategory",
         verbose_name="Ангилалууд",
+        related_name="products",
+        blank=True,
+    )
+    category = models.ManyToManyField(
+        "ProductCategoryImage",
+        verbose_name="Ангилалууд Шинэ",
         related_name="products",
         blank=True,
     )

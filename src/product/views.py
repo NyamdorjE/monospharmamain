@@ -1,4 +1,6 @@
-from .models import ProductCategory, Product
+from django.http import request
+
+from .models import ProductCategory, Product, ProductCategoryImage
 from django.views import generic
 from django.db.models import Q
 from django.views.generic import ListView
@@ -11,9 +13,14 @@ class ProductList(ListView):
     template_name = "product/product.html"
 
     def get_context_data(self, **kwargs):
+        a = self.request.GET.get("cat_id")
+        print(a)
         context = super(ProductList, self).get_context_data(**kwargs)
         context["product"] = self.get_queryset()
         context["category"] = ProductCategory.objects.all()
+        context["cat"] = ProductCategoryImage.objects.filter(
+            id=self.request.GET.get("cat_id")
+        )
         context["newproduct"] = Product.objects.all()
         return context
 
@@ -32,7 +39,7 @@ class ProductList(ListView):
             return queryset
 
         if cat_id:
-            product_list = Product.objects.filter(categories=cat_id)
+            product_list = Product.objects.filter(category=cat_id)
             return product_list
         else:
             product = Product.objects.all()
@@ -83,3 +90,17 @@ class ProductAlphabet(generic.ListView):
             return product_list
         else:
             return product
+
+
+class ProductCategoryList(ListView):
+    paginate_by = 12
+    queryset = Product.objects.all()
+    template_name = "product/productcat.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(ProductCategoryList, self).get_context_data(**kwargs)
+        context["product"] = self.get_queryset()
+        context["category"] = ProductCategory.objects.all()
+        context["cat"] = ProductCategoryImage.objects.all()
+        context["newproduct"] = Product.objects.all()
+        return context

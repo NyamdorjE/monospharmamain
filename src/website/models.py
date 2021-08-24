@@ -1,8 +1,10 @@
 from django.db import models
-from django.db.models.fields.files import ImageField
+from django.db.models.fields.files import FileField, ImageField
 from django.forms.widgets import Media
 from django.utils.text import gettext_lazy as _
 from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
+
 
 # Create your models here.
 
@@ -148,6 +150,25 @@ class Banner(models.Model):
         ordering = ["position"]
 
 
+class BannerAboutUs(models.Model):
+    alt_text = models.CharField(
+        max_length=550,
+        verbose_name=_("Баннер зурагын хайлтын системд туслах тэскт"),
+        null=True,
+    )
+    photo = models.FileField(
+        upload_to="media/banners", verbose_name=_("Баннер зураг орох")
+    )
+    position = models.IntegerField()
+
+    def __str__(self):
+        return self.alt_text
+
+    class Meta:
+        verbose_name = _("Бидний тухай хуудас баннер")
+        ordering = ["position"]
+
+
 class BannerVideo(models.Model):
     src = models.CharField(max_length=255, verbose_name=_("Banner video"))
 
@@ -180,3 +201,62 @@ class Counter(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Introduction(models.Model):
+    context = RichTextUploadingField(verbose_name=_("Танилцуулга"))
+
+    class Meta:
+        verbose_name = _("Компаны танилцуулга")
+        verbose_name_plural = _("Компаны танилцуулга")
+
+
+class Mission(models.Model):
+    context = RichTextUploadingField(verbose_name=_("Эрхэм зорилго"))
+
+    class Meta:
+        verbose_name = _("Эрхэм зорилго")
+        verbose_name_plural = _("Эрхэм зорилго")
+
+
+class DirectorsGreetings(models.Model):
+    image = models.FileField(
+        upload_to="media/zahiral", verbose_name=_("Захиралын зураг")
+    )
+    context = RichTextUploadingField(verbose_name=_("Контэнт"))
+
+    class Meta:
+        verbose_name = _("Захиралын мэндчилгээ")
+        verbose_name_plural = _("Захиралын мэндчилгээ")
+
+
+class AboutUsCards(models.Model):
+    image = models.FileField(upload_to="media/featurebox", verbose_name=_("Зураг"))
+    title = models.CharField(verbose_name=_("Гарчиг"), max_length=500)
+    link = models.CharField(
+        verbose_name=_("Үсрэх линк"), max_length=500, null=True, blank=True
+    )
+    context = models.TextField(verbose_name=_("Контэнт"))
+
+    class Meta:
+        verbose_name = _("Бидний тухай хэсэгын карт")
+        verbose_name_plural = _("Бидний тухай хэсэгын карт")
+
+
+class HrBanner(models.Model):
+    alt_text = models.CharField(
+        max_length=550,
+        verbose_name=_("Баннер зурагын хайлтын системд туслах тэскт"),
+        null=True,
+    )
+    photo = models.FileField(
+        upload_to="media/hrbanner", verbose_name=_("Баннер зураг орох")
+    )
+    position = models.IntegerField()
+
+    def __str__(self):
+        return self.alt_text
+
+    class Meta:
+        verbose_name = _("HR хуудас баннер")
+        ordering = ["position"]

@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     # "django_social_share",
     # "sorl.thumbnail",
     "channels",
+    "django_translation_flags",
 ]
 
 mimetypes.add_type("text/css", ".css", True)
@@ -75,18 +76,20 @@ MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     #'whitenoise.middleware.WhiteNoiseMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "django.middleware.locale.LocaleMiddleware",
 ]
 
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 ROOT_URLCONF = "monospharma.urls"
+
+TEMPLATE_CONTEXT_PROCESSORS = ("django.core.context_processors.i18n",)  # this one
 
 
 TEMPLATES = [
@@ -172,6 +175,7 @@ use_websockets = True
 
 LANGUAGES = [
     ("mn", _("Mongolia")),
+    ("en", _("English")),
 ]
 
 

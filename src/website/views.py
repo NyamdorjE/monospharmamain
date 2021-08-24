@@ -6,8 +6,11 @@ from django.template import RequestContext
 
 
 from .models import (
+    AboutUsCards,
     Advice,
     AdviceCategory,
+    BannerAboutUs,
+    HrBanner,
     Testimonail,
     Gallery,
     LeftFeaturedProduct,
@@ -74,6 +77,71 @@ class About(TemplateView):
         return context
 
 
+class AboutUs(TemplateView):
+    template_name = "website/aboutus.html"
+    queryset = AboutUsCards.objects.all()
+    paginate_by = 6
+
+    def get_context_data(self, **kwargs):
+        context = super(AboutUs, self).get_context_data(**kwargs)
+        context["banner"] = BannerAboutUs.objects.all()
+        context["queryset"] = AboutUsCards.objects.all()
+        return context
+
+
+class Vision(TemplateView):
+    template_name = "website/vision.html"
+
+
+class Amjilt(TemplateView):
+    template_name = "website/amjilt.html"
+
+
+class Taniltsuulga(TemplateView):
+    template_name = "website/taniltsuulga.html"
+    queryset = News.objects.all().order_by("created_on")
+    paginate_by = 6
+
+    def get_context_data(self, **kwargs):
+        context = super(Taniltsuulga, self).get_context_data(**kwargs)
+        context["special"] = News.objects.filter(is_special="True")
+        context["category"] = Course.objects.all()
+        context["banner"] = BannerAboutUs.objects.all()
+        context["news"] = News.objects.all().order_by("-created_on")
+
+        return context
+
+
+class Zahiral(TemplateView):
+    template_name = "website/zahiral.html"
+    queryset = News.objects.all().order_by("created_on")
+    paginate_by = 6
+
+    def get_context_data(self, **kwargs):
+        context = super(Zahiral, self).get_context_data(**kwargs)
+        context["special"] = News.objects.filter(is_special="True")
+        context["category"] = Course.objects.all()
+        context["banner"] = BannerAboutUs.objects.all()
+        context["news"] = News.objects.all().order_by("-created_on")
+
+        return context
+
+
+class Timeline(TemplateView):
+    template_name = "website/timeline.html"
+    queryset = News.objects.all().order_by("created_on")
+    paginate_by = 6
+
+    def get_context_data(self, **kwargs):
+        context = super(Timeline, self).get_context_data(**kwargs)
+        context["special"] = News.objects.filter(is_special="True")
+        context["category"] = Course.objects.all()
+        context["banner"] = BannerAboutUs.objects.all()
+        context["news"] = News.objects.all().order_by("-created_on")
+
+        return context
+
+
 class AdviceNews(generic.ListView):
     queryset = Advice.objects.all()
     template_name = "news/advice.html"
@@ -113,3 +181,15 @@ class AdviceDetail(generic.DetailView):
 
 class Virtual(TemplateView):
     template_name = "virtual_tour/index.html"
+
+
+class HrNew(TemplateView):
+    template_name = "website/hrnew.html"
+    queryset = News.objects.all().order_by("created_on")
+    paginate_by = 6
+
+    def get_context_data(self, **kwargs):
+        context = super(HrNew, self).get_context_data(**kwargs)
+        context["banner"] = HrBanner.objects.all()
+
+        return context

@@ -1,0 +1,1593 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-08-17 15:32+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: monospharma/settings/common.py:177
+msgid "Mongolia"
+msgstr ""
+
+#: monospharma/settings/common.py:178
+msgid "English"
+msgstr ""
+
+#: src/accounts/forms.py:20
+msgid "Password"
+msgstr ""
+
+#: src/accounts/forms.py:28
+msgid "Remember me"
+msgstr ""
+
+#: src/accounts/forms.py:38
+msgid "You entered an invalid password."
+msgstr ""
+
+#: src/accounts/forms.py:45
+msgid "Имайл & Нэр"
+msgstr ""
+
+#: src/accounts/forms.py:51 src/accounts/forms.py:139 src/accounts/forms.py:224
+msgid "Нууц үг"
+msgstr ""
+
+#: src/accounts/forms.py:71 src/accounts/forms.py:266 src/accounts/forms.py:348
+msgid "You entered an invalid email address or username."
+msgstr ""
+
+#: src/accounts/forms.py:75 src/accounts/forms.py:330 src/accounts/forms.py:352
+#: src/accounts/forms.py:397
+msgid "This account is not active."
+msgstr ""
+
+#: src/accounts/forms.py:83
+msgid "1-р шатлалын эмнэлэг "
+msgstr ""
+
+#: src/accounts/forms.py:84
+msgid "2-р шатлалын эмнэлэг "
+msgstr ""
+
+#: src/accounts/forms.py:85
+msgid "3-р шатлалын эмнэлэг "
+msgstr ""
+
+#: src/accounts/forms.py:95 src/accounts/forms.py:185
+msgid "Овог"
+msgstr ""
+
+#: src/accounts/forms.py:99 src/accounts/forms.py:189 src/product/models.py:23
+msgid "Нэр"
+msgstr ""
+
+#: src/accounts/forms.py:103 src/accounts/forms.py:193
+msgid "И-майл"
+msgstr ""
+
+#: src/accounts/forms.py:108 src/accounts/forms.py:198
+msgid "Утас дугаар"
+msgstr ""
+
+#: src/accounts/forms.py:113 src/accounts/forms.py:203
+msgid "Регистер"
+msgstr ""
+
+#: src/accounts/forms.py:118 src/accounts/forms.py:208
+msgid "Аймаг/дүүрэг"
+msgstr ""
+
+#: src/accounts/forms.py:123 src/accounts/forms.py:213
+msgid "Байгууллагын нэр"
+msgstr ""
+
+#: src/accounts/forms.py:129 src/accounts/forms.py:220
+msgid "Лицензийн дугаар"
+msgstr ""
+
+#: src/accounts/forms.py:130 src/accounts/forms.py:218
+msgid "Заавал бөглөх шаардлаггүй"
+msgstr ""
+
+#: src/accounts/forms.py:143 src/accounts/forms.py:228
+msgid "Нууц үг баталгаа"
+msgstr ""
+
+#: src/accounts/forms.py:165 src/accounts/forms.py:250
+msgid "You can not use this email address."
+msgstr ""
+
+#: src/accounts/forms.py:171
+msgid "А"
+msgstr ""
+
+#: src/accounts/forms.py:172
+msgid "В"
+msgstr ""
+
+#: src/accounts/forms.py:173
+msgid "C"
+msgstr ""
+
+#: src/accounts/forms.py:174
+msgid "D"
+msgstr ""
+
+#: src/accounts/forms.py:175
+msgid "F"
+msgstr ""
+
+#: src/accounts/forms.py:256 src/accounts/forms.py:338
+msgid "Email or Username"
+msgstr ""
+
+#: src/accounts/forms.py:270 src/accounts/forms.py:300
+msgid "This account has already been activated."
+msgstr ""
+
+#: src/accounts/forms.py:274 src/accounts/forms.py:304
+msgid "Activation code not found."
+msgstr ""
+
+#: src/accounts/forms.py:280 src/accounts/forms.py:310
+msgid ""
+"Activation code has already been sent. You can request a new code in 24 "
+"hours."
+msgstr ""
+
+#: src/accounts/forms.py:290 src/accounts/forms.py:320
+#: src/accounts/forms.py:365 src/accounts/forms.py:387
+msgid "Email"
+msgstr ""
+
+#: src/accounts/forms.py:297 src/accounts/forms.py:327
+#: src/accounts/forms.py:394
+msgid "You entered an invalid email address."
+msgstr ""
+
+#: src/accounts/forms.py:360
+msgid "First name"
+msgstr ""
+
+#: src/accounts/forms.py:361
+msgid "Last name"
+msgstr ""
+
+#: src/accounts/forms.py:375
+msgid "Please enter another email."
+msgstr ""
+
+#: src/accounts/forms.py:381
+msgid "You can not use this mail."
+msgstr ""
+
+#: src/accounts/models.py:13 src/accounts/models.py:32
+msgid "Phone"
+msgstr ""
+
+#: src/accounts/models.py:15 src/accounts/models.py:34
+msgid "Register"
+msgstr ""
+
+#: src/accounts/models.py:16 src/accounts/models.py:35
+msgid "District"
+msgstr ""
+
+#: src/accounts/models.py:17 src/accounts/models.py:36
+msgid "Organization name"
+msgstr ""
+
+#: src/accounts/models.py:18 src/accounts/models.py:37 src/news/models.py:36
+#: src/quiz/models.py:34 src/quiz/models.py:40 src/quiz/models.py:75
+#: src/quiz/models.py:576 src/quiz/templates/progress.html:19
+#: src/quiz/templates/quiz/quiz_detail.html:9
+#: src/quiz/templates/quiz/sitting_detail.html:10
+#: src/quiz/test/progress.html:19 src/quiz/test/quiz/quiz_detail.html:9
+#: src/quiz/test/quiz/sitting_detail.html:10
+#: src/quiz/zzz/quiz/quiz_detail.html:9
+#: src/quiz/zzz/quiz/sitting_detail.html:10
+msgid "Category"
+msgstr ""
+
+#: src/accounts/models.py:19 src/accounts/models.py:38
+msgid "License number "
+msgstr ""
+
+#: src/accounts/models.py:22 src/accounts/models.py:23
+msgid "Эмч"
+msgstr ""
+
+#: src/accounts/models.py:41 src/accounts/models.py:42
+msgid "Эм зүйч"
+msgstr ""
+
+#: src/accounts/templates/accounts/emails/activate_profile.html:15
+#: src/accounts/templates/accounts/emails/activate_profile.txt:3
+msgid "To activate your profile, please follow this link:"
+msgstr ""
+
+#: src/accounts/templates/accounts/emails/change_email.html:15
+#: src/accounts/templates/accounts/emails/change_email.txt:3
+msgid "To change your current email address, please follow the link:"
+msgstr ""
+
+#: src/accounts/templates/accounts/emails/forgotten_username.html:15
+#: src/accounts/templates/accounts/emails/forgotten_username.txt:3
+msgid "Your username is:"
+msgstr ""
+
+#: src/accounts/templates/accounts/emails/restore_password_email.html:15
+#: src/accounts/templates/accounts/emails/restore_password_email.txt:3
+msgid ""
+"You received this email because you requested a password reset for your user "
+"account."
+msgstr ""
+
+#: src/accounts/templates/accounts/emails/restore_password_email.html:19
+#: src/accounts/templates/accounts/emails/restore_password_email.txt:5
+msgid "Please, go to the following page and choose a new password:"
+msgstr ""
+
+#: src/accounts/templates/accounts/log_out.html:7
+msgid "Систэмээс гарлаа"
+msgstr ""
+
+#: src/accounts/templates/accounts/log_out.html:10
+msgid "Сайтад зочилсонд баярлалаа."
+msgstr ""
+
+#: src/accounts/templates/accounts/log_out.html:14
+msgid "Ахиж нэтрэх"
+msgstr ""
+
+#: src/accounts/templates/accounts/profile.html:53
+#: src/quiz/templates/quiz/sitting_list.html:14
+#: src/quiz/templates/result.html:39 src/quiz/test/result.html:39
+#: src/quiz/zzz/progress.html:24 src/quiz/zzz/quiz/sitting_list.html:14
+#: src/quiz/zzz/result.html:39
+msgid "Шалгалтын нэр"
+msgstr ""
+
+#: src/accounts/templates/accounts/profile.html:54
+#: src/quiz/zzz/progress.html:25
+msgid "Авсан оноо"
+msgstr ""
+
+#: src/accounts/templates/accounts/profile.html:55
+#: src/quiz/zzz/progress.html:26
+msgid "Авах боломжтой оноо"
+msgstr ""
+
+#: src/accounts/templates/accounts/profile.html:56
+#: src/quiz/zzz/progress.html:27
+msgid "Авсан дүн"
+msgstr ""
+
+#: src/accounts/templates/accounts/remind_username.html:14
+msgid "Хэрэглэгчийн нэрээ санах"
+msgstr ""
+
+#: src/accounts/templates/accounts/remind_username.html:41
+#: src/accounts/templates/accounts/resend_activation_code.html:23
+#: src/accounts/templates/accounts/restore_password.html:41
+msgid "Log in"
+msgstr ""
+
+#: src/accounts/templates/accounts/resend_activation_code.html:8
+msgid "Resend an activation code"
+msgstr ""
+
+#: src/accounts/templates/accounts/resend_activation_code.html:15
+msgid "Next"
+msgstr ""
+
+#: src/accounts/templates/accounts/restore_password.html:14
+msgid "Нууц үг сэргээх"
+msgstr ""
+
+#: src/accounts/templates/accounts/restore_password_confirm.html:8
+#: src/accounts/templates/accounts/restore_password_done.html:8
+#: src/accounts/utils.py:43
+msgid "Restore password"
+msgstr ""
+
+#: src/accounts/templates/accounts/restore_password_confirm.html:13
+msgid ""
+"Please enter your new password twice so we can verify you typed it in "
+"correctly."
+msgstr ""
+
+#: src/accounts/templates/accounts/restore_password_confirm.html:21
+msgid "Change"
+msgstr ""
+
+#: src/accounts/templates/accounts/restore_password_confirm.html:28
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used. Please request a new password reset."
+msgstr ""
+
+#: src/accounts/templates/accounts/restore_password_done.html:11
+msgid ""
+"We've emailed you instructions for setting your password, if an account "
+"exists with the email you entered."
+msgstr ""
+
+#: src/accounts/templates/accounts/restore_password_done.html:12
+msgid "You should receive them shortly."
+msgstr ""
+
+#: src/accounts/templates/accounts/restore_password_done.html:16
+msgid ""
+"If you don't receive an email, please make sure you've entered the address "
+"you signed up with, and check your spam folder."
+msgstr ""
+
+#: src/accounts/utils.py:21
+msgid "Profile activation"
+msgstr ""
+
+#: src/accounts/utils.py:32
+msgid "Change email"
+msgstr ""
+
+#: src/accounts/utils.py:57
+msgid "Your username"
+msgstr ""
+
+#: src/accounts/views.py:138 src/accounts/views.py:197
+msgid ""
+"You are signed up. To activate the account, follow the link sent to the mail."
+msgstr ""
+
+#: src/accounts/views.py:147 src/accounts/views.py:206
+msgid "You are successfully signed up!"
+msgstr ""
+
+#: src/accounts/views.py:224
+msgid "You have successfully activated your account!"
+msgstr ""
+
+#: src/accounts/views.py:256
+msgid "A new activation code has been sent to your email address."
+msgstr ""
+
+#: src/accounts/views.py:302
+msgid "Profile data has been successfully updated."
+msgstr ""
+
+#: src/accounts/views.py:339
+msgid "To complete the change of email address, click on the link sent to it."
+msgstr ""
+
+#: src/accounts/views.py:346
+msgid "Email successfully changed."
+msgstr ""
+
+#: src/accounts/views.py:364
+msgid "You have successfully changed your email!"
+msgstr ""
+
+#: src/accounts/views.py:378
+msgid "Your username has been successfully sent to your email."
+msgstr ""
+
+#: src/accounts/views.py:394
+msgid "Your password was changed."
+msgstr ""
+
+#: src/accounts/views.py:408
+msgid "Your password has been set. You may go ahead and log in now."
+msgstr ""
+
+#: src/base/apps.py:7
+msgid "Base"
+msgstr ""
+
+#: src/base/models/humanresource.py:23 src/courses/models.py:17
+#: src/courses/models.py:39 src/courses/models.py:83 src/news/models.py:17
+#: src/news/models.py:40 src/news/models.py:78 src/poll/models.py:7
+#: src/quiz/models.py:56 src/quiz/models.py:623 src/website/models.py:40
+msgid "Title"
+msgstr ""
+
+#: src/base/models/humanresource.py:24 src/courses/models.py:41
+#: src/courses/models.py:88 src/quiz/models.py:59
+msgid "Description"
+msgstr ""
+
+#: src/base/models/humanresource.py:25 src/product/models.py:26
+msgid "Slug"
+msgstr ""
+
+#: src/base/models/humanresource.py:27
+msgid "Deadline date "
+msgstr ""
+
+#: src/base/models/humanresource.py:29
+msgid "Created at"
+msgstr ""
+
+#: src/base/models/humanresource.py:33
+msgid "Human resource"
+msgstr ""
+
+#: src/base/models/humanresource.py:34
+msgid "Human resources"
+msgstr ""
+
+#: src/base/models/humanresource.py:41
+msgid "Text"
+msgstr ""
+
+#: src/base/models/humanresource.py:43
+msgid "Open job"
+msgstr ""
+
+#: src/base/models/humanresource.py:47
+msgid "List title "
+msgstr ""
+
+#: src/base/models/humanresource.py:48
+msgid "List titles"
+msgstr ""
+
+#: src/base/models/humanresource.py:57
+msgid "List title"
+msgstr ""
+
+#: src/base/models/humanresource.py:61
+msgid "List Item "
+msgstr ""
+
+#: src/base/models/humanresource.py:62
+msgid "List Items"
+msgstr ""
+
+#: src/base/models/humanresource.py:69
+msgid "Questionnaire"
+msgstr ""
+
+#: src/base/templates/hr/humanresource.html:32
+#: src/news/templates/news/index_2.html:508
+#: src/news/templates/news/index_2.html:622
+msgid "Хүний нөөц"
+msgstr "Human resources"
+
+#: src/base/templates/hr/humanresource.html:54
+#: src/news/templates/news/homepage.html:631
+#: src/news/templates/news/index_2.html:627
+msgid "Нээлттэй ажлын байр"
+msgstr "Vacancies"
+
+#: src/chat/models.py:6
+msgid "Name"
+msgstr ""
+
+#: src/chat/models.py:10
+msgid "user"
+msgstr ""
+
+#: src/chat/models.py:11 src/courses/models.py:146 src/courses/models.py:147
+#: src/quiz/models.py:50
+msgid "Lesson"
+msgstr ""
+
+#: src/courses/models.py:20 src/courses/models.py:21
+msgid "Course category"
+msgstr ""
+
+#: src/courses/models.py:46 src/product/models.py:199
+msgid "Picture"
+msgstr ""
+
+#: src/courses/models.py:48
+msgid "Students"
+msgstr ""
+
+#: src/courses/models.py:49
+msgid "Price"
+msgstr ""
+
+#: src/courses/models.py:51
+msgid "Start_at"
+msgstr ""
+
+#: src/courses/models.py:63
+msgid "State"
+msgstr ""
+
+#: src/courses/models.py:67 src/courses/models.py:68 src/courses/models.py:86
+msgid "Course"
+msgstr ""
+
+#: src/courses/models.py:81
+msgid "Created by "
+msgstr ""
+
+#: src/courses/models.py:89
+msgid "Created_on"
+msgstr ""
+
+#: src/courses/models.py:92 src/courses/models.py:93 src/courses/models.py:118
+msgid "Subject"
+msgstr ""
+
+#: src/courses/models.py:115
+msgid " Lesson title"
+msgstr ""
+
+#: src/courses/models.py:121
+msgid "Upload video"
+msgstr ""
+
+#: src/courses/models.py:123 src/website/models.py:13
+msgid "Content"
+msgstr ""
+
+#: src/courses/models.py:124
+msgid "Lesson position"
+msgstr ""
+
+#: src/courses/models.py:127
+msgid "Файлын нэр"
+msgstr ""
+
+#: src/courses/models.py:130
+msgid "Register activated"
+msgstr ""
+
+#: src/courses/models.py:132
+msgid "Youtubecode"
+msgstr ""
+
+#: src/courses/templates/courses/lesson_detail.html:209
+#: src/quiz/templates/quiz/quiz_list.html:33
+#: src/quiz/test/quiz/quiz_list.html:33 src/quiz/zzz/quiz/quiz_list.html:33
+msgid "Шалгалт өгөх"
+msgstr ""
+
+#: src/news/apps.py:7 src/news/models.py:52 src/news/models.py:53
+msgid "News"
+msgstr ""
+
+#: src/news/models.py:22
+msgid "News category"
+msgstr ""
+
+#: src/news/models.py:23
+msgid "News categories"
+msgstr ""
+
+#: src/news/models.py:41
+msgid "News slug"
+msgstr ""
+
+#: src/news/models.py:42 src/website/models.py:58
+msgid "Author"
+msgstr ""
+
+#: src/news/models.py:43
+msgid "Тэкст"
+msgstr ""
+
+#: src/news/models.py:46
+msgid "created on"
+msgstr ""
+
+#: src/news/models.py:48
+msgid "Updated on"
+msgstr ""
+
+#: src/news/models.py:65 src/news/models.py:69
+msgid "Video news category"
+msgstr ""
+
+#: src/news/models.py:82
+msgid "Youtube video embed url"
+msgstr ""
+
+#: src/news/models.py:91
+msgid "Video news"
+msgstr ""
+
+#: src/news/templates/news/homepage.html:152
+msgid "Барилга байгууламж, Дэд бүтэц"
+msgstr "Buildings and Infrastructure"
+
+#: src/news/templates/news/homepage.html:156
+msgid "Түүхий эд, матриал"
+msgstr "Raw materials"
+
+#: src/news/templates/news/homepage.html:161
+msgid "Тоног төхөөрөмж"
+msgstr "Equipment"
+
+#: src/news/templates/news/homepage.html:165
+msgid "Хүн хүчин"
+msgstr ""
+
+#: src/news/templates/news/homepage.html:169
+msgid "Чанарын баталгаажилт, Баримтжуулалт"
+msgstr ""
+
+#: src/news/templates/news/homepage.html:173
+msgid "Чанарын хяналт"
+msgstr "Quality Assurance and Documentation"
+
+#: src/news/templates/news/homepage.html:183
+msgid "Эм үйлдвэрлэлийг дэлхийн жишигт"
+msgstr "World-class drug production"
+
+#: src/news/templates/news/homepage.html:275
+msgid "Мэдээ мэдээлэл"
+msgstr "News"
+
+#: src/news/templates/news/homepage.html:443
+#: src/news/templates/news/homepage.html:617
+#: src/news/templates/news/index_2.html:288 src/product/models.py:229
+#: src/product/models.py:230
+msgid "Бүтээгдэхүүн"
+msgstr "Product"
+
+#: src/news/templates/news/homepage.html:497
+msgid "Статик мэдээлэл"
+msgstr "Static information"
+
+#: src/news/templates/news/homepage.html:508
+#: src/news/templates/news/homepage.html:523
+#: src/news/templates/news/homepage.html:538
+#: src/news/templates/news/homepage.html:553
+msgid "сая"
+msgstr "M"
+
+#: src/news/templates/news/homepage.html:509
+msgid "Ширхэг капсултай эм"
+msgstr "Pills in capsules"
+
+#: src/news/templates/news/homepage.html:524
+msgid "Ширхэг шахмал эм"
+msgstr "Pills"
+
+#: src/news/templates/news/homepage.html:539
+msgid "Ширхэг мөхлөг эм"
+msgstr "Pieces of granules"
+
+#: src/news/templates/news/homepage.html:554
+msgid "МЛ Шингэн эм"
+msgstr "ML Liquid medicine"
+
+#: src/news/templates/news/homepage.html:569
+msgid "Хамтрагч байгууллагууд"
+msgstr "Partner organizations"
+
+#: src/news/templates/news/homepage.html:645
+msgid "Хүргэлт үйлчилгээ"
+msgstr "Delivery service"
+
+#: src/news/templates/news/homepage.html:659
+msgid "Онлайн тусламж"
+msgstr "Online help"
+
+#: src/news/templates/news/homepage.html:676
+msgid "Сэтгэгдэл"
+msgstr "Testimonial"
+
+#: src/news/templates/news/index_2.html:121
+msgid "Нууц үг солих"
+msgstr "Change password"
+
+#: src/news/templates/news/index_2.html:123
+msgid "Имайл хаяг солих"
+msgstr "Change email address"
+
+#: src/news/templates/news/index_2.html:125
+msgid "Нэвтрэх нэр солих"
+msgstr "Change username"
+
+#: src/news/templates/news/index_2.html:128
+msgid "Системээс гарах"
+msgstr "Log-out"
+
+#: src/news/templates/news/index_2.html:131
+msgid "Нэвтрэх"
+msgstr "Login"
+
+#: src/news/templates/news/index_2.html:133
+msgid "Эм зүйчээр Бүртгүүлэх"
+msgstr "Register as a pharmacist"
+
+#: src/news/templates/news/index_2.html:135
+msgid "Эмчээр Бүртгүүлэх"
+msgstr "Register with a doctor"
+
+#: src/news/templates/news/index_2.html:193
+msgid "Бидний тухай"
+msgstr "About us"
+
+#: src/news/templates/news/index_2.html:201
+msgid "Туслах цэс"
+msgstr "Helper menu"
+
+#: src/news/templates/news/index_2.html:207
+#: src/news/templates/news/index_2.html:597 src/website/models.py:188
+msgid "Танилцуулга"
+msgstr "Introduction"
+
+#: src/news/templates/news/index_2.html:214
+#: src/news/templates/news/index_2.html:600 src/website/models.py:196
+#: src/website/models.py:199 src/website/models.py:200
+msgid "Эрхэм зорилго"
+msgstr "Mission"
+
+#: src/news/templates/news/index_2.html:221
+#: src/news/templates/news/index_2.html:604
+msgid "Захирлын мэндчилгээ"
+msgstr "Director's greetings"
+
+#: src/news/templates/news/index_2.html:228
+#: src/news/templates/news/index_2.html:607
+msgid "Түүхэн товчоо"
+msgstr "Timeline"
+
+#: src/news/templates/news/index_2.html:235
+#: src/news/templates/news/index_2.html:610
+#, fuzzy
+#| msgid "Бидний тухай"
+msgid "Бидний амжилт"
+msgstr "About us"
+
+#: src/news/templates/news/index_2.html:242
+#: src/news/templates/news/index_2.html:613
+msgid "Чанар хангалт"
+msgstr ""
+
+#: src/news/templates/news/index_2.html:436
+msgid "Мэдээ"
+msgstr "News"
+
+#: src/news/templates/news/index_2.html:449
+msgid "Зөвлөгөө"
+msgstr "Advice"
+
+#: src/news/templates/news/index_2.html:451
+#, fuzzy
+#| msgid "Статик мэдээлэл"
+msgid "Видео мэдээ"
+msgstr "Static information"
+
+#: src/news/templates/news/index_2.html:502
+msgid "Сургалт"
+msgstr "Lessons"
+
+#: src/news/templates/news/index_2.html:513
+msgid "360 Virtual tour"
+msgstr "360 Virtual tour"
+
+#: src/news/templates/news/index_2.html:578
+msgid "Хаяг:"
+msgstr "Address"
+
+#: src/news/templates/news/index_2.html:579
+msgid "Сонгино хайрхан дүүрэг"
+msgstr ""
+
+#: src/news/templates/news/index_2.html:579
+msgid "Сонсголонгийн зам"
+msgstr ""
+
+#: src/news/templates/news/index_2.html:580
+msgid "Монос Эмийн үйлдвэр"
+msgstr ""
+
+#: src/news/templates/news/index_2.html:582
+msgid "Утас:"
+msgstr "Phone"
+
+#: src/news/templates/news/index_2.html:584
+msgid "Майл:"
+msgstr "Email"
+
+#: src/news/templates/news/index_2.html:592
+msgid "БИДНИЙ ТУХАЙ"
+msgstr "About us"
+
+#: src/news/templates/news/index_2.html:630
+msgid "Сонгон шалгаруулалт"
+msgstr ""
+
+#: src/news/templates/news/index_2.html:634
+msgid "Нийгмийн халамж"
+msgstr ""
+
+#: src/news/templates/news/index_2.html:660
+msgid ""
+"Монгол Улсын хувийн хэвшлийн ууган үйлдвэр Монос Фарм ХХК нь 1990 онд "
+"байгуулагдсан. Бид хүмүүний эрүүл мэндийг тэтгэх эмчилгээний өндөр идэвхт эм "
+"бэлдмэл, эмийн чанарыг хамгаас эрхэмлэн эмийн үйлдвэрлэл, эмзүйн судалгаа, "
+"шинжилгээний чиглэлээр үйл ажиллагаагаа явуулж байна."
+msgstr ""
+
+#: src/news/templates/news/index_2.html:678
+msgid "Холбоо барих"
+msgstr ""
+
+#: src/news/templates/news/index_2.html:698
+msgid "Зохиогчийн эрх хуулиар хамгаалагдав. | 2020 он "
+msgstr ""
+
+#: src/poll/models.py:6
+msgid "Position"
+msgstr ""
+
+#: src/poll/models.py:8
+msgid "Slug "
+msgstr ""
+
+#: src/poll/models.py:11
+msgid "Poll"
+msgstr ""
+
+#: src/poll/models.py:12
+msgid "Polls"
+msgstr ""
+
+#: src/product/apps.py:7
+msgid "Product"
+msgstr ""
+
+#: src/product/models.py:20
+msgid "Толгой ангилал"
+msgstr ""
+
+#: src/product/models.py:28
+msgid "Онцлох эсэх"
+msgstr ""
+
+#: src/product/models.py:29
+msgid "Идэвхитэй эсэх"
+msgstr ""
+
+#: src/product/models.py:37 src/product/models.py:38
+msgid "Бүтээгдэхүүний ангилал"
+msgstr ""
+
+#: src/product/models.py:129
+msgid "Type of product"
+msgstr ""
+
+#: src/product/models.py:132
+msgid "Бүтээгдэхүүний төрөл"
+msgstr ""
+
+#: src/product/models.py:140
+msgid "ProductForm "
+msgstr ""
+
+#: src/product/models.py:143
+msgid "Бүтээгдэхүүний хэлбэр"
+msgstr ""
+
+#: src/product/models.py:158
+msgid "Бүтээгдэхүүн дотоод код"
+msgstr ""
+
+#: src/product/models.py:166
+msgid "producttype"
+msgstr ""
+
+#: src/product/models.py:173
+msgid "ProductForm"
+msgstr ""
+
+#: src/product/models.py:179
+msgid "Product name "
+msgstr ""
+
+#: src/product/models.py:186
+msgid "Product Slug"
+msgstr ""
+
+#: src/product/models.py:196 src/website/models.py:61
+msgid "Created on"
+msgstr ""
+
+#: src/product/models.py:208
+msgid "Product intertational name"
+msgstr ""
+
+#: src/product/models.py:213
+msgid "Link to emonos"
+msgstr ""
+
+#: src/quiz/admin.py:35 src/quiz/admin.py:37 src/quiz/models.py:606
+msgid "Questions"
+msgstr ""
+
+#: src/quiz/models.py:41
+msgid "Categories"
+msgstr ""
+
+#: src/quiz/models.py:61
+msgid "a description of the quiz"
+msgstr ""
+
+#: src/quiz/models.py:67
+msgid "a user friendly url"
+msgstr ""
+
+#: src/quiz/models.py:68
+msgid "user friendly url"
+msgstr ""
+
+#: src/quiz/models.py:82
+msgid "Random Order"
+msgstr ""
+
+#: src/quiz/models.py:84
+msgid "Display the questions in a random order or as they are set?"
+msgstr ""
+
+#: src/quiz/models.py:91
+msgid "Max Questions"
+msgstr ""
+
+#: src/quiz/models.py:92
+msgid "Number of questions to be answered on each attempt."
+msgstr ""
+
+#: src/quiz/models.py:99
+msgid ""
+"Correct answer is NOT shown after question. Answers displayed at the end."
+msgstr ""
+
+#: src/quiz/models.py:102
+msgid "Answers at end"
+msgstr ""
+
+#: src/quiz/models.py:109
+msgid ""
+"If yes, the result of each attempt by a user will be stored. Necessary for "
+"marking."
+msgstr ""
+
+#: src/quiz/models.py:113
+msgid "Exam Paper"
+msgstr ""
+
+#: src/quiz/models.py:120
+msgid ""
+"If yes, only one attempt by a user will be permitted. Non users cannot sit "
+"this exam."
+msgstr ""
+
+#: src/quiz/models.py:124
+msgid "Single Attempt"
+msgstr ""
+
+#: src/quiz/models.py:130
+msgid "Pass Mark"
+msgstr ""
+
+#: src/quiz/models.py:131
+msgid "Percentage required to pass exam."
+msgstr ""
+
+#: src/quiz/models.py:137
+msgid "Displayed if user passes."
+msgstr ""
+
+#: src/quiz/models.py:138
+msgid "Success Text"
+msgstr ""
+
+#: src/quiz/models.py:142
+msgid "Fail Text"
+msgstr ""
+
+#: src/quiz/models.py:142
+msgid "Displayed if user fails."
+msgstr ""
+
+#: src/quiz/models.py:148
+msgid "Draft"
+msgstr ""
+
+#: src/quiz/models.py:150
+msgid ""
+"If yes, the quiz is not displayed in the quiz list and can only be taken by "
+"users who can edit quizzes."
+msgstr ""
+
+#: src/quiz/models.py:173 src/quiz/models.py:396 src/quiz/models.py:572
+#: src/quiz/test/quiz/sitting_list.html:14
+msgid "Quiz"
+msgstr ""
+
+#: src/quiz/models.py:174
+msgid "Quizzes"
+msgstr ""
+
+#: src/quiz/models.py:213 src/quiz/templates/quiz/sitting_detail.html:13
+#: src/quiz/templates/quiz/sitting_list.html:13
+#: src/quiz/zzz/quiz/sitting_detail.html:13
+#: src/quiz/zzz/quiz/sitting_list.html:13
+msgid "Хэрэглэгч"
+msgstr ""
+
+#: src/quiz/models.py:219
+msgid "Оноо"
+msgstr ""
+
+#: src/quiz/models.py:222 src/quiz/templates/correct_answer.html:16
+#: src/quiz/templates/quiz/sitting_detail.html:43
+#: src/quiz/test/correct_answer.html:16 src/quiz/zzz/correct_answer.html:16
+#: src/quiz/zzz/quiz/sitting_detail.html:44
+msgid "Зөв хариулт"
+msgstr ""
+
+#: src/quiz/models.py:224 src/quiz/templates/quiz/sitting_detail.html:41
+#: src/quiz/zzz/quiz/sitting_detail.html:42
+msgid "Буруу хариулт"
+msgstr ""
+
+#: src/quiz/models.py:229 src/quiz/models.py:230
+msgid "Хэрэглэгчийн оноо"
+msgstr ""
+
+#: src/quiz/models.py:292
+msgid "error"
+msgstr ""
+
+#: src/quiz/models.py:292
+msgid "category does not exist or invalid score"
+msgstr ""
+
+#: src/quiz/models.py:393 src/quiz/test/quiz/sitting_detail.html:13
+#: src/quiz/test/quiz/sitting_list.html:13
+msgid "User"
+msgstr ""
+
+#: src/quiz/models.py:401
+msgid "Question Order"
+msgstr ""
+
+#: src/quiz/models.py:407
+msgid "Question List"
+msgstr ""
+
+#: src/quiz/models.py:414
+msgid "Incorrect questions"
+msgstr ""
+
+#: src/quiz/models.py:417
+msgid "Current Score"
+msgstr ""
+
+#: src/quiz/models.py:420
+msgid "Complete"
+msgstr ""
+
+#: src/quiz/models.py:424
+msgid "User Answers"
+msgstr ""
+
+#: src/quiz/models.py:427
+msgid "Start"
+msgstr ""
+
+#: src/quiz/models.py:429
+msgid "End"
+msgstr ""
+
+#: src/quiz/models.py:434
+msgid "Can see completed exams."
+msgstr ""
+
+#: src/quiz/models.py:583
+msgid "Figure"
+msgstr ""
+
+#: src/quiz/models.py:589
+msgid "Enter the question text that you want displayed"
+msgstr ""
+
+#: src/quiz/models.py:590 src/quiz/models.py:605
+#: src/quiz/templates/question.html:55 src/quiz/test/question.html:52
+#: src/quiz/test/quiz/sitting_detail.html:21 src/quiz/zzz/question.html:55
+msgid "Question"
+msgstr ""
+
+#: src/quiz/models.py:597
+msgid "Explanation to be shown after the question has been answered."
+msgstr ""
+
+#: src/quiz/models.py:599 src/quiz/templates/result.html:97
+#: src/quiz/test/question.html:37 src/quiz/test/result.html:97
+#: src/quiz/zzz/result.html:97
+msgid "Explanation"
+msgstr ""
+
+#: src/quiz/templates/base.html:8 src/quiz/test/base.html:9
+#: src/quiz/zzz/base.html:9
+msgid "Example Quiz Website"
+msgstr ""
+
+#: src/quiz/templates/correct_answer.html:6 src/quiz/test/correct_answer.html:6
+#: src/quiz/zzz/correct_answer.html:6
+msgid "You answered the above question incorrectly"
+msgstr ""
+
+#: src/quiz/templates/correct_answer.html:23
+#: src/quiz/test/correct_answer.html:23
+msgid "This was your answer."
+msgstr ""
+
+#: src/quiz/templates/progress.html:6 src/quiz/test/progress.html:6
+#: src/quiz/zzz/progress.html:6
+msgid "Progress Page"
+msgstr ""
+
+#: src/quiz/templates/progress.html:7 src/quiz/test/progress.html:7
+#: src/quiz/zzz/progress.html:7
+msgid "User Progress Page"
+msgstr ""
+
+#: src/quiz/templates/progress.html:13 src/quiz/test/progress.html:13
+msgid "Question Category Scores"
+msgstr ""
+
+#: src/quiz/templates/progress.html:20 src/quiz/test/progress.html:20
+msgid "Correctly answererd"
+msgstr ""
+
+#: src/quiz/templates/progress.html:21 src/quiz/test/progress.html:21
+msgid "Incorrect"
+msgstr ""
+
+#: src/quiz/templates/progress.html:50 src/quiz/test/progress.html:50
+msgid "Previous exam papers"
+msgstr ""
+
+#: src/quiz/templates/progress.html:52 src/quiz/test/progress.html:52
+msgid "Below are the results of exams that you have sat."
+msgstr ""
+
+#: src/quiz/templates/progress.html:59 src/quiz/test/progress.html:59
+msgid "Quiz Title"
+msgstr ""
+
+#: src/quiz/templates/progress.html:60 src/quiz/test/progress.html:60
+#: src/quiz/test/quiz/sitting_detail.html:15
+#: src/quiz/test/quiz/sitting_list.html:16
+msgid "Score"
+msgstr ""
+
+#: src/quiz/templates/progress.html:61 src/quiz/test/progress.html:61
+msgid "Possible Score"
+msgstr ""
+
+#: src/quiz/templates/question.html:18 src/quiz/test/question.html:18
+#: src/quiz/zzz/question.html:18
+msgid "The previous question"
+msgstr ""
+
+#: src/quiz/templates/question.html:27 src/quiz/zzz/question.html:27
+msgid "Таны хариулт"
+msgstr ""
+
+#: src/quiz/templates/question.html:32 src/quiz/zzz/question.html:32
+msgid "байна"
+msgstr ""
+
+#: src/quiz/templates/question.html:40 src/quiz/zzz/question.html:40
+msgid "Тайлбар дүн"
+msgstr ""
+
+#: src/quiz/templates/question.html:55 src/quiz/test/question.html:52
+#: src/quiz/zzz/question.html:55
+msgid "of"
+msgstr ""
+
+#: src/quiz/templates/question.html:60 src/quiz/test/question.html:57
+#: src/quiz/zzz/question.html:60
+msgid "Question category"
+msgstr ""
+
+#: src/quiz/templates/question.html:82 src/quiz/test/question.html:79
+#: src/quiz/zzz/question.html:82
+msgid "Илгээх"
+msgstr ""
+
+#: src/quiz/templates/question.html:85 src/quiz/test/question.html:82
+#: src/quiz/zzz/question.html:85
+msgid "Дараах"
+msgstr ""
+
+#: src/quiz/templates/quiz/category_list.html:3
+#: src/quiz/templates/quiz/quiz_list.html:4
+#: src/quiz/test/quiz/category_list.html:3 src/quiz/test/quiz/quiz_list.html:4
+#: src/quiz/test/quiz/sitting_list.html:3 src/quiz/zzz/quiz/quiz_list.html:4
+msgid "All Quizzes"
+msgstr ""
+
+#: src/quiz/templates/quiz/category_list.html:6
+#: src/quiz/test/quiz/category_list.html:6
+msgid "Category list"
+msgstr ""
+
+#: src/quiz/templates/quiz/quiz_detail.html:11
+#: src/quiz/test/quiz/quiz_detail.html:11 src/quiz/zzz/quiz/quiz_detail.html:11
+msgid "You will only get one attempt at this quiz"
+msgstr ""
+
+#: src/quiz/templates/quiz/quiz_detail.html:16
+#: src/quiz/test/quiz/quiz_detail.html:16 src/quiz/zzz/quiz/quiz_detail.html:16
+msgid "Start quiz"
+msgstr ""
+
+#: src/quiz/templates/quiz/quiz_list.html:14
+#: src/quiz/test/quiz/quiz_list.html:14 src/quiz/zzz/quiz/quiz_list.html:14
+msgid "Шалгалтын мэдээлэл"
+msgstr ""
+
+#: src/quiz/templates/quiz/quiz_list.html:18
+#: src/quiz/test/quiz/quiz_list.html:18 src/quiz/zzz/quiz/quiz_list.html:18
+#: src/website/models.py:161
+msgid "Гарчиг"
+msgstr ""
+
+#: src/quiz/templates/quiz/quiz_list.html:19
+#: src/quiz/test/quiz/quiz_list.html:19 src/quiz/zzz/quiz/quiz_list.html:19
+msgid "Ангилал"
+msgstr ""
+
+#: src/quiz/templates/quiz/quiz_list.html:20
+#: src/quiz/test/quiz/quiz_list.html:20 src/quiz/zzz/quiz/quiz_list.html:20
+msgid "Шалгалт"
+msgstr ""
+
+#: src/quiz/templates/quiz/quiz_list.html:21
+#: src/quiz/test/quiz/quiz_list.html:21 src/quiz/zzz/quiz/quiz_list.html:21
+msgid "Нэг л удаа өгнө"
+msgstr ""
+
+#: src/quiz/templates/quiz/sitting_detail.html:5
+#: src/quiz/test/quiz/sitting_detail.html:5
+#: src/quiz/zzz/quiz/sitting_detail.html:5
+msgid "Result of"
+msgstr ""
+
+#: src/quiz/templates/quiz/sitting_detail.html:5
+#: src/quiz/test/quiz/sitting_detail.html:5
+#: src/quiz/zzz/quiz/sitting_detail.html:5
+msgid "for"
+msgstr ""
+
+#: src/quiz/templates/quiz/sitting_detail.html:9
+#: src/quiz/zzz/quiz/sitting_detail.html:9
+msgid "Шалгалтын гарчиг"
+msgstr ""
+
+#: src/quiz/templates/quiz/sitting_detail.html:14
+#: src/quiz/zzz/quiz/sitting_detail.html:14
+msgid "Шалгалт өгсөн огноо"
+msgstr ""
+
+#: src/quiz/templates/quiz/sitting_detail.html:15
+#: src/quiz/templates/quiz/sitting_list.html:16
+#: src/quiz/zzz/quiz/sitting_detail.html:15
+#: src/quiz/zzz/quiz/sitting_list.html:16
+msgid "Дүн"
+msgstr ""
+
+#: src/quiz/templates/quiz/sitting_detail.html:21
+#: src/quiz/zzz/quiz/sitting_detail.html:21
+msgid "Асуулт"
+msgstr ""
+
+#: src/quiz/templates/quiz/sitting_detail.html:22
+#: src/quiz/zzz/quiz/sitting_detail.html:22
+msgid "Хэрэглэгчийн хариулт"
+msgstr ""
+
+#: src/quiz/templates/quiz/sitting_detail.html:49
+#: src/quiz/zzz/quiz/sitting_detail.html:50
+msgid "Хариултын зөв болгох"
+msgstr ""
+
+#: src/quiz/templates/quiz/sitting_list.html:3
+#: src/quiz/templates/quiz/sitting_list.html:6
+#: src/quiz/zzz/quiz/sitting_list.html:3 src/quiz/zzz/quiz/sitting_list.html:6
+msgid "Шалгалтын үр дүн"
+msgstr ""
+
+#: src/quiz/templates/quiz/sitting_list.html:15
+#: src/quiz/zzz/quiz/sitting_list.html:15
+msgid "Дууссан огноо"
+msgstr ""
+
+#: src/quiz/templates/quiz/sitting_list.html:28
+#: src/quiz/test/quiz/sitting_list.html:28
+#: src/quiz/zzz/quiz/sitting_list.html:28
+msgid "Filter"
+msgstr ""
+
+#: src/quiz/templates/quiz/sitting_list.html:42
+#: src/quiz/zzz/quiz/sitting_list.html:42
+msgid "Задаргаа харах"
+msgstr ""
+
+#: src/quiz/templates/quiz/sitting_list.html:52
+#: src/quiz/test/quiz/sitting_list.html:52
+#: src/quiz/zzz/quiz/sitting_list.html:52
+msgid "There are no matching quizzes"
+msgstr ""
+
+#: src/quiz/templates/result.html:7 src/quiz/test/result.html:7
+#: src/quiz/zzz/result.html:7
+msgid "Exam Results for"
+msgstr ""
+
+#: src/quiz/templates/result.html:17 src/quiz/test/result.html:17
+#: src/quiz/zzz/result.html:17
+msgid "Өмнөх асуулт"
+msgstr ""
+
+#: src/quiz/templates/result.html:37 src/quiz/test/result.html:37
+#: src/quiz/zzz/result.html:37
+msgid "Шалгалтын оноо"
+msgstr ""
+
+#: src/quiz/templates/result.html:43 src/quiz/test/result.html:43
+#: src/quiz/zzz/result.html:43
+msgid "Та"
+msgstr ""
+
+#: src/quiz/templates/result.html:43 src/quiz/test/result.html:43
+#: src/quiz/zzz/result.html:43
+msgid "асуултаас"
+msgstr ""
+
+#: src/quiz/templates/result.html:43 src/quiz/test/result.html:43
+#: src/quiz/zzz/result.html:43
+msgid " асуултанд зөв хариулж "
+msgstr ""
+
+#: src/quiz/templates/result.html:44 src/quiz/test/result.html:44
+#: src/quiz/zzz/result.html:44
+msgid "хувь авлаа"
+msgstr ""
+
+#: src/quiz/templates/result.html:61 src/quiz/test/result.html:61
+#: src/quiz/zzz/result.html:61
+msgid "Шалгалтын хариу баталгаажтал түр хүлээн хүлээнэ үү"
+msgstr ""
+
+#: src/quiz/templates/result.html:76 src/quiz/test/result.html:76
+#: src/quiz/zzz/result.html:76
+msgid "Your session score is"
+msgstr ""
+
+#: src/quiz/templates/result.html:76 src/quiz/test/result.html:76
+#: src/quiz/zzz/result.html:76
+msgid "out of a possible"
+msgstr ""
+
+#: src/quiz/templates/result.html:94 src/quiz/test/result.html:94
+msgid "Your answer"
+msgstr ""
+
+#: src/quiz/templates/single_complete.html:14
+#: src/quiz/zzz/single_complete.html:14
+msgid "Та аль хэдийн шалгалт өгсөн байна. Дахин өгөх боломжгүй"
+msgstr ""
+
+#: src/quiz/templates/single_complete.html:17
+#: src/quiz/zzz/single_complete.html:17
+msgid "Сайтад нэвтэрч орсны дараа шалгалт өгөх боломжтой"
+msgstr ""
+
+#: src/quiz/templates/view_quiz_category.html:3
+#: src/quiz/test/view_quiz_category.html:3
+msgid "Quizzes related to"
+msgstr ""
+
+#: src/quiz/templates/view_quiz_category.html:6
+#: src/quiz/test/view_quiz_category.html:6
+msgid "Quizzes in the"
+msgstr ""
+
+#: src/quiz/templates/view_quiz_category.html:6
+#: src/quiz/test/view_quiz_category.html:6
+msgid "category"
+msgstr ""
+
+#: src/quiz/templates/view_quiz_category.html:20
+#: src/quiz/test/view_quiz_category.html:20
+msgid "There are no quizzes"
+msgstr ""
+
+#: src/quiz/test/question.html:27
+msgid "Your answer was"
+msgstr ""
+
+#: src/quiz/test/quiz/sitting_detail.html:9
+msgid "Quiz title"
+msgstr ""
+
+#: src/quiz/test/quiz/sitting_detail.html:14
+#: src/quiz/test/quiz/sitting_list.html:15
+msgid "Completed"
+msgstr ""
+
+#: src/quiz/test/quiz/sitting_detail.html:22
+msgid "User answer"
+msgstr ""
+
+#: src/quiz/test/quiz/sitting_detail.html:41
+msgid "incorrect"
+msgstr ""
+
+#: src/quiz/test/quiz/sitting_detail.html:43
+msgid "Correct"
+msgstr ""
+
+#: src/quiz/test/quiz/sitting_detail.html:49
+msgid "Toggle whether correct"
+msgstr ""
+
+#: src/quiz/test/quiz/sitting_list.html:6
+msgid "List of complete exams"
+msgstr ""
+
+#: src/quiz/test/quiz/sitting_list.html:42
+msgid "View details"
+msgstr ""
+
+#: src/quiz/test/single_complete.html:13
+msgid "You have already sat this exam and only one sitting is permitted"
+msgstr ""
+
+#: src/quiz/test/single_complete.html:15
+msgid "This exam is only accessible to signed in users"
+msgstr ""
+
+#: src/quiz/zzz/correct_answer.html:23
+msgid "Энэ таны сонгосон хариулт."
+msgstr ""
+
+#: src/quiz/zzz/progress.html:16
+msgid "Шалгалтын түүх"
+msgstr ""
+
+#: src/quiz/zzz/result.html:94
+msgid "Таны сонгосон хариулт"
+msgstr ""
+
+#: src/website/models.py:15
+msgid "Guest"
+msgstr ""
+
+#: src/website/models.py:16
+msgid "Guest job"
+msgstr ""
+
+#: src/website/models.py:19 src/website/models.py:20
+msgid "Testimonial"
+msgstr ""
+
+#: src/website/models.py:45 src/website/models.py:46
+msgid "Advice title"
+msgstr ""
+
+#: src/website/models.py:55
+msgid "title"
+msgstr ""
+
+#: src/website/models.py:57
+msgid "content"
+msgstr ""
+
+#: src/website/models.py:66 src/website/models.py:67
+msgid "Advice"
+msgstr ""
+
+#: src/website/models.py:76 src/website/models.py:81 src/website/models.py:82
+msgid "Хамтрагч байгуулгын зураг"
+msgstr ""
+
+#: src/website/models.py:92
+msgid "Зүүн танилцуулга бүтээгдэхүүн"
+msgstr ""
+
+#: src/website/models.py:102
+msgid "Баруун танилцуулга бүтээгдэхүүн"
+msgstr ""
+
+#: src/website/models.py:108
+msgid "Гарчиг хэсэг"
+msgstr ""
+
+#: src/website/models.py:111
+msgid "Тайлбар хэсэг"
+msgstr ""
+
+#: src/website/models.py:116
+msgid "Зургын сан"
+msgstr ""
+
+#: src/website/models.py:124
+msgid "Тоолуур гүйх тоонууд"
+msgstr ""
+
+#: src/website/models.py:125
+msgid "Тоон доор орох тайлбар"
+msgstr ""
+
+#: src/website/models.py:130 src/website/models.py:179
+#: src/website/models.py:180
+msgid "Тоолуур"
+msgstr ""
+
+#: src/website/models.py:137
+msgid "Баннер зурагын хайлтын системд туслах тэскт"
+msgstr ""
+
+#: src/website/models.py:141
+msgid "Баннер зураг орох"
+msgstr ""
+
+#: src/website/models.py:149
+msgid "Banner picture"
+msgstr ""
+
+#: src/website/models.py:154
+msgid "Banner video"
+msgstr ""
+
+#: src/website/models.py:159
+msgid "Арын зураг"
+msgstr ""
+
+#: src/website/models.py:163
+msgid "Icon бичнэ"
+msgstr ""
+
+#: src/website/models.py:170
+msgid "Тоо тоолуур"
+msgstr ""
+
+#: src/website/models.py:175
+msgid "Байрших байрлал"
+msgstr ""
+
+#: src/website/models.py:191 src/website/models.py:192
+msgid "Компаны танилцуулга"
+msgstr ""
+
+#: src/website/models.py:205
+msgid "Захиралын зураг"
+msgstr ""
+
+#: src/website/models.py:207
+msgid "Контэнт"
+msgstr ""
+
+#: src/website/models.py:210 src/website/models.py:211
+msgid "Захиралын мэндчилгээ"
+msgstr ""

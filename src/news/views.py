@@ -20,7 +20,7 @@ class NewsList(ListView):
     def get_context_data(self, **kwargs):
         context = super(NewsList, self).get_context_data(**kwargs)
         context["news"] = self.get_queryset()
-        context["latest"] = News.objects.all()
+        context["latest"] = Advice.objects.all()
         context["special"] = News.objects.filter(is_special="True")
         context["category_list"] = Category.objects.filter(cate_type="news")
         context["category"] = Course.objects.all()

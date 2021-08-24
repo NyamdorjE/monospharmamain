@@ -1,0 +1,92 @@
+{% extends 'news/index_2.html' %}
+{% load static humanize  %}
+{% block content %}
+{% load i18n %}
+
+<style>
+    .feature-box {
+        text-align: center;
+        border-radius: 15px !Important;
+
+    }
+
+    .feature-box:hover {
+        border-color: #009473 !Important;
+        -webkit-box-shadow: 6px 3px 6px -5px #000000;
+        box-shadow: 6px 3px 6px -5px #000000;
+    }
+
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+
+    .fbox-content {
+        padding-top: 30px;
+        padding-bottom: 50px;
+    }
+
+    .fbox-icon {
+        margin-top: 25px;
+    }
+
+    .content-wrap {
+        padding: 35px !important;
+    }
+</style>
+
+
+<!-- Content
+		============================================= -->
+<section id="content">
+    <div class="content-wrap">
+        <div class="container clearfix">
+
+
+            <section id="content">
+                <div class="content-wrap">
+                    <div class="container clearfix">
+                        <div class="row justify-content-center gutter-50 col-mb-50">
+
+                            <div class="col-xl-6 col-lg-8 text-center">
+                                <h2>
+                                    <div class="text-rotater" data-separator="|" data-rotate="bounceIn"
+                                        data-speed="250000" style="text-align:center;">
+                                        Бидний <span class="t-rotate color morphext"><span>Зорилго</span></span>
+                                    </div>
+                                </h2>
+
+                            </div>
+                            <img src="{% static 'base/assets/images/01.png' %}" style="padding-bottom:50px;">
+                            <img src="{% static 'base/assets/images/02.png' %}" style="padding-bottom:50px;">
+                            <img src="{% static 'base/assets/images/03.png' %}" style="padding-bottom:50px;">
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+</section><!-- #content end -->
+
+{% block style %}
+<style>
+    .image-about {
+        max-width: 100%;
+        text-align: center;
+        padding: 6px;
+        background: #fbfafb;
+        border: 1px solid #e7e7e7;
+        line-height: 0;
+        margin
+</style>
+{% endblock style %}
+{% endblock %}

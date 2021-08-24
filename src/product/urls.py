@@ -9,6 +9,7 @@ from .fetch import product_fetch
 
 urlpatterns = [
     Nurl("product/") > "src.product.views.ProductList",
+    Nurl("category/") > "src.product.views.ProductCategoryList",
     Nurl("product/<pk>") > "src.product.views.ProductDetailView",
     Nurl("productalph") > "src.product.views.ProductAlphabet",
     path("fetch/product/", product_fetch),
