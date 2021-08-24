@@ -237,10 +237,12 @@ class AboutUsCards(models.Model):
         verbose_name=_("Үсрэх линк"), max_length=500, null=True, blank=True
     )
     context = models.TextField(verbose_name=_("Контэнт"))
+    position = models.IntegerField(null=True, blank=True)
 
     class Meta:
         verbose_name = _("Бидний тухай хэсэгын карт")
         verbose_name_plural = _("Бидний тухай хэсэгын карт")
+        ordering = ["position"]
 
 
 class HrBanner(models.Model):
