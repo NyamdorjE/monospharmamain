@@ -219,6 +219,9 @@ class Product(models.Model):
         null=True,
         blank=True,
     )
+    price = models.CharField(
+        max_length=50, verbose_name=_("Үнэ"), null=True, blank=True
+    )
     link = models.CharField(
         verbose_name=_("Link to emonos"), max_length=355, null=True, blank=True
     )
