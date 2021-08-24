@@ -100,7 +100,7 @@
 
 
                             <div class="clear my-3"></div>
-                            {% for q in queryset|slice:"0:2" %}
+                            {% for q in queryset|slice:"0:3" %}
                             <div class="col-lg-4 col-sm-6">
                                 <a href="{{ q.link }}">
                                     <div class="feature-box fbox-effect flex-column border p-4 rounded-3">
@@ -123,8 +123,25 @@
 
 
                             <div class="clear my-3"></div>
-
+                            {% for q in queryset|slice:"3:6" %}
                             <div class="col-lg-4 col-sm-6">
+                                <a href="{{ q.link }}">
+                                    <div class="feature-box fbox-effect flex-column border p-4 rounded-3">
+                                        <div class="fbox-icon mb-4 center">
+                                            <img src="{{ q.image.url }}" alt="Feature Icon"
+                                                class="bg-transparent rounded-0 center">
+                                        </div>
+                                        <div class="fbox-content">
+                                            <h3>{{q.title}}</h3>
+                                            <p style="padding-top:30px; text-aling:justify; color:#484646;">
+                                                {{ q.context }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            {% endfor %}
+                            {% comment %} <div class="col-lg-4 col-sm-6">
                                 <a href="{% url "website-timeline" %}">
                                     <div class="feature-box fbox-effect flex-column border p-4 rounded-3">
                                         <div class="fbox-icon mb-4 center">
@@ -147,7 +164,7 @@
                                         </div>
                                     </div>
                                 </a>
-                            </div>
+                            </div> {% endcomment %}
 
 
 
