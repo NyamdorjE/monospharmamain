@@ -5964,7 +5964,7 @@ body:not(.has-plugin-html5video) .video-wrap video {
   z-index: 10;
   top: 50%;
   left: 0;
-  background-color: rgb(115 179 129);
+  background-color: #2F4B70;
   width: 52px;
   height: 52px;
   border: 0;
