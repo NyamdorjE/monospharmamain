@@ -200,11 +200,15 @@
 		box-shadow: 0px 5px 6px 0px rgba(0, 0, 0, 0.43);
 	}
 
-	.emonos-image {
-		width: 100px;
-		height: 100px;
-		object-fit: scale-down;
+	.product-image {
+		height: 300px;
+		width: 400px;
+		overflow: hidden;
+	}
 
+	.product-image img {
+		height: auto;
+		width: 400px;
 	}
 </style>
 <style type="text/css">
@@ -595,14 +599,13 @@
 								</div>
 							</div>
 							<div class="product-image">
-								<div class="emonos-image"
-									style="background-image:url('https://back.emonos.mn/{{ product.photo.url}}');">
-								</div>
 
-								{% comment %} <a
+
+
+								<a
 									href="https://back.emonos.mn/{% if product %}{% url 'product-product-detail-view' product.pk  %} {% endif %}"><img
 										src="https://back.emonos.mn/{{ product.photo.url}}" alt="Product Image"
-										style="object-fit: contain;"></a> {% endcomment %}
+										style="object-fit: contain;"></a>
 
 
 								<div class="bg-overlay">
