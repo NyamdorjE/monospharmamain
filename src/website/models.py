@@ -42,8 +42,8 @@ class AdviceCategory(models.Model):
     )
 
     class Meta:
-        verbose_name = _("Advice title")
-        verbose_name_plural = _("Advice title")
+        verbose_name = _("Зөвлөгөө ангиллал")
+        verbose_name_plural = _("Зөвлөгөө ангиллал")
         ordering = ["-title"]
 
     def __str__(self):
@@ -63,8 +63,8 @@ class Advice(models.Model):
     )
 
     class Meta:
-        verbose_name = _("Advice")
-        verbose_name_plural = _("Advice")
+        verbose_name = _("Зөвлөгөө")
+        verbose_name_plural = _("Зөвлөгөө")
         ordering = ["-created_on"]
 
     def __str__(self):
@@ -78,8 +78,8 @@ class Partner(models.Model):
     position = models.IntegerField()
 
     class Meta:
-        verbose_name = _("Хамтрагч байгуулгын зураг")
-        verbose_name = _("Хамтрагч байгуулгын зураг")
+        verbose_name = _("Бидний тухай - Хамтрагч байгуулгын зураг")
+        verbose_name = _("Бидний тухай - Хамтрагч байгуулгын зураг")
         ordering = ["-position"]
 
 
@@ -146,7 +146,7 @@ class Banner(models.Model):
         return self.alt_text
 
     class Meta:
-        verbose_name = _("Banner picture")
+        verbose_name = _("Нүүр хуудас - Баннер ")
         ordering = ["position"]
 
 
@@ -165,12 +165,15 @@ class BannerAboutUs(models.Model):
         return self.alt_text
 
     class Meta:
-        verbose_name = _("Бидний тухай хуудас баннер")
+        verbose_name = _("Бидний тухай - Баннер")
         ordering = ["position"]
 
 
 class BannerVideo(models.Model):
     src = models.CharField(max_length=255, verbose_name=_("Banner video"))
+
+    class Meta:
+        verbose_name = _("Нүүр хуудас - Баннер бичлэг")
 
 
 class Counter(models.Model):
@@ -195,8 +198,8 @@ class Counter(models.Model):
     )
 
     class Meta:
-        verbose_name = _("Тоолуур")
-        verbose_name_plural = _("Тоолуур")
+        verbose_name = _("Нүүр хуудас - Тоолуур")
+        verbose_name_plural = _("Нүүр хуудас - Тоолуур")
         ordering = ["number"]
 
     def __str__(self):
@@ -207,16 +210,16 @@ class Introduction(models.Model):
     context = RichTextUploadingField(verbose_name=_("Танилцуулга"))
 
     class Meta:
-        verbose_name = _("Компаны танилцуулга")
-        verbose_name_plural = _("Компаны танилцуулга")
+        verbose_name = _("Бидний тухай - Компаны танилцуулга")
+        verbose_name_plural = _("Бидний тухай - Компаны танилцуулга")
 
 
 class Mission(models.Model):
     context = RichTextUploadingField(verbose_name=_("Эрхэм зорилго"))
 
     class Meta:
-        verbose_name = _("Эрхэм зорилго")
-        verbose_name_plural = _("Эрхэм зорилго")
+        verbose_name = _("Бидний тухай - Эрхэм зорилго")
+        verbose_name_plural = _("Бидний тухай - Эрхэм зорилго")
 
 
 class DirectorsGreetings(models.Model):
@@ -226,8 +229,8 @@ class DirectorsGreetings(models.Model):
     context = RichTextUploadingField(verbose_name=_("Контэнт"))
 
     class Meta:
-        verbose_name = _("Захиралын мэндчилгээ")
-        verbose_name_plural = _("Захиралын мэндчилгээ")
+        verbose_name = _("Бидний тухай - Захиралын мэндчилгээ")
+        verbose_name_plural = _("Бидний тухай - Захиралын мэндчилгээ")
 
 
 class AboutUsCards(models.Model):
@@ -240,8 +243,8 @@ class AboutUsCards(models.Model):
     position = models.IntegerField(null=True, blank=True)
 
     class Meta:
-        verbose_name = _("Бидний тухай хэсэгын карт")
-        verbose_name_plural = _("Бидний тухай хэсэгын карт")
+        verbose_name = _("Бидний тухай - Картууд")
+        verbose_name_plural = _("Бидний тухай - Картууд")
         ordering = ["position"]
 
     def __str__(self):
@@ -263,7 +266,7 @@ class HrBanner(models.Model):
         return self.alt_text
 
     class Meta:
-        verbose_name = _("Хүний нөөц хуудас баннер")
+        verbose_name = _("Хүний нөөц - Баннер")
         ordering = ["position"]
 
 
@@ -278,8 +281,8 @@ class HrContent(models.Model):
     position = models.IntegerField(null=True, blank=True)
 
     class Meta:
-        verbose_name = _("Хүний нөөцийн хуудас контент")
-        verbose_name_plural = _("Хүний нөөцийн хуудас контент")
+        verbose_name = _("Хүний нөөц - Бидэнтэй нэгдсэнээр")
+        verbose_name_plural = _("Хүний нөөц - Бидэнтэй нэгдсэнээр")
         ordering = ["position"]
 
     def __str__(self):

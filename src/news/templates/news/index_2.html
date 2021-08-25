@@ -211,47 +211,48 @@
                             </a>
                             <ul class="sub-menu-container">
                               <li class="menu-item">
-                                <a class="menu-link" href="{% url "website-about-us" %}#snav-content1">
+                                <a class="menu-link" href="{% url "website-taniltsuulga-view" %}">
                                   <div>
                                     <i class="icon-line-air-play"></i>{% trans "Танилцуулга" %}
                                   </div>
                                 </a>
                               </li>
                               <li class="menu-item">
-                                <a class="menu-link" href="{% url "website-about" %}#snav-content2">
+                                <a class="menu-link" href="{% url "website-vision" %}">
                                   <div>
                                     <i class="icon-paperplane"></i>{% trans "Эрхэм зорилго" %}
                                   </div>
                                 </a>
                               </li>
                               <li class="menu-item">
-                                <a class="menu-link" href="{% url "website-about" %}#snav-content3">
+                                <a class="menu-link" href="{% url "website-zahiral" %}">
                                   <div>
                                     <i class="icon-envelope21"></i>{% trans "Захирлын мэндчилгээ" %}
                                   </div>
                                 </a>
                               </li>
                               <li class="menu-item">
-                                <a class="menu-link" href="{% url "website-about" %}#snav-content4">
+                                <a class="menu-link" href="{% url "website-timeline" %}">
                                   <div>
                                     <i class="icon-history"></i>{% trans "Түүхэн товчоо" %}
                                   </div>
                                 </a>
                               </li>
                               <li class="menu-item">
-                                <a class="menu-link" href="{% url "website-about" %}#snav-content5">
+                                <a class="menu-link" href="{% url "website-amjilt" %}">
                                   <div>
                                     <i class="icon-line2-trophy"></i>{% trans "Бидний амжилт" %}
                                   </div>
                                 </a>
                               </li>
-                              <li class="menu-item">
-                                <a class="menu-link" href="{% url "website-about" %}#snav-content6">
+                              {% comment %} <li class="menu-item">
+                                <a class="menu-link" href="{% url 'website-taniltsuulga-view' %}#ui-id-15">
+
                                   <div>
                                     <i class="icon-line2-equalizer"></i>{% trans "Чанар хангалт" %}
                                   </div>
                                 </a>
-                              </li>
+                              </li> {% endcomment %}
                             </ul>
                           </li>
                         </ul>
@@ -261,7 +262,9 @@
                               <h5 class="text-uppercase ls1" style="text-align:center;">
                                 GMP
                               </h5>
-                              <img src="{% static 'base/assets/images/fliplogo/GMP.png' %}" alt="" />
+                              <a href="{% url 'website-taniltsuulga-view' %}#ui-id-14">
+                                <img src="{% static 'base/assets/images/fliplogo/GMP.png' %}" alt="" />
+                              </a>
                             </div>
                           </li>
                         </ul>
@@ -272,7 +275,10 @@
                               <h5 class="text-uppercase ls1" style="text-align:center;">
                                 ISO 17025
                               </h5>
-                              <img src="{% static 'base/assets/images/fliplogo/iso.png' %}" alt="" />
+                              <a href="{% url 'website-taniltsuulga-view' %}#ui-id-15">
+
+                                <img src="{% static 'base/assets/images/fliplogo/iso.png' %}" alt="" />
+                              </a>
                             </div>
                           </li>
                         </ul>
@@ -282,7 +288,10 @@
                               <h5 class="text-uppercase ls1" style="text-align:center;">
                                 ISO 9001
                               </h5>
-                              <img src="{% static 'base/assets/images/fliplogo/PECB.png' %}" alt="" />
+                              <a href="{% url 'website-taniltsuulga-view' %}#ui-id-16">
+
+                                <img src="{% static 'base/assets/images/fliplogo/PECB.png' %}" alt="" />
+                              </a>
                             </div>
                           </li>
                         </ul>
@@ -601,24 +610,22 @@
 
                     <ul>
                       <li>
-                        <a href="{% url "website-about-us" %}#snav-content1">{% trans 'Танилцуулга' %}</a>
+                        <a href="{% url "website-taniltsuulga-view" %}">{% trans 'Танилцуулга' %}</a>
                       </li>
                       <li>
-                        <a href="{% url "website-about" %}#snav-content2">{% trans 'Эрхэм зорилго'%}
+                        <a href="{% url "website-vision" %}">{% trans 'Эрхэм зорилго'%}
                         </a>
                       </li>
                       <li>
-                        <a href="{% url "website-about" %}#snav-content3">{% trans 'Захирлын мэндчилгээ' %}</a>
+                        <a href="{% url "website-zahiral" %}">{% trans 'Захирлын мэндчилгээ' %}</a>
                       </li>
                       <li>
-                        <a href="{% url "website-about" %}#snav-content4">{% trans 'Түүхэн товчоо' %}</a>
+                        <a href="{% url "website-timeline" %}">{% trans 'Түүхэн товчоо' %}</a>
                       </li>
                       <li>
-                        <a href="{% url "website-about" %}#snav-content5">{% trans 'Бидний амжилт' %}</a>
+                        <a href="{% url "website-amjilt" %}">{% trans 'Бидний амжилт' %}</a>
                       </li>
-                      <li>
-                        <a href="{% url "website-about" %}#snav-content6">{% trans 'Чанар хангалт' %}</a>
-                      </li>
+
 
                     </ul>
                   </div>
@@ -631,14 +638,14 @@
 
                     <ul>
                       <li>
-                        <a href="{% url 'humanresource' %}#snav-content1">{% trans 'Нээлттэй ажлын байр' %}</a>
+                        <a href="{% url 'website-hr-new' %}">{% trans 'Нээлттэй ажлын байр' %}</a>
                       </li>
                       <li>
-                        <a href="{% url 'humanresource' %}#snav-content2">{% trans 'Сонгон шалгаруулалт' %}</a>
+                        <a href="{% url 'website-hr-new' %}">{% trans 'Сонгон шалгаруулалт' %}</a>
                       </li>
 
                       <li>
-                        <a href="{% url 'humanresource' %}#snav-content3">{% trans 'Нийгмийн халамж' %}</a>
+                        <a href="{% url 'website-hr-new' %}">{% trans 'Бидэнтэй нэгдсэнээр' %}</a>
                       </li>
                     </ul>
                   </div>
