@@ -62,7 +62,7 @@
                         </div>
                     </h2>
                     <p class="p-tag-text">
-                        {{ val.content|safe|slice:"0:500" }}
+                        {{ val.content|safe|truncatechars:350 }}
                     </p>
                 </div>
                 <!-- Image -->
