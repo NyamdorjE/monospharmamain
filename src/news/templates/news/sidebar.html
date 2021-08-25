@@ -8,7 +8,7 @@
 <div class="sidebar col-lg-3">
     <div class="sidebar-widgets-wrap">
         <div class="widget widget-twitter-feed clearfix">
-            <h4>Хайлт</h4>
+            <h4>Мэдээний хайлт</h4>
             <div class="line line-xs line-travel"></div>
 
 
@@ -27,30 +27,29 @@
             <div class="line line-xs line-home"></div>
 
             <div class="posts-sm row col-mb-30">
-                {% for news in latest|slice:"0:4" %}
+                {% for advice in latest|slice:"0:4" %}
                 <div class="entry col-12">
                     <div class="grid-inner row align-items-center no-gutters">
                         <div class="col-auto">
-                            <div class="entry-image">
-                                <a
-                                    href="{% if news %}{% if news %}{% url 'website-advice-detail' news.slug  %}{% endif %} {% endif %}"><img
-                                        src="{% if news.photo %}{{ news.photo.url }} {% endif %}" alt="Image"></a>
-                            </div>
+                            {% comment %} <div class="entry-image">
+                                <a href="{% if advice %}{% url 'website-advice-detail' advice.slug  %}{% endif %}"><img
+                                        src="{% if advice.photo %}{{ advice.photo.url }} {% endif %}" alt="Image"></a>
+                            </div> {% endcomment %}
                         </div>
                         <div class="col pl-3">
                             <div class="entry-title">
                                 <h4 class="font-weight-semibold"><a
-                                        href="{% if news %}{% url 'website-advice-detail' news.slug  %} {% endif %}">{{ news.title|slice:":60"}}...</a>
+                                        href="{% if advice %}{% url 'website-advice-detail' advice.slug  %} {% endif %}">{{ advice.title|slice:":60"}}...</a>
                                 </h4>
                             </div>
-                            <div class="entry-meta">
+                            {% comment %} <div class="entry-meta">
                                 <ul>
                                     <li><span>by</span> <a href="#">{{ news.author }}</a></li>
                                     <li><i class="icon-time"></i><a
                                             href="#">{{ news.created_on|naturalday:'Y-m-d' }}</a>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> {% endcomment %}
                         </div>
                     </div>
                 </div>
@@ -93,7 +92,7 @@
 
         <div class="widget clearfix">
 
-            <h4>Зургын цомог</h4>
+            <h4>Зургийн цомог</h4>
             <div id="oc-portfolio-sidebar" class="owl-carousel carousel-widget" data-items="1" data-margin="10"
                 data-loop="true" data-nav="false" data-autoplay="5000">
 

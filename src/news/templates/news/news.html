@@ -60,6 +60,10 @@
 										</h2>
 
 									</div>
+									<div class="entry-content">
+										<p>{{ news.content|safe|striptags|slice:":200"}}...</p>
+
+									</div>
 									<div class="entry-meta">
 										<ul>
 											<li><i class="icon-calendar3"></i> {{ news.created_on|naturalday:'Y-m-d'}}
@@ -70,10 +74,7 @@
 												class="more-link" style="padding-bottom:8px;">Цааш унших</a>
 										</ul>
 									</div>
-									<div class="entry-content">
-										<p>{{ news.content|safe|striptags|slice:":100"}}...</p>
 
-									</div>
 								</div>
 							</div>
 						</div>
