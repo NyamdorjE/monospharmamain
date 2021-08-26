@@ -466,7 +466,8 @@
 									<h3 style="margin-bottom:0px;"><a
 											href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}">{{ news.title }}.</a>
 									</h3>
-									<button type="button" class="btn btn-outline-light mt-2"
+									<button onclick="location.href='{% url 'news-news-detail' news.slug  %}'"
+										type="button" class="btn btn-outline-light mt-2"
 										style="color:white; border-color: #2F4B70; background-color:#2F4B70;">Цааш
 										үзэх</button>
 								</div>
@@ -494,7 +495,8 @@
 										<h3 class="title-go">
 											<a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
 												class="font-secondary">{{ news.title }}</a></h3>
-										<button type="button" class="btn btn-outline-light mt-2"
+										<button onclick="location.href='{% url 'news-news-detail' news.slug  %}'"
+											type="button" class="btn btn-outline-light mt-2"
 											style="color:white; border-color: #2F4B70; background-color:#2F4B70;">Цааш
 											үзэх</button>
 									</div>
@@ -521,7 +523,8 @@
 										<h3 class="title-go">
 											<a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
 												class="font-secondary">{{ news.title }}</a></h3>
-										<button type="button" class="btn btn-outline-light mt-2"
+										<button onclick="location.href='{% url 'news-news-detail' news.slug  %}'"
+											type="button" class="btn btn-outline-light mt-2"
 											style="color:white; border-color: #2F4B70; background-color:#2F4B70;">Цааш
 											үзэх</button>
 									</div>
@@ -558,9 +561,12 @@
 										<span class="badge badge-danger">{{ advice.category }}</span>
 										<span style="margin-bottom:10px;"> | {{ advice.author }} |
 											{{ advice.created_on|naturalday:'Y-m-d'}}</span>
-										<button type="button" class="btn btn-outline-light mt-2"
+										<button onclick="location.href='{% url 'website-advice-detail' advice.slug  %}'"
+											type="button" class="btn btn-outline-light mt-2"
 											style="color:white; border-color: #2F4B70; background-color:#2F4B70; margin-left: 18px; margin-bottom: 10px;">Цааш
 											үзэх</button>
+
+
 									</div>
 								</div>
 							</div>
