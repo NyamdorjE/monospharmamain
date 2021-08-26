@@ -147,6 +147,16 @@ class Banner(models.Model):
         null=True,
     )
     content = RichTextField(blank=True, null=True, verbose_name=_("content"))
+    link = models.CharField(
+        max_length=550,
+        verbose_name=_("Линк"),
+        null=True,
+    )
+    link_text = models.CharField(
+        max_length=550,
+        verbose_name=_("Линк орох тэкст"),
+        null=True,
+    )
 
     def __str__(self):
         return self.alt_text
