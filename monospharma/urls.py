@@ -40,7 +40,7 @@ urlpatterns = (
         path(
             "favicon.ico",
             RedirectView.as_view(
-                url=staticfiles_storage.url("base/assets/images/favicon.png")
+                url=staticfiles_storage.url("base/assets/images/favicon-16x16.png")
             ),
         ),
         path("humanresource/", humanresource.hrview, name="humanresource"),
