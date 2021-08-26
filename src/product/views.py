@@ -8,7 +8,7 @@ from django.utils.translation import gettext as _
 
 
 class ProductList(ListView):
-    paginate_by = 12
+    paginate_by = 100
     queryset = Product.objects.all()
     template_name = "product/product.html"
 

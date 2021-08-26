@@ -99,6 +99,11 @@ class Amjilt(TemplateView):
     template_name = "website/amjilt.html"
 
 
+
+class Emsudlal(TemplateView):
+    template_name = "website/emsudlal.html"
+
+
 class TaniltsuulgaView(TemplateView):
     template_name = "website/taniltsuulga.html"
     queryset = News.objects.all().order_by("created_on")

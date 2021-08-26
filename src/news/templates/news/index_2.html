@@ -59,7 +59,9 @@
   <!-- Document Title
 	============================================= -->
   <title>Монос Фарм ХХК | Эм үйлдвэрлэлийг дэлхийн жишигт</title>
-
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'base/assets/images/favicon-16x16.png' %}">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff">
   <style></style>
 </head>
 
@@ -74,9 +76,19 @@
         <div class="row justify-content-between align-items-center">
           <div class="col-12 col-md-auto">
             <p class="mb-0 py-2 text-center text-md-left">
-              <strong>Утас:</strong> (976) 7717-3117 |
-              <strong>Имайл:</strong> pharma@monos.mn
+              <a href="{% url "contact" %}" class="social-icon si-dark si-colored si-facebook mb-0"
+                style="margin-right: 10px;">
+                <i class="icon-address-card1"></i>
+                <i class="icon-address-card1"></i>
+              </a>
+              <strong>Холбоо барих</strong>
+
             </p>
+
+
+
+
+
           </div>
 
           <div class="col-12 col-md-auto">
@@ -481,7 +493,7 @@
                                       <div class="entry-image mb-3">
                                         <a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"><img
                                             src="{% if news.image %}{{news.image.url}}{% endif %}" alt="Image 3"
-                                            style="height:150px;"></a>
+                                            style="height:100%; width:100%;"></a>
                                         <div class="entry-categories"><a href="#"
                                             class="bg-lifestyle">{{ news.category }}</a>
                                         </div>

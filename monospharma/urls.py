@@ -28,12 +28,21 @@ from src.courses import views as courses_views
 from src.news import views as news_views
 from src.base.urls import Nurl
 from django.conf.urls.i18n import i18n_patterns
+from django.contrib.staticfiles.storage import staticfiles_storage
+from django.views.generic.base import RedirectView
 
 app_name = "polls"
+
 
 urlpatterns = (
     [
         path("admin/", admin.site.urls),
+        path(
+            "favicon.ico",
+            RedirectView.as_view(
+                url=staticfiles_storage.url("base/assets/images/favicon.png")
+            ),
+        ),
         path("humanresource/", humanresource.hrview, name="humanresource"),
         path(
             "humanresource/<slug:slug>/",

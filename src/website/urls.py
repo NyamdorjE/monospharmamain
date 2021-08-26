@@ -17,4 +17,5 @@ urlpatterns = [
     Nurl("vision/") > "src.website.views.Vision",
     Nurl("amjilt/") > "src.website.views.Amjilt",
     Nurl("hrnew/") > "src.website.views.HrNew",
+    Nurl("emsudlal/") > "src.website.views.Emsudlal",
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

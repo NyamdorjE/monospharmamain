@@ -238,6 +238,8 @@
 	<div class="slider-inner">
 		<div class="swiper-container swiper-parent">
 			<div class="swiper-wrapper">
+				{% for banner in banner %}
+
 				<div class="swiper-slide dark">
 					<div class="container">
 						<div class="slider-caption slider-caption-center">
@@ -245,13 +247,13 @@
 							<p class="d-none d-sm-block" data-animate="fadeInUp" data-delay="200">.</p>
 						</div>
 					</div>
-					{% for banner in banner %}
 					<div class="swiper-slide-bg" data-interval="5000"
 						style="background-image: url('{{ banner.photo.url }}');" alt="{{ banner.alt_text }}"
 						preload="auto" loop autoplay>
 					</div>
-					{% endfor %}
 				</div>
+				{% endfor %}
+
 				<div class="swiper-slide dark">
 					<div class="container clearfix">
 						<div class="slider-caption slider-caption-center">
@@ -343,7 +345,9 @@
 							<div class="flip-card-back dark"
 								style="background-image: url('{% static 'base/assets/images/fliplogo/GMP.png' %}'); width: 300px; height:300px;">
 								<div class="flip-card-inner mt-3">
-
+									<button type="button" class="btn btn-outline-light mt-2"
+										style="color:black; background-color:white;">Цааш
+										үзэх</button>
 									<div class="feature-box media-box fbox-sm">
 										<div class="fbox-icon position-relative mb-4">
 
@@ -373,7 +377,9 @@
 							<div class="flip-card-back dark"
 								style="background-image: url('{% static 'base/assets/images/fliplogo/iso.png' %}'); width: 300px; height:300px;">
 								<div class="flip-card-inner mt-3">
-
+									<button type="button" class="btn btn-outline-light mt-2"
+										style="color:black; background-color:white;">Цааш
+										үзэх</button>
 									<div class="feature-box media-box fbox-sm">
 										<div class="fbox-icon position-relative mb-4">
 
@@ -403,7 +409,9 @@
 							<div class="flip-card-back dark"
 								style="background-image: url('{% static 'base/assets/images/fliplogo/PECB.png' %}'); width: 300px; height:300px;">
 								<div class="flip-card-inner mt-3">
-
+									<button type="button" class="btn btn-outline-light mt-2"
+										style="color:black; background-color:white;">Цааш
+										үзэх</button>
 									<div class="feature-box media-box fbox-sm">
 										<div class="fbox-icon position-relative mb-4">
 
@@ -446,6 +454,9 @@
 									<h3 style="margin-bottom:0px;"><a
 											href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}">{{ news.title }}.</a>
 									</h3>
+									<button type="button" class="btn btn-outline-light mt-2"
+										style="color:white; border-color: #2F4B70; background-color:#2F4B70;">Цааш
+										үзэх</button>
 								</div>
 							</div>
 						</div>
@@ -471,6 +482,9 @@
 										<h3 class="title-go">
 											<a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
 												class="font-secondary">{{ news.title }}</a></h3>
+										<button type="button" class="btn btn-outline-light mt-2"
+											style="color:white; border-color: #2F4B70; background-color:#2F4B70;">Цааш
+											үзэх</button>
 									</div>
 								</div>
 								<div class="bg-overlay-floating" data-hover-animate="fadeIn">
@@ -495,6 +509,9 @@
 										<h3 class="title-go">
 											<a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
 												class="font-secondary">{{ news.title }}</a></h3>
+										<button type="button" class="btn btn-outline-light mt-2"
+											style="color:white; border-color: #2F4B70; background-color:#2F4B70;">Цааш
+											үзэх</button>
 									</div>
 								</div>
 								<div class="bg-overlay-floating" data-hover-animate="fadeIn">
@@ -529,6 +546,9 @@
 										<span class="badge badge-danger">{{ advice.category }}</span>
 										<span style="margin-bottom:10px;"> | {{ advice.author }} |
 											{{ advice.created_on|naturalday:'Y-m-d'}}</span>
+										<button type="button" class="btn btn-outline-light mt-2"
+											style="color:white; border-color: #2F4B70; background-color:#2F4B70;">Цааш
+											үзэх</button>
 									</div>
 								</div>
 							</div>
