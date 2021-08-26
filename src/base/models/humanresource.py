@@ -153,5 +153,5 @@ class hrAdmin(NestedModelAdmin):
     list_filter = ["title"]
 
 
-admin.site.register(Hr, hrAdmin)
-admin.site.register(Questionnaire)
+# admin.site.register(Hr, hrAdmin)
+# admin.site.register(Questionnaire)
