@@ -37,12 +37,6 @@ app_name = "polls"
 urlpatterns = (
     [
         path("admin/", admin.site.urls),
-        path(
-            "favicon.ico",
-            RedirectView.as_view(
-                url=staticfiles_storage.url("base/assets/images/favicon-16x16.png")
-            ),
-        ),
         path("humanresource/", humanresource.hrview, name="humanresource"),
         path(
             "humanresource/<slug:slug>/",
@@ -67,6 +61,11 @@ urlpatterns = (
     + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 )
+
+if settings.DEBUG:
+    urlpatterns += static(
+        r"/favicon.ico", document_root="base/assets/images/favicon-16x16.png"
+    )
 
 # if settings.DEBUG:
 #   urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
