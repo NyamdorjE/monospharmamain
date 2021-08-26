@@ -141,6 +141,12 @@ class Banner(models.Model):
         upload_to="media/banners", verbose_name=_("Баннер зураг орох")
     )
     position = models.IntegerField()
+    title = models.CharField(
+        max_length=550,
+        verbose_name=_("Гарчиг"),
+        null=True,
+    )
+    content = RichTextField(blank=True, null=True, verbose_name=_("content"))
 
     def __str__(self):
         return self.alt_text
