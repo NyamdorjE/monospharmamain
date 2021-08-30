@@ -258,7 +258,8 @@
 								<div class="product-image">
 									<a
 										href="https://back.emonos.mn/{% if product %}{% url 'product-product-detail-view' product.pk  %} {% endif %}"><img
-											src="https://back.emonos.mn/{{ product.photo.url}}" alt="Product Image"></a>
+											src="https://back.emonos.mn/{% if product.photo %}{{ product.photo.url}}{% endif %}"
+											alt="Product Image"></a>
 
 
 									<div class="bg-overlay">
