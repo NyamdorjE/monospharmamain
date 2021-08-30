@@ -6,7 +6,7 @@ Production settings
 
 from .common import *
 
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = [
     "10.0.0.153",
     "10.0.36.127",
