@@ -98,6 +98,21 @@
     max-width: 1320px;
   }
 }
+@media screen and (max-width: 380px) {
+  .mobile-none {
+    display: none !important;
+  }
+
+  #logo {
+    width: 80% !important;
+  }
+
+  .flip-card-front,
+  .flip-card:hover .flip-card-back {
+    height: 100px;
+    width: 100px;
+  }
+}
 
 /* ----------------------------------------------------------------
 	Basic
