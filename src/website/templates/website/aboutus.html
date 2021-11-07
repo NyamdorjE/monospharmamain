@@ -55,20 +55,54 @@
     <div class="slider-inner">
         <div class="swiper-container swiper-parent">
             <div class="swiper-wrapper">
-                <div class="swiper-slide dark">
-                    <div class="container">
-                        <div class="slider-caption slider-caption-center">
-                            <h2 data-animate="fadeInUp" style="color : black"></h2>
-                            <p class="d-none d-sm-block" data-animate="fadeInUp" data-delay="200">.</p>
-                        </div>
-                    </div>
-                    {% for banner in banner %}
-                    <div class="swiper-slide-bg" data-interval="5000"
-                        style="background-image: url('{{ banner.photo.url }}');" alt="{{ banner.alt_text }}"
-                        preload="auto" loop autoplay>
-                    </div>
-                    {% endfor %}
-                </div>
+               {% for banner in banner %}
+                	<div class="swiper-slide dark">
+					{% comment %} <div class="container">
+						<div class="slider-caption slider-caption-center">
+							<h2 data-animate="fadeInUp" style="color:#2F4B70;">
+								{% if banner.title %}{{ banner.title }}{% else %} {% endif%}</h2>
+							<p class="d-none d-sm-block fadeInUp animated" data-animate="fadeInUp" data-delay="200"
+								style="color:#2F4B70;">
+								{% if banner.content %}{{ banner.content|safe }}{% else %} {% endif%}</p>
+							{% if banner.link %}
+
+							<a href="{{ banner.link}}"
+								class="button button-xlarge button-border button-rounded text-right"
+								style="width:200px; height:50px; background-color:#2F4B70; color:white; margin-left: 35%;">{{ banner.link_text}}<i
+									class="icon-circle-arrow-right"></i></a>
+							{% else %}
+
+							{% endif %}
+						</div>
+					</div> {% endcomment %}
+					<div class="container">
+						<div class="slider-caption" style="opacity: 1;">
+							<h2 data-animate="fadeInUp" class="fadeInUp animated"
+								style="color:#2F4B70; text-align: left;">
+								{% if banner.title %}{{ banner.title }}{% else %} {% endif%}</h2>
+							<p class="d-none d-sm-block fadeInUp animated" data-animate="fadeInUp" data-delay="200"
+								style="color:#2F4B70; margin-top:0px;">
+								{% if banner.content %}{{ banner.content|safe }}{% else %} {% endif%}</p>
+							<div class="slider-link">
+								{% if banner.link %}
+
+								<a href="{{ banner.link}}"
+									class="button button-xlarge button-border button-rounded text-right"
+									style="background-color:#2F4B70; color:white; text-align: left;">{{ banner.link_text}}<i
+										class="icon-circle-arrow-right"></i></a>
+								{% else %}
+
+								{% endif %}
+							</div>
+						</div>
+
+					</div>
+					<div class="swiper-slide-bg" data-interval="5000"
+						style="background-image: url('{{ banner.photo.url }}');" alt="{{ banner.alt_text }}"
+						preload="auto" loop autoplay>
+					</div>
+				</div>
+                {% endfor %}
             </div>
             <div class="slider-arrow-left"><i class="icon-angle-left"></i></div>
             <div class="slider-arrow-right"><i class="icon-angle-right"></i></div>

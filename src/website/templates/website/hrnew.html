@@ -7,7 +7,8 @@
     .feature-box {
         text-align: center;
         border-radius: 15px !Important;
-
+        box-shadow: inset 0px 1px 0px 0px #fff;
+        background-color: rgb(237 237 237 / 43%)
     }
 
     .feature-box:hover {
@@ -108,20 +109,54 @@
     <div class="slider-inner">
         <div class="swiper-container swiper-parent">
             <div class="swiper-wrapper">
-                <div class="swiper-slide dark">
-                    <div class="container">
-                        <div class="slider-caption slider-caption-center">
-                            <h2 data-animate="fadeInUp" style="color : black"></h2>
-                            <p class="d-none d-sm-block" data-animate="fadeInUp" data-delay="200">.</p>
-                        </div>
-                    </div>
-                    {% for banner in banner %}
-                    <div class="swiper-slide-bg" data-interval="5000"
-                        style="background-image: url('{{ banner.photo.url }}');" alt="{{ banner.alt_text }}"
-                        preload="auto" loop autoplay>
-                    </div>
-                    {% endfor %}
-                </div>
+            {% for banner in banner %}
+                	<div class="swiper-slide dark">
+					{% comment %} <div class="container">
+						<div class="slider-caption slider-caption-center">
+							<h2 data-animate="fadeInUp" style="color:#2F4B70;">
+								{% if banner.title %}{{ banner.title }}{% else %} {% endif%}</h2>
+							<p class="d-none d-sm-block fadeInUp animated" data-animate="fadeInUp" data-delay="200"
+								style="color:#2F4B70;">
+								{% if banner.content %}{{ banner.content|safe }}{% else %} {% endif%}</p>
+							{% if banner.link %}
+
+							<a href="{{ banner.link}}"
+								class="button button-xlarge button-border button-rounded text-right"
+								style="width:200px; height:50px; background-color:#2F4B70; color:white; margin-left: 35%;">{{ banner.link_text}}<i
+									class="icon-circle-arrow-right"></i></a>
+							{% else %}
+
+							{% endif %}
+						</div>
+					</div> {% endcomment %}
+					<div class="container">
+						<div class="slider-caption" style="opacity: 1;">
+							<h2 data-animate="fadeInUp" class="fadeInUp animated"
+								style="color:#2F4B70; text-align: left;">
+								{% if banner.title %}{{ banner.title }}{% else %} {% endif%}</h2>
+							<p class="d-none d-sm-block fadeInUp animated" data-animate="fadeInUp" data-delay="200"
+								style="color:#2F4B70; margin-top:0px;">
+								{% if banner.content %}{{ banner.content|safe }}{% else %} {% endif%}</p>
+							<div class="slider-link">
+								{% if banner.link %}
+
+								<a href="{{ banner.link}}"
+									class="button button-xlarge button-border button-rounded text-right"
+									style="background-color:#2F4B70; color:white; text-align: left;">{{ banner.link_text}}<i
+										class="icon-circle-arrow-right"></i></a>
+								{% else %}
+
+								{% endif %}
+							</div>
+						</div>
+
+					</div>
+					<div class="swiper-slide-bg" data-interval="5000"
+						style="background-image: url('{{ banner.photo.url }}');" alt="{{ banner.alt_text }}"
+						preload="auto" loop autoplay>
+					</div>
+				</div>
+                {% endfor %}
             </div>
             <div class="slider-arrow-left"><i class="icon-angle-left"></i></div>
             <div class="slider-arrow-right"><i class="icon-angle-right"></i></div>
@@ -449,105 +484,115 @@
                                 <div class="row justify-content-center gutter-50 col-mb-50">
 
                                     <div class="clear my-3"></div>
+                                    {% for q in card|slice:"0:1" %}
                                     <div class="col-lg-3 col-sm-6">
                                         <a href="#">
                                             <div class="feature-box fbox-effect flex-column border p-4 rounded-3">
                                                 <div class="fbox-icon mb-4 center">
-                                                    <img src="{% static 'base/assets/demos/seo/images/icons/content_marketing.svg'%}"
+                                                    <img src="{{ q.image.url }}"
                                                         alt="Feature Icon" class="bg-transparent rounded-0 center">
                                                 </div>
                                                 <div class="fbox-content">
-                                                    <h3>1.АНКЕТ ХҮЛЭЭН АВАХ</h3>
+                                                    <h3>{{ q.title }}</h3>
 
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
+                                    {% endfor %}
                                     <div class="long-arrow-right"></div>
 
+                                   {% for q in card|slice:"1:2" %}
                                     <div class="col-lg-3 col-sm-6">
                                         <a href="#">
                                             <div class="feature-box fbox-effect flex-column border p-4 rounded-3">
                                                 <div class="fbox-icon mb-4 center">
-                                                    <img src="{% static 'base/assets/demos/seo/images/icons/content_marketing.svg'%}"
+                                                    <img src="{{ q.image.url }}"
                                                         alt="Feature Icon" class="bg-transparent rounded-0 center">
                                                 </div>
                                                 <div class="fbox-content">
-                                                    <h3>2.ШАЛГАРУУЛАЛТ ХИЙХ</h3>
+                                                    <h3>{{ q.title }}</h3>
 
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
+                                    {% endfor %}
                                     <div class="long-arrow-right"></div>
 
+                                   {% for q in card|slice:"2:3" %}
                                     <div class="col-lg-3 col-sm-6">
                                         <a href="#">
                                             <div class="feature-box fbox-effect flex-column border p-4 rounded-3">
                                                 <div class="fbox-icon mb-4 center">
-                                                    <img src="{% static 'base/assets/demos/seo/images/icons/content_marketing.svg'%}"
+                                                    <img src="{{ q.image.url }}"
                                                         alt="Feature Icon" class="bg-transparent rounded-0 center">
                                                 </div>
                                                 <div class="fbox-content">
-                                                    <h3>3.АНХАН ШАТНЫ ЯРИЛЦЛАГА ХИЙХ</h3>
+                                                    <h3>{{ q.title }}</h3>
 
                                                 </div>
                                             </div>
                                         </a>
-                                        <div class="long-arrow-down"></div>
-
                                     </div>
+                                    {% endfor %}
 
                                     <div class="clear my-3"></div>
 
 
+                                   {% for q in card|slice:"3:4" %}
                                     <div class="col-lg-3 col-sm-6">
                                         <a href="#">
                                             <div class="feature-box fbox-effect flex-column border p-4 rounded-3">
                                                 <div class="fbox-icon mb-4 center">
-                                                    <img src="{% static 'base/assets/demos/seo/images/icons/content_marketing.svg'%}"
+                                                    <img src="{{ q.image.url }}"
                                                         alt="Feature Icon" class="bg-transparent rounded-0 center">
                                                 </div>
                                                 <div class="fbox-content">
-                                                    <h3>6.АЖЛЫН САНАЛ ТАВИХ</h3>
+                                                    <h3>{{ q.title }}</h3>
 
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
+                                    {% endfor %}
                                     <div class="long-arrow-left"></div>
 
 
+                                   {% for q in card|slice:"4:5" %}
                                     <div class="col-lg-3 col-sm-6">
                                         <a href="#">
                                             <div class="feature-box fbox-effect flex-column border p-4 rounded-3">
                                                 <div class="fbox-icon mb-4 center">
-                                                    <img src="{% static 'base/assets/demos/seo/images/icons/content_marketing.svg'%}"
+                                                    <img src="{{ q.image.url }}"
                                                         alt="Feature Icon" class="bg-transparent rounded-0 center">
                                                 </div>
                                                 <div class="fbox-content">
-                                                    <h3>5.НЭГЖИЙН УДИРДЛАГА (МЭРГЭЖЛИЙН) ЯРИЛЦЛАГА ХИЙХ</h3>
+                                                    <h3>{{ q.title }}</h3>
 
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
+                                    {% endfor %}
                                     <div class="long-arrow-left"></div>
 
+                                    {% for q in card|slice:"5:6" %}
                                     <div class="col-lg-3 col-sm-6">
                                         <a href="#">
                                             <div class="feature-box fbox-effect flex-column border p-4 rounded-3">
                                                 <div class="fbox-icon mb-4 center">
-                                                    <img src="{% static 'base/assets/demos/seo/images/icons/content_marketing.svg'%}"
+                                                    <img src="{{ q.image.url }}"
                                                         alt="Feature Icon" class="bg-transparent rounded-0 center">
                                                 </div>
                                                 <div class="fbox-content">
-                                                    <h3>4.ШАЛГАЛТ АВАХ</h3>
+                                                    <h3>{{ q.title }}</h3>
 
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
+                                    {% endfor %}
 
 
 

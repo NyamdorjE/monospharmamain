@@ -31,7 +31,7 @@ class ProductList(ListView):
         if search_text:
             queryset = queryset.filter(
                 Q(name__icontains=search_text)
-                # | Q(instructions__icontains=search_text)
+                | Q(international_name__icontains=search_text)
                 # | Q(ingredients__icontains=search_text)
                 # | Q(warnings__icontains=search_text)
                 # | Q(description__icontains=search_text)

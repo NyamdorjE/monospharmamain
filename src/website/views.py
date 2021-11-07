@@ -11,6 +11,7 @@ from .models import (
     AdviceCategory,
     BannerAboutUs,
     HrBanner,
+    HrCard,
     HrContent,
     Taniltsuulga,
     Testimonail,
@@ -195,5 +196,7 @@ class HrNew(TemplateView):
         context = super(HrNew, self).get_context_data(**kwargs)
         context["banner"] = HrBanner.objects.all()
         context["object"] = HrContent.objects.all().order_by("position")
+        context["card"] = HrCard.objects.all().order_by("position")
+
 
         return context

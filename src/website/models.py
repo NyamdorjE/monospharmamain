@@ -176,7 +176,25 @@ class BannerAboutUs(models.Model):
         upload_to="media/banners", verbose_name=_("Баннер зураг орох")
     )
     position = models.IntegerField()
-
+    title = models.CharField(
+        max_length=550,
+        verbose_name=_("Гарчиг"),
+        null=True,
+        blank=True
+    )
+    content = RichTextField(null=True, blank=True, verbose_name=_("content"))
+    link = models.CharField(
+        max_length=550,
+        verbose_name=_("Линк"),
+        null=True,
+        blank=True
+    )
+    link_text = models.CharField(
+        max_length=550,
+        verbose_name=_("Линк орох тэкст"),
+        null=True,
+        blank=True
+    )
     def __str__(self):
         return self.alt_text
 
@@ -277,7 +295,25 @@ class HrBanner(models.Model):
         upload_to="media/hrbanner", verbose_name=_("Баннер зураг орох")
     )
     position = models.IntegerField()
-
+    title = models.CharField(
+        max_length=550,
+        verbose_name=_("Гарчиг"),
+        null=True,
+        blank=True
+    )
+    content = RichTextField(blank=True, null=True, verbose_name=_("content"))
+    link = models.CharField(
+        max_length=550,
+        verbose_name=_("Линк"),
+        null=True,
+        blank=True
+    )
+    link_text = models.CharField(
+        max_length=550,
+        verbose_name=_("Линк орох тэкст"),
+        null=True,
+        blank=True
+    )
     def __str__(self):
         return self.alt_text
 
@@ -299,6 +335,24 @@ class HrContent(models.Model):
     class Meta:
         verbose_name = _("Хүний нөөц - Бидэнтэй нэгдсэнээр")
         verbose_name_plural = _("Хүний нөөц - Бидэнтэй нэгдсэнээр")
+        ordering = ["position"]
+
+    def __str__(self):
+        return self.title
+
+
+class HrCard(models.Model):
+    title = models.CharField(
+        max_length=500, verbose_name=_("Гарчиг"), null=True, blank=True
+    )
+    icon = models.FileField(
+        upload_to="hrcard", verbose_name=_("Зураг"), null=True, blank=True
+    )
+    position = models.IntegerField(null=True, blank=True)
+
+    class Meta:
+        verbose_name = _("Хүний нөөц - Сонгон шалгаруулалт")
+        verbose_name_plural = _("Хүний нөөц - Сонгон шалгаруулалт")
         ordering = ["position"]
 
     def __str__(self):

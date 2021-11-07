@@ -72,17 +72,17 @@
   <div id="wrapper" class="clearfix">
     <!-- Top Bar
 		============================================= -->
-    <div id="top-bar">
+    <div id="top-bar" style="margin-bottom: -20px; margin-top: -20px;">
       <div class="container">
         <div class="row justify-content-between align-items-center">
           <div class="col-12 col-md-auto">
             <p class="mb-0 py-2 text-center text-md-left mobile-none">
-              <a href="{% url "contact" %}" class="social-icon si-dark si-colored si-facebook mb-0"
+              {% comment %} <a href="{% url "contact" %}" class="social-icon si-dark si-colored si-facebook mb-0"
                 style="margin-right: 10px;">
                 <i class="icon-address-card1"></i>
                 <i class="icon-address-card1"></i>
               </a>
-              <strong><a>Холбоо барих</a></strong>
+              <strong><a>Холбоо барих</a></strong> {% endcomment %}
 
 
             </p>
@@ -100,39 +100,25 @@
               <ul class="top-links-container">
                 <div class="row" style="margin-top: 10px;">
                   <div clas="col-6">
-                    <form action="{% url 'set_language' %}" method="post">
-                      {% csrf_token %}
-                      <li class="top-links-item"><a href="">{{LANGUAGE_CODE}}<i class="icon-angle-down"></i></a>
-                        <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}" />
-                        <ul class="top-links-sub-menu d-block">
-                          {% get_current_language as LANGUAGE_CODE %}
-                          {% get_available_languages as LANGUAGES %}
-                          {% get_language_info_list for LANGUAGES as languages %}
-                          {% for language in languages %}
-                          <li class="top-links-item">
-                            <button type="submit" name="language" value="{{ language.code }}"
-                              class="{% if language.code == LANGUAGE_CODE %}selected{% endif %}"
-                              style="margin-top:5px;">
-                              {{ language.name_local }}
-                            </button>
-                          </li>
-                          {% endfor %}
-                        </ul>
-                      </li>
-                    </form>
-                  </div>
-                  {% comment %} <li class="top-links-item"><a href="#">EN<i class="icon-angle-down"></i></a>
-                    <ul class="top-links-sub-menu d-block">
-                      <li class="top-links-item"><a href="#"><img
-                            src="{% static 'base/assets/images/icons/flags/mn.png' %}" alt="Монгол"> Монгол</a></li>
-                      <li class="top-links-item"><a href="#"><img
-                            src="{% static 'base/assets/images/icons/flags/en_US.png' %}" alt="Англи"> Англи</a></li>
-                    </ul>
-                  </li> {% endcomment %}
-
-
-                  <div class="col-6" style="padding-top: 7px;">
-                    <div class="dropdown mx-3 mr-lg-0">
+                  <nav class="primary-menu">
+              <ul class="menu-container">
+                <li class="menu-item mega-menu mega-menu-full">
+                  <a class="menu-link" href="https://www.zangia.mn/company/Monos-Pharma" style="font-size: 14px;">
+                    <div style="color:white; font-size: 11.5px;">{% trans "Нээлттэй ажлын байр" %}</div>
+                  </a>
+                       
+                  
+                  </li>
+                   <li class="menu-item mega-menu mega-menu-full">
+                  <a class="menu-link" href="{% url "contact" %}" style="font-size: 14px;">
+                    <div style="color:white; font-size: 11.5px;">{% trans "Холбоо барих" %}</div>
+                  </a>
+                       
+                  
+                  </li>
+                 
+                   <li>
+                <div class="dropdown mx-3 mr-lg-0">
                       <a href="#" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="true"><i class="icon-user"></i></a>
                       <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
@@ -158,7 +144,42 @@
 
                       </ul>
                     </div>
+                   </li>
+{% comment %}               
+                   <li> <form action="{% url 'set_language' %}" method="post">
+                      {% csrf_token %}
+                      <li class="top-links-item"><a href="">{{LANGUAGE_CODE}}<i class="icon-angle-down"></i></a>
+                        <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}" />
+                        <ul class="top-links-sub-menu d-block">
+                          {% get_current_language as LANGUAGE_CODE %}
+                          {% get_available_languages as LANGUAGES %}
+                          {% get_language_info_list for LANGUAGES as languages %}
+                          {% for language in languages %}
+                          <li class="top-links-item">
+                            <button type="submit" name="language" value="{{ language.code }}"
+                              class="{% if language.code == LANGUAGE_CODE %}selected{% endif %}"
+                              style="margin-top:5px;">
+                              {{ language.name_local }}
+                            </button>
+                          </li>
+                          {% endfor %}
+                        </ul>
+                      </li>
+                    </form> </li> {% endcomment %}
+                                    </ul>
+
                   </div>
+                  {% comment %} <li class="top-links-item"><a href="#">EN<i class="icon-angle-down"></i></a>
+                    <ul class="top-links-sub-menu d-block">
+                      <li class="top-links-item"><a href="#"><img
+                            src="{% static 'base/assets/images/icons/flags/mn.png' %}" alt="Монгол"> Монгол</a></li>
+                      <li class="top-links-item"><a href="#"><img
+                            src="{% static 'base/assets/images/icons/flags/en_US.png' %}" alt="Англи"> Англи</a></li>
+                    </ul>
+                  </li> {% endcomment %}
+
+
+                 
                 </div>
 
               </ul>

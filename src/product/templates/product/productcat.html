@@ -100,24 +100,37 @@
 <section id="content">
     <div class="content-wrap" style="padding-top: 40px; padding-bottom: 0px;">
         <div class="container clearfix">
-            <div class="row justify-content-center mw-lg mx-auto gutter-20" style" justify-content: flex-end;
-                !important">
+         
 
-                <form action="{% url 'product-product-list' %}" role="form" class="notopmargin nobottommargin"
+                {% comment %} <form action="{% url 'product-product-list' %}" role="form" class="notopmargin nobottommargin"
                     style="    padding-left: 500px;">
                     <div class="input-group divcenter">
                         <input type="text" class="form-control" name="search_text"
-                            placeholder="Энд хайх утгаа бичнэ үү." value="{{ search_text }}"
+                            placeholder="Хайх эмийн нэрийг бичнэ  үү." value="{{ search_text }}"
                             style="padding-left:100px; padding-right:100px;">
                         <span class="input-group-btn">
                             <button class="btn btn-success" type="submit"><i class="icon-line-search"></i></button>
                         </span>
                     </div>
-                </form>
+                </form> {% endcomment %}
+                <div class="row">
+                <div class="col-8">
+                </div>
+                <div class="col-4">
+                
+ <form action="{% url 'product-product-list' %}" role="form" class="notopmargin nobottommargin">
+                <div class="input-group divcenter">
+                    <input type="text" class="form-control" name="search_text" placeholder="Хайх эмийн нэрийг бичнэ  үү."
+                        value="{{ search_text }}">
+                    <span class="input-group-btn">
+                        <button class="btn btn-success" type="submit"><i class="icon-line-search"></i></button>
+                    </span>
+                </div>
+            </form>
 
 
-
-
+       
+            </div>
             </div>
         </div>
     </div>

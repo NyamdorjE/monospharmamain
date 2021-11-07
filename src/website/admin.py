@@ -5,6 +5,7 @@ from .models import (
     AdviceCategory,
     BannerAboutUs,
     HrBanner,
+    HrCard,
     HrContent,
     Taniltsuulga,
     Testimonail,
@@ -28,6 +29,9 @@ class AdviceAdmin(admin.ModelAdmin):
 class HrContentAdmin(admin.ModelAdmin):
     list_display = ("title", "position")
 
+class HrCardAdmin(admin.ModelAdmin):
+    list_display = ("title", "position")
+
 
 admin.site.register(Counter)
 admin.site.register(BannerAboutUs)
@@ -43,3 +47,4 @@ admin.site.register(AboutUsCards)
 admin.site.register(HrBanner)
 admin.site.register(HrContent, HrContentAdmin)
 admin.site.register(Taniltsuulga)
+admin.site.register(HrCard, HrCardAdmin)
