@@ -37,6 +37,7 @@ app_name = "polls"
 urlpatterns = (
     [
         path("admin/", admin.site.urls),
+        path(r"^i18n/", include("django.conf.urls.i18n")),
         path(
             "favicon.ico",
             RedirectView.as_view(
@@ -59,10 +60,9 @@ urlpatterns = (
         path("", include("src.quiz.urls")),
         path("", include("src.website.urls")),
         url(r"^accounts/", include("registration.backends.default.urls")),
-        url(r"^i18n/", include("django.conf.urls.i18n")),
+        # url(r"^i18n/", include("django.conf.urls.i18n")),
         url(r"^treewidget/", include("treewidget.urls")),
         re_path(r"^ckeditor/", include("ckeditor_uploader.urls")),
-        path("i18n/", include("django_translation_flags.urls")),
     ]
     + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

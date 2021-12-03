@@ -1,13 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import User
-from django.shortcuts import render, get_object_or_404
 from django.utils.translation import ugettext_lazy as _
-import re
 from django.db.models import Q
 from django.utils import timezone
 from django.urls import reverse
 
-from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.

@@ -145,38 +145,33 @@
                       </ul>
                     </div>
                    </li>
-{% comment %}               
-                   <li> <form action="{% url 'set_language' %}" method="post">
+               
+                   <li> <form action="{% url 'set_language' %}" method="post" style="margin-top:27px; margin-left: 12px">
                       {% csrf_token %}
-                      <li class="top-links-item"><a href="">{{LANGUAGE_CODE}}<i class="icon-angle-down"></i></a>
-                        <input name="next" type="hidden" value="{{ request.get_full_path|slice:'3:' }}" />
+                      <li class="top-links-item" style="border-left: none;"><a href="" style="color:#ffff;">{{LANGUAGE_CODE}}<i class="icon-angle-down"></i></a>
+
+                        <input name="next" type="hidden" value="{{ languageless_url }}" />
                         <ul class="top-links-sub-menu d-block">
                           {% get_current_language as LANGUAGE_CODE %}
                           {% get_available_languages as LANGUAGES %}
                           {% get_language_info_list for LANGUAGES as languages %}
                           {% for language in languages %}
-                          <li class="top-links-item">
+                          <li class="top-links-item" style="margin-top:10px">
                             <button type="submit" name="language" value="{{ language.code }}"
-                              class="{% if language.code == LANGUAGE_CODE %}selected{% endif %}"
-                              style="margin-top:5px;">
+                              class="{% if language.code == LANGUAGE_CODE %}selected{% endif %}">
                               {{ language.name_local }}
                             </button>
                           </li>
                           {% endfor %}
                         </ul>
                       </li>
-                    </form> </li> {% endcomment %}
-                                    </ul>
+                    </form> </li> 
+
+
+                      </ul>
 
                   </div>
-                  {% comment %} <li class="top-links-item"><a href="#">EN<i class="icon-angle-down"></i></a>
-                    <ul class="top-links-sub-menu d-block">
-                      <li class="top-links-item"><a href="#"><img
-                            src="{% static 'base/assets/images/icons/flags/mn.png' %}" alt="Монгол"> Монгол</a></li>
-                      <li class="top-links-item"><a href="#"><img
-                            src="{% static 'base/assets/images/icons/flags/en_US.png' %}" alt="Англи"> Англи</a></li>
-                    </ul>
-                  </li> {% endcomment %}
+
 
 
                  

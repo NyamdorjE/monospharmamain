@@ -74,9 +74,9 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     #'whitenoise.middleware.WhiteNoiseMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -89,7 +89,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "monospharma.urls"
 
-TEMPLATE_CONTEXT_PROCESSORS = ("django.core.context_processors.i18n",)  # this one
+TEMPLATE_CONTEXT_PROCESSORS = ("django.core.context_processors.i18n",)
 
 
 TEMPLATES = [
@@ -159,6 +159,14 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "mn"
 
+
+LANGUAGES = [
+    ("mn", _("Mongolia")),
+    ("en", _("English")),
+]
+
+DEFAULT_LANGUAGE = 1
+
 TIME_ZONE = "Asia/Ulaanbaatar"
 
 USE_I18N = True
@@ -172,11 +180,6 @@ LOCALE_PATHS = [os.path.join(BASE_DIR, "locale")]
 DATETIME_FORMAT = "Y/m/d H:s"
 
 use_websockets = True
-
-LANGUAGES = [
-    ("mn", _("Mongolia")),
-    ("en", _("English")),
-]
 
 
 # Static files (CSS, JavaScript, Images)

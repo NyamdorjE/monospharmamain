@@ -6,6 +6,12 @@
 
 
 {% block content %}
+
+<style>
+	.icon-line-check{
+	    font-size: 20px;
+	}
+</style>
 <!-- Page Title
 		============================================= -->
 <section id="page-title">
@@ -96,7 +102,7 @@
 
 								<li class="list-group-item d-flex justify-content-between align-items-center px-0">
 									<span class="text-muted">Жор:</span><span
-										class="text-dark font-weight-semibold">{{ product.jor}}</span>
+										class="text-dark font-weight-semibold"><i class="icon-line-check"></i></span>
 								</li>
 								{% else %}
 								{% endif %}
@@ -104,7 +110,7 @@
 
 								<li class="list-group-item d-flex justify-content-between align-items-center px-0">
 									<span class="text-muted">Даатгал:</span><span
-										class="text-dark font-weight-semibold">{{ product.daatgal}}</span>
+										class="text-dark font-weight-semibold"><i class="icon-line-check"></i></span>
 								</li>
 								{% else %}
 								{% endif %}

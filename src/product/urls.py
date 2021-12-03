@@ -8,6 +8,7 @@ from django.utils.translation import gettext_lazy as _
 from .fetch import product_fetch
 
 urlpatterns = [
+    path(r"^i18n/", include("django.conf.urls.i18n")),
     Nurl("product/") > "src.product.views.ProductList",
     Nurl("category/") > "src.product.views.ProductCategoryList",
     Nurl("product/<pk>") > "src.product.views.ProductDetailView",

@@ -52,19 +52,6 @@ class Homepage(generic.ListView):
         context["bannervideo"] = BannerVideo.objects.all()
         return context
 
-    # def get_context_data(self, **kwargs):
-    #     context = super(Homepage, self).get_context_data(**kwargs)
-    #     context['category_list'] = Category.objects.all()
-    #     context['research'] = Research.objects.all().order_by('-created_on')
-    #     context['lesson'] = Courses.objects.all().order_by('-created_on')
-
-    #     return context
-
-
-# class BasePage(TemplateView):
-#     queryset = News.objects.all().order_by('-created_on')
-#     template_name = "poll/base.html"
-
 
 class About(TemplateView):
     template_name = "website/about.html"
@@ -98,7 +85,6 @@ class Vision(TemplateView):
 
 class Amjilt(TemplateView):
     template_name = "website/amjilt.html"
-
 
 
 class Emsudlal(TemplateView):
@@ -197,6 +183,5 @@ class HrNew(TemplateView):
         context["banner"] = HrBanner.objects.all()
         context["object"] = HrContent.objects.all().order_by("position")
         context["card"] = HrCard.objects.all().order_by("position")
-
 
         return context
