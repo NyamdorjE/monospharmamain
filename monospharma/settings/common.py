@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "modeltranslation",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -159,13 +160,21 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "mn"
 
-
+gettext = lambda s: s
 LANGUAGES = [
     ("mn", _("Mongolia")),
     ("en", _("English")),
 ]
 
-DEFAULT_LANGUAGE = 1
+MODELTRANSLATION_DEFAULT_LANGUAGE = "mn"
+MODELTRANSLATION_LANGUAGES = ("en", "mn")
+MODELTRANSLATION_FALLBACK_LANGUAGES = {
+    "default": ("mn", "en"),
+}
+
+MODELTRANSLATION_PREPOPULATE_LANGUAGE = "en"
+MODELTRANSLATION_DEBUG = True
+DEFAULT_LANGUAGE = 0
 
 TIME_ZONE = "Asia/Ulaanbaatar"
 

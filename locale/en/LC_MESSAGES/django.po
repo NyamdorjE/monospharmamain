@@ -623,11 +623,11 @@ msgstr ""
 
 #: src/news/templates/news/homepage.html:169
 msgid "Чанарын баталгаажилт, Баримтжуулалт"
-msgstr ""
+msgstr "Quality Assurance and Documentation"
 
 #: src/news/templates/news/homepage.html:173
 msgid "Чанарын хяналт"
-msgstr "Quality Assurance and Documentation"
+msgstr "Quality control"
 
 #: src/news/templates/news/homepage.html:183
 msgid "Эм үйлдвэрлэлийг дэлхийн жишигт"

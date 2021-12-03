@@ -167,7 +167,24 @@
                       </li>
                     </form> </li> 
 
+                      {% comment %} <li>
+ {% get_current_language as LANGUAGE_CODE %}
 
+                 <form action="{% url 'change_language' %}" method="post">
+                  {% csrf_token %}
+                  <input name="text" type="hidden" value="{{ redirect_to }}" />
+                  <select name="language" id="">
+                      {% get_available_languages as LANGUAGES %}
+                      {% get_language_info_list for LANGUAGES as languages %}
+                      {% for lang in languages %}
+                      <option value="{{ lang.code }}" {% if lang.code == LANGUAGE_CODE %} selected {% endif %}>
+                          {{ lang.name_local }} | {{ lang.code }}
+                      </option>
+                      {% endfor %}
+                  </select>
+                  <input type="submit" value="Go" />
+              </form>
+                      </li> {% endcomment %}
                       </ul>
 
                   </div>

@@ -1,5 +1,4 @@
 from django.db import models
-from django.shortcuts import render, get_object_or_404
 from django.utils.translation import ugettext_lazy as _
 import re
 from django.db.models import Q
@@ -39,7 +38,6 @@ class ProductCategory(MPTTModel):
 
     def __str__(self):
         return self.name
-        # return '%s%s' % ('-' * self.mptt_level, self.name)
 
     def master_products(self):
         list_product = Product.objects.none()
@@ -79,54 +77,6 @@ class ProductCategoryImage(models.Model):
 
     def __str__(self):
         return self.name
-
-
-# class ChildCategory(models.Model):
-#     parent_category = models.ForeignKey(
-#         ProductCategory, verbose_name="Ангиллал", on_delete=models.CASCADE
-#     )
-#     name = models.CharField(max_length=200, verbose_name="Нэр", null=True, blank=True)
-#     created_at = models.DateTimeField(
-#         auto_now_add=True, verbose_name=_("Created on"), null=True, blank=True
-#     )
-
-#     class Meta:
-#         ordering = ["created_at", "id"]
-#         verbose_name = "бага ангилал"
-#         verbose_name_plural = "бага ангилал"
-
-#     def __str__(self):
-#         return self.name
-
-
-# class MainCategory(models.Model):
-#     parent_category = models.ForeignKey(
-#         ChildCategory, verbose_name="Ангиллал", on_delete=models.CASCADE
-#     )
-#     name = models.CharField(max_length=200, verbose_name="Нэр", null=True, blank=True)
-#     created_at = models.DateTimeField(
-#         auto_now_add=True, verbose_name=_("Created on"), null=True, blank=True
-#     )
-
-#     class Meta:
-#         ordering = ["created_at", "id"]
-#         verbose_name = "main ангиллал"
-#         verbose_name_plural = "main ангиллал"
-
-#     def __str__(self):
-#         return self.name
-
-
-# class Classification(models.Model):
-#     classification_name = models.CharField(
-#         max_length=255, verbose_name=_('Classification type'))
-
-#     class Meta:
-#         verbose_name = _('Classification')
-#         ordering = ['classification_name']
-
-#     def __str__(self):
-#         return self.classification_name
 
 
 class Type(models.Model):
@@ -169,8 +119,7 @@ class Product(models.Model):
         null=True,
         blank=True,
     )
-    # classification = models.ForeignKey("Classification", verbose_name=_(
-    #     "Classification"), on_delete=models.CASCADE, null=True, blank=True)
+
     producttype = models.ForeignKey(
         "Type",
         verbose_name=_("producttype"),
@@ -243,9 +192,6 @@ class Product(models.Model):
         verbose_name_plural = _("Бүтээгдэхүүн")
         ordering = ["name"]
 
-    # @property
-    # def get_products(self):
-    #     return Products.objects.filter(categories__name=self.title)
     def get_parents(self):
         return ",".join([str(p) for p in self.categories.all()])
 
