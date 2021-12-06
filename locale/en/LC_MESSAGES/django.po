@@ -944,7 +944,7 @@ msgstr "Research"
 #: src/news/templates/news/index_2.html:520
 #: src/news/templates/news/index_2Old.html:457
 msgid "Видео мэдээ"
-msgstr "Static information"
+msgstr "Video news"
 
 #: src/news/templates/news/index_2.html:571
 #: src/news/templates/news/index_2Old.html:508
