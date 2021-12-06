@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-06 16:43+0800\n"
+"POT-Creation-Date: 2021-12-06 17:00+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -474,7 +474,7 @@ msgstr ""
 msgid "Санал хүсэлт"
 msgstr "Feedback"
 
-#: src/base/templates/homecontact.html:67 src/quiz/templates/question.html:82Б
+#: src/base/templates/homecontact.html:67 src/quiz/templates/question.html:82
 #: src/quiz/test/question.html:79 src/quiz/zzz/question.html:82
 msgid "Илгээх"
 msgstr "Submit"
@@ -713,9 +713,10 @@ msgstr "News"
 
 #: src/news/templates/news/advicedetail.html:13
 #: src/news/templates/news/news.html:11
+#: src/product/templates/product/product.html:194
 #: src/product/templates/product/productdetail.html:21
 msgid "Нүүр хуудас"
-msgstr ""
+msgstr "Homepage"
 
 #: src/news/templates/news/advicedetail.html:14
 #: src/news/templates/news/index_2.html:518
@@ -786,7 +787,8 @@ msgstr "Read more"
 #: src/news/templates/news/homepageOld.html:640
 #: src/news/templates/news/index_2.html:357
 #: src/news/templates/news/index_2Old.html:294 src/product/models.py:191
-#: src/product/models.py:192
+#: src/product/models.py:192 src/product/templates/product/product.html:192
+#: src/product/templates/product/product.html:195
 #: src/product/templates/product/productdetail.html:19
 #: src/product/templates/product/productdetail.html:22
 msgid "Бүтээгдэхүүн"
@@ -1022,16 +1024,12 @@ msgid "Нийтлэл"
 msgstr "Article"
 
 #: src/news/templates/news/news.html:74
-#, fuzzy
-#| msgid "Цааш үзэх"
-msgid "Цааш унших"
-msgstr "Read more"
+msgid "Цааш унших ..."
+msgstr "Read more ..."
 
 #: src/news/templates/news/sidebar.html:11
-#, fuzzy
-#| msgid "Бидний тухай"
 msgid "Мэдээний хайлт"
-msgstr "About us"
+msgstr "News search"
 
 #: src/news/templates/news/sidebar.html:98
 msgid "Зургийн цомог"
