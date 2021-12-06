@@ -6,10 +6,10 @@
 {% block content %}
 <section id="page-title">
 	<div class="container clearfix">
-		<h1>Нийтлэл</h1>
+		<h1>{% trans 'Нийтлэл' %}</h1>
 		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="{% url 'website-homepage'%}">Нүүр хуудас</a></li>
-			<li class="breadcrumb-item active" aria-current="page">Нийтлэл</li>
+			<li class="breadcrumb-item"><a href="{% url 'website-homepage'%}">{% trans 'Нүүр хуудас' %}</a></li>
+			<li class="breadcrumb-item active" aria-current="page">{% trans 'Нийтлэл' %}</li>
 		</ol>
 	</div>
 </section><!-- #page-title end -->
@@ -71,7 +71,7 @@
 											<li><a href="#"><i class="icon-user"></i> {{ news.author }}</a></li>
 											<li><a href="#"><i class="icon-newspaper"></i></a></li>
 											<a href="{% if news %}{% url 'news-news-detail' news.slug  %} {% endif %}"
-												class="more-link" style="padding-bottom:8px;">Цааш унших ...</a>
+												class="more-link" style="padding-bottom:8px;">{% trans 'Цааш унших' %} ...</a>
 										</ul>
 									</div>
 

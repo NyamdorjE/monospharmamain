@@ -8,10 +8,10 @@
 <section id="page-title">
 
     <div class="container clearfix">
-        <h1>Мэдээ</h1>
+        <h1>{% trans 'Мэдээ' %}</h1>
         <ol class="breadcrumb">
-            <li><a href="{% url 'website-homepage'%}">Нүүр хуудас </a></li>
-            <li><a href="#">/Зөвлөгөө</a></li>
+            <li><a href="{% url 'website-homepage'%}">{% trans 'Нүүр хуудас' %} </a></li>
+            <li><a href="#">/{% trans 'Зөвлөгөө' %}</a></li>
         </ol>
     </div>
 
@@ -102,7 +102,7 @@
                             <div class="tabs mb-0 clearfix" id="sidebar-tabs">
 
                                 <ul class="tab-nav clearfix">
-                                    <li><a href="#tabs-1">Онцлох</a></li>
+                                    <li><a href="#tabs-1">{% trans 'Онцлох' %}</a></li>
 
                                 </ul>
 
@@ -146,7 +146,7 @@
                         </div>
 
                         <div class="widget clearfix">
-                            <h4>Ангиллал</h4>
+                            <h4>{% trans 'Ангиллал' %}</h4>
                             <div class="tagcloud">
                                 {% for category in category_list %}
                                 <a href="#">{{category}}</a>
@@ -156,7 +156,7 @@
 
                         <div class="widget clearfix">
 
-                            <h4>Зургын сан</h4>
+                            <h4>{% trans 'Зургын сан' %}</h4>
                             <div id="oc-portfolio-sidebar" class="owl-carousel carousel-widget" data-items="1"
                                 data-margin="10" data-loop="true" data-nav="false" data-autoplay="5000">
 

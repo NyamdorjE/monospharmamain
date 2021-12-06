@@ -54,9 +54,9 @@
 						<ul class="sidenav">
 							<li><a href="#snav-content1"><i class="icon-screen"></i>{% trans "Нээлттэй ажлын байр" %}<i
 										class="icon-chevron-right"></i></a></li>
-							<li><a href="#snav-content2"><i class="icon-user21"></i>Сонгон шалгаруулалт<i
+							<li><a href="#snav-content2"><i class="icon-user21"></i>{% trans 'Сонгон шалгаруулалт' %}<i
 										class="icon-chevron-right"></i></a></li>
-							<li><a href="#snav-content4"><i class="icon-gift"></i>Нийгмийн халамж<i
+							<li><a href="#snav-content4"><i class="icon-gift"></i>{% trans 'Нийгмийн халамж' %}<i
 										class="icon-chevron-right"></i></a></li>
 
 							{% comment %} {% for file in file %}
@@ -79,11 +79,11 @@
 
 						<div class="row">
 							<div class="col-8">
-								<h5>Зарлагдсан ажлын байр</h5>
+								<h5>{% trans 'Зарлагдсан ажлын байр' %}</h5>
 							</div>
 
 							<div class="col-4">
-								<h5>Анкет хүлээн авах сүүлийн цаг</h5>
+								<h5>{% trans 'Анкет хүлээн авах сүүлийн цаг' %}</h5>
 							</div>
 						</div>
 						{% if hr %}
@@ -119,7 +119,7 @@
 
 						{% endfor %}
 						{% else %}
-						<p> Зарлагдсан ажлын байр байхгүй байна<p>
+						<p> {% trans 'Зарлагдсан ажлын байр байхгүй байна' %}<p>
 								{% endif %}
 								<div class="divider divider-rounded divider-center"><i class="icon-pill"></i></div>
 								<div class="fslider" data-smooth-height="false">

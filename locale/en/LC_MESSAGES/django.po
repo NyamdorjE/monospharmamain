@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-17 15:32+0800\n"
+"POT-Creation-Date: 2021-12-06 16:23+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: monospharma/settings/common.py:177
+#: monospharma/settings/common.py:165
 msgid "Mongolia"
 msgstr ""
 
-#: monospharma/settings/common.py:178
+#: monospharma/settings/common.py:166
 msgid "English"
 msgstr ""
 
@@ -71,7 +71,8 @@ msgstr ""
 msgid "Овог"
 msgstr ""
 
-#: src/accounts/forms.py:99 src/accounts/forms.py:189 src/product/models.py:23
+#: src/accounts/forms.py:99 src/accounts/forms.py:189 src/product/models.py:22
+#: src/product/models.py:56
 msgid "Нэр"
 msgstr ""
 
@@ -191,7 +192,7 @@ msgstr ""
 msgid "Organization name"
 msgstr ""
 
-#: src/accounts/models.py:18 src/accounts/models.py:37 src/news/models.py:36
+#: src/accounts/models.py:18 src/accounts/models.py:37 src/news/models.py:32
 #: src/quiz/models.py:34 src/quiz/models.py:40 src/quiz/models.py:75
 #: src/quiz/models.py:576 src/quiz/templates/progress.html:19
 #: src/quiz/templates/quiz/quiz_detail.html:9
@@ -201,7 +202,7 @@ msgstr ""
 #: src/quiz/zzz/quiz/quiz_detail.html:9
 #: src/quiz/zzz/quiz/sitting_detail.html:10
 msgid "Category"
-msgstr ""
+msgstr "Ангиллал"
 
 #: src/accounts/models.py:19 src/accounts/models.py:38
 msgid "License number "
@@ -241,6 +242,12 @@ msgstr ""
 #: src/accounts/templates/accounts/emails/restore_password_email.txt:5
 msgid "Please, go to the following page and choose a new password:"
 msgstr ""
+
+#: src/accounts/templates/accounts/log_in.html:66
+#: src/news/templates/news/index_2.html:139
+#: src/news/templates/news/index_2Old.html:134
+msgid "Нэвтрэх"
+msgstr "Login"
 
 #: src/accounts/templates/accounts/log_out.html:7
 msgid "Систэмээс гарлаа"
@@ -399,8 +406,8 @@ msgid "Base"
 msgstr ""
 
 #: src/base/models/humanresource.py:23 src/courses/models.py:17
-#: src/courses/models.py:39 src/courses/models.py:83 src/news/models.py:17
-#: src/news/models.py:40 src/news/models.py:78 src/poll/models.py:7
+#: src/courses/models.py:39 src/courses/models.py:83 src/news/models.py:13
+#: src/news/models.py:36 src/news/models.py:74 src/poll/models.py:7
 #: src/quiz/models.py:56 src/quiz/models.py:623 src/website/models.py:40
 msgid "Title"
 msgstr ""
@@ -410,7 +417,8 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: src/base/models/humanresource.py:25 src/product/models.py:26
+#: src/base/models/humanresource.py:25 src/product/models.py:25
+#: src/product/models.py:59
 msgid "Slug"
 msgstr ""
 
@@ -462,17 +470,73 @@ msgstr ""
 msgid "Questionnaire"
 msgstr ""
 
-#: src/base/templates/hr/humanresource.html:32
-#: src/news/templates/news/index_2.html:508
-#: src/news/templates/news/index_2.html:622
+#: src/base/templates/hr/humanresource.html:33
+#: src/news/templates/news/index_2.html:577
+#: src/news/templates/news/index_2.html:691
+#: src/news/templates/news/index_2Old.html:514
+#: src/news/templates/news/index_2Old.html:628
 msgid "Хүний нөөц"
 msgstr "Human resources"
 
-#: src/base/templates/hr/humanresource.html:54
-#: src/news/templates/news/homepage.html:631
-#: src/news/templates/news/index_2.html:627
+#: src/base/templates/hr/humanresource.html:55
+#: src/news/templates/news/homepageOld.html:654
+#: src/news/templates/news/index_2.html:108
+#: src/news/templates/news/index_2.html:696
+#: src/news/templates/news/index_2Old.html:633
 msgid "Нээлттэй ажлын байр"
 msgstr "Vacancies"
+
+#: src/base/templates/hr/humanresource.html:57
+#: src/base/templates/hr/process.html:22
+#: src/news/templates/news/index_2.html:699
+#: src/news/templates/news/index_2Old.html:636
+msgid "Сонгон шалгаруулалт"
+msgstr "Selection"
+
+#: src/base/templates/hr/humanresource.html:59
+#: src/news/templates/news/index_2Old.html:640
+msgid "Нийгмийн халамж"
+msgstr "Social welfare"
+
+#: src/base/templates/hr/humanresource.html:83
+#, fuzzy
+#| msgid "Нээлттэй ажлын байр"
+msgid "Зарлагдсан ажлын байр"
+msgstr "Vacancies"
+
+#: src/base/templates/hr/humanresource.html:87
+msgid "Анкет хүлээн авах сүүлийн цаг"
+msgstr "Last time to receive the application"
+
+#: src/base/templates/hr/humanresource.html:123
+msgid "Зарлагдсан ажлын байр байхгүй байна"
+msgstr "There are no vacancies announced"
+
+#: src/base/templates/hr/process.html:14
+msgid "Анкет бөглөх"
+msgstr "fill a form"
+
+#: src/base/templates/hr/process.html:18
+msgid "Өрөгдөл хүлээн авах"
+msgstr "Receiving an application"
+
+#: src/base/templates/hr/process.html:26
+msgid "Дууссан"
+msgstr "Done"
+
+#: src/base/templates/hr/process.html:34 src/base/templates/hr/process.html:42
+#: src/base/templates/hr/process.html:48 src/quiz/templates/question.html:85
+#: src/quiz/test/question.html:82 src/quiz/zzz/question.html:85
+msgid "Дараах"
+msgstr "Next"
+
+#: src/base/templates/hr/process.html:47 src/base/templates/hr/process.html:56
+msgid "Өмнөх"
+msgstr "Previous"
+
+#: src/base/templates/hr/process.html:52
+msgid "Бидэнтэй нэгдэхийг урьж байна."
+msgstr "Join us"
 
 #: src/chat/models.py:6
 msgid "Name"
@@ -491,7 +555,7 @@ msgstr ""
 msgid "Course category"
 msgstr ""
 
-#: src/courses/models.py:46 src/product/models.py:199
+#: src/courses/models.py:46 src/product/models.py:62 src/product/models.py:158
 msgid "Picture"
 msgstr ""
 
@@ -535,7 +599,8 @@ msgstr ""
 msgid "Upload video"
 msgstr ""
 
-#: src/courses/models.py:123 src/website/models.py:13
+#: src/courses/models.py:123 src/website/models.py:13 src/website/models.py:329
+#: src/website/models.py:366
 msgid "Content"
 msgstr ""
 
@@ -561,260 +626,344 @@ msgstr ""
 msgid "Шалгалт өгөх"
 msgstr ""
 
-#: src/news/apps.py:7 src/news/models.py:52 src/news/models.py:53
+#: src/news/apps.py:7 src/news/models.py:48 src/news/models.py:49
 msgid "News"
 msgstr ""
 
-#: src/news/models.py:22
+#: src/news/models.py:18
 msgid "News category"
 msgstr ""
 
-#: src/news/models.py:23
+#: src/news/models.py:19
 msgid "News categories"
 msgstr ""
 
-#: src/news/models.py:41
+#: src/news/models.py:37
 msgid "News slug"
 msgstr ""
 
-#: src/news/models.py:42 src/website/models.py:58
+#: src/news/models.py:38 src/website/models.py:58
 msgid "Author"
 msgstr ""
 
-#: src/news/models.py:43
+#: src/news/models.py:39
 msgid "Тэкст"
 msgstr ""
 
-#: src/news/models.py:46
+#: src/news/models.py:42
 msgid "created on"
 msgstr ""
 
-#: src/news/models.py:48
+#: src/news/models.py:44
 msgid "Updated on"
 msgstr ""
 
-#: src/news/models.py:65 src/news/models.py:69
+#: src/news/models.py:61 src/news/models.py:65
 msgid "Video news category"
 msgstr ""
 
-#: src/news/models.py:82
+#: src/news/models.py:78
 msgid "Youtube video embed url"
 msgstr ""
 
-#: src/news/models.py:91
+#: src/news/models.py:87
 msgid "Video news"
 msgstr ""
 
-#: src/news/templates/news/homepage.html:152
+#: src/news/templates/news/advicedetail.html:11
+#: src/news/templates/news/index_2.html:505
+#: src/news/templates/news/index_2Old.html:442
+msgid "Мэдээ"
+msgstr "News"
+
+#: src/news/templates/news/advicedetail.html:13
+#: src/news/templates/news/news.html:11
+#: src/product/templates/product/productdetail.html:21
+msgid "Нүүр хуудас"
+msgstr ""
+
+#: src/news/templates/news/advicedetail.html:14
+#: src/news/templates/news/index_2.html:518
+#: src/news/templates/news/index_2Old.html:455
+#: src/news/templates/news/sidebar.html:26 src/website/models.py:66
+#: src/website/models.py:67
+msgid "Зөвлөгөө"
+msgstr "Advice"
+
+#: src/news/templates/news/advicedetail.html:105
+msgid "Онцлох"
+msgstr "Featured"
+
+#: src/news/templates/news/advicedetail.html:149
+#, fuzzy
+#| msgid "Зөвлөгөө"
+msgid "Ангиллал"
+msgstr "Advice"
+
+#: src/news/templates/news/advicedetail.html:159 src/website/models.py:116
+msgid "Зургын сан"
+msgstr "Photo library"
+
+#: src/news/templates/news/homepage.html:328
+#: src/news/templates/news/homepageOld.html:175
 msgid "Барилга байгууламж, Дэд бүтэц"
 msgstr "Buildings and Infrastructure"
 
-#: src/news/templates/news/homepage.html:156
+#: src/news/templates/news/homepage.html:332
+#: src/news/templates/news/homepageOld.html:179
 msgid "Түүхий эд, матриал"
 msgstr "Raw materials"
 
-#: src/news/templates/news/homepage.html:161
+#: src/news/templates/news/homepage.html:337
+#: src/news/templates/news/homepageOld.html:184
 msgid "Тоног төхөөрөмж"
 msgstr "Equipment"
 
-#: src/news/templates/news/homepage.html:165
+#: src/news/templates/news/homepage.html:341
+#: src/news/templates/news/homepageOld.html:188
 msgid "Хүн хүчин"
-msgstr ""
+msgstr "Manpower"
 
-#: src/news/templates/news/homepage.html:169
+#: src/news/templates/news/homepage.html:345
+#: src/news/templates/news/homepageOld.html:192
 msgid "Чанарын баталгаажилт, Баримтжуулалт"
 msgstr "Quality Assurance and Documentation"
 
-#: src/news/templates/news/homepage.html:173
+#: src/news/templates/news/homepage.html:349
+#: src/news/templates/news/homepageOld.html:196
 msgid "Чанарын хяналт"
 msgstr "Quality control"
 
-#: src/news/templates/news/homepage.html:183
-msgid "Эм үйлдвэрлэлийг дэлхийн жишигт"
-msgstr "World-class drug production"
-
-#: src/news/templates/news/homepage.html:275
+#: src/news/templates/news/homepage.html:479
+#: src/news/templates/news/homepageOld.html:298
 msgid "Мэдээ мэдээлэл"
 msgstr "News"
 
-#: src/news/templates/news/homepage.html:443
-#: src/news/templates/news/homepage.html:617
-#: src/news/templates/news/index_2.html:288 src/product/models.py:229
-#: src/product/models.py:230
+#: src/news/templates/news/homepage.html:502
+#: src/news/templates/news/homepage.html:530
+#: src/news/templates/news/homepage.html:557
+#: src/news/templates/news/homepage.html:594
+msgid "Цааш үзэх"
+msgstr "Read more"
+
+#: src/news/templates/news/homepage.html:660
+#: src/news/templates/news/homepageOld.html:466
+#: src/news/templates/news/homepageOld.html:640
+#: src/news/templates/news/index_2.html:357
+#: src/news/templates/news/index_2Old.html:294 src/product/models.py:191
+#: src/product/models.py:192
+#: src/product/templates/product/productdetail.html:19
+#: src/product/templates/product/productdetail.html:22
 msgid "Бүтээгдэхүүн"
 msgstr "Product"
 
-#: src/news/templates/news/homepage.html:497
+#: src/news/templates/news/homepage.html:742
+msgid "Дэлгэрэнгүй үзэх"
+msgstr "Read more"
+
+#: src/news/templates/news/homepage.html:753
+#: src/news/templates/news/homepageOld.html:520
 msgid "Статик мэдээлэл"
 msgstr "Static information"
 
-#: src/news/templates/news/homepage.html:508
-#: src/news/templates/news/homepage.html:523
-#: src/news/templates/news/homepage.html:538
-#: src/news/templates/news/homepage.html:553
+#: src/news/templates/news/homepage.html:764
+#: src/news/templates/news/homepage.html:779
+#: src/news/templates/news/homepage.html:794
+#: src/news/templates/news/homepage.html:809
+#: src/news/templates/news/homepageOld.html:531
+#: src/news/templates/news/homepageOld.html:546
+#: src/news/templates/news/homepageOld.html:561
+#: src/news/templates/news/homepageOld.html:576
 msgid "сая"
 msgstr "M"
 
-#: src/news/templates/news/homepage.html:509
+#: src/news/templates/news/homepage.html:765
+#: src/news/templates/news/homepageOld.html:532
 msgid "Ширхэг капсултай эм"
 msgstr "Pills in capsules"
 
-#: src/news/templates/news/homepage.html:524
+#: src/news/templates/news/homepage.html:780
+#: src/news/templates/news/homepageOld.html:547
 msgid "Ширхэг шахмал эм"
 msgstr "Pills"
 
-#: src/news/templates/news/homepage.html:539
+#: src/news/templates/news/homepage.html:795
+#: src/news/templates/news/homepageOld.html:562
 msgid "Ширхэг мөхлөг эм"
 msgstr "Pieces of granules"
 
-#: src/news/templates/news/homepage.html:554
+#: src/news/templates/news/homepage.html:810
+#: src/news/templates/news/homepageOld.html:577
 msgid "МЛ Шингэн эм"
 msgstr "ML Liquid medicine"
 
-#: src/news/templates/news/homepage.html:569
-msgid "Хамтрагч байгууллагууд"
-msgstr "Partner organizations"
-
-#: src/news/templates/news/homepage.html:645
-msgid "Хүргэлт үйлчилгээ"
-msgstr "Delivery service"
-
-#: src/news/templates/news/homepage.html:659
-msgid "Онлайн тусламж"
-msgstr "Online help"
-
-#: src/news/templates/news/homepage.html:676
+#: src/news/templates/news/homepage.html:825
+#: src/news/templates/news/homepageOld.html:699
 msgid "Сэтгэгдэл"
 msgstr "Testimonial"
 
-#: src/news/templates/news/index_2.html:121
+#: src/news/templates/news/homepageOld.html:206
+msgid "Эм үйлдвэрлэлийг дэлхийн жишигт"
+msgstr "World-class drug production"
+
+#: src/news/templates/news/homepageOld.html:592
+msgid "Хамтрагч байгууллагууд"
+msgstr "Partner organizations"
+
+#: src/news/templates/news/homepageOld.html:668
+msgid "Хүргэлт үйлчилгээ"
+msgstr "Delivery service"
+
+#: src/news/templates/news/homepageOld.html:682
+msgid "Онлайн тусламж"
+msgstr "Online help"
+
+#: src/news/templates/news/index_2.html:115
+#: src/news/templates/news/index_2.html:748
+#: src/news/templates/news/index_2Old.html:684
+msgid "Холбоо барих"
+msgstr "Contact"
+
+#: src/news/templates/news/index_2.html:128
+#: src/news/templates/news/index_2Old.html:123
 msgid "Нууц үг солих"
 msgstr "Change password"
 
-#: src/news/templates/news/index_2.html:123
+#: src/news/templates/news/index_2.html:130
+#: src/news/templates/news/index_2Old.html:125
 msgid "Имайл хаяг солих"
 msgstr "Change email address"
 
-#: src/news/templates/news/index_2.html:125
+#: src/news/templates/news/index_2.html:132
+#: src/news/templates/news/index_2Old.html:127
 msgid "Нэвтрэх нэр солих"
 msgstr "Change username"
 
-#: src/news/templates/news/index_2.html:128
+#: src/news/templates/news/index_2.html:136
+#: src/news/templates/news/index_2Old.html:131
 msgid "Системээс гарах"
 msgstr "Log-out"
 
-#: src/news/templates/news/index_2.html:131
-msgid "Нэвтрэх"
-msgstr "Login"
-
-#: src/news/templates/news/index_2.html:133
+#: src/news/templates/news/index_2.html:141
+#: src/news/templates/news/index_2Old.html:136
 msgid "Эм зүйчээр Бүртгүүлэх"
 msgstr "Register as a pharmacist"
 
-#: src/news/templates/news/index_2.html:135
+#: src/news/templates/news/index_2.html:143
+#: src/news/templates/news/index_2Old.html:138
 msgid "Эмчээр Бүртгүүлэх"
 msgstr "Register with a doctor"
 
-#: src/news/templates/news/index_2.html:193
+#: src/news/templates/news/index_2.html:252
+#: src/news/templates/news/index_2Old.html:199
 msgid "Бидний тухай"
 msgstr "About us"
 
-#: src/news/templates/news/index_2.html:201
+#: src/news/templates/news/index_2.html:260
+#: src/news/templates/news/index_2Old.html:207
 msgid "Туслах цэс"
 msgstr "Helper menu"
 
-#: src/news/templates/news/index_2.html:207
-#: src/news/templates/news/index_2.html:597 src/website/models.py:188
+#: src/news/templates/news/index_2.html:266
+#: src/news/templates/news/index_2.html:666
+#: src/news/templates/news/index_2Old.html:213
+#: src/news/templates/news/index_2Old.html:603 src/website/models.py:244
 msgid "Танилцуулга"
 msgstr "Introduction"
 
-#: src/news/templates/news/index_2.html:214
-#: src/news/templates/news/index_2.html:600 src/website/models.py:196
-#: src/website/models.py:199 src/website/models.py:200
+#: src/news/templates/news/index_2.html:273
+#: src/news/templates/news/index_2.html:669
+#: src/news/templates/news/index_2Old.html:220
+#: src/news/templates/news/index_2Old.html:606 src/website/models.py:252
 msgid "Эрхэм зорилго"
 msgstr "Mission"
 
-#: src/news/templates/news/index_2.html:221
-#: src/news/templates/news/index_2.html:604
+#: src/news/templates/news/index_2.html:280
+#: src/news/templates/news/index_2.html:673
+#: src/news/templates/news/index_2Old.html:227
+#: src/news/templates/news/index_2Old.html:610
 msgid "Захирлын мэндчилгээ"
 msgstr "Director's greetings"
 
-#: src/news/templates/news/index_2.html:228
-#: src/news/templates/news/index_2.html:607
+#: src/news/templates/news/index_2.html:287
+#: src/news/templates/news/index_2.html:676
+#: src/news/templates/news/index_2Old.html:234
+#: src/news/templates/news/index_2Old.html:613
 msgid "Түүхэн товчоо"
 msgstr "Timeline"
 
-#: src/news/templates/news/index_2.html:235
-#: src/news/templates/news/index_2.html:610
+#: src/news/templates/news/index_2.html:294
+#: src/news/templates/news/index_2.html:679
+#: src/news/templates/news/index_2Old.html:241
+#: src/news/templates/news/index_2Old.html:616
 #, fuzzy
 #| msgid "Бидний тухай"
 msgid "Бидний амжилт"
 msgstr "About us"
 
-#: src/news/templates/news/index_2.html:242
-#: src/news/templates/news/index_2.html:613
-msgid "Чанар хангалт"
-msgstr ""
+#: src/news/templates/news/index_2.html:303
+#: src/news/templates/news/index_2.html:682
+msgid "Эрдэм шинжилгээ, Судалгаа"
+msgstr "Research"
 
-#: src/news/templates/news/index_2.html:436
-msgid "Мэдээ"
-msgstr "News"
-
-#: src/news/templates/news/index_2.html:449
-msgid "Зөвлөгөө"
-msgstr "Advice"
-
-#: src/news/templates/news/index_2.html:451
+#: src/news/templates/news/index_2.html:520
+#: src/news/templates/news/index_2Old.html:457
 #, fuzzy
 #| msgid "Статик мэдээлэл"
 msgid "Видео мэдээ"
 msgstr "Static information"
 
-#: src/news/templates/news/index_2.html:502
+#: src/news/templates/news/index_2.html:571
+#: src/news/templates/news/index_2Old.html:508
 msgid "Сургалт"
 msgstr "Lessons"
 
-#: src/news/templates/news/index_2.html:513
+#: src/news/templates/news/index_2.html:582
+#: src/news/templates/news/index_2Old.html:519
 msgid "360 Virtual tour"
 msgstr "360 Virtual tour"
 
-#: src/news/templates/news/index_2.html:578
+#: src/news/templates/news/index_2.html:647
+#: src/news/templates/news/index_2Old.html:584
 msgid "Хаяг:"
 msgstr "Address"
 
-#: src/news/templates/news/index_2.html:579
+#: src/news/templates/news/index_2.html:648
+#: src/news/templates/news/index_2Old.html:585
 msgid "Сонгино хайрхан дүүрэг"
 msgstr ""
 
-#: src/news/templates/news/index_2.html:579
+#: src/news/templates/news/index_2.html:648
+#: src/news/templates/news/index_2Old.html:585
 msgid "Сонсголонгийн зам"
 msgstr ""
 
-#: src/news/templates/news/index_2.html:580
+#: src/news/templates/news/index_2.html:649
+#: src/news/templates/news/index_2Old.html:586
 msgid "Монос Эмийн үйлдвэр"
-msgstr ""
+msgstr "Monos Pharmaceutical Factory"
 
-#: src/news/templates/news/index_2.html:582
+#: src/news/templates/news/index_2.html:651
+#: src/news/templates/news/index_2Old.html:588
 msgid "Утас:"
 msgstr "Phone"
 
-#: src/news/templates/news/index_2.html:584
+#: src/news/templates/news/index_2.html:653
+#: src/news/templates/news/index_2Old.html:590
 msgid "Майл:"
 msgstr "Email"
 
-#: src/news/templates/news/index_2.html:592
+#: src/news/templates/news/index_2.html:661
+#: src/news/templates/news/index_2Old.html:598
 msgid "БИДНИЙ ТУХАЙ"
 msgstr "About us"
 
-#: src/news/templates/news/index_2.html:630
-msgid "Сонгон шалгаруулалт"
-msgstr ""
+#: src/news/templates/news/index_2.html:703
+msgid "Бидэнтэй нэгдсэнээр"
+msgstr "By joining us"
 
-#: src/news/templates/news/index_2.html:634
-msgid "Нийгмийн халамж"
-msgstr ""
-
-#: src/news/templates/news/index_2.html:660
+#: src/news/templates/news/index_2.html:730
+#: src/news/templates/news/index_2Old.html:666
 msgid ""
 "Монгол Улсын хувийн хэвшлийн ууган үйлдвэр Монос Фарм ХХК нь 1990 онд "
 "байгуулагдсан. Бид хүмүүний эрүүл мэндийг тэтгэх эмчилгээний өндөр идэвхт эм "
@@ -822,13 +971,35 @@ msgid ""
 "шинжилгээний чиглэлээр үйл ажиллагаагаа явуулж байна."
 msgstr ""
 
-#: src/news/templates/news/index_2.html:678
-msgid "Холбоо барих"
-msgstr ""
-
-#: src/news/templates/news/index_2.html:698
+#: src/news/templates/news/index_2.html:768
+#: src/news/templates/news/index_2Old.html:704
 msgid "Зохиогчийн эрх хуулиар хамгаалагдав. | 2020 он "
-msgstr ""
+msgstr "All rights reserved. | 2020 it"
+
+#: src/news/templates/news/index_2Old.html:248
+#: src/news/templates/news/index_2Old.html:619
+msgid "Чанар хангалт"
+msgstr "Quality assurance"
+
+#: src/news/templates/news/news.html:9 src/news/templates/news/news.html:12
+msgid "Нийтлэл"
+msgstr "Article"
+
+#: src/news/templates/news/news.html:74
+#, fuzzy
+#| msgid "Цааш үзэх"
+msgid "Цааш унших"
+msgstr "Read more"
+
+#: src/news/templates/news/sidebar.html:11
+#, fuzzy
+#| msgid "Бидний тухай"
+msgid "Мэдээний хайлт"
+msgstr "About us"
+
+#: src/news/templates/news/sidebar.html:98
+msgid "Зургийн цомог"
+msgstr "Photo album"
 
 #: src/poll/models.py:6
 msgid "Position"
@@ -850,69 +1021,138 @@ msgstr ""
 msgid "Product"
 msgstr ""
 
-#: src/product/models.py:20
+#: src/product/models.py:19
 msgid "Толгой ангилал"
 msgstr ""
 
-#: src/product/models.py:28
+#: src/product/models.py:27 src/product/models.py:67
 msgid "Онцлох эсэх"
 msgstr ""
 
-#: src/product/models.py:29
+#: src/product/models.py:28 src/product/models.py:68
 msgid "Идэвхитэй эсэх"
 msgstr ""
 
-#: src/product/models.py:37 src/product/models.py:38
+#: src/product/models.py:36 src/product/models.py:37
 msgid "Бүтээгдэхүүний ангилал"
 msgstr ""
 
-#: src/product/models.py:129
-msgid "Type of product"
-msgstr ""
-
-#: src/product/models.py:132
-msgid "Бүтээгдэхүүний төрөл"
-msgstr ""
-
-#: src/product/models.py:140
-msgid "ProductForm "
-msgstr ""
-
-#: src/product/models.py:143
-msgid "Бүтээгдэхүүний хэлбэр"
-msgstr ""
-
-#: src/product/models.py:158
-msgid "Бүтээгдэхүүн дотоод код"
-msgstr ""
-
-#: src/product/models.py:166
-msgid "producttype"
-msgstr ""
-
-#: src/product/models.py:173
-msgid "ProductForm"
-msgstr ""
-
-#: src/product/models.py:179
-msgid "Product name "
-msgstr ""
-
-#: src/product/models.py:186
-msgid "Product Slug"
-msgstr ""
-
-#: src/product/models.py:196 src/website/models.py:61
+#: src/product/models.py:70 src/product/models.py:155 src/website/models.py:61
 msgid "Created on"
 msgstr ""
 
-#: src/product/models.py:208
+#: src/product/models.py:83
+msgid "Type of product"
+msgstr ""
+
+#: src/product/models.py:86
+msgid "Бүтээгдэхүүний төрөл"
+msgstr ""
+
+#: src/product/models.py:94
+msgid "ProductForm "
+msgstr ""
+
+#: src/product/models.py:97
+msgid "Бүтээгдэхүүний хэлбэр"
+msgstr ""
+
+#: src/product/models.py:118
+msgid "Бүтээгдэхүүн дотоод код"
+msgstr ""
+
+#: src/product/models.py:125
+msgid "producttype"
+msgstr ""
+
+#: src/product/models.py:132
+msgid "ProductForm"
+msgstr ""
+
+#: src/product/models.py:138
+msgid "Product name "
+msgstr ""
+
+#: src/product/models.py:145
+msgid "Product Slug"
+msgstr ""
+
+#: src/product/models.py:167
 msgid "Product intertational name"
 msgstr ""
 
-#: src/product/models.py:213
+#: src/product/models.py:172
+msgid "Үнэ"
+msgstr ""
+
+#: src/product/models.py:175
 msgid "Link to emonos"
 msgstr ""
+
+#: src/product/templates/product/product.html:210
+#: src/product/templates/product/productalphabet.html:148
+msgid "Хайх эмийн нэрийг бичнэ үү"
+msgstr "Enter the name of the drug to search"
+
+#: src/product/templates/product/productcat.html:124
+msgid "Хайх эмийн нэрийг бичнэ  үү"
+msgstr "Enter the name of the drug to search"
+
+#: src/product/templates/product/productdetail.html:23
+#, fuzzy
+#| msgid "Бүтээгдэхүүн"
+msgid "Сонгосон бүтээгдэхүүн"
+msgstr "Product"
+
+#: src/product/templates/product/productdetail.html:65
+msgid "Олон улсын нэршил"
+msgstr "International nomenclature"
+
+#: src/product/templates/product/productdetail.html:81
+#: src/quiz/templates/quiz/quiz_list.html:19
+#: src/quiz/test/quiz/quiz_list.html:19 src/quiz/zzz/quiz/quiz_list.html:19
+msgid "Ангилал"
+msgstr "Category"
+
+#: src/product/templates/product/productdetail.html:89
+msgid "Төрөл"
+msgstr "Type"
+
+#: src/product/templates/product/productdetail.html:97
+msgid "Хэлбэр"
+msgstr "Form"
+
+#: src/product/templates/product/productdetail.html:105
+msgid "Жор"
+msgstr "Prescription"
+
+#: src/product/templates/product/productdetail.html:113
+msgid "Даатгал"
+msgstr "Insurance"
+
+#: src/product/templates/product/productdetail.html:124
+msgid "Худалдаж авах"
+msgstr "Purchase"
+
+#: src/product/templates/product/productdetail.html:146
+#, fuzzy
+#| msgid "Бүтээгдэхүүн"
+msgid "Бүтээгдэхүүний тайлбар"
+msgstr "Product"
+
+#: src/product/templates/product/productdetail.html:148
+msgid "Орц"
+msgstr "Ingredients"
+
+#: src/product/templates/product/productdetail.html:150
+msgid "Хэрэглэх заавар"
+msgstr "Instructions"
+
+#: src/product/templates/product/productdetail.html:152
+#, fuzzy
+#| msgid "Танилцуулга"
+msgid "Анхааруулга"
+msgstr "Introduction"
 
 #: src/quiz/admin.py:35 src/quiz/admin.py:37 src/quiz/models.py:606
 msgid "Questions"
@@ -1213,11 +1453,6 @@ msgstr ""
 msgid "Илгээх"
 msgstr ""
 
-#: src/quiz/templates/question.html:85 src/quiz/test/question.html:82
-#: src/quiz/zzz/question.html:85
-msgid "Дараах"
-msgstr ""
-
 #: src/quiz/templates/quiz/category_list.html:3
 #: src/quiz/templates/quiz/quiz_list.html:4
 #: src/quiz/test/quiz/category_list.html:3 src/quiz/test/quiz/quiz_list.html:4
@@ -1247,13 +1482,11 @@ msgstr ""
 
 #: src/quiz/templates/quiz/quiz_list.html:18
 #: src/quiz/test/quiz/quiz_list.html:18 src/quiz/zzz/quiz/quiz_list.html:18
-#: src/website/models.py:161
+#: src/website/models.py:146 src/website/models.py:181
+#: src/website/models.py:217 src/website/models.py:272
+#: src/website/models.py:300 src/website/models.py:327
+#: src/website/models.py:346 src/website/models.py:364
 msgid "Гарчиг"
-msgstr ""
-
-#: src/quiz/templates/quiz/quiz_list.html:19
-#: src/quiz/test/quiz/quiz_list.html:19 src/quiz/zzz/quiz/quiz_list.html:19
-msgid "Ангилал"
 msgstr ""
 
 #: src/quiz/templates/quiz/quiz_list.html:20
@@ -1492,24 +1725,29 @@ msgid "Testimonial"
 msgstr ""
 
 #: src/website/models.py:45 src/website/models.py:46
-msgid "Advice title"
-msgstr ""
+#, fuzzy
+#| msgid "Зөвлөгөө"
+msgid "Зөвлөгөө ангиллал"
+msgstr "Advice"
 
 #: src/website/models.py:55
 msgid "title"
 msgstr ""
 
-#: src/website/models.py:57
+#: src/website/models.py:57 src/website/models.py:149 src/website/models.py:185
+#: src/website/models.py:304
 msgid "content"
 msgstr ""
 
-#: src/website/models.py:66 src/website/models.py:67
-msgid "Advice"
-msgstr ""
-
-#: src/website/models.py:76 src/website/models.py:81 src/website/models.py:82
+#: src/website/models.py:76
 msgid "Хамтрагч байгуулгын зураг"
 msgstr ""
+
+#: src/website/models.py:81 src/website/models.py:82
+#, fuzzy
+#| msgid "Хамтрагч байгууллагууд"
+msgid "Бидний тухай - Хамтрагч байгуулгын зураг"
+msgstr "Partner organizations"
 
 #: src/website/models.py:92
 msgid "Зүүн танилцуулга бүтээгдэхүүн"
@@ -1527,10 +1765,6 @@ msgstr ""
 msgid "Тайлбар хэсэг"
 msgstr ""
 
-#: src/website/models.py:116
-msgid "Зургын сан"
-msgstr ""
-
 #: src/website/models.py:124
 msgid "Тоолуур гүйх тоонууд"
 msgstr ""
@@ -1539,55 +1773,138 @@ msgstr ""
 msgid "Тоон доор орох тайлбар"
 msgstr ""
 
-#: src/website/models.py:130 src/website/models.py:179
-#: src/website/models.py:180
+#: src/website/models.py:130
 msgid "Тоолуур"
 msgstr ""
 
-#: src/website/models.py:137
+#: src/website/models.py:137 src/website/models.py:172
+#: src/website/models.py:291
 msgid "Баннер зурагын хайлтын системд туслах тэскт"
 msgstr ""
 
-#: src/website/models.py:141
+#: src/website/models.py:141 src/website/models.py:176
+#: src/website/models.py:295
 msgid "Баннер зураг орох"
 msgstr ""
 
-#: src/website/models.py:149
-msgid "Banner picture"
+#: src/website/models.py:152 src/website/models.py:188
+#: src/website/models.py:307
+msgid "Линк"
 msgstr ""
 
-#: src/website/models.py:154
+#: src/website/models.py:157 src/website/models.py:194
+#: src/website/models.py:313
+msgid "Линк орох тэкст"
+msgstr ""
+
+#: src/website/models.py:165
+msgid "Нүүр хуудас - Баннер "
+msgstr ""
+
+#: src/website/models.py:202
+#, fuzzy
+#| msgid "Бидний тухай"
+msgid "Бидний тухай - Баннер"
+msgstr "About us"
+
+#: src/website/models.py:207
 msgid "Banner video"
 msgstr ""
 
-#: src/website/models.py:159
+#: src/website/models.py:210
+msgid "Нүүр хуудас - Баннер бичлэг"
+msgstr ""
+
+#: src/website/models.py:215
 msgid "Арын зураг"
 msgstr ""
 
-#: src/website/models.py:163
+#: src/website/models.py:219
 msgid "Icon бичнэ"
 msgstr ""
 
-#: src/website/models.py:170
+#: src/website/models.py:226
 msgid "Тоо тоолуур"
 msgstr ""
 
-#: src/website/models.py:175
+#: src/website/models.py:231
 msgid "Байрших байрлал"
 msgstr ""
 
-#: src/website/models.py:191 src/website/models.py:192
-msgid "Компаны танилцуулга"
+#: src/website/models.py:235 src/website/models.py:236
+msgid "Нүүр хуудас - Тоолуур"
 msgstr ""
 
-#: src/website/models.py:205
+#: src/website/models.py:247 src/website/models.py:248
+msgid "Бидний тухай - Компаны танилцуулга"
+msgstr ""
+
+#: src/website/models.py:255 src/website/models.py:256
+#, fuzzy
+#| msgid "Эрхэм зорилго"
+msgid "Бидний тухай - Эрхэм зорилго"
+msgstr "Mission"
+
+#: src/website/models.py:261
 msgid "Захиралын зураг"
 msgstr ""
 
-#: src/website/models.py:207
+#: src/website/models.py:263 src/website/models.py:276
 msgid "Контэнт"
 msgstr ""
 
-#: src/website/models.py:210 src/website/models.py:211
-msgid "Захиралын мэндчилгээ"
+#: src/website/models.py:266 src/website/models.py:267
+#, fuzzy
+#| msgid "Захирлын мэндчилгээ"
+msgid "Бидний тухай - Захиралын мэндчилгээ"
+msgstr "Director's greetings"
+
+#: src/website/models.py:271 src/website/models.py:331
+#: src/website/models.py:349 src/website/models.py:368
+msgid "Зураг"
 msgstr ""
+
+#: src/website/models.py:274
+msgid "Үсрэх линк"
+msgstr ""
+
+#: src/website/models.py:280 src/website/models.py:281
+#, fuzzy
+#| msgid "Бидний тухай"
+msgid "Бидний тухай - Картууд"
+msgstr "About us"
+
+#: src/website/models.py:321
+#, fuzzy
+#| msgid "Хүний нөөц"
+msgid "Хүний нөөц - Баннер"
+msgstr "Human resources"
+
+#: src/website/models.py:336 src/website/models.py:337
+msgid "Хүний нөөц - Бидэнтэй нэгдсэнээр"
+msgstr "Human Resources - By joining us"
+
+#: src/website/models.py:354 src/website/models.py:355
+msgid "Хүний нөөц - Сонгон шалгаруулалт"
+msgstr "Human resources - Selection"
+
+#: src/website/models.py:371
+msgid "Эм үйлдвэрлэл"
+msgstr ""
+
+#: src/website/models.py:374
+msgid "Чанар"
+msgstr ""
+
+#: src/website/models.py:377
+msgid "Лаборатори"
+msgstr ""
+
+#: src/website/models.py:381 src/website/models.py:382
+#, fuzzy
+#| msgid "Бидний тухай"
+msgid "Бидний тухай - Танилцуулга"
+msgstr "About us"
+
+#~ msgid "Research"
+#~ msgstr "Судалгаа"
