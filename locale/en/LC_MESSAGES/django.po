@@ -933,8 +933,6 @@ msgstr "Timeline"
 #: src/news/templates/news/index_2.html:679
 #: src/news/templates/news/index_2Old.html:241
 #: src/news/templates/news/index_2Old.html:616
-#, fuzzy
-#| msgid "Бидний тухай"
 msgid "Бидний амжилт"
 msgstr "About us"
 
