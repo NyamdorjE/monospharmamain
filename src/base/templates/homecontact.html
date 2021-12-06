@@ -1,7 +1,7 @@
 	{% extends 'news/index_2.html' %}
 	{% load static humanize  %}
 	{% load crispy_forms_tags %}
-
+	{% load i18n %}
 	{% block content %}
 	<!-- Content
 		============================================= -->
@@ -15,7 +15,7 @@
 					<div class="col-lg-6">
 
 						<div class="fancy-title title-border">
-							<h3>Санал хүсэлт</h3>
+							<h3>{% trans 'Санал хүсэлт' %}</h3>
 						</div>
 
 						<div class="form-widget">
@@ -64,7 +64,7 @@
 
 									<div class="col-12 form-group">
 										<button name="submit" type="submit" value="Submit"
-											class="button button-3d m-0">Илгээх</button>
+											class="button button-3d m-0">{% trans 'Илгээх' %}</button>
 									</div>
 								</div>
 
@@ -94,7 +94,7 @@
 							<a href="#"><i class="icon-map-marker2"></i></a>
 						</div>
 						<div class="fbox-content">
-							<h3>Хаяг<span class="subtitle">Баянгол дүүрэг 20-р хороо, Үйлдвэрийн баруун бүс, Сонсголонгийн зам гудамж 32/2 байр, Монос Фарм ХХК-ийн байр  | Улаанбаатар 211137, Монгол Улс </span></h3>
+							<h3>{% trans 'Хаяг' %}<span class="subtitle">Баянгол дүүрэг 20-р хороо, Үйлдвэрийн баруун бүс, Сонсголонгийн зам гудамж 32/2 байр, Монос Фарм ХХК-ийн байр  | Улаанбаатар 211137, Монгол Улс </span></h3>
 						</div>
 					</div>
 				</div>
@@ -105,7 +105,7 @@
 							<a href="#"><i class="icon-phone3"></i></a>
 						</div>
 						<div class="fbox-content">
-							<h3>Утас<span class="subtitle">(976) 7717-3117</span></h3>
+							<h3>{% trans 'Утас' %}<span class="subtitle">(976) 7717-3117</span></h3>
 						</div>
 					</div>
 				</div>
@@ -116,7 +116,7 @@
 							<a href="https://www.facebook.com/monospharma"><i class="icon-facebook"></i></a>
 						</div>
 						<div class="fbox-content">
-							<h3>Бидэнтэй нэгдэх<span class="subtitle">facebook.com/monospharma</span></h3>
+							<h3>{% trans 'Бидэнтэй нэгдэх' %}<span class="subtitle">facebook.com/monospharma</span></h3>
 						</div>
 					</div>
 				</div>
@@ -127,7 +127,7 @@
 							<a href="https://twitter.com/monospharma"><i class="icon-twitter2"></i></a>
 						</div>
 						<div class="fbox-content">
-							<h3>Биднийг дагах<span class="subtitle">twitter/monospharma</span></h3>
+							<h3>{% trans 'Биднийг дагах' %}<span class="subtitle">twitter/monospharma</span></h3>
 						</div>
 					</div>
 				</div>
