@@ -943,8 +943,6 @@ msgstr "Research"
 
 #: src/news/templates/news/index_2.html:520
 #: src/news/templates/news/index_2Old.html:457
-#, fuzzy
-#| msgid "Статик мэдээлэл"
 msgid "Видео мэдээ"
 msgstr "Static information"
 
