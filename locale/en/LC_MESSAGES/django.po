@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-06 17:00+0800\n"
+"POT-Creation-Date: 2021-12-07 10:16+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1922,15 +1922,68 @@ msgstr ""
 msgid "Бидний тухай - Танилцуулга"
 msgstr "About us"
 
-#: src/website/templates/website/hrnew.html:177
+#: src/website/templates/website/aboutus.html:134
+#: src/website/templates/website/amjilt.html:70
+#: src/website/templates/website/taniltsuulga.html:33
+msgid "Бидний"
+msgstr "About"
+
+#: src/website/templates/website/aboutus.html:134
+#: src/website/templates/website/taniltsuulga.html:33
+msgid "Тухай"
+msgstr "us"
+
+#: src/website/templates/website/aboutus.html:202
+msgid "Хамтын"
+msgstr "Cooperation"
+
+#: src/website/templates/website/aboutus.html:202
+#: src/website/templates/website/taniltsuulga.html:154
+msgid "ажиллагаа"
+msgstr ""
+
+#: src/website/templates/website/amjilt.html:70
 #, fuzzy
-#| msgid "Хүний нөөц"
+#| msgid "Бидний амжилт"
+msgid "амжилт"
+msgstr "About us"
+
+#: src/website/templates/website/emsudlal.html:27
+msgid "Эм"
+msgstr "Drug"
+
+#: src/website/templates/website/emsudlal.html:27
+msgid "судлал"
+msgstr "Research"
+
+#: src/website/templates/website/hrnew.html:177
 msgid "Хүний"
 msgstr "Human"
 
 #: src/website/templates/website/hrnew.html:177
 msgid "Нөөц"
 msgstr "resources"
+
+#: src/website/templates/website/taniltsuulga.html:154
+msgid "Үйл"
+msgstr ""
+
+#: src/website/templates/website/timeline.html:27
+msgid "Түүхэн"
+msgstr "Time"
+
+#: src/website/templates/website/timeline.html:27
+msgid "замнал"
+msgstr "line"
+
+#: src/website/templates/website/zahiral.html:64
+msgid "Захирлын"
+msgstr "Director's "
+
+#: src/website/templates/website/zahiral.html:64
+
+msgid "мэндчилгээ"
+msgstr "greetings"
 
 #~ msgid "Хайх эмийн нэрийг бичнэ үү"
 #~ msgstr "Enter the name of the drug to search"
